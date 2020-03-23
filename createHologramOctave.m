@@ -90,14 +90,21 @@ itensity = 2*real(objectWave.*conj(referenceWave));
 
 norm(itensity)
 
-figure()
-plot(itensity)
-colorbar
+%figure()
+%plot(itensity)
+%colorbar
 
 figure()
 imagesc(itensity)
 colorbar
 colormap('gray')
+title('Hologram')
+xlabel('x [mm]')
+xticks([1, samplesX])
+xticklabels({-hologramWidth/2*1e+3, hologramWidth/2*1e+3})
+ylabel('y [mm]')
+yticks([1, samplesY])
+yticklabels({hologramWidth/2*1e+3, -hologramWidth/2*1e+3})
 
 %figure()
 %surf(itensity)

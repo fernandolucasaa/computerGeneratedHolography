@@ -16,15 +16,14 @@ clc
 lambda = 500e-9; % 500nm (vert)
 
 % plan de l'hologramme
-hologramHeight = 2e-3; % 2mm
-hologramWidth = 2e-3; % 2mm
+hologramHeight = 3e-3; % 3nm
+hologramWidth = 3e-3; % 3nm
 hologramZ = 0;
 
 % nombre de pixels
-N = 200;
 Delta = 10e-6;
-samplesX = hologramWidth / Delta; % 200 samples with sampling distance Delta
-samplesY = hologramHeight / Delta; % 200 samples with sampling distance Delta
+samplesX = hologramWidth / Delta; % 300 samples with sampling distance Delta
+samplesY = hologramHeight / Delta; % 300 samples with sampling distance Delta
 
 % coin de reference du plan de l'hologramme (inferieur a gauche)
 cornerX = -hologramWidth / 2;
@@ -37,8 +36,9 @@ a = 1;
 k = 2*pi/lambda;
 
 % points de la scene
-points = [0, 0, -0.5;
-          -hologramWidth/4, 0, -0.5];
+%points = [0, 0, -0.2;
+%          -hologramWidth/8, 0, -0.2];
+points = [0, 0, -0.1];
 
 %% [1] Calcul de l'onde objet (Nuage de points) %% 
 objectWave = zeros(samplesY, samplesX);
@@ -52,15 +52,15 @@ for s = 1:rows(points)
       % distance oblique
       r = sqrt((x - points(s, 1))^2 + (y - points(s, 2))^2 + (hologramZ - points(s, 3))^2);
       objectWave(row,column) = (a / r)*exp(1i*k*r);
-      end
+    end
   end
 end
 
 %% Calcul de l'onde de reference %%
 
-% angles d'incidience (radians)
-alpha = 90 * (pi/180); % par rapport a l'aixe x
-beta = 90.5 * (pi/180); % par rapport a l'aixe y
+% vecteur d'onde perpendiculaire a l'ecran (radians)
+alpha = pi/2; % par rapport a l'aixe x
+beta = pi/2; % par rapport a l'aixe y
 
 % normes
 nX = cos(alpha); 
@@ -88,6 +88,8 @@ end
 itensityTotal = (objectWave + referenceWave).*conj(objectWave + referenceWave); % hologrammme
 itensity = 2*real(objectWave.*conj(referenceWave));
 
+norm(itensity)
+
 figure()
 plot(itensity)
 colorbar
@@ -95,6 +97,7 @@ colorbar
 figure()
 imagesc(itensity)
 colorbar
+colormap('gray')
 
 %figure()
 %surf(itensity)

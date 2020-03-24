@@ -14,6 +14,7 @@ clc
 
 % Tous les dimensions sont en metres
 tic;
+%diary ('commandWindow.txt');
 
 % longueur de l'onde 
 lambda = 500e-9; % 500nm (vert)

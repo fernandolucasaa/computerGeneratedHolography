@@ -13,6 +13,7 @@ clc
 %% [0] Parametres initiaux - Initialisation %%
 
 % Tous les dimensions sont en metres
+tic;
 
 % longueur de l'onde 
 lambda = 500e-9; % 500nm (vert)
@@ -25,8 +26,11 @@ colormap('gray')
 %
 
 % plan de l'hologramme
-hologramHeight = 3e-3; % 3mm
-hologramWidth = 3e-3; % 3mm
+hologramHeight = 2e-3; % 2mm
+hologramWidth = 2e-3; % 2mm
+
+fprintf('---------------------------------------\n');    
+fprintf('Dimensions of the hologram: %d m vs %d m\n', hologramHeight, hologramWidth);
 
 % localisation dans l'aixe x
 hologramZ = 0;
@@ -37,6 +41,9 @@ samplingDistance = 10e-6;
 % nombre de lignes (y) et de colonnes (x) du plan d'hologramme
 hologramSamplesX = ceil(hologramWidth / samplingDistance);
 hologramSamplesY = ceil(hologramHeight / samplingDistance);
+
+fprintf('Resolution of the hologram: %d pixels vs %d pixels\n', hologramSamplesX, hologramSamplesY);
+fprintf('\n');
 
 % emplacement du coin "inférieur gauche" de l'hologramme (coin de reference)
 % mettre le centre de l'hologramme a x = 0, y = 0
@@ -54,9 +61,17 @@ k = 2*pi/lambda;
 %
 
 % points de la scene
-##points = [0, 0, -0.1;
-##          0, 0.1, 0.1];
-points = [0, 0, -0.1];
+points = [0, 0, -0.2];
+##points = [0, 0, -0.2
+##          -hologramWidth / 4, -hologramHeight / 4, -0.2;
+##          hologramWidth / 4, hologramHeight / 4, -0.2];
+      
+fprintf('Positions of the points in the 3D scene [x,y,z]:');
+
+for source = 1:size(points, 1)
+  fprintf('\nPoint light source %d of %d: [%d, %d, %d]', source, size(points, 1), ...
+  points(source, 1), points(source, 2), points(source, 3));
+end
 
 % Utiliser les positions de tous les echantillons
 x = (0:(hologramSamplesX-1)) * samplingDistance + hologramCornerX;
@@ -67,8 +82,7 @@ y = (0:(hologramSamplesY-1)) * samplingDistance + hologramCornerY;
 
 %% [1] Calcul de l'onde objet (Nuage de points) %% 
 
-fprintf('---------------------------------------\n')
-fprintf('The object wave calculation...\n');
+fprintf('\n\nThe object wave calculation...\n');
 
 objectWave = zeros(hologramSamplesY, hologramSamplesX);
 
@@ -149,5 +163,6 @@ xlabel('x [mm]');
 ylabel('y [mm]');
 axis('equal');
 
-fprintf('The hologram calculated!\n');
+fprintf('The hologram calculated!\n\n');
+toc;
 fprintf('---------------------------------------\n')

@@ -21,12 +21,12 @@ lambda = 500e-9; % 500nm (vert)
 colormap('gray')
 
 %
-% Parametres de l'hologramme
+% Parametres du plan l'hologramme
 %
 
 % plan de l'hologramme
-hologramHeight = 3e-3; % 3nm
-hologramWidth = 3e-3; % 3nm
+hologramHeight = 3e-3; % 3mm
+hologramWidth = 3e-3; % 3mm
 
 % localisation dans l'aixe x
 hologramZ = 0;
@@ -49,15 +49,13 @@ a = 1;
 % nombre d'onde
 k = 2*pi/lambda;
 
-Delta = 10e-6;
-samplesX = hologramWidth / Delta; % 300 samples with sampling distance Delta
-samplesY = hologramHeight / Delta; % 300 samples with sampling distance Delta
-
 %
 % Parametres de la scene
 %
 
 % points de la scene
+##points = [0, 0, -0.1;
+##          0, 0.1, 0.1];
 points = [0, 0, -0.1];
 
 % Utiliser les positions de tous les echantillons
@@ -69,31 +67,18 @@ y = (0:(hologramSamplesY-1)) * samplingDistance + hologramCornerY;
 
 %% [1] Calcul de l'onde objet (Nuage de points) %% 
 
-fprintf('\nHologram recording:\n');
-fprintf('\nThe object wave calculation...\n');
+fprintf('---------------------------------------\n')
+fprintf('The object wave calculation...\n');
 
 objectWave = zeros(hologramSamplesY, hologramSamplesX);
-
-##% superposition de tous les ondes spheriques
-##for s = 1:rows(points)
-##  for column = 1:samplesX
-##    for row = 1:samplesY
-##      x = (column-1) * Delta + cornerX;
-##      y = (row-1) * Delta + cornerY;
-##      % distance oblique
-##      r = sqrt((x - points(s, 1))^2 + (y - points(s, 2))^2 + (hologramZ - points(s, 3))^2);
-##      objectWave(row,column) = (a / r)*exp(1i*k*r);
-##    end
-##  end
-##end
 
 % superposition de tous les ondes spheriques
 for source = 1:size(points, 1)
   fprintf('\rPoint light source %d of %d    ', source, size(points, 1));
   
   % for backpropagation, flip the sign of the imaginary unit
-  
   % ?????????????
+  
   if (points(source, 3) > hologramZ)
     ii = -1i;
   else
@@ -106,7 +91,7 @@ for source = 1:size(points, 1)
   r = sqrt((xx - points(source, 1)).^2 + (yy - points(source, 2)).^2 + (hologramZ - points(source, 3)).^2);
 	objectWave = objectWave + a .* exp(ii*k*r) ./ r;
 end
-fprintf('\n');
+fprintf('\nThe object wave calculed!\n');
 
 
 %% Calcul de l'onde de reference %%
@@ -125,31 +110,26 @@ nZ = sqrt(1 - nX^2 - nY^2);
 
 % ?????????????
 % allow nZ < 0, just in case...
+
 if (nZ > 0)
   ii = 1i;
 else
   ii = -1i;
 end
+
 % ???????????
 
 refAmplitude = max(max(abs(objectWave)));
 
 % l'onde de reference
 referenceWave = refAmplitude * exp(ii * k * (xx*nX + yy*nY + hologramZ*nZ));
-
-##for column = 1:samplesX
-##  for row = 1:samplesY
-##    x = (column-1) * Delta + cornerX;
-##    y = (row-1) * Delta + cornerY;
-##    referenceWave(row,column) = refAmplitude * exp(1i*k*(x*nX + y*nY + hologramZ*nZ));
-##  end
-##end
+fprintf('The reference wave calculed!\n');
 
 % ------------------------------------------------------------------------------
 
 %% [2] Representation de l'onde objet %%
 
-fprintf('\nThe hologram calculation...\n');
+fprintf('\nThe hologram calculation... \n');
 
 %% Calcul de l'hologramme (interference entre l'onde objet et l'onde de reference) %%
 
@@ -159,31 +139,15 @@ itensityTotal = (objectWave + referenceWave).*conj(objectWave + referenceWave);
 itensity = 2*real(objectWave.*conj(referenceWave));
 hologram = real(itensity);
 
-norm(itensity)
+%norm(itensity)
 
-##figure()
-##imagesc(x * 1e3, y * 1e3, hologram);
-##set(gca, 'YDir', 'normal');
-##title('Hologram (intensity)');
-##xlabel('x [mm]');
-##ylabel('y [mm]');
-##axis('equal');
-
-
-% figure()
 imagesc(x * 1e3, y * 1e3, hologram);
-set(gca, 'YDir', 'normal');
+set(gca, 'YDir', 'normal'); % inverser la direction de l'axe y
 colorbar;
-title('Hologram (itensity)');
+title('Hologram');
 xlabel('x [mm]');
 ylabel('y [mm]');
 axis('equal');
 
-##xticks([1, samplesX])
-##xticklabels({-hologramWidth/2*1e+3, hologramWidth/2*1e+3})
-##yticks([1, samplesY])
-##yticklabels({hologramWidth/2*1e+3, -hologramWidth/2*1e+3})
-
-%figure()
-%surf(itensity)
-%colorbar
+fprintf('The hologram calculated!\n');
+fprintf('---------------------------------------\n')

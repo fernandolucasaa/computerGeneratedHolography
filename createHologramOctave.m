@@ -163,6 +163,8 @@ xlabel('x [mm]');
 ylabel('y [mm]');
 axis('equal');
 
+savefig('hologram');
+
 fprintf('The hologram calculated!\n\n');
 toc;
 fprintf('---------------------------------------\n')

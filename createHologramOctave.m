@@ -13,8 +13,19 @@ clc
 %% [0] Parametres initiaux - Initialisation %%
 
 % Tous les dimensions sont en metres
-tic;
-%diary ('commandWindow.txt');
+
+% demarrage du chronometre
+tic; 
+
+% Enregistrer le texte de la fenetre de commande
+dfile = 'commandWindow.txt';
+
+if exist(dfile, 'file')
+  delete(dfile);
+end;
+
+diary on;
+diary (dfile);
 
 % longueur de l'onde 
 lambda = 500e-9; % 500nm (vert)
@@ -91,16 +102,12 @@ objectWave = zeros(hologramSamplesY, hologramSamplesX);
 for source = 1:size(points, 1)
   fprintf('\rPoint light source %d of %d    ', source, size(points, 1));
   
-  % for backpropagation, flip the sign of the imaginary unit
-  % ?????????????
-  
+  % for backpropagation, flip the sign of the imaginary unit (?????)
   if (points(source, 3) > hologramZ)
     ii = -1i;
   else
     ii = 1i;
   end
-  
-  % ??????????
   
   % distance oblique
   r = sqrt((xx - points(source, 1)).^2 + (yy - points(source, 2)).^2 + (hologramZ - points(source, 3)).^2);
@@ -123,16 +130,12 @@ nX = cos(alpha);
 nY = cos(beta);
 nZ = sqrt(1 - nX^2 - nY^2);
 
-% ?????????????
-% allow nZ < 0, just in case...
-
+% allow nZ < 0, just in case... (????)
 if (nZ > 0)
   ii = 1i;
 else
   ii = -1i;
 end
-
-% ???????????
 
 refAmplitude = max(max(abs(objectWave)));
 
@@ -156,6 +159,7 @@ hologram = real(itensity);
 
 %norm(itensity)
 
+% Afficher l'hologramme
 imagesc(x * 1e3, y * 1e3, hologram);
 set(gca, 'YDir', 'normal'); % inverser la direction de l'axe y
 colorbar;
@@ -169,3 +173,5 @@ savefig('hologram');
 fprintf('The hologram calculated!\n\n');
 toc;
 fprintf('---------------------------------------\n')
+
+diary off;

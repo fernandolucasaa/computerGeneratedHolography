@@ -15,27 +15,5 @@ The reference wave calculed!
 The hologram calculation... 
 The hologram calculated!
 
-Elapsed time is 1.19527 seconds.
+Elapsed time is 1.02032 seconds.
 ---------------------------------------
->> ---------------------------------------
-Dimensions of the hologram: 0.002 m vs 0.002 m
-Resolution of the hologram: 200 pixels vs 200 pixels
-
-Positions of the points in the 3D scene [x,y,z]:
-Point light source 1 of 1: [0, 0, -0.2]
-
-The object wave calculation...
-Point light source 1 of 1    
-The object wave calculed!
-
-The reference wave calculation...
-The reference wave calculed!
-
-The hologram calculation... 
-The hologram calculated!
-
-Elapsed time is 1.10334 seconds.
----------------------------------------
->> clear
->> clc
->> 

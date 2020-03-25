@@ -68,13 +68,16 @@ a = 1;
 % nombre d'onde
 k = 2*pi/lambda;
 
+% fenetre pour limiter la zone de contribution (eviter le repliement du spectre)
+windowFunction = true;
+
 %
 % Parametres de la scene
 %
 
 % points de la scene
 points = [0, 0, -0.2];
-##points = [0, 0, -0.2
+##points = [0, 0, -0.2;
 ##          -hologramWidth / 4, -hologramHeight / 4, -0.2;
 ##          hologramWidth / 4, hologramHeight / 4, -0.2];
       
@@ -96,22 +99,42 @@ y = (0:(hologramSamplesY-1)) * samplingDistance + hologramCornerY;
 
 fprintf('\n\nThe object wave calculation...\n');
 
+if (windowFunction) 
+  fprintf('Window function considered in the calculation\n'); 
+end;
+
 objectWave = zeros(hologramSamplesY, hologramSamplesX);
 
 % superposition de tous les ondes spheriques
 for source = 1:size(points, 1)
   fprintf('\rPoint light source %d of %d    ', source, size(points, 1));
   
-  % for backpropagation, flip the sign of the imaginary unit (?????)
+  % for backpropagation, flip the sign of the imaginary unit (?)
   if (points(source, 3) > hologramZ)
     ii = -1i;
   else
     ii = 1i;
   end
   
+  % fonction fenetre
+  h = ones(hologramSamplesX, hologramSamplesY);
+  
+  % Limiter la zone de contribution
+  if (windowFunction)
+      
+      % Region de contribution du point lumineuse
+      p = samplingDistance; % pas d'echantillonnage
+      Rmax = abs(points(source,3) * tan(asin(lambda/(2*p))));
+      distance = sqrt((xx - points(source, 1)).^2 + (yy - points(source, 2)).^2);
+      indices = find(distance > Rmax);
+      h(indices) = 0;
+    
+  end
+  
   % distance oblique
   r = sqrt((xx - points(source, 1)).^2 + (yy - points(source, 2)).^2 + (hologramZ - points(source, 3)).^2);
-	objectWave = objectWave + a .* exp(ii*k*r) ./ r;
+  objectWave = objectWave + a .* exp(ii*k*r) ./ r .* h;
+
 end
 fprintf('\nThe object wave calculed!\n');
 
@@ -130,7 +153,7 @@ nX = cos(alpha);
 nY = cos(beta);
 nZ = sqrt(1 - nX^2 - nY^2);
 
-% allow nZ < 0, just in case... (????)
+% allow nZ < 0, just in case... (?)
 if (nZ > 0)
   ii = 1i;
 else

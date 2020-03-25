@@ -6,6 +6,7 @@ Positions of the points in the 3D scene [x,y,z]:
 Point light source 1 of 1: [0, 0, -0.2]
 
 The object wave calculation...
+Window function considered in the calculation
 Point light source 1 of 1    
 The object wave calculed!
 
@@ -15,5 +16,5 @@ The reference wave calculed!
 The hologram calculation... 
 The hologram calculated!
 
-Elapsed time is 1.02032 seconds.
+Elapsed time is 0.979591 seconds.
 ---------------------------------------

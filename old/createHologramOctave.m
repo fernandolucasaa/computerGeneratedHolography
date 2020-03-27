@@ -2,6 +2,8 @@ close all
 clear
 clc
 
+%%%%%% OLD CODE %%%%%%%%%%%%
+
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %
 % Generation numerique d'hologramme a partir de quelques sources ponctuelles en
@@ -38,8 +40,8 @@ colormap('gray')
 %
 
 % plan de l'hologramme
-hologramHeight = 2e-3; % 2mm
-hologramWidth = 2e-3; % 2mm
+hologramHeight = 50e-3; % 2mm
+hologramWidth = 5e0-3; % 2mm
 
 fprintf('---------------------------------------\n');    
 fprintf('Dimensions of the hologram: %d m vs %d m\n', hologramHeight, hologramWidth);
@@ -192,6 +194,9 @@ ylabel('y [mm]');
 axis('equal');
 
 savefig('hologram');
+
+##fig = openfig('hologram.fig');
+##saveas(fig, 'hologram.jpg');
 
 fprintf('The hologram calculated!\n\n');
 toc;

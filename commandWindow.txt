@@ -29,5 +29,5 @@ Distance between the hologram plan and the target plan : -0.2 m
 The reconstruction calculation...
 The reconstruction calculated!
 
-Elapsed time is 2.25287 seconds.
+Elapsed time is 6.55192 seconds.
 ---------------------------------------

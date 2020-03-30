@@ -111,11 +111,11 @@ function [reconstruction_out] = digitalHologramReconstruction(lambda, hologramHe
   ylabel('y [mm]');
   axis('image');
   
-  savefig('reconstructed_image');
+  savefig('images/reconstructed_image');
   
   if (img_jpg == true)
-    fig = openfig('reconstructed_image.fig');
-    saveas(fig, 'reconstructed_image.jpg');
+    fig = openfig('images/reconstructed_image.fig');
+    saveas(fig, 'images/reconstructed_image.jpg');
   end;
   
   fprintf('The reconstruction calculated!\n\n');

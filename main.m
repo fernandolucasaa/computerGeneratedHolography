@@ -62,7 +62,7 @@ pointsZ = [-0.2, -0.2, -0.2, -0.2]; % -0.2m
 windowFunction = true; % true
 
 % sauvegarder les images affiches en format jpf
-img_jpg = false; % false
+img_jpg = true; % false
 
 %
 % Parametres du plan de l'image reconstituee

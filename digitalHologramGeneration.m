@@ -172,11 +172,11 @@ function [hologram_output, referenceWave_output] = digitalHologramGeneration(lam
   ylabel('y [mm]');
   axis('equal');
   
-  savefig('hologram');
+  savefig('images/hologram');
   
   if (img_jpg == true)
-    fig = openfig('hologram.fig');
-    saveas(fig, 'hologram.jpg');
+    fig = openfig('images/hologram.fig');
+    saveas(fig, 'images/hologram.jpg');
   end;
   
   fprintf('The hologram calculated!\n');

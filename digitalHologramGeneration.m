@@ -7,28 +7,13 @@
 %
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-function [hologram_output] = digitalHologramGeneration(hologramHeight, hologramWidth, ...
-                             pointsChoice, pointsZ, windowFunction)
+function [hologram_output, referenceWave_output] = digitalHologramGeneration(lambda, ...
+          hologramHeight, hologramWidth, hologramZ, samplingDistance, pointsChoice, ...
+          pointsZ, windowFunction, img_jpg)
 
+  fprintf('[Hologram generation]\n\n');
+  
   %% [0] Parametres initiaux - Initialisation %%
-  
-  % Tous les dimensions sont en metres
-  
-  % demarrage du chronometre
-  tic; 
-  
-  % Enregistrer le texte de la fenetre de commande
-  dfile = 'commandWindow.txt';
-  
-  if exist(dfile, 'file')
-    delete(dfile);
-  end;
-  
-  diary on;
-  diary (dfile);
-  
-  % longueur de l'onde 
-  lambda = 500e-9; % 500nm (vert)
   
   % coleur des images affichés
   colormap('gray')
@@ -36,15 +21,8 @@ function [hologram_output] = digitalHologramGeneration(hologramHeight, hologramW
   %
   % Parametres du plan l'hologramme
   %
-  
-  fprintf('---------------------------------------\n');    
+     
   fprintf('Dimensions of the hologram: %d m vs %d m\n', hologramHeight, hologramWidth);
-  
-  % localisation dans l'aixe z
-  hologramZ = 0;
-  
-  % distance d'echantillonnage dans les axes xy
-  samplingDistance = 10e-6;
   
   % nombre de lignes (y) et de colonnes (x) du plan d'hologramme
   hologramSamplesX = ceil(hologramWidth / samplingDistance);
@@ -70,16 +48,16 @@ function [hologram_output] = digitalHologramGeneration(hologramHeight, hologramW
   
   % points de la scene
   if (pointsChoice == 1)
-    points = [0, 0, pointsZ];
+    points = [0, 0, pointsZ(1)];
   elseif(pointsChoice == 2)
-    points = [0, 0, pointsZ;
-              -hologramWidth / 4, -hologramHeight / 4, pointsZ;
-              hologramWidth / 4, hologramHeight / 4, pointsZ];
+    points = [0, 0, pointsZ(1);
+              -hologramWidth / 4, -hologramHeight / 4, pointsZ(2);
+              hologramWidth / 4, hologramHeight / 4, pointsZ(3)];
   elseif(pointsChoice == 3)
-    points = [-hologramWidth / 4, hologramWidth / 4, pointsZ;
-              hologramWidth / 4, hologramWidth / 4, pointsZ;
-              -hologramWidth / 4, -hologramHeight / 4, pointsZ;
-              hologramWidth / 4, -hologramHeight / 4, pointsZ];
+    points = [-hologramWidth / 4, hologramWidth / 4, pointsZ(1);
+              hologramWidth / 4, hologramWidth / 4, pointsZ(2);
+              -hologramWidth / 4, -hologramHeight / 4, pointsZ(3);
+              hologramWidth / 4, -hologramHeight / 4, pointsZ(4)];
   end;
         
   fprintf('Positions of the points in the 3D scene [x,y,z]:');
@@ -108,10 +86,10 @@ function [hologram_output] = digitalHologramGeneration(hologramHeight, hologramW
   
   % superposition de tous les ondes spheriques
   for source = 1:size(points, 1)
-    fprintf('\nPoint light source %d of %d    ', source, size(points, 1));
-    
-    % for backpropagation, flip the sign of the imaginary unit (?)
+
+    % pour la retropropagation, inverser le signe de l'unité imaginaire
     if (points(source, 3) > hologramZ)
+      fprintf('\nAttention! The point is in the front of the hologram plan!\n');
       ii = -1i;
     else
       ii = 1i;
@@ -154,11 +132,12 @@ function [hologram_output] = digitalHologramGeneration(hologramHeight, hologramW
   nY = cos(beta);
   nZ = sqrt(1 - nX^2 - nY^2);
   
-  % allow nZ < 0, just in case... (?)
+  % autoriser nZ < 0, en cas ou
   if (nZ > 0)
     ii = 1i;
   else
     ii = -1i;
+    fprintf('\nAttention! The direction vector is in the opposite direction!\n');
   end
   
   refAmplitude = max(max(abs(objectWave)));
@@ -166,6 +145,8 @@ function [hologram_output] = digitalHologramGeneration(hologramHeight, hologramW
   % l'onde de reference
   referenceWave = refAmplitude * exp(ii * k * (xx*nX + yy*nY + hologramZ*nZ));
   fprintf('The reference wave calculed!\n');
+  
+  referenceWave_output = referenceWave;
   
   % ------------------------------------------------------------------------------
   
@@ -193,13 +174,11 @@ function [hologram_output] = digitalHologramGeneration(hologramHeight, hologramW
   
   savefig('hologram');
   
-  ##fig = openfig('hologram.fig');
-  ##saveas(fig, 'hologram.jpg');
+  if (img_jpg == true)
+    fig = openfig('hologram.fig');
+    saveas(fig, 'hologram.jpg');
+  end;
   
-  fprintf('The hologram calculated!\n\n');
-  toc;
-  fprintf('---------------------------------------\n')
-  
-  diary off;
+  fprintf('The hologram calculated!\n');
   
 end;  

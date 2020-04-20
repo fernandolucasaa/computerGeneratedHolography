@@ -16,7 +16,7 @@ function [hologram_output, referenceWave_output] = digitalHologramGeneration(lam
   %% [0] Parametres initiaux - Initialisation %%
   
   % coleur des images affichés
-  colormap('gray')
+  %colormap('gray')
   
   %
   % Parametres du plan l'hologramme
@@ -58,6 +58,12 @@ function [hologram_output, referenceWave_output] = digitalHologramGeneration(lam
               hologramWidth / 4, hologramWidth / 4, pointsZ(2);
               -hologramWidth / 4, -hologramHeight / 4, pointsZ(3);
               hologramWidth / 4, -hologramHeight / 4, pointsZ(4)];
+  elseif(pointsChoice == 4)
+    points = [0, 0, -0.1];
+  elseif(pointsChoice == 5)
+    points = [0, 0, -0.2];
+  elseif(pointsChoice == 6)
+    points = [0, 0, -0.3];
   end;
         
   fprintf('Positions of the points in the 3D scene [x,y,z]:');
@@ -163,21 +169,21 @@ function [hologram_output, referenceWave_output] = digitalHologramGeneration(lam
   hologram = real(itensity);
   hologram_output = hologram;
   
-  % Afficher l'hologramme
-  imagesc(x * 1e3, y * 1e3, hologram);
-  set(gca, 'YDir', 'normal'); % inverser la direction de l'axe y
-  colorbar;
-  title('Hologram');
-  xlabel('x [mm]');
-  ylabel('y [mm]');
-  axis('equal');
-  
-  savefig('images/hologram');
-  
-  if (img_jpg == true)
-    fig = openfig('images/hologram.fig');
-    saveas(fig, 'images/hologram.jpg');
-  end;
+##  % Afficher l'hologramme
+##  imagesc(x * 1e3, y * 1e3, hologram);
+##  set(gca, 'YDir', 'normal'); % inverser la direction de l'axe y
+##  colorbar;
+##  title('Hologram');
+##  xlabel('x [mm]');
+##  ylabel('y [mm]');
+##  axis('equal');
+##  
+##  savefig('images/hologram');
+##  
+##  if (img_jpg == true)
+##    fig = openfig('images/hologram.fig');
+##    saveas(fig, 'images/hologram.jpg');
+##  end;
   
   fprintf('The hologram calculated!\n');
   

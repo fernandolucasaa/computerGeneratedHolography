@@ -1,13 +1,10 @@
----------------------------------------
 [Hologram generation]
 
 Dimensions of the hologram: 0.002 m vs 0.002 m
 Resolution of the hologram: 200 pixels vs 200 pixels
 
 Positions of the points in the 3D scene [x,y,z]:
-Point light source 1 of 3: [0, 0, -0.2]
-Point light source 2 of 3: [-0.0005, -0.0005, -0.2]
-Point light source 3 of 3: [0.0005, 0.0005, -0.2]
+Point light source 1 of 1: [0, 0, -0.1]
 
 The object wave calculation...
 Window function considered in the calculation
@@ -18,16 +15,39 @@ The reference wave calculed!
 
 The hologram calculation... 
 The hologram calculated!
----------------------------------------
-[Hologram reconstruction]
+[Hologram generation]
 
-Numerical propagation of the hologram
-The propagation kernel calculation...
+Dimensions of the hologram: 0.002 m vs 0.002 m
+Resolution of the hologram: 200 pixels vs 200 pixels
 
-Distance between the hologram plan and the target plan : -0.2 m
+Positions of the points in the 3D scene [x,y,z]:
+Point light source 1 of 1: [0, 0, -0.2]
 
-The reconstruction calculation...
-The reconstruction calculated!
+The object wave calculation...
+Window function considered in the calculation
+The object wave calculed!
 
-Elapsed time is 6.55192 seconds.
+The reference wave calculation...
+The reference wave calculed!
+
+The hologram calculation... 
+The hologram calculated!
+[Hologram generation]
+
+Dimensions of the hologram: 0.002 m vs 0.002 m
+Resolution of the hologram: 200 pixels vs 200 pixels
+
+Positions of the points in the 3D scene [x,y,z]:
+Point light source 1 of 1: [0, 0, -0.3]
+
+The object wave calculation...
+Window function considered in the calculation
+The object wave calculed!
+
+The reference wave calculation...
+The reference wave calculed!
+
+The hologram calculation... 
+The hologram calculated!
+Elapsed time is 4.18455 seconds.
 ---------------------------------------

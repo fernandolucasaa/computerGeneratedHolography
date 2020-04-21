@@ -7,9 +7,9 @@
 %
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-function [hologram_output, referenceWave_output] = digitalHologramGeneration(lambda, ...
+function [hologram_output, referenceWave_output, x_out, y_out] = digitalHologramGeneration(lambda, ...
           hologramHeight, hologramWidth, hologramZ, samplingDistance, pointsChoice, ...
-          pointsZ, windowFunction, img_jpg)
+          pointsZ, windowFunction)
 
   fprintf('[Hologram generation]\n\n');
   
@@ -64,6 +64,9 @@ function [hologram_output, referenceWave_output] = digitalHologramGeneration(lam
     points = [0, 0, -0.2];
   elseif(pointsChoice == 6)
     points = [0, 0, -0.3];
+  elseif(pointsChoice == 7)
+    points = [-hologramWidth / 4, 0, -0.2; 
+              hologramWidth / 4, 0, -0.2;];
   end;
         
   fprintf('Positions of the points in the 3D scene [x,y,z]:');
@@ -78,11 +81,14 @@ function [hologram_output, referenceWave_output] = digitalHologramGeneration(lam
   y = (0:(hologramSamplesY-1)) * samplingDistance + hologramCornerY;
   [xx, yy] = meshgrid(x, y);
   
+  x_out = x;
+  y_out = y;
+  
   % ------------------------------------------------------------------------------
   
   %% [1] Calcul de l'onde objet (Nuage de points) %% 
   
-  fprintf('\n\nThe object wave calculation...\n');
+  %fprintf('\n\nThe object wave calculation...\n');
   
   if (windowFunction) 
     fprintf('Window function considered in the calculation'); 
@@ -126,7 +132,7 @@ function [hologram_output, referenceWave_output] = digitalHologramGeneration(lam
   
   %% Calcul de l'onde de reference %%
   
-  fprintf('\nThe reference wave calculation...\n');
+  %fprintf('\nThe reference wave calculation...\n');
   
   % les angles de direction de l'onde de reference avec le axes x et y
   % vecteur d'onde perpendiculaire a l'ecran (radians)
@@ -158,7 +164,7 @@ function [hologram_output, referenceWave_output] = digitalHologramGeneration(lam
   
   %% [2] Representation de l'onde objet %%
   
-  fprintf('\nThe hologram calculation... \n');
+  %fprintf('\nThe hologram calculation... \n');
   
   %% Calcul de l'hologramme (interference entre l'onde objet et l'onde de reference) %%
   
@@ -168,23 +174,7 @@ function [hologram_output, referenceWave_output] = digitalHologramGeneration(lam
   itensity = 2*real(objectWave.*conj(referenceWave));
   hologram = real(itensity);
   hologram_output = hologram;
-  
-##  % Afficher l'hologramme
-##  imagesc(x * 1e3, y * 1e3, hologram);
-##  set(gca, 'YDir', 'normal'); % inverser la direction de l'axe y
-##  colorbar;
-##  title('Hologram');
-##  xlabel('x [mm]');
-##  ylabel('y [mm]');
-##  axis('equal');
-##  
-##  savefig('images/hologram');
-##  
-##  if (img_jpg == true)
-##    fig = openfig('images/hologram.fig');
-##    saveas(fig, 'images/hologram.jpg');
-##  end;
-  
+   
   fprintf('The hologram calculated!\n');
   
 end;  

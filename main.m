@@ -12,7 +12,7 @@ clc
 tic; 
 
 % Enregistrer le texte de la fenetre de commande
-dfile = 'commandWindow.txt';
+dfile = 'output/commandWindow.txt';
 
 if exist(dfile, 'file')
   delete(dfile);
@@ -22,7 +22,7 @@ diary on;
 diary (dfile);
 
 % Generer un hologramme (1) ou video holographique (2)
-option = 2; % 1
+option = 1; % 1
 
 % Generer l'image restitue
 reconstructionChoice = false; % false
@@ -59,7 +59,7 @@ samplingDistance = 10e-6;
 %     |         * |         * | *
 %     |           |           |
 %
-pointsChoice = 4; % 1
+pointsChoice = 7; % 1
 
 % localisation des points dans l'aixe z
 pointsZ = [-0.2, -0.2, -0.2, -0.2]; % -0.2m
@@ -86,17 +86,15 @@ if (option == 1)    % creer seulement une image holographique
   fprintf('---------------------------------------\n'); 
 
   % calcul d'hologramme
-  [hologram_out, referenceWave_out] = digitalHologramGeneration(lambda, hologramHeight, ...
+  [hologram_out, referenceWave_out, x_out, y_out] = digitalHologramGeneration(lambda, hologramHeight, ...
                                       hologramWidth, hologramZ, samplingDistance, pointsChoice, ...
-                                      pointsZ, windowFunction, img_jpg);
+                                      pointsZ, windowFunction);
   
   % sauvagarder
-  save('hologram_image.mat', 'hologram_out'); 
- 
+  save('output/hologram_image.mat', 'hologram_out', 'v7');
+  
   % Afficher l'hologramme
-  colormap('gray');
-  colorbar;
-  imagesc(hologram_out);
+  plotImage(hologram_out, x_out, y_out, img_jpg);  
 
   fprintf('---------------------------------------\n'); 
 
@@ -122,17 +120,15 @@ elseif (option == 2)    % creer un video holographique
   
   for frame = 1:nFrames    
     
-    hologram_video(:,:,frame) = digitalHologramGeneration(lambda, hologramHeight, ...
+    [hologram_video(:,:,frame),referenceWave_out, x_out, y_out] = digitalHologramGeneration(lambda, hologramHeight, ...
                                 hologramWidth, hologramZ, samplingDistance, pointsChoiceVideo(frame), ...
                                 pointsZ, windowFunction, img_jpg);
     % sauvagarder
-    save('hologram_video.mat', 'hologram_video');
+    save('output/hologram_video.mat', 'hologram_video', 'v7');
     
-    % Affichage
+    % Afficher l'hologramme
     figure(frame)
-    colormap('gray')
-    colorbar
-    imagesc(hologram_video(:,:,frame))
+    plotImage(hologram_video(:,:,frame), x_out, y_out, img_jpg);
   
   end;
   

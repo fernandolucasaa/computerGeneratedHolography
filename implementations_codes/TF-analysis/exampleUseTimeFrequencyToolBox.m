@@ -19,7 +19,7 @@ dsp = fftshift(abs(fft(sig)).^2);
 f = (-N/2:N/2-1)/N;
 
 % make frequency plot
-figure
+figure();
 plot(f,dsp);
 xlabel('Normalized frequency'); ylabel('Squared modulus');
 title('Spectrum'); grid
@@ -30,7 +30,9 @@ tfr = tfrwv(sig);
 %% make plot
 colormap(jet);
 fs = 1;
+figure();
 imagesc(t/fs,fs*f,flipud(tfr));
+colorbar();
 
 %% note: matlab users can use a GUI to adjust the layout
 %% and other parameters of the display. this utility is

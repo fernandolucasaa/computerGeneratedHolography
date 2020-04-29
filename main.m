@@ -59,7 +59,7 @@ samplingDistance = 10e-6;
 %     |         * |         * | *
 %     |           |           |
 %
-pointsChoice = 7; % 1
+pointsChoice = 1; % 1
 
 % localisation des points dans l'aixe z
 pointsZ = [-0.2, -0.2, -0.2, -0.2]; % -0.2m

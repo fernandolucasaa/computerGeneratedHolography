@@ -9,7 +9,7 @@
 
 function [hologram_output, referenceWave_output, x_out, y_out] = digitalHologramGeneration(lambda, ...
           hologramHeight, hologramWidth, hologramZ, samplingDistance, pointsChoice, ...
-          pointsZ, windowFunction)
+          pointsZ, windowFunction, points3D)
 
   fprintf('[Hologram generation]\n\n');
   
@@ -67,6 +67,8 @@ function [hologram_output, referenceWave_output, x_out, y_out] = digitalHologram
   elseif(pointsChoice == 7)
     points = [-hologramWidth / 4, 0, -0.2; 
               hologramWidth / 4, 0, -0.2;];
+  elseif(pointsChoice == 8)
+    points = points3D;
   end;
         
   fprintf('Positions of the points in the 3D scene [x,y,z]:');

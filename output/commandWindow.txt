@@ -1,17 +1,112 @@
----------------------------------------
 [Hologram generation]
 
 Dimensions of the hologram: 0.002 m vs 0.002 m
 Resolution of the hologram: 200 pixels vs 200 pixels
 
 Positions of the points in the 3D scene [x,y,z]:
-Point light source 1 of 1: [0, 0, -0.2]Window function considered in the calculation
+Point light source 1 of 2: [-0.0005, 0, -0.2]
+Point light source 2 of 2: [0.0005, 0, -0.2]Window function considered in the calculation
 The object wave calculed!
 The reference wave calculed!
 The hologram calculated!
-warning: save: no such variable 'v7'
-warning: called from
-    main at line 94 column 3
----------------------------------------
-Elapsed time is 2.33769 seconds.
+[Hologram generation]
+
+Dimensions of the hologram: 0.002 m vs 0.002 m
+Resolution of the hologram: 200 pixels vs 200 pixels
+
+Positions of the points in the 3D scene [x,y,z]:
+Point light source 1 of 2: [-0.0005, 0.0005, -0.2]
+Point light source 2 of 2: [0.0005, 0.0005, -0.2]Window function considered in the calculation
+The object wave calculed!
+The reference wave calculed!
+The hologram calculated!
+[Hologram generation]
+
+Dimensions of the hologram: 0.002 m vs 0.002 m
+Resolution of the hologram: 200 pixels vs 200 pixels
+
+Positions of the points in the 3D scene [x,y,z]:
+Point light source 1 of 2: [-0.0005, -0.0005, -0.2]
+Point light source 2 of 2: [0.0005, -0.0005, -0.2]Window function considered in the calculation
+The object wave calculed!
+The reference wave calculed!
+The hologram calculated!
+[Hologram generation]
+
+Dimensions of the hologram: 0.002 m vs 0.002 m
+Resolution of the hologram: 200 pixels vs 200 pixels
+
+Positions of the points in the 3D scene [x,y,z]:
+Point light source 1 of 2: [-0.0005, 0.0005, -0.2]
+Point light source 2 of 2: [0.0005, -0.0005, -0.2]Window function considered in the calculation
+The object wave calculed!
+The reference wave calculed!
+The hologram calculated!
+[Hologram generation]
+
+Dimensions of the hologram: 0.002 m vs 0.002 m
+Resolution of the hologram: 200 pixels vs 200 pixels
+
+Positions of the points in the 3D scene [x,y,z]:
+Point light source 1 of 2: [-0.0005, -0.0005, -0.2]
+Point light source 2 of 2: [0.0005, 0.0005, -0.2]Window function considered in the calculation
+The object wave calculed!
+The reference wave calculed!
+The hologram calculated!
+[Hologram generation]
+
+Dimensions of the hologram: 0.002 m vs 0.002 m
+Resolution of the hologram: 200 pixels vs 200 pixels
+
+Positions of the points in the 3D scene [x,y,z]:
+Point light source 1 of 2: [-0.0005, 0, -0.2]
+Point light source 2 of 2: [0.0005, 0.0005, -0.2]Window function considered in the calculation
+The object wave calculed!
+The reference wave calculed!
+The hologram calculated!
+[Hologram generation]
+
+Dimensions of the hologram: 0.002 m vs 0.002 m
+Resolution of the hologram: 200 pixels vs 200 pixels
+
+Positions of the points in the 3D scene [x,y,z]:
+Point light source 1 of 2: [-0.0005, -0.0005, -0.2]
+Point light source 2 of 2: [0.0005, 0, -0.2]Window function considered in the calculation
+The object wave calculed!
+The reference wave calculed!
+The hologram calculated!
+[Hologram generation]
+
+Dimensions of the hologram: 0.002 m vs 0.002 m
+Resolution of the hologram: 200 pixels vs 200 pixels
+
+Positions of the points in the 3D scene [x,y,z]:
+Point light source 1 of 2: [-0.0005, 0.0005, -0.2]
+Point light source 2 of 2: [0.0005, 0, -0.2]Window function considered in the calculation
+The object wave calculed!
+The reference wave calculed!
+The hologram calculated!
+[Hologram generation]
+
+Dimensions of the hologram: 0.002 m vs 0.002 m
+Resolution of the hologram: 200 pixels vs 200 pixels
+
+Positions of the points in the 3D scene [x,y,z]:
+Point light source 1 of 2: [-0.0005, 0, -0.2]
+Point light source 2 of 2: [0.0005, -0.0005, -0.2]Window function considered in the calculation
+The object wave calculed!
+The reference wave calculed!
+The hologram calculated!
+[Hologram generation]
+
+Dimensions of the hologram: 0.002 m vs 0.002 m
+Resolution of the hologram: 200 pixels vs 200 pixels
+
+Positions of the points in the 3D scene [x,y,z]:
+Point light source 1 of 2: [-0.0005, 0, -0.1]
+Point light source 2 of 2: [0.0005, 0, -0.1]Window function considered in the calculation
+The object wave calculed!
+The reference wave calculed!
+The hologram calculated!
+Elapsed time is 1.45986 seconds.
 ---------------------------------------

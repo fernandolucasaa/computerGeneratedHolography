@@ -21,8 +21,10 @@ end;
 diary on;
 diary (dfile);
 
-% Generer un hologramme (1) ou video holographique (2)
-option = 1; % 1
+% Generer un hologramme (1) ou video holographique (2) ou plusieurs hologrammes
+% differents pour generer une base de donnnes pour tester les algorithmes de
+% separation des sources (3)
+option = 3; % 1
 
 % Generer l'image restitue
 reconstructionChoice = false; % false
@@ -59,7 +61,7 @@ samplingDistance = 10e-6;
 %     |         * |         * | *
 %     |           |           |
 %
-pointsChoice = 1; % 1
+pointsChoice = 2; % 1
 
 % localisation des points dans l'aixe z
 pointsZ = [-0.2, -0.2, -0.2, -0.2]; % -0.2m
@@ -89,6 +91,8 @@ if (option == 1)    % creer seulement une image holographique
   [hologram_out, referenceWave_out, x_out, y_out] = digitalHologramGeneration(lambda, hologramHeight, ...
                                       hologramWidth, hologramZ, samplingDistance, pointsChoice, ...
                                       pointsZ, windowFunction);
+  
+  hologram_out = real(hologram_out);
   
   % sauvagarder
   save('output/hologram_image.mat', 'hologram_out', 'v7');
@@ -120,9 +124,12 @@ elseif (option == 2)    % creer un video holographique
   
   for frame = 1:nFrames    
     
-    [hologram_video(:,:,frame),referenceWave_out, x_out, y_out] = digitalHologramGeneration(lambda, hologramHeight, ...
+    [hologram_out, referenceWave_out, x_out, y_out] = digitalHologramGeneration(lambda, hologramHeight, ...
                                 hologramWidth, hologramZ, samplingDistance, pointsChoiceVideo(frame), ...
-                                pointsZ, windowFunction, img_jpg);
+                                pointsZ, windowFunction);
+                                
+    hologram_video(:,:,frame) = real(hologram_out);
+    
     % sauvagarder
     save('output/hologram_video.mat', 'hologram_video', 'v7');
     
@@ -131,6 +138,78 @@ elseif (option == 2)    % creer un video holographique
     plotImage(hologram_video(:,:,frame), x_out, y_out, img_jpg);
   
   end;
+
+elseif (option == 3)
+
+  % nombre d'hologrammes a creer
+  nbSamples = 10;
+  
+  % nombre de lignes (y) et de colonnes (x) du plan d'hologramme
+  hologramSamplesX = ceil(hologramWidth / samplingDistance);
+  hologramSamplesY = ceil(hologramHeight / samplingDistance);
+  
+  hologram_dataset = zeros(hologramSamplesX, hologramSamplesY, nbSamples);
+  
+  % differents combinations des interferences geres par 2 particules
+  allPoints3D = [ -hologramWidth / 4, 0, -0.2;
+                   hologramWidth / 4, 0, -0.2;
+                   
+                  -hologramWidth / 4, hologramWidth / 4, -0.2;
+                   hologramWidth / 4, hologramWidth / 4, -0.2;
+                   
+                  -hologramWidth / 4, -hologramWidth / 4, -0.2;
+                   hologramWidth / 4, -hologramWidth / 4, -0.2
+                   
+                   -hologramWidth / 4, hologramWidth / 4, -0.2;
+                   hologramWidth / 4, -hologramWidth / 4, -0.2
+                   
+                   -hologramWidth / 4, -hologramWidth / 4, -0.2;
+                   hologramWidth / 4, hologramWidth / 4, -0.2
+                   
+                   -hologramWidth / 4, 0, -0.2;
+                   hologramWidth / 4, hologramWidth / 4, -0.2
+                   
+                   -hologramWidth / 4, -hologramWidth / 4, -0.2;
+                   hologramWidth / 4, 0, -0.2;
+                   
+                   -hologramWidth / 4, hologramWidth / 4, -0.2;
+                   hologramWidth / 4, 0, -0.2
+                   
+                   -hologramWidth / 4, 0, -0.2;
+                   hologramWidth / 4, -hologramWidth / 4, -0.2;
+                   
+                   -hologramWidth / 4, 0, -0.1;
+                   hologramWidth / 4, 0, -0.1;
+  ];
+  
+  points3D = zeros(2, 3);
+  
+  for i = 1:nbSamples
+    
+    % seulement deux sources par fois
+    points3D(1, :) = [allPoints3D(2*i - 1, :)];
+    points3D(2, :) = [allPoints3D(2*i, :)];
+    
+    [hologram_out, referenceWave_out, x_out, y_out] = digitalHologramGeneration(lambda, hologramHeight, ...
+                                hologramWidth, hologramZ, samplingDistance, 8, ...
+                                pointsZ, windowFunction, points3D);
+                                
+    hologram_dataset(:,:,i) = hologram_out;
+    
+    fileName = ["output/hologram_" num2str(i) ".mat"];
+    
+    % sauvagarder
+    save(fileName, 'hologram_out');
+    
+    % Afficher l'hologramme
+##    figure(i)
+##    plotImage(hologram_dataset(:,:,i), x_out, y_out, img_jpg);
+    
+  end;
+  
+  % sauvagarder
+  fileName = ["output/hologram_dataset_" num2str(nbSamples) "_samples_2_sources.mat"];
+  save(fileName, 'hologram_dataset', '-v7');
   
 end;
 

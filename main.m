@@ -24,7 +24,7 @@ diary (dfile);
 % Generer un hologramme (1) ou video holographique (2) ou plusieurs hologrammes
 % differents pour generer une base de donnnes pour tester les algorithmes de
 % separation des sources (3)
-option = 3; % 1
+option = 1; % 1
 
 % Generer l'image restitue
 reconstructionChoice = false; % false
@@ -64,7 +64,7 @@ samplingDistance = 10e-6;
 pointsChoice = 2; % 1
 
 % localisation des points dans l'aixe z
-pointsZ = [-0.2, -0.2, -0.2, -0.2]; % -0.2m
+pointsZ = [-0.1, -0.2, -0.3, -0.2]; % -0.2m
 
 % fenetre pour limiter la zone de contribution (eviter le repliement du spectre)
 windowFunction = true; % true
@@ -77,7 +77,7 @@ img_jpg = false; % false
 %
 
 % Emplacement de l'image reconstruite dans l'axe z
-targetZ = -0.2; % -0.2m
+targetZ = -0.3; % -0.2m
 
 %
 % Calculs
@@ -95,6 +95,7 @@ if (option == 1)    % creer seulement une image holographique
   hologram_out = real(hologram_out);
   
   % sauvagarder
+  save('output/referenceWave_out.mat', 'referenceWave_out', 'v7');
   save('output/hologram_image.mat', 'hologram_out', 'v7');
   
   % Afficher l'hologramme

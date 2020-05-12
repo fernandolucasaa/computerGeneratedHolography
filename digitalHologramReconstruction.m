@@ -9,7 +9,7 @@ function [reconstruction_out] = digitalHologramReconstruction(lambda, hologramHe
                                 hologramWidth, hologramZ, samplingDistance, targetZ, ...
                                 hologram, referenceWave, img_jpg)
   
-  fprintf('[Hologram reconstruction]\n');
+##  fprintf('[Hologram reconstruction]\n');
 
   
   %
@@ -43,8 +43,8 @@ function [reconstruction_out] = digitalHologramReconstruction(lambda, hologramHe
     
   % Calcul du noyau de propagation %
   
-  fprintf('\nNumerical propagation of the hologram\n');
-  fprintf('The propagation kernel calculation...\n');
+##  fprintf('\nNumerical propagation of the hologram\n');
+##  fprintf('The propagation kernel calculation...\n');
   
   % La propagation par convolution est calculée à l'aide de matrices de taille
   % (cY lignes cY) x (cX colonnes)
@@ -56,7 +56,7 @@ function [reconstruction_out] = digitalHologramReconstruction(lambda, hologramHe
   py = targetCornerY - hologramCornerY;
   z0 = targetZ - hologramZ; % propagation dans l'aixe z
   
-  fprintf('\nDistance between the hologram plan and the target plan : %d m\n', z0);
+##  fprintf('\nDistance between the hologram plan and the target plan : %d m\n', z0);
   
   % Coordonnees auxiliaires x, y pour le calcul de la convolution
   auxCX = cX - hologramSamplesX + 1;
@@ -73,7 +73,7 @@ function [reconstruction_out] = digitalHologramReconstruction(lambda, hologramHe
  
   %% Le calcul de la reconstruction %%
   
-  fprintf('\nThe reconstruction calculation...\n');
+##  fprintf('\nThe reconstruction calculation...\n');
   
   % Creer la matrice auxiliaire de la bonne taille pour le calcul de la convolution
   % La "taille correcte" signifie que la nature cyclique de la sera supprimée.
@@ -100,24 +100,24 @@ function [reconstruction_out] = digitalHologramReconstruction(lambda, hologramHe
   xAxis = (0:hologramSamplesX - 1)*samplingDistance + hologramCornerX;
   yAxis = (0:hologramSamplesY - 1)*samplingDistance + hologramCornerY;
   
-  % Afficher l'image reconstituee
-  figure();
-  colormap('gray');
-  imagesc(xAxis * 1e3, yAxis * 1e3, abs(reconstruction));
-  set(gca, 'YDir', 'normal');
-  colorbar;
-  title('Reconstructed image (intensity)');
-  xlabel('x [mm]');
-  ylabel('y [mm]');
-  axis('image');
-  
-  savefig('images/reconstructed_image');
+##  % Afficher l'image reconstituee
+##  figure();
+##  colormap('gray');
+##  imagesc(xAxis * 1e3, yAxis * 1e3, abs(reconstruction));
+##  set(gca, 'YDir', 'normal');
+##  colorbar;
+##  title('Reconstructed image (intensity)');
+##  xlabel('x [mm]');
+##  ylabel('y [mm]');
+##  axis('image');
+##  
+##  savefig('output/reconstructed_image');
   
   if (img_jpg == true)
-    fig = openfig('images/reconstructed_image.fig');
-    saveas(fig, 'images/reconstructed_image.jpg');
+    fig = openfig('output/reconstructed_image.fig');
+    saveas(fig, 'output/reconstructed_image.jpg');
   end;
   
-  fprintf('The reconstruction calculated!\n\n');
+##  fprintf('The reconstruction calculated!\n\n');
   
 end;

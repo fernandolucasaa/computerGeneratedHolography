@@ -1,112 +1,14 @@
-[Hologram generation]
-
-Dimensions of the hologram: 0.002 m vs 0.002 m
-Resolution of the hologram: 200 pixels vs 200 pixels
-
-Positions of the points in the 3D scene [x,y,z]:
-Point light source 1 of 2: [-0.0005, 0, -0.2]
-Point light source 2 of 2: [0.0005, 0, -0.2]Window function considered in the calculation
-The object wave calculed!
-The reference wave calculed!
-The hologram calculated!
-[Hologram generation]
-
-Dimensions of the hologram: 0.002 m vs 0.002 m
-Resolution of the hologram: 200 pixels vs 200 pixels
-
-Positions of the points in the 3D scene [x,y,z]:
-Point light source 1 of 2: [-0.0005, 0.0005, -0.2]
-Point light source 2 of 2: [0.0005, 0.0005, -0.2]Window function considered in the calculation
-The object wave calculed!
-The reference wave calculed!
-The hologram calculated!
-[Hologram generation]
-
-Dimensions of the hologram: 0.002 m vs 0.002 m
-Resolution of the hologram: 200 pixels vs 200 pixels
-
-Positions of the points in the 3D scene [x,y,z]:
-Point light source 1 of 2: [-0.0005, -0.0005, -0.2]
-Point light source 2 of 2: [0.0005, -0.0005, -0.2]Window function considered in the calculation
-The object wave calculed!
-The reference wave calculed!
-The hologram calculated!
-[Hologram generation]
-
-Dimensions of the hologram: 0.002 m vs 0.002 m
-Resolution of the hologram: 200 pixels vs 200 pixels
-
-Positions of the points in the 3D scene [x,y,z]:
-Point light source 1 of 2: [-0.0005, 0.0005, -0.2]
-Point light source 2 of 2: [0.0005, -0.0005, -0.2]Window function considered in the calculation
-The object wave calculed!
-The reference wave calculed!
-The hologram calculated!
-[Hologram generation]
-
-Dimensions of the hologram: 0.002 m vs 0.002 m
-Resolution of the hologram: 200 pixels vs 200 pixels
-
-Positions of the points in the 3D scene [x,y,z]:
-Point light source 1 of 2: [-0.0005, -0.0005, -0.2]
-Point light source 2 of 2: [0.0005, 0.0005, -0.2]Window function considered in the calculation
-The object wave calculed!
-The reference wave calculed!
-The hologram calculated!
-[Hologram generation]
-
-Dimensions of the hologram: 0.002 m vs 0.002 m
-Resolution of the hologram: 200 pixels vs 200 pixels
-
-Positions of the points in the 3D scene [x,y,z]:
-Point light source 1 of 2: [-0.0005, 0, -0.2]
-Point light source 2 of 2: [0.0005, 0.0005, -0.2]Window function considered in the calculation
-The object wave calculed!
-The reference wave calculed!
-The hologram calculated!
-[Hologram generation]
-
-Dimensions of the hologram: 0.002 m vs 0.002 m
-Resolution of the hologram: 200 pixels vs 200 pixels
-
-Positions of the points in the 3D scene [x,y,z]:
-Point light source 1 of 2: [-0.0005, -0.0005, -0.2]
-Point light source 2 of 2: [0.0005, 0, -0.2]Window function considered in the calculation
-The object wave calculed!
-The reference wave calculed!
-The hologram calculated!
-[Hologram generation]
-
-Dimensions of the hologram: 0.002 m vs 0.002 m
-Resolution of the hologram: 200 pixels vs 200 pixels
-
-Positions of the points in the 3D scene [x,y,z]:
-Point light source 1 of 2: [-0.0005, 0.0005, -0.2]
-Point light source 2 of 2: [0.0005, 0, -0.2]Window function considered in the calculation
-The object wave calculed!
-The reference wave calculed!
-The hologram calculated!
-[Hologram generation]
-
-Dimensions of the hologram: 0.002 m vs 0.002 m
-Resolution of the hologram: 200 pixels vs 200 pixels
-
-Positions of the points in the 3D scene [x,y,z]:
-Point light source 1 of 2: [-0.0005, 0, -0.2]
-Point light source 2 of 2: [0.0005, -0.0005, -0.2]Window function considered in the calculation
-The object wave calculed!
-The reference wave calculed!
-The hologram calculated!
-[Hologram generation]
-
-Dimensions of the hologram: 0.002 m vs 0.002 m
-Resolution of the hologram: 200 pixels vs 200 pixels
-
-Positions of the points in the 3D scene [x,y,z]:
-Point light source 1 of 2: [-0.0005, 0, -0.1]
-Point light source 2 of 2: [0.0005, 0, -0.1]Window function considered in the calculation
-The object wave calculed!
-The reference wave calculed!
-The hologram calculated!
-Elapsed time is 1.45986 seconds.
+---------------------------------------
+warning: save: no such variable 'v7'
+warning: called from
+    digitalHologramGeneration at line 75 column 3
+    main at line 91 column 51
+warning: save: no such variable 'v7'
+warning: called from
+    main at line 98 column 3
+warning: save: no such variable 'v7'
+warning: called from
+    main at line 99 column 3
+---------------------------------------
+Elapsed time is 1.4676 seconds.
 ---------------------------------------

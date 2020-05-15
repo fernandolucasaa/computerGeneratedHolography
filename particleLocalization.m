@@ -57,6 +57,9 @@ targets = [-step:-step:-limit];
 maxValueVector = zeros(length(targets),1);
 rowColumnVector = zeros(length(targets),2);
 
+% Intensite minimale pour etre considere une source ponctuelle
+threshold = 20000;
+
 ##maxValueVectorMultipleParticle = zeros(length(targets), 5);
 ##rowColumnVectorMultipleParticles = zeros(length(targets), 10);
 
@@ -89,15 +92,20 @@ for targetZ = targets
     xlabel('x [mm]');
     ylabel('y [mm]');
     axis('image');
+##    if (maxValue >= threshold)
+##      figure
+##      a = fft2(reconstruction_out);
+##      a2 = fftshift(a);
+##      colormap('gray');
+##      imagesc(log(abs(a2)));
+##      colorbar;  
+##    end; 
   end;
   
 end;
 
 % Trier le vectuer
 maxValueVectorSorted = sort(maxValueVector, 'descend');
-
-% Intensite minimale pour etre considere une source ponctuelle
-threshold = 20000;
 
 % Calculer la quantite des sources dans la scene 3D
 counter = 0;

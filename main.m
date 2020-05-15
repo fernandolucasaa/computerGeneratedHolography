@@ -27,7 +27,7 @@ diary (dfile);
 option = 1; % 1
 
 % Generer l'image restitue
-reconstructionChoice = false; % false
+reconstructionChoice = true; % false
 
 %
 % Parametres generaux (tous les dimensions sont en metres)
@@ -70,7 +70,7 @@ pointsZ = [-0.1, -0.2, -0.3, -0.2]; % -0.2m
 windowFunction = true; % true
 
 % sauvegarder les images affiches en format jpf
-img_jpg = false; % false
+img_jpg = true; % false
 
 %
 % Parametres du plan de l'image reconstituee
@@ -99,7 +99,7 @@ if (option == 1)    % creer seulement une image holographique
   save('output/hologram_image.mat', 'hologram_out', 'v7');
   
   % Afficher l'hologramme
-  plotImage(hologram_out, x_out, y_out, img_jpg);  
+  plotImage(hologram_out, x_out, y_out, true);  
 
   fprintf('---------------------------------------\n'); 
 

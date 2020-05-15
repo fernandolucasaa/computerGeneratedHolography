@@ -10,5 +10,5 @@ warning: save: no such variable 'v7'
 warning: called from
     main at line 99 column 3
 ---------------------------------------
-Elapsed time is 1.4676 seconds.
+Elapsed time is 5.96187 seconds.
 ---------------------------------------

@@ -77,7 +77,7 @@ img_jpg = false; % false
 %
 
 % Emplacement de l'image reconstruite dans l'axe z
-targetZ = -0.3; % -0.2m
+targetZ = -0.1; % -0.2m
 
 %
 % Calculs

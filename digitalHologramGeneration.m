@@ -72,14 +72,14 @@ function [hologram_output, referenceWave_output, x_out, y_out] = digitalHologram
   end;
   
   % sauvagarder
-  save('output/points.mat', 'points', 'v7');
+  save('output/points.mat', 'points', '-v7');
   
 ##  fprintf('Positions of the points in the 3D scene [x,y,z]:');
-  
-  for source = 1:size(points, 1)
+##  
+##  for source = 1:size(points, 1)
 ##    fprintf('\nPoint light source %d of %d: [%d, %d, %d]', source, size(points, 1), ...
 ##    points(source, 1), points(source, 2), points(source, 3));
-  end
+##  end
   
   % Utiliser les positions de tous les echantillons
   x = (0:(hologramSamplesX-1)) * samplingDistance + hologramCornerX;
@@ -95,9 +95,9 @@ function [hologram_output, referenceWave_output, x_out, y_out] = digitalHologram
   
   %fprintf('\n\nThe object wave calculation...\n');
   
-  if (windowFunction) 
+##  if (windowFunction) 
 ##    fprintf('Window function considered in the calculation'); 
-  end;
+##  end;
   
   objectWave = zeros(hologramSamplesY, hologramSamplesX);
   
@@ -175,8 +175,9 @@ function [hologram_output, referenceWave_output, x_out, y_out] = digitalHologram
   
   % Modulation d'amplitude
   itensityTotal = (objectWave + referenceWave).*conj(objectWave + referenceWave);
-  
   itensity = 2*real(objectWave.*conj(referenceWave));
+  
+  % partie imaginaire est zero
   hologram = real(itensity);
   hologram_output = hologram;
    

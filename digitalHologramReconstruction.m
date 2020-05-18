@@ -7,7 +7,7 @@
 
 function [reconstruction_out] = digitalHologramReconstruction(lambda, hologramHeight, ...
                                 hologramWidth, hologramZ, samplingDistance, targetZ, ...
-                                hologram, referenceWave, img_jpg)
+                                hologram, referenceWave)
   
 ##  fprintf('[Hologram reconstruction]\n');
 
@@ -96,27 +96,10 @@ function [reconstruction_out] = digitalHologramReconstruction(lambda, hologramHe
   reconstruction = auxMatrix(1:hologramSamplesY, 1:hologramSamplesX);
   
   reconstruction_out = reconstruction;
+  save('output/reconstruction_out.mat', 'reconstruction_out', '-v7');
   
   xAxis = (0:hologramSamplesX - 1)*samplingDistance + hologramCornerX;
   yAxis = (0:hologramSamplesY - 1)*samplingDistance + hologramCornerY;
-  
-##  % Afficher l'image reconstituee
-##  figure();
-##  colormap('gray');
-##  imagesc(xAxis * 1e3, yAxis * 1e3, abs(reconstruction));
-##  set(gca, 'YDir', 'normal');
-##  colorbar;
-##  title('Reconstructed image (intensity)');
-##  xlabel('x [mm]');
-##  ylabel('y [mm]');
-##  axis('image');
-##  
-##  savefig('output/reconstructed_image');
-  
-  if (img_jpg == true)
-    fig = openfig('output/reconstructed_image.fig');
-    saveas(fig, 'output/reconstructed_image.jpg');
-  end;
   
 ##  fprintf('The reconstruction calculated!\n\n');
   

@@ -1,14 +1,9 @@
 ---------------------------------------
-warning: save: no such variable 'v7'
-warning: called from
-    digitalHologramGeneration at line 75 column 3
-    main at line 91 column 51
-warning: save: no such variable 'v7'
-warning: called from
-    main at line 98 column 3
-warning: save: no such variable 'v7'
-warning: called from
-    main at line 99 column 3
+Hologram calculation...
+Hologram calculated!
 ---------------------------------------
-Elapsed time is 5.96187 seconds.
+Hologram reconstruction...
+Hologram reconstructed!
+---------------------------------------
+Elapsed time is 3.07943 seconds.
 ---------------------------------------

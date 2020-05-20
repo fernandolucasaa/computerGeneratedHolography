@@ -64,7 +64,7 @@ samplingDistance = 10e-6;
 pointsChoice = 2; % 1
 
 % localisation des points dans l'aixe z (pour l'exemple ci-dessus)
-pointsZ = [-0.1, -0.2, -0.3, -0.2]; % -0.2m
+pointsZ = [-0.2, -0.2, -0.2, -0.2]; % -0.2m
 
 % fenetre pour limiter la zone de contribution (eviter le repliement du spectre)
 windowFunction = true; % true
@@ -77,7 +77,7 @@ img_jpg = false; % false
 %
 
 % Emplacement de l'image reconstruite dans l'axe z
-targetZ = -0.1; % -0.2m
+targetZ = -0.2; % -0.2m
 
 %
 % Calculs
@@ -224,7 +224,7 @@ elseif (option == 3)
     points3D(1, :) = [allPoints3D(2*i - 1, :)];
     points3D(2, :) = [allPoints3D(2*i, :)];
     
-    % pointsChoice egual a 8 pour mettre les points comme entree
+    % pointsChoice egal a 8 pour mettre les points comme entree
     [hologram_out, referenceWave_out, x_out, y_out] = digitalHologramGeneration(lambda, hologramHeight, ...
                                 hologramWidth, hologramZ, samplingDistance, 8, ...
                                 pointsZ, windowFunction, points3D);
@@ -243,8 +243,8 @@ elseif (option == 3)
   end;
   
   % sauvagarder
-  fileName = ["output/dataset/hologram_dataset_" num2str(nbSamples) "_samples_2_sources.mat"];
-  save(fileName, 'hologram_dataset', '-v7');
+##  fileName = ["output/dataset/hologram_dataset_" num2str(nbSamples) "_samples_2_sources.mat"];
+##  save(fileName, 'hologram_dataset', '-v7');
   
 end;
 

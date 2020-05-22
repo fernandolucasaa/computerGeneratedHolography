@@ -6,7 +6,7 @@
 %  - Range of values for the x and y axes
 %  - Note that the range will be (-a,a)
 % depth
-%  - Maximum value of the 3D scene
+%  - Maximum depth value of the 3D scene
 %  - Note that the value must be positive
 %
 % Outputs:

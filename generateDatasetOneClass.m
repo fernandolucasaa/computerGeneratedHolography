@@ -1,21 +1,21 @@
 
 %
-% Compute a certain number of holograms (nbHolograms) with a increasing number of
+% Compute a certain number of holograms (nbHolograms) with a certain number of
 % point sources in the 3D scene (nbPoints)
 %
 % Inputs:
 % nbPoints
 %  - Number of point sources in the hologram 
 % nbHolograms
-%  - Number of holograms created with a P point sources
+%  - Number of holograms created with nbPoints point sources
 %
 % Outputs:
 % hologramDataset
-%  - Array NxNxH with all holograms calculated
+%  - Array NxNxH with all holograms calculated for the specific class
 % reconstructionDataset
-%  - Array NxNxH with all reconstructed images calculated
+%  - Array NxNxH with all reconstructed images calculated for the specific class
 % pointsDataset
-%  - Matrix (H*P)x3 with the positions of all the points
+%  - Matrix (H*P)x3 with the positions of all the points for the specific class
 %
 
 function [hologramDataset, reconstructionDataset, pointsDataset] = ...

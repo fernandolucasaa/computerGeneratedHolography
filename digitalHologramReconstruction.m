@@ -96,7 +96,7 @@ function [reconstruction_out] = digitalHologramReconstruction(lambda, hologramHe
   reconstruction = auxMatrix(1:hologramSamplesY, 1:hologramSamplesX);
   
   reconstruction_out = reconstruction;
-  save('output/reconstruction_out.mat', 'reconstruction_out', '-v7');
+  %save('output/reconstruction_out.mat', 'reconstruction_out', '-v7');
   
   xAxis = (0:hologramSamplesX - 1)*samplingDistance + hologramCornerX;
   yAxis = (0:hologramSamplesY - 1)*samplingDistance + hologramCornerY;

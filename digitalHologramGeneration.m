@@ -72,7 +72,7 @@ function [hologram_output, referenceWave_output, x_out, y_out] = digitalHologram
   end;
   
   % sauvagarder
-  save('output/points.mat', 'points', '-v7');
+  %save('output/points.mat', 'points', '-v7');
   
 ##  fprintf('Positions of the points in the 3D scene [x,y,z]:');
 ##  

@@ -10,6 +10,16 @@ clc;
 % Start stopwatcher timer
 tic;
 
+% Log Command Window text to file
+dfile = 'output/commandWindow.txt';
+
+if exist(dfile, 'file')
+  delete(dfile);
+end;
+
+diary on;
+diary (dfile);
+
 fprintf('------------------------------------------------------------------\n');
 fprintf('[Dataset generation]\n');
 
@@ -49,3 +59,5 @@ fprintf('Dataset generated!\n');
 toc;
 
 fprintf('------------------------------------------------------------------\n');
+
+diary off;

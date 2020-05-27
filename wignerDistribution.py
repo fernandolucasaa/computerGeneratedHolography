@@ -81,8 +81,8 @@ def wigner_distribution(test_image,seq_length,angle): # seq_length must be an od
     distribution = np.ones([2*h,rows,columns])
     # calculations
     for row in range(h,rows+h):
-        if np.mod(row,100) == 0:
-            print("calculating in row ",row," ...")
+        #if np.mod(row,100) == 0:
+            #print("calculating in row ",row," ...")
             
         for column in range(h,columns+h):
             working_frame = frame[row-h:row+h+1,column-h:column+h+1]

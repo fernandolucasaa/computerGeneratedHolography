@@ -9,8 +9,18 @@ clc
 %
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-% demarrage du chronometre
+% Start stopwatcher timer
 tic;
+
+% Log Command Window text to file
+dfile = 'output/commandWindowScriptParticleLocalization.txt';
+
+if exist(dfile, 'file')
+  delete(dfile);
+end;
+
+diary on;
+diary (dfile);
 
 % longueur de l'onde 
 lambda = 500e-9; % 500nm (vert)
@@ -33,7 +43,7 @@ img_jpg = false; % false
 
 % Recuperer onde de reference et hologramme cree
 referenceWave_out = (load('output/referenceWave_out.mat')).referenceWave_out;
-hologram_out = (load('output/hologram_image.mat')).hologram_out;
+hologram_out = (load('output/hologram_out.mat')).hologram_out;
 
 % Parameters pour l'affichage
 hologramSamplesX = ceil(hologramWidth / samplingDistance);
@@ -177,4 +187,10 @@ title('Points found from the reconstruction segmentation');
 ##title('Points found - xy axis')
 
 fprintf('\n');
+
+% Read elapsed time from stopwatch
 toc;
+
+fprintf('------------------------------------------------------------------\n');
+
+diary off;

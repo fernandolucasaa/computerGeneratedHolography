@@ -11,7 +11,7 @@ function [hologram_output, referenceWave_output, x_out, y_out] = digitalHologram
           hologramHeight, hologramWidth, hologramZ, samplingDistance, pointsChoice, ...
           pointsZ, windowFunction, points3D)
 
-##  fprintf('[Hologram generation]\n\n');
+% ##  fprintf('[Hologram generation]\n\n');
   
   %% [0] Parametres initiaux - Initialisation %%
   
@@ -22,14 +22,14 @@ function [hologram_output, referenceWave_output, x_out, y_out] = digitalHologram
   % Parametres du plan l'hologramme
   %
      
-##  fprintf('Dimensions of the hologram: %d m vs %d m\n', hologramHeight, hologramWidth);
+% ##  fprintf('Dimensions of the hologram: %d m vs %d m\n', hologramHeight, hologramWidth);
   
   % nombre de lignes (y) et de colonnes (x) du plan d'hologramme
   hologramSamplesX = ceil(hologramWidth / samplingDistance);
   hologramSamplesY = ceil(hologramHeight / samplingDistance);
   
-##  fprintf('Resolution of the hologram: %d pixels vs %d pixels\n', hologramSamplesX, hologramSamplesY);
-##  fprintf('\n');
+% ##  fprintf('Resolution of the hologram: %d pixels vs %d pixels\n', hologramSamplesX, hologramSamplesY);
+% ##  fprintf('\n');
   
   % emplacement du coin "inférieur gauche" de l'hologramme (coin de reference)
   % mettre le centre de l'hologramme a x = 0, y = 0
@@ -74,12 +74,12 @@ function [hologram_output, referenceWave_output, x_out, y_out] = digitalHologram
   % sauvagarder
   %save('output/points.mat', 'points', '-v7');
   
-##  fprintf('Positions of the points in the 3D scene [x,y,z]:');
-##  
-##  for source = 1:size(points, 1)
-##    fprintf('\nPoint light source %d of %d: [%d, %d, %d]', source, size(points, 1), ...
-##    points(source, 1), points(source, 2), points(source, 3));
-##  end
+% ##  fprintf('Positions of the points in the 3D scene [x,y,z]:');
+% ##  
+% ##  for source = 1:size(points, 1)
+% ##    fprintf('\nPoint light source %d of %d: [%d, %d, %d]', source, size(points, 1), ...
+% ##    points(source, 1), points(source, 2), points(source, 3));
+% ##  end
   
   % Utiliser les positions de tous les echantillons
   x = (0:(hologramSamplesX-1)) * samplingDistance + hologramCornerX;
@@ -95,9 +95,9 @@ function [hologram_output, referenceWave_output, x_out, y_out] = digitalHologram
   
   %fprintf('\n\nThe object wave calculation...\n');
   
-##  if (windowFunction) 
-##    fprintf('Window function considered in the calculation'); 
-##  end;
+% ##  if (windowFunction) 
+% ##    fprintf('Window function considered in the calculation'); 
+% ##  end;
   
   objectWave = zeros(hologramSamplesY, hologramSamplesX);
   
@@ -106,7 +106,7 @@ function [hologram_output, referenceWave_output, x_out, y_out] = digitalHologram
 
     % pour la retropropagation, inverser le signe de l'unité imaginaire
     if (points(source, 3) > hologramZ)
-##      fprintf('\nAttention! The point is in the front of the hologram plan!\n');
+% ##      fprintf('\nAttention! The point is in the front of the hologram plan!\n');
       ii = -1i;
     else
       ii = 1i;
@@ -132,7 +132,7 @@ function [hologram_output, referenceWave_output, x_out, y_out] = digitalHologram
     objectWave = objectWave + a .* exp(ii*k*r) ./ r .* h;
   
   end
-##  fprintf('\nThe object wave calculed!\n');
+% ##  fprintf('\nThe object wave calculed!\n');
   
   
   %% Calcul de l'onde de reference %%
@@ -154,14 +154,14 @@ function [hologram_output, referenceWave_output, x_out, y_out] = digitalHologram
     ii = 1i;
   else
     ii = -1i;
-##    fprintf('\nAttention! The direction vector is in the opposite direction!\n');
+% ##    fprintf('\nAttention! The direction vector is in the opposite direction!\n');
   end
   
   refAmplitude = max(max(abs(objectWave)));
   
   % l'onde de reference
   referenceWave = refAmplitude * exp(ii * k * (xx*nX + yy*nY + hologramZ*nZ));
-##  fprintf('The reference wave calculed!\n');
+% ##  fprintf('The reference wave calculed!\n');
   
   referenceWave_output = referenceWave;
   
@@ -181,6 +181,6 @@ function [hologram_output, referenceWave_output, x_out, y_out] = digitalHologram
   hologram = real(itensity);
   hologram_output = hologram;
    
-##  fprintf('The hologram calculated!\n');
+% ##  fprintf('The hologram calculated!\n');
   
-end;  
+end  

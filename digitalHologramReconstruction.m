@@ -9,7 +9,7 @@ function [reconstruction_out] = digitalHologramReconstruction(lambda, hologramHe
                                 hologramWidth, hologramZ, samplingDistance, targetZ, ...
                                 hologram, referenceWave)
   
-##  fprintf('[Hologram reconstruction]\n');
+% ##  fprintf('[Hologram reconstruction]\n');
 
   
   %
@@ -43,8 +43,8 @@ function [reconstruction_out] = digitalHologramReconstruction(lambda, hologramHe
     
   % Calcul du noyau de propagation %
   
-##  fprintf('\nNumerical propagation of the hologram\n');
-##  fprintf('The propagation kernel calculation...\n');
+% ##  fprintf('\nNumerical propagation of the hologram\n');
+% ##  fprintf('The propagation kernel calculation...\n');
   
   % La propagation par convolution est calculée à l'aide de matrices de taille
   % (cY lignes cY) x (cX colonnes)
@@ -56,7 +56,7 @@ function [reconstruction_out] = digitalHologramReconstruction(lambda, hologramHe
   py = targetCornerY - hologramCornerY;
   z0 = targetZ - hologramZ; % propagation dans l'aixe z
   
-##  fprintf('\nDistance between the hologram plan and the target plan : %d m\n', z0);
+% ##  fprintf('\nDistance between the hologram plan and the target plan : %d m\n', z0);
   
   % Coordonnees auxiliaires x, y pour le calcul de la convolution
   auxCX = cX - hologramSamplesX + 1;
@@ -73,7 +73,7 @@ function [reconstruction_out] = digitalHologramReconstruction(lambda, hologramHe
  
   %% Le calcul de la reconstruction %%
   
-##  fprintf('\nThe reconstruction calculation...\n');
+% ##  fprintf('\nThe reconstruction calculation...\n');
   
   % Creer la matrice auxiliaire de la bonne taille pour le calcul de la convolution
   % La "taille correcte" signifie que la nature cyclique de la sera supprimée.
@@ -101,6 +101,6 @@ function [reconstruction_out] = digitalHologramReconstruction(lambda, hologramHe
   xAxis = (0:hologramSamplesX - 1)*samplingDistance + hologramCornerX;
   yAxis = (0:hologramSamplesY - 1)*samplingDistance + hologramCornerY;
   
-##  fprintf('The reconstruction calculated!\n\n');
+% ##  fprintf('The reconstruction calculated!\n\n');
   
-end;
+end

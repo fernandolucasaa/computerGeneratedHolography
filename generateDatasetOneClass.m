@@ -35,7 +35,7 @@ function [hologramDataset, reconstructionDataset, pointsDataset] = ...
   % Range of values for particle position
   rangeX = hologramWidth/2;
   rangeY = hologramHeight/2;
-  depth = 0.2;
+  depth = 0.3;
 
   % Create database to store values
   hologramDataset = zeros(hologramSamplesX, hologramSamplesY, nbHolograms);
@@ -55,7 +55,7 @@ function [hologramDataset, reconstructionDataset, pointsDataset] = ...
       point3D = generateRandomPoint(rangeX, rangeY, depth);
       
       % Force z value to be in accordance with the place of reconstruction (BUG)
-      point3D(1,3) = targetZ; 
+      %point3D(1,3) = targetZ; 
     
       % Add the point created in the matrix with all points 
       points3DScene(j, :) = point3D;
@@ -73,6 +73,6 @@ function [hologramDataset, reconstructionDataset, pointsDataset] = ...
     hologramDataset(:,:,index) = hologram;
     reconstructionDataset(:,:,index) = reconstruction;
       
-  endfor
+  end
  
-endfunction
+end

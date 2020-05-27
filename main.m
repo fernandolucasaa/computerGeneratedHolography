@@ -12,7 +12,7 @@ clc
 tic; 
 
 % Enregistrer le texte de la fenetre de commande
-dfile = 'output/commandWindow.txt';
+dfile = 'output/commandWindowMain.txt';
 
 if exist(dfile, 'file')
   delete(dfile);
@@ -64,7 +64,7 @@ samplingDistance = 10e-6;
 pointsChoice = 2; % 1
 
 % localisation des points dans l'aixe z (pour l'exemple ci-dessus)
-pointsZ = [-0.2, -0.2, -0.2, -0.2]; % -0.2m
+pointsZ = [-0.1, -0.2, -0.3, -0.2]; % -0.2m
 
 % fenetre pour limiter la zone de contribution (eviter le repliement du spectre)
 windowFunction = true; % true

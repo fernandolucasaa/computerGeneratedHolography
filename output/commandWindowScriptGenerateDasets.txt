@@ -1,0 +1,17 @@
+------------------------------------------------------------------
+[Dataset generation]
+Number of holograms per class: 50
+Number of classes: 5
+Total number of holograms computed: 250
+Hologram properties:
+ - Dimensions of the hologram: 2mm x 2mm
+ - Resolutions (nb of samples): 200x200
+ - Random arrangement of the particles in the 3D scene
+   - X-axis, Y-axis ranges: (-1mm, 1mm)
+   - Z-axis range: (-0.3m, 0))
+Dataset generation...
+Dataset generated!
+Names of saved structures in the dataset folder: hDataset.mat, rDataset.mat, pDataset.mat
+
+Elapsed time is 30.922544 seconds.
+------------------------------------------------------------------

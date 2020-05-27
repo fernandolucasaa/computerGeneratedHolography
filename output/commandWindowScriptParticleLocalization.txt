@@ -1,0 +1,23 @@
+----- Particles localization -----
+Dimensions of the hologram: 0.002 m vs 0.002 m
+Resolution of the hologram: 200 pixels vs 200 pixels
+Limit of the reconstruction (z): -1.00 m
+Number of segmentations calculated: 10 planes
+Value of the threshold: 20000.00
+Distance of the step: 0.10 m
+
+Point light source 1 of 8: [-0.000380098, -0.000386321, -0.2]
+Point light source 2 of 8: [-0.000303216, 0.00061647, -0.2]
+Point light source 3 of 8: [0.00070967, 0.000901903, -0.2]
+Point light source 4 of 8: [-0.00079181, -0.000431545, -0.2]
+Point light source 5 of 8: [-0.000629374, 0.000866927, -0.2]
+Point light source 6 of 8: [-0.000272066, -0.000497589, -0.2]
+Point light source 7 of 8: [0.000469462, 0.000163699, -0.2]
+Point light source 8 of 8: [0.000213326, -0.000290133, -0.2]
+
+Detected particle in (x,y,z) = [-0.000, -0.000, -0.200]
+Detected particle in (x,y,z) = [-0.000, 0.001, -0.200]
+Detected particle in (x,y,z) = [0.001, 0.001, -0.200]
+
+Elapsed time is 3.73248 seconds.
+------------------------------------------------------------------

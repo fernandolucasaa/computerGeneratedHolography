@@ -30,4 +30,4 @@ function [point3D] = generateRandomPoint(rangeX, rangeY, depth)
   
   point3D = [x, y, z];
   
-endfunction
+end

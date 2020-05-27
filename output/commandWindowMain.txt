@@ -1,0 +1,9 @@
+---------------------------------------
+Hologram calculation...
+Hologram calculated!
+---------------------------------------
+Hologram reconstruction...
+Hologram reconstructed!
+---------------------------------------
+Elapsed time is 3.34874 seconds.
+---------------------------------------

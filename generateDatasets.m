@@ -35,7 +35,7 @@ function [hDataset, rDataset, pDataset] = generateDatasets(nbHolograms, nbClass)
   aux = 0;
   for i = 1:nbClass
     aux = aux + i*nbHolograms; % i = number of points in the holograms
-  endfor
+  end
   pDataset = zeros(aux, 3);
 
   % Auxiliary variables
@@ -66,4 +66,4 @@ function [hDataset, rDataset, pDataset] = generateDatasets(nbHolograms, nbClass)
     
   end
 
-endfunction
+end

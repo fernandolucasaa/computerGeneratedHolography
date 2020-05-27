@@ -79,4 +79,4 @@ function [hologram, reconstruction] = computeHologram(points3D, targetZ)
   % Avoid complex value
   reconstruction = abs(reconstruction_out);
   
-endfunction
+end

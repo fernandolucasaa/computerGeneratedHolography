@@ -9,9 +9,9 @@ ECHO ###########################################################
 
 SET hDataset_file=C:\Users\ferna\Desktop\computerGeneratedHolography\output\dataset\hDataset.mat
 SET rDataset_file=C:\Users\ferna\Desktop\computerGeneratedHolography\output\dataset\rDataset.mat
-SET wd_results_file=C:\Users\ferna\Desktop\computerGeneratedHolography\wd_results.npy
+SET wd_results_file=C:\Users\ferna\Desktop\computerGeneratedHolography\output\wigner_distribution\wd_results.npy
 
-ECHO This batch fill will delete the datasets (.mat and .npy)
+ECHO This batch file will delete the datasets (.mat and .npy)
 
 SET /p delDatasets=Delete datasets [y/n]?: 
 
@@ -39,7 +39,7 @@ IF EXIST %rDataset_file% (
 	ECHO Reconstructed images database does not exist!
 )
 
-ECHO Start deleting .npy files
+ECHO Start deleting .npy files...
 
 IF EXIST %wd_results_file% (
 	DEL %wd_results_file%

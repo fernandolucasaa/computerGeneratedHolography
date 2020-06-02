@@ -24,7 +24,7 @@ fprintf('------------------------------------------------------------------\n');
 fprintf('[Dataset generation]\n');
 
 % Number of holograms per class
-nbHolograms = 50;
+nbHolograms = 200;
 
 % Number of classes (each class has a different number of point sources)
 % Note that the first class will have 1 point source per hologram and the last
@@ -34,14 +34,12 @@ nbClasses = 5; % Do not change
 fprintf('Number of holograms per class: %d\n', nbHolograms);
 fprintf('Number of classes: %d\n', nbClasses);
 fprintf('Total number of holograms computed: %d\n', (nbHolograms * nbClasses));
-
-%
 fprintf('Hologram properties:\n');
 fprintf(' - Dimensions of the hologram: 2mm x 2mm\n');
 fprintf(' - Resolutions (nb of samples): 200x200\n');
 fprintf(' - Random arrangement of the particles in the 3D scene\n');
 fprintf('   - X-axis, Y-axis ranges: (-1mm, 1mm)\n');
-fprintf('   - Z-axis range: (-0.3m, 0))\n');
+fprintf('   - Z-axis range: (-0.5m, -0.05m)\n');
 
 % Generate datasets
 fprintf('Dataset generation...\n');
@@ -49,8 +47,8 @@ fprintf('Dataset generation...\n');
 [hDataset, rDataset, pDataset] = generateDatasets(nbHolograms, nbClasses);
 
 % Save datasets
-%##save('output/dataset/hDataset.mat', 'hDataset', '-v7');
-%##save('output/dataset/rDataset.mat', 'rDataset', '-v7');
+%##save('output/dataset/hDataset.mat', 'hDataset', '-v7'); % Problems with Octave
+%##save('output/dataset/rDataset.mat', 'rDataset', '-v7'); % to save in matlab format
 %##save('output/dataset/pDataset.mat', 'pDataset', '-v7');
 save('output/dataset/hDataset.mat', 'hDataset');
 save('output/dataset/rDataset.mat', 'rDataset');

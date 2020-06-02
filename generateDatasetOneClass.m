@@ -35,7 +35,7 @@ function [hologramDataset, reconstructionDataset, pointsDataset] = ...
   % Range of values for particle position
   rangeX = hologramWidth/2;
   rangeY = hologramHeight/2;
-  depth = 0.3;
+  depth = 0.5;
 
   % Create database to store values
   hologramDataset = zeros(hologramSamplesX, hologramSamplesY, nbHolograms);

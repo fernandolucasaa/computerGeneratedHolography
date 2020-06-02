@@ -11,7 +11,19 @@ SET hDataset_file=C:\Users\ferna\Desktop\computerGeneratedHolography\output\data
 SET rDataset_file=C:\Users\ferna\Desktop\computerGeneratedHolography\output\dataset\rDataset.mat
 SET wd_results_file=C:\Users\ferna\Desktop\computerGeneratedHolography\wd_results.npy
 
-ECHO Start deleting .mat files...
+ECHO This batch fill will delete the datasets (.mat and .npy)
+
+SET /p delDatasets=Delete datasets [y/n]?: 
+
+IF "%delDatasets%" == "n" (
+	ECHO Closing batch file...
+	PAUSE
+	EXIT
+)
+
+IF "%delDatasets%" == "y" (
+	ECHO Start deleting .mat files...
+)
 
 IF EXIST %hDataset_file% (
 	DEL %hDataset_file%

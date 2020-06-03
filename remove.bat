@@ -4,12 +4,13 @@ ECHO ###########################################################
 ECHO ################## REMOVE DATASETS ########################
 ECHO ###########################################################
 
-:: This bat is executable only for deleting all dataset .mat and
+:: This batch file is executable only for deleting all dataset .mat and
 :: .npy files, to make possible to push the Github project
 
-SET hDataset_file=C:\Users\ferna\Desktop\computerGeneratedHolography\output\dataset\hDataset.mat
-SET rDataset_file=C:\Users\ferna\Desktop\computerGeneratedHolography\output\dataset\rDataset.mat
-SET wd_results_file=C:\Users\ferna\Desktop\computerGeneratedHolography\output\wigner_distribution\wd_results.npy
+:: %cd% refers to the current working directory
+SET hDataset_file=%cd%\output\dataset\hDataset.mat
+SET rDataset_file=%cd%\output\dataset\rDataset.mat
+SET wd_results_file=%cd%\output\wigner_distribution\wd_results.npy
 
 ECHO This batch file will delete the datasets (.mat and .npy)
 

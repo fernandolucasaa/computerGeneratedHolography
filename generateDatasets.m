@@ -14,9 +14,11 @@
 % Outputs:
 % hDataset
 %  - Array NxNx(nbHolograms*nbClass) with holograms calculated for all classes
+%  - Note that the values are complex
 % rDataset
 %  - Array NxNx(nbHolograms*nbClass) with reconstructed images calculated for all 
 %    classes
+%  - Note that the values are complex
 % pDataset
 %  -  3D matrix with points' positions for all classes
 %

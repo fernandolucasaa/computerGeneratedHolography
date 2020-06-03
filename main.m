@@ -64,7 +64,7 @@ samplingDistance = 10e-6;
 pointsChoice = 1; % 1
 
 % localisation des points dans l'aixe z (pour l'exemple ci-dessus)
-pointsZ = [-0.06, -0.2, -0.3, -0.2]; % -0.2m
+pointsZ = [-0.2, -0.2, -0.3, -0.2]; % -0.2m
 
 % fenetre pour limiter la zone de contribution (eviter le repliement du spectre)
 windowFunction = true; % true
@@ -94,7 +94,7 @@ if (option == 1)    % creer seulement une image holographique
                                       pointsZ, windowFunction);
   
   fprintf('Hologram calculated!\n');
-  hologram_out = real(hologram_out);
+  %hologram_out = real(hologram_out);
   
   % sauvagarder
   save('output/referenceWave_out.mat', 'referenceWave_out', '-v7');
@@ -105,7 +105,7 @@ if (option == 1)    % creer seulement une image holographique
   xName = 'x [mm]';
   yName = 'y [mm]';
   fileName = 'hologram_out';
-  plotImage(hologram_out, x_out, y_out, img_jpg, titlePlot, xName, yName, fileName);  
+  plotImage(real(hologram_out), x_out, y_out, img_jpg, titlePlot, xName, yName, fileName);  
   
   fprintf('---------------------------------------\n'); 
 
@@ -116,7 +116,7 @@ if (option == 1)    % creer seulement une image holographique
     % reconstruction d'hologramme
     [reconstruction_out] = digitalHologramReconstruction(lambda, hologramHeight, ...
                            hologramWidth, hologramZ, samplingDistance, targetZ, ...
-                           hologram_out, referenceWave_out);
+                           real(hologram_out), referenceWave_out);
                            
     fprintf('Hologram reconstructed!\n');
     

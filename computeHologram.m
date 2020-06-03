@@ -1,3 +1,4 @@
+
 %
 % Compute a digital hologram (holographic interference pattern of an reference
 % wave with an object wave) and also a numerical simulation of hologram reconstruction
@@ -12,13 +13,15 @@
 % Outputs:
 % hologram
 %  - 2D matrix with the interference patterns in the hologram plane
-%  - Note that the values are real and not complex
+%  - Note that the values are complex
 % reconstruction
 %  - 2D matrix with the reconstructed image 
+%  - Note that the values are complex
 %
 % TODO
-% - Check the 'digitalHologramGeneration' function, must return complex values
+% - Improve 'digitalHologramGeneration' function, to much input parameters
 % - Insert others paramaters in the function
+%
 
 function [hologram, reconstruction] = computeHologram(points3D, targetZ)
   
@@ -69,7 +72,10 @@ function [hologram, reconstruction] = computeHologram(points3D, targetZ)
                                       windowFunction, points3D);
   
   % Ensure that the imaginary part is zero
-  hologram = real(hologram_out);
+  %hologram = real(hologram_out);
+  
+  % Use complex value
+  hologram = hologram_out;
   
   % 2. The reconstruction calculation
   [reconstruction_out] = digitalHologramReconstruction(lambda, hologramHeight, ...
@@ -77,6 +83,9 @@ function [hologram, reconstruction] = computeHologram(points3D, targetZ)
                            hologram_out, referenceWave_out);
   
   % Avoid complex value
-  reconstruction = abs(reconstruction_out);
+  %reconstruction = abs(reconstruction_out);
+  
+  % Use complex value
+  reconstruction = reconstruction_out;
   
 end

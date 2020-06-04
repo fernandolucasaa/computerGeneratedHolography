@@ -24,7 +24,7 @@ fprintf('------------------------------------------------------------------\n');
 fprintf('[Dataset generation]\n');
 
 % Number of holograms per class
-nbHolograms = 200;
+nbHolograms = 100;
 
 % Number of classes (each class has a different number of point sources)
 % Note that the first class will have 1 point source per hologram and the last

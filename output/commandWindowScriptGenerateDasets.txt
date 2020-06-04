@@ -1,8 +1,8 @@
 ------------------------------------------------------------------
 [Dataset generation]
-Number of holograms per class: 200
+Number of holograms per class: 100
 Number of classes: 5
-Total number of holograms computed: 1000
+Total number of holograms computed: 500
 Hologram properties:
  - Dimensions of the hologram: 2mm x 2mm
  - Resolutions (nb of samples): 200x200
@@ -13,5 +13,5 @@ Dataset generation...
 Dataset generated!
 Names of saved structures in the dataset folder: hDataset.mat, rDataset.mat, pDataset.mat
 
-Elapsed time is 167.655691 seconds.
+Elapsed time is 62.316382 seconds.
 ------------------------------------------------------------------

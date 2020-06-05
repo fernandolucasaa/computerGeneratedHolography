@@ -12,17 +12,10 @@
 %  - Hologram is located in z = hologramZ
 % samplingDistance
 %  - Sampling distance in both xy axes
-% pointsChoice
-%  - Choose between pre-determined points for the 3D scene (1-7)
-%  - Note that the choice only influences in the number of points and the positions
-%  - on the x and y axis
-% pointsZ
-%  - 1D vector with the depths of the pre-determined points
 % windowFunction
 %  - Window to limit the contribution area (avoid the aliasing effect)
 % points3D
 %  - 3D point position (point source)
-%  - Note that this parameter is used when the 'pointsChoice' equals 8
 %
 % Outputs:
 % hologram_output
@@ -36,13 +29,13 @@
 %  - e.g. (-hologramWidth/2, ..., hologramWidth/2)
 %
 % TODO
-%  - Remove old input parameters: hologramZ, pointsChoice, pointsZ
-%  - Remove pointsChoice's if.
+%  - Remove old input parameters: hologramZ, pointsChoice (removed),
+%    pointsZ (removed)
+%  - Remove pointsChoice's if (removed)
 %
 
 function [hologram_output, referenceWave_output, x_out, y_out] = digitalHologramGeneration(lambda, ...
-          hologramHeight, hologramWidth, hologramZ, samplingDistance, pointsChoice, ...
-          pointsZ, windowFunction, points3D)
+          hologramHeight, hologramWidth, hologramZ, samplingDistance, windowFunction, points3D)
   
   %% [0] Initialization %%
   
@@ -70,30 +63,8 @@ function [hologram_output, referenceWave_output, x_out, y_out] = digitalHologram
   % Scene parameters
   %
   
-  % Scene points
-  if (pointsChoice == 1)
-    points = [0, 0, pointsZ(1)];
-  elseif(pointsChoice == 2)
-    points = [0, 0, pointsZ(1);
-              -hologramWidth / 4, -hologramHeight / 4, pointsZ(2);
-              hologramWidth / 4, hologramHeight / 4, pointsZ(3)];
-  elseif(pointsChoice == 3)
-    points = [-hologramWidth / 4, hologramWidth / 4, pointsZ(1);
-              hologramWidth / 4, hologramWidth / 4, pointsZ(2);
-              -hologramWidth / 4, -hologramHeight / 4, pointsZ(3);
-              hologramWidth / 4, -hologramHeight / 4, pointsZ(4)];
-  elseif(pointsChoice == 4)
-    points = [0, 0, -0.1];
-  elseif(pointsChoice == 5)
-    points = [0, 0, -0.2];
-  elseif(pointsChoice == 6)
-    points = [0, 0, -0.3];
-  elseif(pointsChoice == 7)
-    points = [-hologramWidth / 4, 0, -0.2; 
-              hologramWidth / 4, 0, -0.2;];
-  elseif(pointsChoice == 8)
-    points = points3D;
-  end;
+  % 3D point position (point source)    
+  points = points3D;
   
   % We will use positions of all samples in the hologram plane in 
   % the following calculation of the hologram.

@@ -1,22 +1,25 @@
 
+%
+% Display an hologram or a reconstructed image
+% 
+
 function plotImage(variable, x, y, img_jpg, titlePlot, xName, yName, fileName)
   
-  % Afficher l'hologramme ou l'image reconstituee
   colormap('gray');
   imagesc(x * 1e3, y * 1e3, variable);
-  set(gca, 'YDir', 'normal'); % inverser la direction de l'axe y
+  set(gca, 'YDir', 'normal'); % reverse the direction of the y-axis
   colorbar;
   title(titlePlot);
   xlabel(xName);
   ylabel(yName);
   axis('equal');
-  #axis('image'); #pour l'image reconstituee
+%   #axis('image'); # for the reconstructed image
   
-  savefig(['output/' fileName]);
+  savefig(['output/main/' fileName]);
   
   if (img_jpg == true)
-    fig = openfig(['output/' fileName '.fig']);
-    saveas(fig, ['output/' fileName '.jpg']);
+    fig = openfig(['output/main/' fileName '.fig']);
+    saveas(fig, ['output/main/' fileName '.jpg']);
   end;
 
-endfunction
+end

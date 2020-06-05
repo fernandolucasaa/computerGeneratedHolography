@@ -19,7 +19,8 @@
 %  - Note that the values are complex
 %
 % TODO
-% - Improve 'digitalHologramGeneration' function, to much input parameters
+% - Improve 'digitalHologramGeneration' function, some input parameters are
+%   not necessary
 % - Insert others paramaters in the function
 %
 
@@ -45,22 +46,12 @@ function [hologram, reconstruction] = computeHologram(points3D, targetZ)
 
   % Sampling distance in both xy axes
   samplingDistance = 10e-6;  % common spatial light modulators
-  
-  %
-  % SCENE PARAMETERS
-  %
-  
-  % Center of the scene
-  pointsZ = -0.2; % MUST FIX
-  
-  % Choose arragement of points
-  pointsChoice = 8; % MUST FIX
 
   %
   % CALCUL PARAMETERS
   %
   
-  % Window to limit the contribution area (avoid spectrum folding)
+  % Window to limit the contribution area (avoid aliasing effect)
   windowFunction = true; % true
   
   % ----------------------------------------------------------------------------
@@ -68,8 +59,7 @@ function [hologram, reconstruction] = computeHologram(points3D, targetZ)
   % 1. The hologram calculation
   [hologram_out, referenceWave_out] = digitalHologramGeneration( ...
                                       lambda, hologramHeight, hologramWidth, hologramZ, ...
-                                      samplingDistance, pointsChoice, pointsZ, ...
-                                      windowFunction, points3D);
+                                      samplingDistance, windowFunction, points3D);
   
   % Ensure that the imaginary part is zero
   %hologram = real(hologram_out);

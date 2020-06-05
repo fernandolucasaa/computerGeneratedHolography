@@ -2,16 +2,14 @@ close all
 clear
 clc
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %
-% Generation numerique d'hologramme et leur reconstructon
+% Digital hologram generation and their reconstruction
 %
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-% demarrage du chronometre
+% Start stopwatcher timer
 tic; 
 
-% Enregistrer le texte de la fenetre de commande
+% Log Command Window text to file
 dfile = 'output/commandWindowMain.txt';
 
 if exist(dfile, 'file')
@@ -21,39 +19,38 @@ end;
 diary on;
 diary (dfile);
 
-% Generer un hologramme (1) ou video holographique (2) ou plusieurs hologrammes
-% differents pour generer une base de donnnes pour tester les algorithmes de
-% separation des sources (3)
+% Compute an hologram (1) or a video hologram (2) or several different holograms 
+% to create a database for testing source separation algorithms (3)
 option = 1; % 1
 
-% Generer l'image restitue
+% Compute the restituted image
 reconstructionChoice = true; % false
 
 %
-% Parametres generaux (tous les dimensions sont en metres)
+% General parameters (all dimensions in meters)
 %
 
-% longueur de l'onde 
-lambda = 500e-9; % 500nm (vert)
+% Wavelength
+lambda = 500e-9; % 500nm (green)
 
 %
-% Parametres du plan de l'hologramme
+% Hologram parameters
 %
 
-% plan de l'hologramme
+% Dimensions of the hologram
 hologramHeight = 2e-3; % 2mm
 hologramWidth = 2e-3; % 2mm
 
-% localisation dans l'aixe z
+% Hologram is located in z = hologramZ 
 hologramZ = 0;
 
-% distance d'echantillonnage dans les axes xy
+% Sampling distance in both xy axes
 samplingDistance = 10e-6;
 
-% points de la scene 3D
-% 1 : un point source
-% 2 : trois points sources
-% 3 : quatre points sources
+% Points of the 3D scene
+% 1 : one source point
+% 2 : three source points
+% 3 : four source points
 %
 %     |           |           |
 %     |           | *       * | *
@@ -63,44 +60,63 @@ samplingDistance = 10e-6;
 %
 pointsChoice = 1; % 1
 
-% localisation des points dans l'aixe z (pour l'exemple ci-dessus)
-pointsZ = [-0.2, -0.2, -0.3, -0.2]; % -0.2m
+% Location of points in the z-axis (for the example above)
+pointsZ = [-0.2, -0.2, -0.2, -0.2]; % -0.2m
 
-% fenetre pour limiter la zone de contribution (eviter le repliement du spectre)
+% Scene points
+if (pointsChoice == 1)
+    points = [0, 0, pointsZ(1)];
+elseif(pointsChoice == 2)
+    points = [0, 0, pointsZ(1);
+              -hologramWidth / 4, -hologramHeight / 4, pointsZ(2);
+              hologramWidth / 4, hologramHeight / 4, pointsZ(3)];
+elseif(pointsChoice == 3)
+    points = [-hologramWidth / 4, hologramWidth / 4, pointsZ(1);
+              hologramWidth / 4, hologramWidth / 4, pointsZ(2);
+              -hologramWidth / 4, -hologramHeight / 4, pointsZ(3);
+              hologramWidth / 4, -hologramHeight / 4, pointsZ(4)];
+elseif(pointsChoice == 7)
+    points = [-hologramWidth / 4, 0, -0.2; 
+              hologramWidth / 4, 0, -0.2;];
+end;
+
+% Window to limit the contribution area (avoid aliasing effect)
 windowFunction = true; % true
 
-% sauvegarder les images affiches en format jpf
+% Save reconstructed images in jpg format
 img_jpg = false; % false
 
 %
-% Parametres du plan de l'image reconstituee
+% Hologram reconstruction parameters
 %
 
-% Emplacement de l'image reconstruite dans l'axe z
+% Location of the reconstructed image in the z-axis
 targetZ = -0.2; % -0.2m
 
 %
-% Calculs
+% Computation
 %
 
-if (option == 1)    % creer seulement une image holographique
+if (option == 1)    % Create only an holographic image
 
   fprintf('---------------------------------------\n');
   fprintf('Hologram calculation...\n'); 
 
-  % calcul d'hologramme
+  % Hologram calculation
   [hologram_out, referenceWave_out, x_out, y_out] = digitalHologramGeneration(lambda, hologramHeight, ...
-                                      hologramWidth, hologramZ, samplingDistance, pointsChoice, ...
-                                      pointsZ, windowFunction);
+                                      hologramWidth, hologramZ, samplingDistance, windowFunction, ...
+                                      points);
   
   fprintf('Hologram calculated!\n');
   %hologram_out = real(hologram_out);
   
-  % sauvagarder
-  save('output/referenceWave_out.mat', 'referenceWave_out', '-v7');
-  save('output/hologram_out.mat', 'hologram_out', '-v7');
+  % Save
+%   save('output/referenceWave_out.mat', 'referenceWave_out', '-v7');
+%   save('output/hologram_out.mat', 'hologram_out', '-v7');
+  save('output/main/referenceWave_out.mat', 'referenceWave_out');
+  save('output/main/hologram_out.mat', 'hologram_out');
   
-  % Afficher l'hologramme
+  % Display the hologram
   titlePlot = 'Hologram';
   xName = 'x [mm]';
   yName = 'y [mm]';
@@ -113,14 +129,14 @@ if (option == 1)    % creer seulement une image holographique
     
     fprintf('Hologram reconstruction...\n');
     
-    % reconstruction d'hologramme
+    % Hologram reconstruction
     [reconstruction_out] = digitalHologramReconstruction(lambda, hologramHeight, ...
                            hologramWidth, hologramZ, samplingDistance, targetZ, ...
                            real(hologram_out), referenceWave_out);
                            
     fprintf('Hologram reconstructed!\n');
     
-    % Afficher l'image restitue
+    % Display the reconstructed image
     titlePlot = 'Reconstructed image (intensity)';
     xName = 'x [mm]';
     yName = 'y [mm]';
@@ -132,13 +148,18 @@ if (option == 1)    % creer seulement une image holographique
     
   end;
   
-elseif (option == 2)    % creer un video holographique
+elseif (option == 2)    % Create an holographic video
   
-  % quantite de trames
+  % Number of frames
   nFrames = 3;
-  pointsChoiceVideo = [4 5 6];
   
-  % nombre de lignes (y) et de colonnes (x) du plan d'hologramme
+  % All points
+  points3D = [0, 0, -0.1;
+              0, 0, -0.2;
+              0, 0, -0.3;
+              ];
+  
+  % Number of rows (y) and columns (x) of the hologram
   hologramSamplesX = ceil(hologramWidth / samplingDistance);
   hologramSamplesY = ceil(hologramHeight / samplingDistance);
   
@@ -151,17 +172,17 @@ elseif (option == 2)    % creer un video holographique
     fprintf('Hologram calculation...\n');
     
     [hologram_out, referenceWave_out, x_out, y_out] = digitalHologramGeneration(lambda, hologramHeight, ...
-                                hologramWidth, hologramZ, samplingDistance, pointsChoiceVideo(frame), ...
-                                pointsZ, windowFunction);
+                                hologramWidth, hologramZ, samplingDistance, windowFunction, points3D(frame, :));
                                 
     hologram_video(:,:,frame) = real(hologram_out);
     
     fprintf('Hologram calculated!\n');
     
-    % sauvagarder
-    save('output/hologram_video.mat', 'hologram_video', '-v7');
+    % Save
+%     save('output/hologram_video.mat', 'hologram_video', '-v7');
+    save('output/main/hologram_video.mat', 'hologram_video');
     
-    % Afficher l'hologramme
+    % Display the hologram
     figure(frame)
     titlePlot = 'Hologram';
     xName = 'x [mm]';
@@ -175,16 +196,16 @@ elseif (option == 2)    % creer un video holographique
 
 elseif (option == 3)
 
-  % nombre d'hologrammes a creer
+  % Number of holograms to be create
   nbSamples = 10;
   
-  % nombre de lignes (y) et de colonnes (x) du plan d'hologramme
+  % Number of rows (y) and columns (x) of the hologram
   hologramSamplesX = ceil(hologramWidth / samplingDistance);
   hologramSamplesY = ceil(hologramHeight / samplingDistance);
   
   hologram_dataset = zeros(hologramSamplesX, hologramSamplesY, nbSamples);
   
-  % differents combinations des interferences geres par 2 particules
+  % Different combinations of interferences generated by 2 particles
   allPoints3D = [ -hologramWidth / 4, 0, -0.2;
                    hologramWidth / 4, 0, -0.2;
                    
@@ -220,34 +241,34 @@ elseif (option == 3)
   
   for i = 1:nbSamples
     
-    % seulement deux sources par fois
+    % Only two sources at time
     points3D(1, :) = [allPoints3D(2*i - 1, :)];
     points3D(2, :) = [allPoints3D(2*i, :)];
     
-    % pointsChoice egal a 8 pour mettre les points comme entree
+    % Hologram computation
     [hologram_out, referenceWave_out, x_out, y_out] = digitalHologramGeneration(lambda, hologramHeight, ...
-                                hologramWidth, hologramZ, samplingDistance, 8, ...
-                                pointsZ, windowFunction, points3D);
+                                hologramWidth, hologramZ, samplingDistance, windowFunction, points3D);
                                 
     hologram_dataset(:,:,i) = hologram_out;
     
-    fileName = ["output/dataset/hologram_" num2str(i) ".mat"];
+    fileName = ['output/main/hologram_' num2str(i) '.mat'];
     
-    % sauvagarder
+    % Save
     save(fileName, 'hologram_out');
     
-    % Afficher l'hologramme
-##    figure(i)
-##    plotImage(hologram_dataset(:,:,i), x_out, y_out, img_jpg);
+    % Display the hologram
+% ##    figure(i)
+% ##    plotImage(hologram_dataset(:,:,i), x_out, y_out, img_jpg);
     
   end;
   
-  % sauvagarder
-##  fileName = ["output/dataset/hologram_dataset_" num2str(nbSamples) "_samples_2_sources.mat"];
-##  save(fileName, 'hologram_dataset', '-v7');
+  % Save
+  fileName = ['output/main/hologram_dataset_' num2str(nbSamples) '_samples_2_sources.mat'];
+  save(fileName, 'hologram_dataset');
   
 end;
 
+% Read elapsed time from stopwatch
 toc;
 
 fprintf('---------------------------------------\n')

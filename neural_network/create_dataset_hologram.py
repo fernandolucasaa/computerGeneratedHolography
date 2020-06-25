@@ -73,7 +73,7 @@ def reshape_dataset(dat, nb_holograms):
         dat_r[i, :, :] = dat[:, :, i]
 
     # Reshape the dataset to 1 dimension
-    data_1D = np.reshape(dat_r, (1500, int(rows*columns)))
+    data_1D = np.reshape(dat_r, (1500, int(rows*columns))) # FIX BUG
 
     return data_1D
 

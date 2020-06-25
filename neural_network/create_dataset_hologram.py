@@ -205,7 +205,7 @@ if __name__ == '__main__':
     # Load dataset
     dat, nb_holograms, nb_class, nb_holograms_class = load_dataset()
 
-    # Prepare dateset (reshape, normalize, target's array)
+    # Prepare dataset (reshape, normalize, target's array)
     data_1D_norm, Y_array = pre_processing(dat, nb_holograms, nb_class, nb_holograms_class)
 
     # Split dataset

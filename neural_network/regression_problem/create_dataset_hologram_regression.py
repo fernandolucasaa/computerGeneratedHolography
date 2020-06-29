@@ -120,11 +120,11 @@ def pre_processing(hol_dataset, points_dataset):
     
     # Compute array of targets
     print('Computing Y_array...')
-    Y_array = compute_targets_array(points_dataset)
+    #Y_array = compute_targets_array(points_dataset)
+    Y_array = points_dataset
     print('Y_array shape: ', Y_array.shape)
 
     return data_1D, Y_array
-
 
 def split_dataset(perc, x_array, y_array):
 

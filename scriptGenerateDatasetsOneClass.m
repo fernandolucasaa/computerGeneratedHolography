@@ -24,7 +24,7 @@ fprintf('------------------------------------------------------------------\n');
 fprintf('[Dataset generation]\n');
 
 % Number of holograms for the class
-nbHolograms = 2000;
+nbHolograms = 100;
 
 % Number of point sources per hologram
 nbSources = 1;

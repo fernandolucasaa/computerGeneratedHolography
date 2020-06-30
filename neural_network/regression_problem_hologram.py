@@ -107,7 +107,7 @@ def neural_network(x_train, y_train, x_test, y_test):
     model.compile(loss='mse', optimizer='adam', metrics=['mse'])
 
     # Parameters to train the model
-    nb_epochs = 20
+    nb_epochs = 50
     nb_batchs = 1000
 
     # 3. Train the model

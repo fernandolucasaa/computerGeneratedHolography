@@ -1,5 +1,7 @@
 import time
+import collections
 import numpy as np
+import pandas as pd
 import matplotlib.pyplot as plt
 
 from keras.models import Sequential
@@ -179,6 +181,46 @@ def load_model():
 
     return loaded_model
 
+def predict_results(model, data):
+
+    # Make the predictions
+    predictions = model.predict_classes(data)
+
+    # Number of holograms
+    nb_holograms = data.shape[0]
+
+    # Number of classes 
+    nb_class = 5
+
+    # Number of holograms per class
+    nb_holograms_class = int(nb_holograms / nb_class)
+
+    # Predictions' results per class
+    results_class = np.zeros([nb_class, nb_holograms_class])
+
+    # Auxiliary variables positions
+    init = 0
+    fin = int(nb_holograms / nb_class - 1)
+
+    for i in range(nb_class):
+        results_class[i, :] = predictions[init:(fin+1)]
+        init = fin + 1
+        fin = fin + nb_holograms_class
+
+        # Displat result
+        print('- Predictions for class ' + str(i)) 
+        print(collections.Counter(results_class[i, :]))
+
+def predict(model, train, test):
+
+    print('\n----- Predictions -----')
+
+    print('\n--- Train predictions ---')
+    predict_results(model, train)
+
+    print('\n--- Train predictions ---')
+    predict_results(model, test)
+
 def load_trained_neural_network(x_train, y_train, x_test, y_test):
     '''
     Load and re-compile the trained neural network
@@ -196,6 +238,9 @@ def load_trained_neural_network(x_train, y_train, x_test, y_test):
 
     # Display model results
     show_results(loaded_model, x_train, y_train, x_test, y_test)
+
+    # Display predictions results
+    predict(loaded_model, x_train, x_test)
 
 def main():
 

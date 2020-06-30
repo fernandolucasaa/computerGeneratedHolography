@@ -109,7 +109,7 @@ def save_model(model):
     the model when loaded.
     '''
 
-     # Files
+    # Files
     file_model = 'classification_problem/model.json'
     file_weights = 'classification_problem/model.h5'
 

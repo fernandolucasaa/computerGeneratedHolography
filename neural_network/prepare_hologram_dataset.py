@@ -82,17 +82,17 @@ def load_points_dataset(file_path):
     # File names
     file_name = 'pDataset.mat'
     key = 'pDataset'
-    
+
     # Load dictionary
     data = load_matlab_dictionary(file_path, file_name, key)
-    
+
     return data
 
 def load_datasets_regression():
     '''
     Load the hologram dataset and the points dataset for the regression problem.
     '''
-    
+
     # Current directory
     cwd = os.getcwd()
 
@@ -132,7 +132,7 @@ def load_datasets_regression():
 
 def reshape_dataset(data, nb_holograms):
     '''
-    Reshape the dataset of holograms (images). The matlab's array has the format 
+    Reshape the dataset of holograms (images). The matlab's array has the format
     (rows, columns, index of holograms), we want that the first dimension to be
     the index of holograms and also we want images 1D.
     '''
@@ -205,7 +205,7 @@ def pre_processing(data, nb_holograms, nb_class, nb_holograms_class):
 
     print('----- Data pre-procesing... -----')
 
-    # Reshape the dataset (change the dimension's order an)
+    # Reshape the dataset
     print('Reshaping dataset...')
     data_r = reshape_dataset(data, nb_holograms)
     print('Reshaped dataset shape: ', data_r.shape)
@@ -229,12 +229,44 @@ def pre_processing(data, nb_holograms, nb_class, nb_holograms_class):
 
     return data_norm, y_array
 
-def pre_processing_regression():
+def compute_targets_array_regression(data):
+    '''
+    Compute the array of targets for the regression problem by changing
+    the dimensions of the values.
+    '''
+
+    # 3D position in (mm, mm, m)
+    for i in range(data.shape[0]):
+        data[i, 0] = data[i, 0] * 1000
+        data[i, 1] = data[i, 1] * 1000
+
+    return data
+
+def pre_processing_regression(hol_dataset, pts_dataset):
     '''
     Prepara the datasets (hologram and points) to the regression problem.
     '''
 
+    print('\n----- Data pre-procesing... -----')
 
+    # Reshape the dataset
+    print('Reshaping dataset...')
+    data_r = reshape_dataset(hol_dataset, hol_dataset.shape[2])
+    print('Reshaped dataset shape: ', data_r.shape)
+
+    # Normalize the dataset
+    print('\nNormalizing dataset...')
+    data_norm = normalize_dataset(data_r)
+    print('Normalized dataset shape: ', data_norm.shape)
+
+    # Compute array of targets
+    print('\nComputing array of targets...')
+    # y_array = compute_targets_array_regression(pts_dataset)
+    y_array = pts_dataset
+    print('Y_array shape: ', y_array.shape)
+
+    # Save matrix
+    np.save('regression_problem/Y_array.npy', y_array)
 
     return data_norm, y_array
 
@@ -301,14 +333,14 @@ def split_dataset_regression(perc, x_array, y_array):
     '''
 
     print('\n----- Spliting dataset... -----')
-    
+
     # Number of holograms
     m = x_array.shape[0]
-    
+
     # Split our data in two subsets: training set and testing set
     m_train = int(m*perc)
     m_test = m - m_train
-    
+
     print('Trainset: ' + str(perc*100) + '%, testset: ' + str(round((1 - perc), 1)*100) + ' %')
 
     # Training dataset
@@ -317,14 +349,14 @@ def split_dataset_regression(perc, x_array, y_array):
 
     x_train[:, :] = x_array[0:m_train, :]
     y_train[:, :] = y_array[0:m_train, :]
-    
+
     # Testing set
     x_test = np.zeros([m_test, x_array.shape[1]], dtype=complex)
     y_test = np.zeros((m_test, 3))
 
     x_test[:, :] = x_array[m_train:len(x_array), :]
     y_test[:, :] = y_array[m_train:len(x_array), :]
-    
+
     # Display results
     print('Data : ', x_array.shape, y_array.shape)
     print('Train: ', x_train.shape, y_train.shape)
@@ -335,7 +367,7 @@ def split_dataset_regression(perc, x_array, y_array):
     np.save('regression_problem/Y_train.npy', y_train)
     np.save('regression_problem/X_test.npy', x_test)
     np.save('regression_problem/Y_test.npy', y_test)
-    
+
     print('X_train, Y_train, X_test, Y_test saved in .npy files!\n')
 
 def main():
@@ -364,7 +396,7 @@ def main():
 
         split_dataset(perc, x_array, y_array, nb_holograms, nb_holograms_class)
 
-    else if option == 2:
+    elif option == 2:
 
         # Load datasets
         hologram_dataset, points_dataset = load_datasets_regression()

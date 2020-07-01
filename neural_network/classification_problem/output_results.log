@@ -1,0 +1,108 @@
+---------- [Classification problem] ----------
+Execution date: 2020-07-01 11:27:42.203628
+
+
+----- Loading datasets... -----
+Datasets loaded
+X_train: (2000, 40000), Y_train: (2000,)
+X_test: (500, 40000), Y_test: (500,)
+
+----- Neural network -----
+
+----- Accuracy -----
+Train accuracy: 72.15%, test accuracy: 24.80%
+
+----- Model summary -----
+
+----- Predictions -----
+
+--- Train predictions ---
+
+- Predictions for class 0, accuracy: 91.00%
+[0]: 364.0, [1]: 4.0, [2]: 0.0, [3]: 18.0, [4]: 14.0
+
+- Predictions for class 1, accuracy: 63.75%
+[0]: 60.0, [1]: 255.0, [2]: 2.0, [3]: 38.0, [4]: 45.0
+
+- Predictions for class 2, accuracy: 18.25%
+[0]: 29.0, [1]: 3.0, [2]: 73.0, [3]: 160.0, [4]: 135.0
+
+- Predictions for class 3, accuracy: 96.00%
+[0]: 4.0, [1]: 0.0, [2]: 0.0, [3]: 384.0, [4]: 12.0
+
+- Predictions for class 4, accuracy: 91.75%
+[0]: 11.0, [1]: 0.0, [2]: 0.0, [3]: 22.0, [4]: 367.0
+
+--- Test predictions ---
+
+- Predictions for class 0, accuracy: 33.00%
+[0]: 33.0, [1]: 6.0, [2]: 1.0, [3]: 38.0, [4]: 22.0
+
+- Predictions for class 1, accuracy: 4.00%
+[0]: 22.0, [1]: 4.0, [2]: 0.0, [3]: 42.0, [4]: 32.0
+
+- Predictions for class 2, accuracy: 0.00%
+[0]: 18.0, [1]: 1.0, [2]: 0.0, [3]: 42.0, [4]: 39.0
+
+- Predictions for class 3, accuracy: 50.00%
+[0]: 11.0, [1]: 0.0, [2]: 0.0, [3]: 50.0, [4]: 39.0
+
+- Predictions for class 4, accuracy: 37.00%
+[0]: 17.0, [1]: 0.0, [2]: 0.0, [3]: 46.0, [4]: 37.0
+
+Done!
+Execution time: 22.9503 seconds
+---------- [Classification problem] ----------
+Execution date: 2020-07-01 11:32:26.002470
+
+
+----- Loading datasets... -----
+Datasets loaded
+X_train: (2000, 40000), Y_train: (2000,)
+X_test: (500, 40000), Y_test: (500,)
+
+----- Neural network -----
+
+----- Accuracy -----
+Train accuracy: 72.15%, test accuracy: 24.80%
+
+----- Model summary -----
+
+----- Predictions -----
+
+--- Train predictions ---
+
+- Predictions for class 0, accuracy: 91.00%
+[0]: 364.0, [1]: 4.0, [2]: 0.0, [3]: 18.0, [4]: 14.0
+
+- Predictions for class 1, accuracy: 63.75%
+[0]: 60.0, [1]: 255.0, [2]: 2.0, [3]: 38.0, [4]: 45.0
+
+- Predictions for class 2, accuracy: 18.25%
+[0]: 29.0, [1]: 3.0, [2]: 73.0, [3]: 160.0, [4]: 135.0
+
+- Predictions for class 3, accuracy: 96.00%
+[0]: 4.0, [1]: 0.0, [2]: 0.0, [3]: 384.0, [4]: 12.0
+
+- Predictions for class 4, accuracy: 91.75%
+[0]: 11.0, [1]: 0.0, [2]: 0.0, [3]: 22.0, [4]: 367.0
+
+--- Test predictions ---
+
+- Predictions for class 0, accuracy: 33.00%
+[0]: 33.0, [1]: 6.0, [2]: 1.0, [3]: 38.0, [4]: 22.0
+
+- Predictions for class 1, accuracy: 4.00%
+[0]: 22.0, [1]: 4.0, [2]: 0.0, [3]: 42.0, [4]: 32.0
+
+- Predictions for class 2, accuracy: 0.00%
+[0]: 18.0, [1]: 1.0, [2]: 0.0, [3]: 42.0, [4]: 39.0
+
+- Predictions for class 3, accuracy: 50.00%
+[0]: 11.0, [1]: 0.0, [2]: 0.0, [3]: 50.0, [4]: 39.0
+
+- Predictions for class 4, accuracy: 37.00%
+[0]: 17.0, [1]: 0.0, [2]: 0.0, [3]: 46.0, [4]: 37.0
+
+Done!
+Execution time: 42.1837 seconds

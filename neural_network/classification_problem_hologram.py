@@ -1,13 +1,31 @@
+"""
+Script to train or load a model to a classification problem. The classification problem
+is identify the number of point sources in a hologram dataset.
+"""
+
+import os
 import time
-import collections
+from datetime import datetime as dt
+import logging
 import numpy as np
-import pandas as pd
 import matplotlib.pyplot as plt
 
 from keras.models import Sequential
 from keras.models import model_from_json
 from keras.layers import Dense
 from keras.utils import to_categorical
+
+logger = logging.getLogger(__name__)
+logger.setLevel(logging.DEBUG)
+stream_formatter = logging.Formatter(fmt='%(message)s')
+stream_handler = logging.StreamHandler()
+stream_handler.setFormatter(stream_formatter)
+logger.addHandler(stream_handler)
+
+formatter = logging.Formatter('%(message)s')
+file_handler = logging.FileHandler('classification_problem/output_results.log')
+file_handler.setFormatter(formatter)
+logger.addHandler(file_handler)
 
 def load_data():
     '''
@@ -88,11 +106,11 @@ def show_results(model, x_train, y_train, x_test, y_test):
     # Evaluate the model
     train_acc, test_acc = evaluate_model(model, x_train, y_train, x_test, y_test)
 
-    print('\n----- Accuracy -----')
-    print('Train accuracy: %.2f%%, test accuracy: %.2f%%' % (train_acc*100, test_acc*100))
+    logger.debug('\n----- Accuracy -----')
+    logger.debug('Train accuracy: %.2f%%, test accuracy: %.2f%%' % (train_acc*100, test_acc*100))
 
     # Sumarize model
-    print('\n----- Model summary -----')
+    logger.debug('\n----- Model summary -----')
     model.summary()
 
 def show_training_results(model, x_train, y_train, x_test, y_test, history):
@@ -157,7 +175,7 @@ def neural_network(x_train, y_train, x_test, y_test):
 
     # Save the model
     save_model(model)
-    print('\nModel structure and weights saved!')
+    logger.debug('\nModel structure and weights saved!')
 
 def load_model():
     '''
@@ -182,6 +200,10 @@ def load_model():
     return loaded_model
 
 def predict_results(model, data):
+    '''
+    Make predictions with the model trained in the a dataset and verify
+    the accuracy of the predictions for each class.
+    '''
 
     # Make the predictions
     predictions = model.predict_classes(data)
@@ -189,13 +211,13 @@ def predict_results(model, data):
     # Number of holograms
     nb_holograms = data.shape[0]
 
-    # Number of classes 
+    # Number of classes
     nb_class = 5
 
     # Number of holograms per class
     nb_holograms_class = int(nb_holograms / nb_class)
 
-    # Predictions' results per class
+    # Array for the predictions results per class
     results_class = np.zeros([nb_class, nb_holograms_class])
 
     # Auxiliary variables positions
@@ -207,18 +229,31 @@ def predict_results(model, data):
         init = fin + 1
         fin = fin + nb_holograms_class
 
-        # Displat result
-        print('- Predictions for class ' + str(i)) 
-        print(collections.Counter(results_class[i, :]))
+    # Display results
+    counter = np.zeros((nb_class))
+
+    for i in range(nb_class):
+        counter[0] = np.count_nonzero(results_class[i, :] == 0)
+        counter[1] = np.count_nonzero(results_class[i, :] == 1)
+        counter[2] = np.count_nonzero(results_class[i, :] == 2)
+        counter[3] = np.count_nonzero(results_class[i, :] == 3)
+        counter[4] = np.count_nonzero(results_class[i, :] == 4)
+        logger.debug('\n- Predictions for class ' + str(i) + ', accuracy: ' \
+            '{:.2f}'.format((counter[i] / nb_holograms_class)  * 100) + '%')
+        logger.debug('[0]: ' + str(counter[0]) + ', [1]: ' + str(counter[1]) + ', [2]: ' \
+            + str(counter[2]) + ', [3]: ' + str(counter[3]) + ', [4]: ' + str(counter[4]))
 
 def predict(model, train, test):
+    '''
+    Make predictions with the model trianed in the train dateset and test dataset.
+    '''
 
-    print('\n----- Predictions -----')
+    logger.debug('\n----- Predictions -----')
 
-    print('\n--- Train predictions ---')
+    logger.debug('\n--- Train predictions ---')
     predict_results(model, train)
 
-    print('\n--- Train predictions ---')
+    logger.debug('\n--- Test predictions ---')
     predict_results(model, test)
 
 def load_trained_neural_network(x_train, y_train, x_test, y_test):
@@ -248,40 +283,41 @@ def main():
     start_time = time.time()
 
     # Inital
-    print('---------- [Classification problem] ----------')
+    logger.debug('---------- [Classification problem] ----------')
 
     # Choose an option
     option = int(input('Do you want to train the neural network (MLP) [1] or ' \
         'load the last trained model [2]?\n'))
 
     # Load .npy files
-    print('\n----- Loading datasets... -----')
+    logger.debug('\n----- Loading datasets... -----')
 
     # Load the .npy files (reshaped, normalized, splited)
     x_train, y_train, x_test, y_test = load_data()
 
-    print('Datasets loaded')
-    print('X_train: ' + str(x_train.shape) + ', Y_train: ' + str(y_train.shape))
-    print('X_test: ' + str(x_test.shape) + ', Y_test: ' + str(y_test.shape))
+    logger.debug('Datasets loaded')
+    logger.debug('X_train: ' + str(x_train.shape) + ', Y_train: ' + str(y_train.shape))
+    logger.debug('X_test: ' + str(x_test.shape) + ', Y_test: ' + str(y_test.shape))
 
     if option == 1:
 
         # Train the neural network (MLP)
-        print('\n----- Neural network -----')
+        logger.debug('\n----- Neural network -----')
         neural_network(x_train, y_train, x_test, y_test)
 
     elif option == 2:
 
         # Load and re-compile the trained neural network (MLP)
-        print('\n----- Neural network -----')
+        logger.debug('\n----- Neural network -----')
         load_trained_neural_network(x_train, y_train, x_test, y_test)
 
     else:
 
-        print('Invalid entry!')
+        logger.debug('Invalid entry!')
 
-    print('\nDone!')
-    print('Execution time: %.4f seconds' % (time.time() - start_time))
+    logger.debug('\nDone!')
+    logger.debug('Execution time: %.4f seconds' % (time.time() - start_time))
+    logger.debug('Execution date: ' + str(dt.now()))
 
 if __name__ == '__main__':
     main()

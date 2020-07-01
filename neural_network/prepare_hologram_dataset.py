@@ -44,7 +44,7 @@ def load_dataset():
     # Directory path
     path = str(Path(cwd).parent)
 
-    print('----- Loading hologram dataset... -----')
+    print('\n----- Loading hologram dataset... -----')
 
     # File path
     file_path = path + '\\output\\dataset\\'
@@ -99,7 +99,7 @@ def load_datasets_regression():
     # Directory path
     path = str(Path(cwd).parent)
 
-    print('----- Loading hologram dataset... -----')
+    print('\n----- Loading hologram dataset... -----')
 
     # File path
     file_path = path + '\\output\\dataset\\oneClass\\'
@@ -380,7 +380,7 @@ def main():
 
     # Choose an option
     option = int(input('Do you want to prepare the hologram dataset to the classication problem ' \
-        '(5 classes) [1] or to the regression problem (1 source) [2] ?'))
+        '(5 classes) [1] or to the regression problem (1 source) [2] ?\n'))
 
     if option == 1:
 

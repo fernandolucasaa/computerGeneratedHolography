@@ -10,6 +10,7 @@ ECHO ###########################################################
 :: %cd% refers to the current working directory
 SET hDataset_file=%cd%\output\dataset\hDataset.mat
 SET rDataset_file=%cd%\output\dataset\rDataset.mat
+SET hDataset_file_one=%cd%\output\dataset\oneClass\hDataset.mat
 SET wd_results_file=%cd%\output\wigner_distribution\wd_results.npy
 
 ECHO This batch file will delete the datasets (.mat and .npy)
@@ -38,6 +39,13 @@ IF EXIST %rDataset_file% (
 	ECHO Deleted reconstructed images database!
 ) ELSE (
 	ECHO Reconstructed images database does not exist!
+)
+
+IF EXIST %hDataset_file_one% (
+	DEL %hDataset_file_one%
+	ECHO Deleted hologram database one class!
+) ELSE (
+	ECHO Hologram database one class does not exist!
 )
 
 ECHO Start deleting .npy files...

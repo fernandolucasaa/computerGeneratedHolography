@@ -3,7 +3,6 @@ Script to train or load a model to a classification problem. The classification 
 is identify the number of point sources in a hologram dataset.
 """
 
-import os
 import time
 from datetime import datetime as dt
 import logging
@@ -15,15 +14,19 @@ from keras.models import model_from_json
 from keras.layers import Dense
 from keras.utils import to_categorical
 
+# Using logging to display output in terminal and save the history display in a file
 logger = logging.getLogger(__name__)
 logger.setLevel(logging.DEBUG)
+
+# Output to terminal
 stream_formatter = logging.Formatter(fmt='%(message)s')
 stream_handler = logging.StreamHandler()
 stream_handler.setFormatter(stream_formatter)
 logger.addHandler(stream_handler)
 
+# Output to a file
 formatter = logging.Formatter('%(message)s')
-file_handler = logging.FileHandler('classification_problem/output_results.log')
+file_handler = logging.FileHandler('classification_problem/output_classification.log')
 file_handler.setFormatter(formatter)
 logger.addHandler(file_handler)
 
@@ -141,64 +144,6 @@ def save_model(model):
     # Serialize weights to HDF5
     model.save_weights(file_weights)
 
-def neural_network(x_train, y_train, x_test, y_test):
-    '''
-    Train a Multilayer Perceptron (MLP) to solve a classification problem, the number of
-    point sources in the holograms.
-    '''
-
-    # Convert target classes to categorical ones
-    nb_class = 5
-    y_train, y_test = categorical_target(nb_class, y_train, y_test)
-
-    # Parameters to create a model (number of nodes)
-    nb_nodes_1 = 1000
-    nb_nodes_2 = 400
-    input_dim_1 = x_train.shape[1] # (40000 = 200x200)
-
-    # 1. Create the model (add layers)
-    model = create_model(nb_nodes_1, input_dim_1, nb_nodes_2, nb_class)
-
-    # 2. Compile the model
-    model.compile(loss='categorical_crossentropy', optimizer='adam', metrics=['accuracy'])
-
-    # Parameters to train the model
-    nb_epochs = 50
-    nb_batchs = 1000
-
-    # 3. Train the model
-    history = model.fit(x_train, y_train, validation_data=(x_test, y_test), epochs=nb_epochs, \
-        batch_size=nb_batchs, verbose=1)
-
-    # Display training results
-    show_training_results(model, x_train, y_train, x_test, y_test, history)
-
-    # Save the model
-    save_model(model)
-    logger.debug('\nModel structure and weights saved!')
-
-def load_model():
-    '''
-    Load the keras model.
-    '''
-
-    # Files
-    file_model = 'classification_problem/model.json'
-    file_weights = 'classification_problem/model.h5'
-
-    # Load json file
-    json_file = open(file_model, 'r')
-    loaded_model_json = json_file.read()
-    json_file.close()
-
-    # Create model
-    loaded_model = model_from_json(loaded_model_json)
-
-    # Load weights into new model
-    loaded_model.load_weights(file_weights)
-
-    return loaded_model
-
 def predict_results(model, data):
     '''
     Make predictions with the model trained in the a dataset and verify
@@ -250,11 +195,72 @@ def predict(model, train, test):
 
     logger.debug('\n----- Predictions -----')
 
-    logger.debug('\n--- Train predictions ---')
+    logger.debug('\nTrain predictions:')
     predict_results(model, train)
 
-    logger.debug('\n--- Test predictions ---')
+    logger.debug('\nTest predictions:')
     predict_results(model, test)
+
+def neural_network(x_train, y_train, x_test, y_test):
+    '''
+    Train a Multilayer Perceptron (MLP) to solve a classification problem, the number of
+    point sources in the holograms.
+    '''
+
+    # Convert target classes to categorical ones
+    nb_class = 5
+    y_train, y_test = categorical_target(nb_class, y_train, y_test)
+
+    # Parameters to create a model (number of nodes)
+    nb_nodes_1 = 1000
+    nb_nodes_2 = 400
+    input_dim_1 = x_train.shape[1] # (40000 = 200x200)
+
+    # 1. Create the model (add layers)
+    model = create_model(nb_nodes_1, input_dim_1, nb_nodes_2, nb_class)
+
+    # 2. Compile the model
+    model.compile(loss='categorical_crossentropy', optimizer='adam', metrics=['accuracy'])
+
+    # Parameters to train the model
+    nb_epochs = 50
+    nb_batchs = 1000
+
+    # 3. Train the model
+    history = model.fit(x_train, y_train, validation_data=(x_test, y_test), epochs=nb_epochs, \
+        batch_size=nb_batchs, verbose=1)
+
+    # Display training results
+    show_training_results(model, x_train, y_train, x_test, y_test, history)
+
+    # Save the model
+    save_model(model)
+    logger.debug('\nModel structure and weights saved!')
+
+    # Display predictions results
+    predict(model, x_train, x_test)
+
+def load_model():
+    '''
+    Load the keras model.
+    '''
+
+    # Files
+    file_model = 'classification_problem/model.json'
+    file_weights = 'classification_problem/model.h5'
+
+    # Load json file
+    json_file = open(file_model, 'r')
+    loaded_model_json = json_file.read()
+    json_file.close()
+
+    # Create model
+    loaded_model = model_from_json(loaded_model_json)
+
+    # Load weights into new model
+    loaded_model.load_weights(file_weights)
+
+    return loaded_model
 
 def load_trained_neural_network(x_train, y_train, x_test, y_test):
     '''

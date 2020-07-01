@@ -1,10 +1,16 @@
+"""
+Script to train or load a model to a regression problem. The regression problem
+is identify the positions x, y, z of the point sources in a hologram dataset.
+"""
+
 import time
+from datetime import datetime as dt
 import numpy as np
 import matplotlib.pyplot as plt
 
 from keras.models import Sequential
 from keras.models import model_from_json
-from keras.layers import Dense, Conv2D, Flatten
+from keras.layers import Dense
 '''
 from keras.utils import to_categorical
 from keras.utils.vis_utils import plot_model
@@ -89,6 +95,39 @@ def save_model(model):
     # Serialize weights to HDF5
     model.save_weights(file_weights)
 
+def predict_results(model, data, y_array):
+    '''
+    Make predictions with the model trained in the a dataset and verify the predicted
+    positions of the sources.
+    '''
+
+    # Make the predictions
+    predictions = model.predict(data)
+    print('Prediction shape: ', predictions.shape)
+
+    # Display the prediction for the 10 first examples
+    for i in range(10):
+        point = y_array[i, :]
+        point_p = predictions[i, :]
+        print('Example [' + str(i) + ']')
+        print('Real position:     (x, y, z) = (%.5f, %.5f, %.5f)' \
+            % (point[0], point[1], point[2]))
+        print('Predicted position (x, y, z) = (%.5f, %.5f, %.5f)' \
+            % (point_p[0], point_p[1], point_p[2]))
+
+def predict(model, x_train, y_train, x_test, y_test):
+    '''
+    Make predictions with the model trianed in the train dateset and test dataset.
+    '''
+
+    print('\n----- Predictions -----')
+
+    print('\nTrain predictions:')
+    predict_results(model, x_train, y_train)
+
+    print('\nTest predictions:')
+    predict_results(model, x_test, y_test)
+
 def neural_network(x_train, y_train, x_test, y_test):
     '''
     Train a Multilayer Perceptron (MLP) to solve a regression problem, the positions of the
@@ -121,6 +160,9 @@ def neural_network(x_train, y_train, x_test, y_test):
     save_model(model)
     print('\nModel structure and weights saved!')
 
+    # Display predictions results
+    predict(model, x_train, y_train, x_test, y_test)
+
 def load_model():
     '''
     Load the keras model
@@ -142,7 +184,7 @@ def load_model():
 
     return loaded_model
 
-def load_trained_neural_network():
+def load_trained_neural_network(x_train, y_train, x_test, y_test):
     '''
     Load and re-compile the trained neural network
     '''
@@ -157,6 +199,9 @@ def load_trained_neural_network():
     print('\n----- Model summary -----')
     loaded_model.summary()
 
+    # Display predictions results
+    predict(loaded_model, x_train, y_train, x_test, y_test)
+
 def main():
 
     # Compute execution time
@@ -170,16 +215,16 @@ def main():
     option = int(input('Do you want to train the neural network (MLP) [1] or load the ' \
         'last trained model [2]?\n'))
 
+    # Load .npy files
+    print('\n----- Loading datasets... -----')
+
+    x_train, y_train, x_test, y_test = load_data()
+
+    print('Datasets loaded')
+    print('X_train: ' + str(x_train.shape) + ', Y_train: ' + str(y_train.shape))
+    print('X_test: ' + str(x_test.shape) + ', Y_test: ' + str(y_test.shape))
+
     if option == 1:
-
-        # Load .npy files
-        print('\n----- Loading datasets... -----')
-
-        x_train, y_train, x_test, y_test = load_data()
-
-        print('Datasets loaded')
-        print('X_train: ' + str(x_train.shape) + ', Y_train: ' + str(y_train.shape))
-        print('X_test: ' + str(x_test.shape) + ', Y_test: ' + str(y_test.shape))
 
         # Train the neural network (MLP)
         print('\n----- Neural network -----')
@@ -197,6 +242,7 @@ def main():
 
     print('\nDone!')
     print('Execution time: %.4f seconds' % (time.time() - start_time))
+    print('Execution date: ' + str(dt.now()))
     print('-----------------------------------------')
 
 if __name__ == '__main__':

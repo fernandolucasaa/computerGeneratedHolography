@@ -1,5 +1,12 @@
+"""
+Script to load the datasets created by the Matlab (hologram dataset and points dataset),
+reshape, normalize and split them in train and test dataset for the classification or
+regression problem.
+"""
+
 import os
 import time
+from datetime import datetime as dt
 from pathlib import Path
 import collections
 import scipy.io
@@ -414,6 +421,7 @@ def main():
 
     print('Done!')
     print('Execution time: %.4f seconds' % (time.time() - start_time))
+    print('Execution date: ' + str(dt.now()))
 
 if __name__ == '__main__':
     main()

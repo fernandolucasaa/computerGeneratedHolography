@@ -13,9 +13,9 @@ import scipy.io
 import numpy as np
 
 def load_matlab_dictionary(file_path, file_name, key):
-    '''
+    """
     Load the Matlab dictionary file and return the array as a numpy array.
-    '''
+    """
 
     # Read mat file dictionary
     dictionary = scipy.io.loadmat(file_path + file_name)
@@ -26,10 +26,10 @@ def load_matlab_dictionary(file_path, file_name, key):
     return array
 
 def load_hologram_dataset(file_path):
-    '''
+    """
     Load the hologram dataset saved in a Matlab format. Note that it is
     a dictionary.
-    '''
+    """
 
     # File names
     file_name = 'hDataset.mat'
@@ -41,9 +41,9 @@ def load_hologram_dataset(file_path):
     return data
 
 def load_dataset():
-    '''
+    """
     Load the hologram dataset for the classification problem.
-    '''
+    """
 
     # Current directory
     cwd = os.getcwd()
@@ -81,10 +81,10 @@ def load_dataset():
     return hol_dataset, nb_holograms, nb_class, nb_holograms_class
 
 def load_points_dataset(file_path):
-    '''
+    """
     Load the points dataset saved in a Matlab format. Note that it is a
     dictionary.
-    '''
+    """
 
     # File names
     file_name = 'pDataset.mat'
@@ -96,9 +96,9 @@ def load_points_dataset(file_path):
     return data
 
 def load_datasets_regression():
-    '''
+    """
     Load the hologram dataset and the points dataset for the regression problem.
-    '''
+    """
 
     # Current directory
     cwd = os.getcwd()
@@ -138,11 +138,11 @@ def load_datasets_regression():
     return hol_dataset, pts_dataset
 
 def reshape_dataset(data, nb_holograms):
-    '''
+    """
     Reshape the dataset of holograms (images). The matlab's array has the format
     (rows, columns, index of holograms), we want that the first dimension to be
     the index of holograms and also we want images 1D.
-    '''
+    """
 
     # Dimensions of the dataset
     rows = data.shape[0]
@@ -160,9 +160,9 @@ def reshape_dataset(data, nb_holograms):
     return data_r_1d
 
 def normalize(arr):
-    '''
+    """
     Normalize an array of values.
-    '''
+    """
 
     max_value = np.max(np.max(arr, axis=0))
     min_value = np.min(np.min(arr, axis=0))
@@ -171,10 +171,10 @@ def normalize(arr):
     return arr
 
 def normalize_dataset(data):
-    '''
+    """
     Normalize the dataset of holograms. Note that the holograms has 1 dimension
     (rows x columns).
-    '''
+    """
 
     # Normalize the dataset
     data_norm = np.zeros([data.shape[0], data.shape[1]], dtype=complex)
@@ -186,11 +186,11 @@ def normalize_dataset(data):
     return data_norm
 
 def compute_targets_array(nb_holograms, nb_class, nb_holograms_class):
-    '''
+    """
     Compute the array of targets for the classification problem. Note that
     the number computed corresponds to the number of point sources in the
     hologram.
-    '''
+    """
 
     # Compute array of targets
     y_array = np.zeros([nb_holograms,])
@@ -206,9 +206,9 @@ def compute_targets_array(nb_holograms, nb_class, nb_holograms_class):
     return y_array
 
 def pre_processing(data, nb_holograms, nb_class, nb_holograms_class):
-    '''
+    """
     Prepare the datasets (X and Y) to the classification problem.
-    '''
+    """
 
     print('----- Data pre-procesing... -----')
 
@@ -237,10 +237,10 @@ def pre_processing(data, nb_holograms, nb_class, nb_holograms_class):
     return data_norm, y_array
 
 def compute_targets_array_regression(data):
-    '''
+    """
     Compute the array of targets for the regression problem by changing
     the dimensions of the values.
-    '''
+    """
 
     # 3D position in (mm, mm, m)
     for i in range(data.shape[0]):
@@ -250,9 +250,9 @@ def compute_targets_array_regression(data):
     return data
 
 def pre_processing_regression(hol_dataset, pts_dataset):
-    '''
+    """
     Prepara the datasets (hologram and points) to the regression problem.
-    '''
+    """
 
     print('\n----- Data pre-procesing... -----')
 
@@ -278,9 +278,9 @@ def pre_processing_regression(hol_dataset, pts_dataset):
     return data_norm, y_array
 
 def split_dataset(perc, x_array, y_array, nb_holograms, nb_holograms_class):
-    '''
+    """
     Split the dataset (features and targets) in a trainset and testset.
-    '''
+    """
     print('----- Spliting dataset... -----')
 
     # Number of examples
@@ -335,9 +335,9 @@ def split_dataset(perc, x_array, y_array, nb_holograms, nb_holograms_class):
     print('X_train, Y_train, X_test, Y_test saved in .npy files!\n')
 
 def split_dataset_regression(perc, x_array, y_array):
-    '''
+    """
     Split the dataset in a trainset and testset.
-    '''
+    """
 
     print('\n----- Spliting dataset... -----')
 

@@ -1,12 +1,16 @@
 """
-Scrit to compute the wigner distribution
+Scrit to compute the 1D peusdo wigner distribution in an one-dimensional hologram
+dataset.
 """
+
 import os
 import time
 from datetime import datetime as dt
 from pathlib import Path
 import scipy.io
 import numpy as np
+
+import multiprocessing as mp
 
 def load_matlab_dictionary(file_path, file_name, key):
     """
@@ -112,65 +116,116 @@ def pre_processing(data, nb_holograms):
 
     return data_r
 
+def pseudo_wigner_distribution(z_array, n_pixel, k_freq, N):
+    """
+    Compute the 1D pseudo-Wigner distribution (PWD). The WD has been mathematically
+    defined as:
+
+        W(n, k) = 2 . summation {m = -N/2, N/2} (z(n + m) . z*(n - m) . exp(-i.2.pi.k.(2.m/N)))
+
+    where, the variable z(n) represents the gray value of pixel n in a given image z. Here z*
+    indicates the complex-conjugate of signal z. The sum is limited to a spatial interval
+    (-N/2, N/2-1). In the equation, n and k represent the space and frequency discrete variables
+    respectively and m is a shifting parameter, which is also discrete. Note that we are performing
+    the computation through the local frequency, so it's a simplification.
+    """
+
+    # Spatial interval
+    m_spatial_interval = np.arange(-int(N/2), int(N/2 - 1) + 1)
+
+    # Computation
+    summation = z_array[n_pixel + m_spatial_interval] * np.conj(z_array[n_pixel - m_spatial_interval]) * \
+        np.exp(-1j * 2 * np.pi * k_freq * (2 * np.pi / N))
+
+    # Summation
+    return 2*sum(summation)
 
 def wigner_distribution_1d(array, seq_length, k_list):
     """
-    Calculate the 1D pseudo-Wigner distribution, seq_length is the length in pixels of the
-    operating windowsa and k_list is a list with the spatial frequencies.
+    Compute the 1D pseudo-Wigner distribution of a 1D array, seq_length is the length in pixels
+    of the operating window and k_list is a list with the spatial frequencies.
     """
     # Array shape
-    dim = array.shape[0] # (40000 = 200 x 200)
+    size = array.shape[0] # (40000 = 200 x 200)
 
     # Determine the pixels to frame the array
-    h = int(seq_length/2)
-    N = seq_length
+    h_len = int(seq_length/2)
 
-    # Determine the framing background array
-    z_array = np.ones([dim + 2 * h], dtype=complex)
-    
-    # Insert array into the frame
-    z_array[h:dim+h] = array
+    # Framing background array
+    z_array = np.ones([size + 2*h_len], dtype=complex)
+    z_array[h_len : size+h_len] = array
 
     # 1D Wigner distribution
-    wigner = np.ones([dim, len(k_list)], dtype=complex)
+    wigner = np.ones([size, len(k_list)], dtype=complex)
 
     # Loop through the array
-    for i in range(dim):
+    for i in range(size):
 
         # Adapt the position for the frame background array
-        n_pixel = i + int(N/2)
+        n_pixel = i + h_len
 
         # Auxiliary variable (reset to zero)
         pos_y = 0
 
         # Loop through the spatial frequencies
         for k in k_list:
-
-            # Spatial interval limits
-            m_spatial_interval = np.arange(-int(N/2), int(N/2 - 1) + 1)
-
-            # Computation
-            summation = (z_array[n_pixel + m_spatial_interval] * np.conj(z_array[n_pixel - m_spatial_interval])) * \
-                (np.exp(-1j * 2 * np.pi * k * (2*np.pi/N)))
-
-            # Summation
-            wigner[i, pos_y] = 2*sum(summation)
+            wigner[i, pos_y] = pseudo_wigner_distribution(z_array, n_pixel, k, seq_length)
             pos_y += 1
+
+    return wigner
+
+def wigner_distribution_1d_opt(array, seq_length, k_list):
+    """
+    Compute the 1D pseudo-Wigner distribution of a 1D array, seq_length is the length in pixels
+    of the operating window and k_list is a list with the spatial frequencies.
+    """
+    # Array shape
+    size = array.shape[0] # (40000 = 200 x 200)
+
+    # Determine the pixels to frame the array
+    h_len = int(seq_length/2)
+
+    # Framing background array
+    z_array = np.ones([size + 2*h_len], dtype=complex)
+    z_array[h_len : size+h_len] = array
+
+    # 1D Wigner distribution
+    wigner = np.ones([size, len(k_list)], dtype=complex)
+
+    # Loop through the array
+    for i in range(size):
+
+        # Adapt the position for the frame background array
+        n_pixel = i + h_len
+
+        # Auxiliary variable (reset to zero)
+        pos_y = 0
+
+        # Init Pool Class
+        pool = mp.Pool(mp.cpu_count())
+        
+        result = [pool.apply(pseudo_wigner_distribution, args=(z_array, n_pixel, k, seq_length)) for k in k_list]
+        
+        # # Loop through the spatial frequencies
+        # for k in k_list:
+        #     wigner[i, pos_y] = pseudo_wigner_distribution(z_array, n_pixel, k, seq_length)
+        #     pos_y += 1
 
     return wigner
 
 def compute_wigner_distribution(data):
     """
-    Compute the wigner distribution.
+    Compute the wigner distribution of the dataset.
     """
     print('\n----- Computing 1D wigner distribution... -----')
 
-    # Windows' length
-    N = 9
-    print('Window length: ' + str(N))
+    # Window length
+    window_len = 9
+    print('Window length: ' + str(window_len))
 
     # Spatial frequencies
-    k_list = np.arange(-5, 5, 1) ##### ATTENTION!!!!!!!
+    k_list = np.arange(-4, 4, 1) # I DID NOT UNDERSTAND ???
+
     print('Spatial frequency array: ' + str(k_list))
     print('Spatial frequency array shape: ' + str(k_list.shape))
 
@@ -181,15 +236,19 @@ def compute_wigner_distribution(data):
     print('\nComputing...')
     # for i in range(data.shape[0]):
     for i in range(10):
+        print(i)
         if np.mod(i, 5) == 0:
             print('example ' + str(i))
-        hol = data[i, :]
-        wigner_distribution[i, :, :] = wigner_distribution_1d(hol, N, k_list)
+        hol_1d = data[i, :]
+        wigner_distribution[i, :, :] = wigner_distribution_1d_opt(hol_1d, window_len, k_list)
 
     # Save .npy file
     # np.save('wigner_distribution.npy', wigner_distribution)
 
 def main():
+    """
+    Compute the 1D wigner distribution.
+    """
 
     # Compute execution time
     start_time = time.time()

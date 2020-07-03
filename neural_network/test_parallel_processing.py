@@ -2,36 +2,70 @@
 Script to test parallel processing in python.
 """
 import os
-from multiprocessing import Process, current_process
+import time
+import multiprocessing as mp
 
-def square(number):
-    result = number * number
+def sum_um_to(number):
+    time.sleep(0.5)
+    result = sum(range(1, number + 1))
+    return result
 
-    # We can use the os module in Python to print out the Process ID
-    # assigned to the call of this function
-    #process_id = os.getpid()
-    #print("Process ID: " + str(process_id))
+def sum_um_to_2(number, arg1, arg2):
+    time.sleep(0.5)
+    result = sum(range(1, number + 1))
+    result = result + arg1
+    result = result*arg2
+    return result
 
-    # We can also use the current_process function to get the name
-    # of the current process
-    process_name = current_process().name
-    print("Process name: ", process_name)
-    print("The number " + str(number) + " squares to " + str(result))
+def main2():
+    numbers = range(50)
+
+    # Compute execution time
+    start_time = time.time()
+
+    # Init Pool Class
+    pool = mp.Pool(mp.cpu_count())
+    result = [pool.apply(sum_um_to_2, args=(nb, 0, 1)) for nb in numbers]
+    print(result)
+    print('Execution time: %.4f seconds' % (time.time() - start_time))
+    print('\n')
+    
+    # Compute execution time
+    start_time = time.time()
+
+    # Loop
+    result = []
+    for nb in numbers:
+        result.append(sum_um_to_2(nb, 0, 1))
+
+    print(result)
+    print('Execution time: %.4f seconds' % (time.time() - start_time))
 
 def main():
-    """
-    """
-    print('Number of processors: ', mp.cpu_count())
+    numbers = range(50)
+
+    # Compute execution time
+    start_time = time.time()
+
+    # Pool
+    pool = mp.Pool(mp.cpu_count())
+    result = pool.map(sum_um_to, numbers)
+
+    print(result)
+    print('Execution time: %.4f seconds' % (time.time() - start_time))
+    print('\n')
+
+    # Compute execution time
+    start_time = time.time()
+
+    # Loop
+    result = []
+    for nb in numbers:
+        result.append(sum_um_to(nb))
+    
+    print(result)
+    print('Execution time: %.4f seconds' % (time.time() - start_time))
 
 if __name__ == '__main__':
-
-    processes = []
-    numbers = [1, 2, 3, 4]
-
-    for number in numbers:
-        process = Process(target=square, args=(number,))
-        processes.append(process)
-
-        # Processes are spawned by creating a Process object and
-        # then calling its start() method
-        process.start()
+    # main()
+    main2()

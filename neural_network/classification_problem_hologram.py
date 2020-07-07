@@ -3,6 +3,7 @@ Script to train or load a model to a classification problem. The classification 
 is identify the number of point sources in a hologram dataset.
 """
 
+import os
 import time
 from datetime import datetime as dt
 import logging
@@ -13,6 +14,9 @@ from keras.models import Sequential
 from keras.models import model_from_json
 from keras.layers import Dense
 from keras.utils import to_categorical
+
+# File name
+script_name = os.path.basename(__file__)
 
 # Using logging to display output in terminal and save the history display in a file
 logger = logging.getLogger(__name__)
@@ -26,14 +30,15 @@ logger.addHandler(stream_handler)
 
 # Output to a file
 formatter = logging.Formatter('%(message)s')
-file_handler = logging.FileHandler('classification_problem/output_classification.log')
+file_name = 'classification_problem/output_' + str(script_name[0:len(script_name)-3]) + '.log'
+file_handler = logging.FileHandler(file_name)
 file_handler.setFormatter(formatter)
 logger.addHandler(file_handler)
 
 def load_data():
-    '''
+    """
     Load the prepared datasets (reshaped, normalized, splited) in .npy format.
-    '''
+    """
     x_train = np.load('classification_problem/X_train.npy')
     y_train = np.load('classification_problem/Y_train.npy')
     x_test = np.load('classification_problem/X_test.npy')
@@ -42,9 +47,9 @@ def load_data():
     return x_train, y_train, x_test, y_test
 
 def create_model(nodes_1, dim_1, nodes_2, nb_class):
-    '''
+    """
     Create a sequential model adding the layers.
-    '''
+    """
 
     # Create the model
     model = Sequential()  # build a model layer by layer
@@ -63,9 +68,9 @@ def create_model(nodes_1, dim_1, nodes_2, nb_class):
     return model
 
 def categorical_target(nb_class, y_train, y_test):
-    '''
+    """
     Convert an array of labeled data (targets) to one-hot vector.
-    '''
+    """
 
     y_train = to_categorical(y_train, nb_class)
     y_test = to_categorical(y_test, nb_class)
@@ -73,18 +78,18 @@ def categorical_target(nb_class, y_train, y_test):
     return y_train, y_test
 
 def evaluate_model(model, x_train, y_train, x_test, y_test):
-    '''
+    """
     Evaluate the model in accuracy terms.
-    '''
+    """
     _, train_acc = model.evaluate(x_train, y_train, verbose=0)
     _, test_acc = model.evaluate(x_test, y_test, verbose=0)
 
     return train_acc, test_acc
 
 def plot_history(history):
-    '''
+    """
     Plot the training results (loss and accuracy)
-    '''
+    """
     fig, (ax1, ax2) = plt.subplots(2)
     fig.suptitle('Training and validation loss/accuracy')
 
@@ -101,10 +106,18 @@ def plot_history(history):
     # plt.show()
     fig.savefig('classification_problem/history.png')
 
+def save_summary_to_file(message):
+    """
+    Save the model summary once the logging does not save.
+    """
+    f_name = 'classification_problem/summary.txt'
+    with open(f_name, 'a') as f_out:
+        print(message, file=f_out)
+
 def show_results(model, x_train, y_train, x_test, y_test):
-    '''
+    """
     Display the model results (accuracy and model)
-    '''
+    """
 
     # Evaluate the model
     train_acc, test_acc = evaluate_model(model, x_train, y_train, x_test, y_test)
@@ -115,11 +128,12 @@ def show_results(model, x_train, y_train, x_test, y_test):
     # Sumarize model
     logger.debug('\n----- Model summary -----')
     model.summary()
+    model.summary(print_fn=save_summary_to_file)
 
 def show_training_results(model, x_train, y_train, x_test, y_test, history):
-    '''
+    """
     Display the training results (accuracy, summary, history).
-    '''
+    """
     # Display the model results
     show_results(model, x_train, y_train, x_test, y_test)
 
@@ -127,10 +141,10 @@ def show_training_results(model, x_train, y_train, x_test, y_test, history):
     plot_history(history)
 
 def save_model(model):
-    '''
+    """
     Save the weights and the model separately. Note that it must re-compile
     the model when loaded.
-    '''
+    """
 
     # Files
     file_model = 'classification_problem/model.json'
@@ -145,10 +159,10 @@ def save_model(model):
     model.save_weights(file_weights)
 
 def predict_results(model, data):
-    '''
+    """
     Make predictions with the model trained in the a dataset and verify
     the accuracy of the predictions for each class.
-    '''
+    """
 
     # Make the predictions
     predictions = model.predict_classes(data)
@@ -189,9 +203,9 @@ def predict_results(model, data):
             + str(counter[2]) + ', [3]: ' + str(counter[3]) + ', [4]: ' + str(counter[4]))
 
 def predict(model, train, test):
-    '''
+    """
     Make predictions with the model trianed in the train dateset and test dataset.
-    '''
+    """
 
     logger.debug('\n----- Predictions -----')
 
@@ -202,10 +216,10 @@ def predict(model, train, test):
     predict_results(model, test)
 
 def neural_network(x_train, y_train, x_test, y_test):
-    '''
+    """
     Train a Multilayer Perceptron (MLP) to solve a classification problem, the number of
     point sources in the holograms.
-    '''
+    """
 
     # Convert target classes to categorical ones
     nb_class = 5
@@ -241,9 +255,9 @@ def neural_network(x_train, y_train, x_test, y_test):
     predict(model, x_train, x_test)
 
 def load_model():
-    '''
+    """
     Load the keras model.
-    '''
+    """
 
     # Files
     file_model = 'classification_problem/model.json'
@@ -263,9 +277,9 @@ def load_model():
     return loaded_model
 
 def load_trained_neural_network(x_train, y_train, x_test, y_test):
-    '''
+    """
     Load and re-compile the trained neural network
-    '''
+    """
 
     # Load the trained model
     loaded_model = load_model()

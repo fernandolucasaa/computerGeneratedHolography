@@ -1,0 +1,65 @@
+---------- [Prepare hologram dataset] ----------
+Do you want to prepare the hologram dataset to the classication problem (5 classes) [1] or to the regression problem (1 source) [2] ?
+
+----- Loading hologram dataset... -----
+Hologram dataset loaded (matlab file dictionary)
+Hologram dataset shape: (200, 200, 2500)
+Total number of holograms: 2500
+Number of holograms per class: 500
+Hologram dataset saved in .npy file!
+
+----- Data pre-procesing... -----
+Reshaping dataset...
+Reshaped dataset shape: (2500, 40000)
+
+Normalizing dataset...
+Normalized dataset shape: (2500, 40000)
+
+Computing array of targets...
+Y_array shape: (2500,)
+Counter({0.0: 500, 1.0: 500, 2.0: 500, 3.0: 500, 4.0: 500})
+Y_array saved in a .npy file!
+
+----- Spliting dataset... -----
+Trainset: 80.0%, testset: 20.0 %
+Data : (2500, 40000), (2500,)
+Train: (2000, 40000), (2000,)
+Test : (500, 40000), (500,)
+X_train, Y_train, X_test, Y_test saved in .npy files!
+
+Done!
+Execution time: 29.1366 seconds
+Execution date: 2020-07-07 10:10:55.873356
+---------- [Prepare hologram dataset] ----------
+Do you want to prepare the hologram dataset to the classication problem (5 classes) [1] or to the regression problem (1 source) [2] ?
+
+----- Loading hologram dataset... -----
+Hologram dataset loaded (matlab file dictionary)
+Hologram dataset shape: (200, 200, 2000)
+Total number of holograms: 2000
+
+----- Loading points positions dataset... -----
+Points positions dataset loaded (matlab file dictionary)
+Points positions dataset shape: (2000, 3)
+Number of point sources per hologram: 1
+
+----- Data pre-procesing... -----
+Reshaping dataset...
+Reshaped dataset shape: (2000, 40000)
+
+Normalizing dataset...
+Normalized dataset shape: (2000, 40000)
+
+Computing array of targets...
+Y_array shape: (2000, 3)
+
+----- Spliting dataset... -----
+Trainset: 80.0%, testset: 20.0 %
+Data : (2000, 40000), (2000, 3)
+Train: (1600, 40000), (1600, 3)
+Test : (400, 40000), (400, 3)
+X_train, Y_train, X_test, Y_test saved in .npy files!
+
+Done!
+Execution time: 19.3258 seconds
+Execution date: 2020-07-07 11:11:41.957025

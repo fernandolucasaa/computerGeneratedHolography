@@ -27,11 +27,11 @@ stream_handler.setFormatter(stream_formatter)
 logger.addHandler(stream_handler)
 
 # Output to a file
-formatter = logging.Formatter('%(message)s')
-file_name = 'output_' + str(script_name[0:len(script_name)-3]) + '.log'
-file_handler = logging.FileHandler(file_name)
-file_handler.setFormatter(formatter)
-logger.addHandler(file_handler)
+# formatter = logging.Formatter('%(message)s')
+# file_name = 'output_' + str(script_name[0:len(script_name)-3]) + '.log'
+# file_handler = logging.FileHandler(file_name)
+# file_handler.setFormatter(formatter)
+# logger.addHandler(file_handler)
 
 def load_matlab_dictionary(file_path, file_name, key):
     """

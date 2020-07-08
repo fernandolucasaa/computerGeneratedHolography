@@ -14,6 +14,7 @@ from keras.models import Sequential
 from keras.models import model_from_json
 from keras.layers import Dense
 from keras.callbacks import EarlyStopping
+from keras.callbacks import TensorBoard
 
 """
 from keras.utils import to_categorical
@@ -74,6 +75,7 @@ def create_model(nodes_1, dim_1, nodes_2):
 
     # Third layer (output layer)
     model.add(Dense(3, kernel_initializer='normal', activation='linear'))
+    # model.add(Dense(2, kernel_initializer='normal', activation='linear'))
 
     return model
 
@@ -148,6 +150,10 @@ def predict_results(model, data, y_array):
             % (point[0], point[1], point[2]))
         logger.debug('Predicted position (x, y, z) = (%.5f, %.5f, %.5f)' \
             % (point_p[0], point_p[1], point_p[2]))
+        # logger.debug('Real position:     (x, y) = (%.5f, %.5f)' \
+        #     % (point[0], point[1]))
+        # logger.debug('Predicted position (x, y) = (%.5f, %.5f)' \
+        #     % (point_p[0], point_p[1]))
 
 def predict(model, x_train, y_train, x_test, y_test):
     """
@@ -162,18 +168,39 @@ def predict(model, x_train, y_train, x_test, y_test):
     logger.debug('\nTest predictions:')
     predict_results(model, x_test, y_test)
 
+def callback_functions():
+    """
+    Create callback functions to monitore the training procedure.
+    """
+
+    # Stops the training when there is not improvement in the validations loss for some
+    # consectuve epochs and keeps the best weghts once stopped
+    early_stop = EarlyStopping(monitor='val_loss', mode='min', patience=20, verbose=1, \
+        min_delta=0, restore_best_weights=True)
+
+    # Save the log in a file
+    path_logs = os.getcwd() + '/regression_problem/logs'
+
+    # Measures and visualizes the accuracy and the loss
+    tensor = TensorBoard(log_dir=path_logs, histogram_freq=0, write_graph=0, \
+        write_images=False)
+
+    cb_list = [early_stop, tensor]
+
+    return cb_list
+
 def neural_network(x_train, y_train, x_test, y_test):
     """
     Train a Multilayer Perceptron (MLP) to solve a regression problem, the positions of the
     sources in the 3D scene.
     """
 
-    ### Tests ###
-    # Stops the training when there is not improvement in the validations loss for 10
-    # consectuve epochs and keeps the best weghts once stopped
-    early_stop = EarlyStopping(monitor='val_loss', mode='min', patience=10, verbose=1, \
-        min_delta=0.5)
-    ##############
+    # ### Tests ###
+    # # Stops the training when there is not improvement in the validations loss for 10
+    # # consectuve epochs and keeps the best weghts once stopped
+    # early_stop = EarlyStopping(monitor='val_loss', mode='min', patience=10, verbose=1, \
+    #     min_delta=0.5)
+    # ##############
 
     # Parameters to create the model (number of nodes)
     nb_nodes_1 = 1000
@@ -199,9 +226,12 @@ def neural_network(x_train, y_train, x_test, y_test):
     logger.debug('- Number of epochs: ' + str(nb_epochs))
     logger.debug('- Batch size: ' + str(nb_batchs))
 
+     # Create the callbacks functions
+    cb_list = callback_functions()
+
     # 3. Train the model
     history = model.fit(x_train, y_train, validation_data=(x_test, y_test), epochs=nb_epochs, \
-        batch_size=nb_batchs, callbacks=[early_stop], verbose=1)
+        batch_size=nb_batchs, callbacks=cb_list, verbose=1)
 
     # Display the results
     show_results(model, history)

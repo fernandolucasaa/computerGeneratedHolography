@@ -265,10 +265,14 @@ def compute_targets_array_regression(data):
 
     # 3D position in (mm, mm, m)
     for i in range(data.shape[0]):
-        data[i, 0] = data[i, 0] * 1000
-        data[i, 1] = data[i, 1] * 1000
+        data[i, 0] = round(data[i, 0] * 1000, 3)
+        data[i, 1] = round(data[i, 1] * 1000, 3)
 
-    return data
+    data_n = np.zeros([data.shape[0], 2])
+
+    data_n[:, :] = data[:, 0:2]
+
+    return data_n
 
 def pre_processing_regression(hol_dataset, pts_dataset):
     """
@@ -374,6 +378,7 @@ def split_dataset_regression(perc, x_array, y_array):
     # Training dataset
     x_train = np.zeros([m_train, x_array.shape[1]], dtype=complex)
     y_train = np.zeros((m_train, 3))
+    # y_train = np.zeros((m_train, 2))
 
     x_train[:, :] = x_array[0:m_train, :]
     y_train[:, :] = y_array[0:m_train, :]
@@ -381,6 +386,7 @@ def split_dataset_regression(perc, x_array, y_array):
     # Testing set
     x_test = np.zeros([m_test, x_array.shape[1]], dtype=complex)
     y_test = np.zeros((m_test, 3))
+    # y_test = np.zeros((m_test, 2))
 
     x_test[:, :] = x_array[m_train:len(x_array), :]
     y_test[:, :] = y_array[m_train:len(x_array), :]

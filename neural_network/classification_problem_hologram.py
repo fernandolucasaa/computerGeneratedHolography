@@ -14,6 +14,8 @@ from keras.models import Sequential
 from keras.models import model_from_json
 from keras.layers import Dense
 from keras.utils import to_categorical
+from keras.callbacks import EarlyStopping
+from keras.callbacks import TensorBoard
 
 # File name
 script_name = os.path.basename(__file__)
@@ -29,11 +31,11 @@ stream_handler.setFormatter(stream_formatter)
 logger.addHandler(stream_handler)
 
 # Output to a file
-formatter = logging.Formatter('%(message)s')
-file_name = 'classification_problem/output_' + str(script_name[0:len(script_name)-3]) + '.log'
-file_handler = logging.FileHandler(file_name)
-file_handler.setFormatter(formatter)
-logger.addHandler(file_handler)
+# formatter = logging.Formatter('%(message)s')
+# file_name = 'classification_problem/output_' + str(script_name[0:len(script_name)-3]) + '.log'
+# file_handler = logging.FileHandler(file_name)
+# file_handler.setFormatter(formatter)
+# logger.addHandler(file_handler)
 
 def load_data():
     """
@@ -215,6 +217,28 @@ def predict(model, train, test):
     logger.debug('\nTest predictions:')
     predict_results(model, test)
 
+def callback_functions():
+    """
+    Create callback functions to monitore the training procedure.
+    """
+
+    # Stops the training when there is not improvement in the validations loss for some
+    # consectuve epochs and keeps the best weghts once stopped
+    early_stop = EarlyStopping(monitor='val_loss', mode='min', patience=20, verbose=1, \
+        min_delta=0, restore_best_weights=True)
+
+    # Save the log in a file
+    # file_name = "classification-hologram" + str(dt.now())
+    path_logs = os.getcwd() + '/classification_problem/logs'
+
+    # Measures and visualizes the accuracy and the loss
+    tensor = TensorBoard(log_dir=path_logs, histogram_freq=0, write_graph=0, \
+        write_images=False)
+
+    cb_list = [early_stop, tensor]
+
+    return cb_list
+
 def neural_network(x_train, y_train, x_test, y_test):
     """
     Train a Multilayer Perceptron (MLP) to solve a classification problem, the number of
@@ -240,9 +264,12 @@ def neural_network(x_train, y_train, x_test, y_test):
     nb_epochs = 50
     nb_batchs = 1000
 
+    # Create the callbacks functions
+    cb_list = callback_functions()
+
     # 3. Train the model
     history = model.fit(x_train, y_train, validation_data=(x_test, y_test), epochs=nb_epochs, \
-        batch_size=nb_batchs, verbose=1)
+        batch_size=nb_batchs, callbacks=cb_list, verbose=1)
 
     # Display training results
     show_training_results(model, x_train, y_train, x_test, y_test, history)

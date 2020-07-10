@@ -250,8 +250,8 @@ def neural_network(x_train, y_train, x_test, y_test):
     y_train, y_test = categorical_target(nb_class, y_train, y_test)
 
     # Parameters to create a model (number of nodes)
-    nb_nodes_1 = 7000
-    nb_nodes_2 = 700
+    nb_nodes_1 = 1000
+    nb_nodes_2 = 500
     input_dim_1 = x_train.shape[1] # (40000 = 200x200)
 
     # 1. Create the model (add layers)

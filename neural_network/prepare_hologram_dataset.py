@@ -293,8 +293,8 @@ def pre_processing_regression(hol_dataset, pts_dataset):
 
     # Compute array of targets
     logger.debug('\nComputing array of targets...')
-    # y_array = compute_targets_array_regression(pts_dataset)
-    y_array = pts_dataset
+    y_array = compute_targets_array_regression(pts_dataset)
+    # y_array = pts_dataset
     logger.debug('Y_array shape: ' + str(y_array.shape))
 
     # Save matrix
@@ -377,16 +377,16 @@ def split_dataset_regression(perc, x_array, y_array):
 
     # Training dataset
     x_train = np.zeros([m_train, x_array.shape[1]], dtype=complex)
-    y_train = np.zeros((m_train, 3))
-    # y_train = np.zeros((m_train, 2))
+    # y_train = np.zeros((m_train, 3))
+    y_train = np.zeros((m_train, 2))
 
     x_train[:, :] = x_array[0:m_train, :]
     y_train[:, :] = y_array[0:m_train, :]
 
     # Testing set
     x_test = np.zeros([m_test, x_array.shape[1]], dtype=complex)
-    y_test = np.zeros((m_test, 3))
-    # y_test = np.zeros((m_test, 2))
+    # y_test = np.zeros((m_test, 3))
+    y_test = np.zeros((m_test, 2))
 
     x_test[:, :] = x_array[m_train:len(x_array), :]
     y_test[:, :] = y_array[m_train:len(x_array), :]

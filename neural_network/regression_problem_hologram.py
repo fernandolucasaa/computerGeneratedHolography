@@ -16,6 +16,7 @@ from keras.layers import Dense
 from keras.callbacks import EarlyStopping
 from keras.callbacks import TensorBoard
 
+from sklearn.metrics import mean_squared_error
 """
 from keras.utils import to_categorical
 from keras.utils.vis_utils import plot_model
@@ -74,10 +75,27 @@ def create_model(nodes_1, dim_1, nodes_2):
     model.add(Dense(nodes_2, kernel_initializer='normal', activation='relu'))
 
     # Third layer (output layer)
-    model.add(Dense(3, kernel_initializer='normal', activation='linear'))
-    # model.add(Dense(2, kernel_initializer='normal', activation='linear'))
+    # model.add(Dense(3, kernel_initializer='normal', activation='linear'))
+    model.add(Dense(2, kernel_initializer='normal', activation='linear'))
 
     return model
+
+def evaluate_model(model, x_train, y_train, x_test, y_test):
+    """
+    Evaluate the performance of the model using Root Mean Squared Error.
+    """
+    # Make the predictions
+    pred_train = model.predict(x_train)
+    pred_test = model.predict(x_test)
+
+    # Compute the errors
+    rmsr_train = np.sqrt(mean_squared_error(y_train, pred_train))
+    rmsr_test = np.sqrt(mean_squared_error(y_test, pred_test))
+
+    mse_train, mae_train = model.evaluate(x_train, y_train, verbose=0)
+    mse_test, mae_test = model.evaluate(x_test, y_test, verbose=0)
+
+    return rmsr_train, rmsr_test, mse_train, mae_train, mse_test, mae_test
 
 def plot_history(history):
     """
@@ -100,17 +118,35 @@ def save_summary_to_file(message):
     with open(f_name, 'a') as f_out:
         print(message, file=f_out)
 
-def show_results(model, history):
+def show_results(model, x_train, y_train, x_test, y_test):
     """
     Display the results (summary, history)
     """
+    # Evaluate the performance
+    rmsr_train, rmsr_test, mse_train, mae_train, mse_test, mae_test = \
+    evaluate_model(model, x_train, y_train, x_test, y_test)
+
+    logger.debug('\n----- Performance-----')
+    logger.debug('- Root Mean Squared Error:')
+    logger.debug('Train: %.3f, test: %.3f' % (rmsr_train, rmsr_test))
+    logger.debug('- Mean Squared Error:')
+    logger.debug('Train: %.3f, test: %.3f' % (mse_train, mse_test))
+    logger.debug('- Mean Abosulte Error:')
+    logger.debug('Train: %.3f, test: %.3f' % (mae_train, mae_test))
 
     # Sumarize model
     logger.debug('\n----- Model summary -----')
     model.summary()
     model.summary(print_fn=save_summary_to_file)
 
-    # Plot history
+def show_training_results(model, x_train, y_train, x_test, y_test, history):
+    """
+    Display the training results.
+    """
+    # Display the model results
+    show_results(model, x_train, y_train, x_test, y_test)
+
+    # Plot the history
     plot_history(history)
 
 def save_model(model):
@@ -131,7 +167,33 @@ def save_model(model):
     # Serialize weights to HDF5
     model.save_weights(file_weights)
 
-def predict_results(model, data, y_array):
+
+def plot_predictions(title, y_array, y_pred):
+    """
+    Plot the predicted values against the actual value.
+    """
+    target_x = y_array[:, 0]
+    target_y = y_array[:, 1]
+
+    pred_x = y_pred[:, 0]
+    pred_y = y_pred[:, 1]
+
+    fig, axs = plt.subplots(2)
+    fig.suptitle(title)
+
+    axs[0].scatter(target_x, pred_x)
+    axs[0].plot([target_x.min(), target_x.max()], [target_x.min(), target_x.max()], 'k--', lw=4)
+    axs[0].set_xlabel('x measured')
+    axs[0].set_ylabel('x predicted')
+
+    axs[1].scatter(target_y, pred_y)
+    axs[1].plot([target_y.min(), target_y.max()], [target_y.min(), target_y.max()], 'k--', lw=4)
+    axs[1].set_xlabel('y measured')
+    axs[1].set_ylabel('y predicted')
+    # plt.show()
+    plt.savefig('regression_problem/' + str(title) + '.png')
+
+def predict_results(model, data, y_array, title):
     """
     Make predictions with the model trained in the a dataset and verify the predicted
     positions of the sources.
@@ -146,14 +208,16 @@ def predict_results(model, data, y_array):
         point = y_array[i, :]
         point_p = predictions[i, :]
         logger.debug('Example [' + str(i) + ']')
-        logger.debug('Real position:     (x, y, z) = (%.5f, %.5f, %.5f)' \
-            % (point[0], point[1], point[2]))
-        logger.debug('Predicted position (x, y, z) = (%.5f, %.5f, %.5f)' \
-            % (point_p[0], point_p[1], point_p[2]))
-        # logger.debug('Real position:     (x, y) = (%.5f, %.5f)' \
-        #     % (point[0], point[1]))
-        # logger.debug('Predicted position (x, y) = (%.5f, %.5f)' \
-        #     % (point_p[0], point_p[1]))
+        # logger.debug('Real position:     (x, y, z) = (%.5f, %.5f, %.5f)' \
+        #     % (point[0], point[1], point[2]))
+        # logger.debug('Predicted position (x, y, z) = (%.5f, %.5f, %.5f)' \
+        #     % (point_p[0], point_p[1], point_p[2]))
+        logger.debug('Real position:     (x, y) = (%.2f, %.2f)' \
+            % (point[0], point[1]))
+        logger.debug('Predicted position (x, y) = (%.2f, %.2f)' \
+            % (point_p[0], point_p[1]))
+
+    plot_predictions(title, y_array, predictions)
 
 def predict(model, x_train, y_train, x_test, y_test):
     """
@@ -163,10 +227,10 @@ def predict(model, x_train, y_train, x_test, y_test):
     logger.debug('\n----- Predictions -----')
 
     logger.debug('\nTrain predictions:')
-    predict_results(model, x_train, y_train)
+    predict_results(model, x_train, y_train, 'Train predictions')
 
     logger.debug('\nTest predictions:')
-    predict_results(model, x_test, y_test)
+    predict_results(model, x_test, y_test, 'Test predictions')
 
 def callback_functions():
     """
@@ -175,7 +239,7 @@ def callback_functions():
 
     # Stops the training when there is not improvement in the validations loss for some
     # consectuve epochs and keeps the best weghts once stopped
-    early_stop = EarlyStopping(monitor='val_loss', mode='min', patience=20, verbose=1, \
+    early_stop = EarlyStopping(monitor='val_loss', mode='min', patience=15, verbose=1, \
         min_delta=0, restore_best_weights=True)
 
     # Save the log in a file
@@ -219,7 +283,7 @@ def neural_network(x_train, y_train, x_test, y_test):
     model.compile(loss='mse', optimizer='adam', metrics=['mse'])
 
     # Parameters to train the model
-    nb_epochs = 100
+    nb_epochs = 50
     nb_batchs = 1000
 
     logger.debug('\nParameters to train the model:')
@@ -234,7 +298,7 @@ def neural_network(x_train, y_train, x_test, y_test):
         batch_size=nb_batchs, callbacks=cb_list, verbose=1)
 
     # Display the results
-    show_results(model, history)
+    show_training_results(model, x_train, y_train, x_test, y_test, history)
 
     # Save the model
     save_model(model)
@@ -278,6 +342,9 @@ def load_trained_neural_network(x_train, y_train, x_test, y_test):
     # Sumarize model
     logger.debug('\n----- Model summary -----')
     loaded_model.summary()
+
+    # Display model results
+    show_results(loaded_model, x_train, y_train, x_test, y_test)
 
     # Display predictions results
     predict(loaded_model, x_train, y_train, x_test, y_test)

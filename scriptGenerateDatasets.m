@@ -24,7 +24,7 @@ fprintf('------------------------------------------------------------------\n');
 fprintf('[Dataset generation]\n');
 
 % Number of holograms per class
-nbHolograms = 100;
+nbHolograms = 1000;
 
 % Number of classes (each class has a different number of point sources)
 % Note that the first class will have 1 point source per hologram and the last
@@ -51,7 +51,7 @@ fprintf('Dataset generation...\n');
 %##save('output/dataset/rDataset.mat', 'rDataset', '-v7'); % to save in matlab format
 %##save('output/dataset/pDataset.mat', 'pDataset', '-v7');
 save('output/dataset/hDataset.mat', 'hDataset');
-save('output/dataset/rDataset.mat', 'rDataset');
+% save('output/dataset/rDataset.mat', 'rDataset');
 save('output/dataset/pDataset.mat', 'pDataset');
 
 % Plot figures                        

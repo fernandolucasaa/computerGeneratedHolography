@@ -70,8 +70,8 @@ rowColumnVector = zeros(length(targets),2);
 % Intensite minimale pour etre considere une source ponctuelle
 threshold = 20000;
 
-##maxValueVectorMultipleParticle = zeros(length(targets), 5);
-##rowColumnVectorMultipleParticles = zeros(length(targets), 10);
+% ##maxValueVectorMultipleParticle = zeros(length(targets), 5);
+% ##rowColumnVectorMultipleParticles = zeros(length(targets), 10);
 
 % Faire la reconstruction pour differentes profondeurs
 for targetZ = targets
@@ -102,14 +102,14 @@ for targetZ = targets
     xlabel('x [mm]');
     ylabel('y [mm]');
     axis('image');
-##    if (maxValue >= threshold)
-##      figure
-##      a = fft2(reconstruction_out);
-##      a2 = fftshift(a);
-##      colormap('gray');
-##      imagesc(log(abs(a2)));
-##      colorbar;  
-##    end; 
+% ##    if (maxValue >= threshold)
+% ##      figure
+% ##      a = fft2(reconstruction_out);
+% ##      a2 = fftshift(a);
+% ##      colormap('gray');
+% ##      imagesc(log(abs(a2)));
+% ##      colorbar;  
+% ##    end; 
   end;
   
 end;
@@ -176,15 +176,15 @@ scatter3(pointsFound(:, 1), pointsFound(:, 3), pointsFound(:, 2), '*')
 xlabel('x'); ylabel('z (depth)'); zlabel('y')
 title('Points found from the reconstruction segmentation');
 
-##figure
-##scatter(points(:, 1), points(:, 2))
-##xlabel('x'); ylabel('y'); grid on; 
-##title('Point light sources - xy axis')
-##
-##figure
-##scatter(pointsFound(:, 1), pointsFound(:, 2))
-##xlabel('x'); ylabel('y'); grid on; 
-##title('Points found - xy axis')
+% ##figure
+% ##scatter(points(:, 1), points(:, 2))
+% ##xlabel('x'); ylabel('y'); grid on; 
+% ##title('Point light sources - xy axis')
+% ##
+% ##figure
+% ##scatter(pointsFound(:, 1), pointsFound(:, 2))
+% ##xlabel('x'); ylabel('y'); grid on; 
+% ##title('Points found - xy axis')
 
 fprintf('\n');
 

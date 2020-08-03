@@ -1,8 +1,8 @@
 ------------------------------------------------------------------
 [Dataset generation]
-Number of holograms per class: 1000
+Number of holograms per class: 500
 Number of classes: 5
-Total number of holograms computed: 5000
+Total number of holograms computed: 2500
 Hologram properties:
  - Dimensions of the hologram: 2mm x 2mm
  - Resolutions (nb of samples): 200x200
@@ -10,12 +10,8 @@ Hologram properties:
    - X-axis, Y-axis ranges: (-1mm, 1mm)
    - Z-axis range: (-0.5m, -0.05m)
 Dataset generation...
-[Warning: Variable 'hDataset' cannot be saved to a MAT-file whose version is older than 7.3.
-To save this variable, use the -v7.3 switch.
-Skipping...] 
-[> In <a href="matlab:matlab.internal.language.introspective.errorDocCallback('scriptGenerateDatasets', 'C:\Users\ferna\Desktop\computerGeneratedHolography\scriptGenerateDatasets.m', 53)" style="font-weight:bold">scriptGenerateDatasets</a> (<a href="matlab: opentoline('C:\Users\ferna\Desktop\computerGeneratedHolography\scriptGenerateDatasets.m',53,0)">line 53</a>)] 
 Dataset generated!
 Names of saved structures in the dataset folder: hDataset.mat, rDataset.mat, pDataset.mat
 
-Elapsed time is 557.815120 seconds.
+Elapsed time is 317.733994 seconds.
 ------------------------------------------------------------------

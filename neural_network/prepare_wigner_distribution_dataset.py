@@ -127,36 +127,30 @@ def load_datasets_regression():
     # Directory path
     path = str(Path(cwd).parent)
 
-    logger.debug('\n----- Loading hologram dataset... -----')
+    logger.debug('\n----- Loading wigner distribution dataset... -----')
+
+    wigner_dataset = np.load('wigner_distribution/wigner_distribution.npy')
+    
+    # Display results
+    logger.debug('Wigner distribution loaded (npy file)')
+    logger.debug('Wigner distribution shape: ' + str(wigner_dataset.shape))
 
     # File path
     file_path = path + '\\output\\dataset\\oneClass\\'
 
-    # Load hologram (matfile dictionary)
-    hol_dataset = load_hologram_dataset(file_path)
-
-    # Number of holograms
-    nb_holograms = hol_dataset.shape[2]
-
-    # Display results
-    logger.debug('Hologram dataset loaded (matlab file dictionary)')
-    logger.debug('Hologram dataset shape: ' +  str(hol_dataset.shape))
-    logger.debug('Total number of holograms: ' + str(nb_holograms))
-
     logger.debug('\n----- Loading points positions dataset... -----')
 
     # Load points positions (matfile dictionary)
-    pts_dataset = load_points_dataset(file_path)
+    pts_dataset_total = load_points_dataset(file_path)
 
-    # Number of point sources per hologram
-    nb_point_sources = int(pts_dataset.shape[0]/nb_holograms)
+    pts_dataset = np.zeros([wigner_dataset.shape[0], 3])
+    pts_dataset[:, :] = pts_dataset_total[wigner_dataset.shape[0], :]
 
     # Display results
     logger.debug('Points positions dataset loaded (matlab file dictionary)')
     logger.debug('Points positions dataset shape: ' + str(pts_dataset.shape))
-    logger.debug('Number of point sources per hologram: ' + str(nb_point_sources))
 
-    return hol_dataset, pts_dataset
+    return wigner_dataset, pts_dataset
 
 def reshape_dataset(data, nb_holograms):
     """
@@ -274,7 +268,7 @@ def compute_targets_array_regression(data):
 
     return data_n
 
-def pre_processing_regression(hol_dataset, pts_dataset):
+def pre_processing_regression(wigner_dataset, pts_dataset):
     """
     Prepara the datasets (hologram and points) to the regression problem.
     """
@@ -282,8 +276,9 @@ def pre_processing_regression(hol_dataset, pts_dataset):
     logger.debug('\n----- Data pre-procesing... -----')
 
     # Reshape the dataset
-    logger.debug('Reshaping dataset...')
-    data_r = reshape_dataset(hol_dataset, hol_dataset.shape[2])
+    # logger.debug('Reshaping dataset...')
+    # data_r = reshape_dataset(wigner_dataset[:, :, 0], wigner_dataset.shape[0])
+    data_r = wigner_dataset[:, :, 0]
     logger.debug('Reshaped dataset shape: ' + str(data_r.shape))
 
     # Normalize the dataset
@@ -294,13 +289,13 @@ def pre_processing_regression(hol_dataset, pts_dataset):
     # Compute array of targets
     logger.debug('\nComputing array of targets...')
     # y_array = compute_targets_array_regression(pts_dataset)
-    # y_array = pts_dataset
-    y_array = pts_dataset[:, 2]
+    y_array = pts_dataset
+    # y_array = pts_dataset[:, 2]
 
     logger.debug('Y_array shape: ' + str(y_array.shape))
 
     # Save matrix
-    np.save('regression_problem/Y_array.npy', y_array)
+    # np.save('regression_problem/Y_array.npy', y_array)
 
     return data_norm, y_array
 
@@ -379,25 +374,25 @@ def split_dataset_regression(perc, x_array, y_array):
 
     # Training dataset
     x_train = np.zeros([m_train, x_array.shape[1]], dtype=complex)
-    # y_train = np.zeros((m_train, 3))
+    y_train = np.zeros((m_train, 3))
     # y_train = np.zeros((m_train, 2))
-    y_train = np.zeros((m_train, ))
+    # y_train = np.zeros((m_train, ))
 
-    # x_train[:, :] = x_array[0:m_train, :]
-    # y_train[:, :] = y_array[0:m_train, :]
-    x_train[:] = x_array[0:m_train]
-    y_train[:] = y_array[0:m_train]
+    x_train[:, :] = x_array[0:m_train, :]
+    y_train[:, :] = y_array[0:m_train, :]
+    # x_train[:] = x_array[0:m_train]
+    # y_train[:] = y_array[0:m_train]
 
     # Testing set
     x_test = np.zeros([m_test, x_array.shape[1]], dtype=complex)
-    # y_test = np.zeros((m_test, 3))
+    y_test = np.zeros((m_test, 3))
     # y_test = np.zeros((m_test, 2))
-    y_test = np.zeros((m_test, ))
+    # y_test = np.zeros((m_test, ))
 
-    # x_test[:, :] = x_array[m_train:len(x_array), :]
-    # y_test[:, :] = y_array[m_train:len(x_array), :]
-    x_test[:] = x_array[m_train:len(x_array)]
-    y_test[:] = y_array[m_train:len(x_array)]
+    x_test[:, :] = x_array[m_train:len(x_array), :]
+    y_test[:, :] = y_array[m_train:len(x_array), :]
+    # x_test[:] = x_array[m_train:len(x_array)]
+    # y_test[:] = y_array[m_train:len(x_array)]
 
     # Display results
     logger.debug('Data : ' + str(x_array.shape) + ', ' + str(y_array.shape))
@@ -405,10 +400,10 @@ def split_dataset_regression(perc, x_array, y_array):
     logger.debug('Test : ' + str(x_test.shape) + ', ' + str(y_test.shape))
 
     # Save files
-    np.save('regression_problem/X_train.npy', x_train)
-    np.save('regression_problem/Y_train.npy', y_train)
-    np.save('regression_problem/X_test.npy', x_test)
-    np.save('regression_problem/Y_test.npy', y_test)
+    np.save('wigner_distribution/regression_problem/X_train.npy', x_train)
+    np.save('wigner_distribution/regression_problem/Y_train.npy', y_train)
+    np.save('wigner_distribution/regression_problem/X_test.npy', x_test)
+    np.save('wigner_distribution/regression_problem/Y_test.npy', y_test)
 
     logger.debug('X_train, Y_train, X_test, Y_test saved in .npy files!\n')
 
@@ -418,10 +413,10 @@ def main():
     start_time = time.time()
 
     # Initial
-    logger.debug('---------- [Prepare hologram dataset] ----------')
+    logger.debug('---------- [Prepare wigner distribution dataset] ----------')
 
     # Choose an option
-    logger.debug('Do you want to prepare the hologram dataset to the classication problem ' \
+    logger.debug('Do you want to prepare the wigner distribution dataset to the classication problem ' \
         '(5 classes) [1] or to the regression problem (1 source) [2] ?')
     option = int(input())
 
@@ -442,12 +437,12 @@ def main():
     elif option == 2:
 
         # Load datasets
-        hologram_dataset, points_dataset = load_datasets_regression()
+        wigner_dataset, points_dataset = load_datasets_regression()
 
         # Prepare dataset (reshape, normalize )
-        x_array, y_array = pre_processing_regression(hologram_dataset, points_dataset)
+        x_array, y_array = pre_processing_regression(wigner_dataset, points_dataset)
 
-        # Split dataset
+        # # Split dataset
         perc = 0.8 # percentage
         split_dataset_regression(perc, x_array, y_array)
 

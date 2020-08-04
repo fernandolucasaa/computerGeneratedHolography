@@ -51,10 +51,10 @@ def load_data():
     """
     Load the datasets in .npy format (reshaped, normalizedm splited).
     """
-    x_train = np.load('regression_problem/X_train.npy')
-    y_train = np.load('regression_problem/Y_train.npy')
-    x_test = np.load('regression_problem/X_test.npy')
-    y_test = np.load('regression_problem/Y_test.npy')
+    x_train = np.load('wigner_distribution/regression_problem/X_train.npy')
+    y_train = np.load('wigner_distribution/regression_problem/Y_train.npy')
+    x_test = np.load('wigner_distribution/regression_problem/X_test.npy')
+    y_test = np.load('wigner_distribution/regression_problem/Y_test.npy')
 
     return x_train, y_train, x_test, y_test
 
@@ -75,9 +75,9 @@ def create_model(nodes_1, dim_1, nodes_2):
     model.add(Dense(nodes_2, kernel_initializer='normal', activation='relu'))
 
     # Third layer (output layer)
-    # model.add(Dense(3, kernel_initializer='normal', activation='linear'))
+    model.add(Dense(3, kernel_initializer='normal', activation='linear'))
     # model.add(Dense(2, kernel_initializer='normal', activation='linear'))
-    model.add(Dense(1, kernel_initializer='normal', activation='linear'))
+    # model.add(Dense(1, kernel_initializer='normal', activation='linear'))
 
     return model
 
@@ -157,8 +157,8 @@ def save_model(model):
     """
 
     # Files
-    file_model = 'regression_problem/model.json'
-    file_weights = 'regression_problem/model.h5'
+    file_model = 'wigner_distribution/regression_problem/model.json'
+    file_weights = 'wigner_distribution/regression_problem/model.h5'
 
     # Serialize model to JSON
     model_json = model.to_json()
@@ -206,23 +206,23 @@ def predict_results(model, data, y_array, title):
 
     # Display the prediction for the 10 first examples
     for i in range(10):
-        # point = y_array[i, :]
-        # point_p = predictions[i, :]
-        point = y_array[i]
+        point = y_array[i, :]
         point_p = predictions[i, :]
+        # point = y_array[i]
+        # point_p = predictions[i, :]
         logger.debug('Example [' + str(i) + ']')
-        # logger.debug('Real position:     (x, y, z) = (%.5f, %.5f, %.5f)' \
-        #     % (point[0], point[1], point[2]))
-        # logger.debug('Predicted position (x, y, z) = (%.5f, %.5f, %.5f)' \
-        #     % (point_p[0], point_p[1], point_p[2]))
+        logger.debug('Real position:     (x, y, z) = (%.5f, %.5f, %.5f)' \
+            % (point[0], point[1], point[2]))
+        logger.debug('Predicted position (x, y, z) = (%.5f, %.5f, %.5f)' \
+            % (point_p[0], point_p[1], point_p[2]))
         # logger.debug('Real position:     (x, y) = (%.2f, %.2f)' \
         #     % (point[0], point[1]))
         # logger.debug('Predicted position (x, y) = (%.2f, %.2f)' \
         #     % (point_p[0], point_p[1]))
-        logger.debug('Real position:     (z) = (%.2f)' \
-            % (point))
-        logger.debug('Predicted position (z) = (%.2f)' \
-            % (point_p))
+        # logger.debug('Real position:     (z) = (%.2f)' \
+        #     % (point))
+        # logger.debug('Predicted position (z) = (%.2f)' \
+        #     % (point_p))
 
     # plot_predictions(title, y_array, predictions)
 
@@ -250,7 +250,7 @@ def callback_functions():
         min_delta=0, restore_best_weights=True)
 
     # Save the log in a file
-    path_logs = os.getcwd() + '/regression_problem/logs'
+    path_logs = os.getcwd() + 'wigner_distribution/regression_problem/logs'
 
     # Measures and visualizes the accuracy and the loss
     tensor = TensorBoard(log_dir=path_logs, histogram_freq=0, write_graph=0, \

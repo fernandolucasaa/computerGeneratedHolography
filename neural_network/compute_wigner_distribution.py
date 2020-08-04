@@ -54,7 +54,7 @@ def load_dataset():
     print('\n----- Loading hologram dataset... -----')
 
     # File path
-    file_path = path + '\\output\\dataset\\'
+    file_path = path + '\\output\\dataset\\oneClass\\'
 
     # Load hologram (matfile dictionary)
     hol_dataset = load_hologram_dataset(file_path)
@@ -63,7 +63,7 @@ def load_dataset():
     nb_holograms = hol_dataset.shape[2]
 
     # Number of classes
-    nb_class = 5
+    nb_class = 1
 
     # Number of holograms per class
     nb_holograms_class = int(nb_holograms/nb_class)
@@ -229,21 +229,28 @@ def compute_wigner_distribution(data):
     print('Spatial frequency array: ' + str(k_list))
     print('Spatial frequency array shape: ' + str(k_list.shape))
 
+    lim = 500
+
     # 1D wigner distribution
-    wigner_distribution = np.zeros([data.shape[0], data.shape[1], len(k_list)], dtype=complex)
+    wigner_distribution = np.zeros([lim, data.shape[1], len(k_list)], dtype=complex)
+    # wigner_distribution = np.zeros([data.shape[0], data.shape[1], len(k_list)], dtype=complex)
     print('Wigner distribution shape: ' + str(wigner_distribution.shape))
 
     print('\nComputing...')
     # for i in range(data.shape[0]):
-    for i in range(10):
+    
+    for i in range(lim):
         print(i)
         if np.mod(i, 5) == 0:
             print('example ' + str(i))
         hol_1d = data[i, :]
-        wigner_distribution[i, :, :] = wigner_distribution_1d_opt(hol_1d, window_len, k_list)
+        # wigner_distribution[i, :, :] = wigner_distribution_1d_opt(hol_1d, window_len, k_list)
+        wigner_distribution[i, :, :] = wigner_distribution_1d(hol_1d, window_len, k_list)
 
     # Save .npy file
-    # np.save('wigner_distribution.npy', wigner_distribution)
+    np.save('wigner_distribution/wigner_distribution.npy', wigner_distribution)
+
+    print('Wigner distribution saved in .npy file!')
 
 def main():
     """

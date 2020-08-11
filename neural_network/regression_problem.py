@@ -17,15 +17,6 @@ from keras.callbacks import EarlyStopping
 from keras.callbacks import TensorBoard
 
 from sklearn.metrics import mean_squared_error
-"""
-from keras.utils import to_categorical
-from keras.utils.vis_utils import plot_model
-from keras.wrappers.scikit_learn import KerasRegressor
-from sklearn.model_selection import cross_val_score
-from sklearn.model_selection import KFold
-from sklearn.preprocessing import StandardScaler
-from sklearn.pipeline import Pipeline
-"""
 
 # File name
 script_name = os.path.basename(__file__)
@@ -47,20 +38,30 @@ logger.addHandler(stream_handler)
 # file_handler.setFormatter(formatter)
 # logger.addHandler(file_handler)
 
-def load_data():
+def load_data(opt):
     """
-    Load the datasets in .npy format (reshaped, normalizedm splited).
+    Load the hologram datasets or the wigner distribution datasets in .npy format 
+    (reshaped, normalizedm splited).
     """
-    x_train = np.load('regression_problem/X_train.npy')
-    y_train = np.load('regression_problem/Y_train.npy')
-    x_test = np.load('regression_problem/X_test.npy')
-    y_test = np.load('regression_problem/Y_test.npy')
+    if opt == 1: # Hologram dataset
+    
+        x_train = np.load('regression_problem/X_train.npy')
+        y_train = np.load('regression_problem/Y_train.npy')
+        x_test = np.load('regression_problem/X_test.npy')
+        y_test = np.load('regression_problem/Y_test.npy')
+
+    elif opt == 2: # Wigner distribution dataset
+
+        x_train = np.load('wigner_distribution/regression_problem/X_train.npy')
+        y_train = np.load('wigner_distribution/regression_problem/Y_train.npy')
+        x_test = np.load('wigner_distribution/regression_problem/X_test.npy')
+        y_test = np.load('wigner_distribution/regression_problem/Y_test.npy')
 
     return x_train, y_train, x_test, y_test
 
 def create_model(nodes_1, dim_1, nodes_2):
     """
-    Create the sequantial model adding the layers.
+    Create the sequential model adding the layers.
     """
 
     # Create the model
@@ -75,9 +76,9 @@ def create_model(nodes_1, dim_1, nodes_2):
     model.add(Dense(nodes_2, kernel_initializer='normal', activation='relu'))
 
     # Third layer (output layer)
-    # model.add(Dense(3, kernel_initializer='normal', activation='linear'))
+    model.add(Dense(3, kernel_initializer='normal', activation='linear'))
     # model.add(Dense(2, kernel_initializer='normal', activation='linear'))
-    model.add(Dense(1, kernel_initializer='normal', activation='linear'))
+    # model.add(Dense(1, kernel_initializer='normal', activation='linear'))
 
     return model
 
@@ -206,23 +207,23 @@ def predict_results(model, data, y_array, title):
 
     # Display the prediction for the 10 first examples
     for i in range(10):
-        # point = y_array[i, :]
-        # point_p = predictions[i, :]
-        point = y_array[i]
+        point = y_array[i, :]
         point_p = predictions[i, :]
+        # point = y_array[i]
+        # point_p = predictions[i, :]
         logger.debug('Example [' + str(i) + ']')
-        # logger.debug('Real position:     (x, y, z) = (%.5f, %.5f, %.5f)' \
-        #     % (point[0], point[1], point[2]))
-        # logger.debug('Predicted position (x, y, z) = (%.5f, %.5f, %.5f)' \
-        #     % (point_p[0], point_p[1], point_p[2]))
+        logger.debug('Real position:     (x, y, z) = (%.5f, %.5f, %.5f)' \
+            % (point[0], point[1], point[2]))
+        logger.debug('Predicted position (x, y, z) = (%.5f, %.5f, %.5f)' \
+            % (point_p[0], point_p[1], point_p[2]))
         # logger.debug('Real position:     (x, y) = (%.2f, %.2f)' \
         #     % (point[0], point[1]))
         # logger.debug('Predicted position (x, y) = (%.2f, %.2f)' \
         #     % (point_p[0], point_p[1]))
-        logger.debug('Real position:     (z) = (%.2f)' \
-            % (point))
-        logger.debug('Predicted position (z) = (%.2f)' \
-            % (point_p))
+        # logger.debug('Real position:     (z) = (%.2f)' \
+        #     % (point))
+        # logger.debug('Predicted position (z) = (%.2f)' \
+        #     % (point_p))
 
     # plot_predictions(title, y_array, predictions)
 
@@ -364,27 +365,37 @@ def main():
     # Inital
     logger.debug('---------- [Regression problem] ----------')
 
-
     # Choose an option
-    option = int(input('Do you want to train the neural network (MLP) [1] or load the ' \
-        'last trained model [2]?\n'))
+    option1 = int(input('Do you want to use the hologram dataset [1] or the wigner ' \
+        'distribution dataset [2]?\n'))
+
+    if option1 == 1:
+        logger.debug('\n----- [Using hologram dataset] -----')
+    elif option1 == 2:
+        logger.debug('\n----- [Using wigner distribution dataset] -----')
+    else:
+        logger.debug('Invalid entry!')
 
     # Load .npy files
     logger.debug('\n----- Loading datasets... -----')
 
-    x_train, y_train, x_test, y_test = load_data()
+    x_train, y_train, x_test, y_test = load_data(option1)
 
     logger.debug('Datasets loaded')
     logger.debug('X_train: ' + str(x_train.shape) + ', Y_train: ' + str(y_train.shape))
     logger.debug('X_test: ' + str(x_test.shape) + ', Y_test: ' + str(y_test.shape))
 
-    if option == 1:
+    # Choose an option
+    option2 = int(input('Do you want to train the neural network (MLP) [1] or load the ' \
+        'last trained model [2]?\n'))
+
+    if option2 == 1:
 
         # Train the neural network (MLP)
         logger.debug('\n----- Neural network -----')
         neural_network(x_train, y_train, x_test, y_test)
 
-    elif option == 2:
+    elif option2 == 2:
 
         # Load and complile trained neural network (MLP)
         logger.debug('\n----- Neural network -----')
@@ -393,7 +404,7 @@ def main():
     else:
 
         logger.debug('Invalid entry!')
-
+    
     logger.debug('\nDone!')
     logger.debug('Execution time: %.4f seconds' % (time.time() - start_time))
     logger.debug('Execution date: ' + str(dt.now()))

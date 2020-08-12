@@ -32,11 +32,11 @@ stream_handler.setFormatter(stream_formatter)
 logger.addHandler(stream_handler)
 
 # Output to a file
-# formatter = logging.Formatter('%(message)s')
-# file_name = 'regression_problem/output_' + str(script_name[0:len(script_name)-3]) + '.log'
-# file_handler = logging.FileHandler(file_name)
-# file_handler.setFormatter(formatter)
-# logger.addHandler(file_handler)
+formatter = logging.Formatter('%(message)s')
+file_name = 'regression_problem/output_' + str(script_name[0:len(script_name)-3]) + '.log'
+file_handler = logging.FileHandler(file_name)
+file_handler.setFormatter(formatter)
+logger.addHandler(file_handler)
 
 def load_data(opt):
     """
@@ -45,10 +45,10 @@ def load_data(opt):
     """
     if opt == 1: # Hologram dataset
     
-        x_train = np.load('regression_problem/X_train.npy')
-        y_train = np.load('regression_problem/Y_train.npy')
-        x_test = np.load('regression_problem/X_test.npy')
-        y_test = np.load('regression_problem/Y_test.npy')
+        x_train = np.load('regression_problem/hologram/X_train.npy')
+        y_train = np.load('regression_problem/hologram/Y_train.npy')
+        x_test = np.load('regression_problem/hologram/X_test.npy')
+        y_test = np.load('regression_problem/hologram/Y_test.npy')
 
     elif opt == 2: # Wigner distribution dataset
 
@@ -99,7 +99,7 @@ def evaluate_model(model, x_train, y_train, x_test, y_test):
 
     return rmsr_train, rmsr_test, mse_train, mae_train, mse_test, mae_test
 
-def plot_history(history):
+def plot_history(history, opt):
     """
     Plot the training results (loss)
     """
@@ -110,7 +110,10 @@ def plot_history(history):
     plt.ylabel('loss')
     plt.legend(['train', 'validation'], loc='upper right')
     # plt.show()
-    plt.savefig('regression_problem/history.png')
+    if opt == 1: # Hologram dataset
+        plt.savefig('regression_problem/hologram/history.png')
+    elif opt == 2: # Wigner distribution dataset
+        plt.savefig('regression_problem/wigner_distribution/history.png')
 
 def save_summary_to_file(message):
     """
@@ -141,7 +144,7 @@ def show_results(model, x_train, y_train, x_test, y_test):
     model.summary()
     model.summary(print_fn=save_summary_to_file)
 
-def show_training_results(model, x_train, y_train, x_test, y_test, history):
+def show_training_results(model, x_train, y_train, x_test, y_test, history, opt):
     """
     Display the training results.
     """
@@ -149,17 +152,21 @@ def show_training_results(model, x_train, y_train, x_test, y_test, history):
     show_results(model, x_train, y_train, x_test, y_test)
 
     # Plot the history
-    plot_history(history)
+    plot_history(history, opt)
 
-def save_model(model):
+def save_model(model, opt):
     """
     Save the weights and the model separately. Note that it must re-compile
     the model when loaded.
     """
 
     # Files
-    file_model = 'regression_problem/model.json'
-    file_weights = 'regression_problem/model.h5'
+    if opt == 1: # Hologram dataset
+        file_model = 'regression_problem/hologram/model.json'
+        file_weights = 'regression_problem/hologram/model.h5'
+    elif opt == 2: # Wigner distribution datset
+        file_model = 'regression_problem/wigner_distribution/model.json'
+        file_weights = 'regression_problem/wigner_distribution/model.h5'
 
     # Serialize model to JSON
     model_json = model.to_json()
@@ -240,7 +247,7 @@ def predict(model, x_train, y_train, x_test, y_test):
     logger.debug('\nTest predictions:')
     predict_results(model, x_test, y_test, 'Test predictions')
 
-def callback_functions():
+def callback_functions(opt):
     """
     Create callback functions to monitore the training procedure.
     """
@@ -251,7 +258,10 @@ def callback_functions():
         min_delta=0, restore_best_weights=True)
 
     # Save the log in a file
-    path_logs = os.getcwd() + '/regression_problem/logs'
+    if opt == 1: # Hologram dataset
+        path_logs = os.getcwd() + '/regression_problem/hologram/logs'
+    elif opt == 2:
+        path_logs = os.getcwd() + '/regression_problem/wigner_distribution/logs'
 
     # Measures and visualizes the accuracy and the loss
     tensor = TensorBoard(log_dir=path_logs, histogram_freq=0, write_graph=0, \
@@ -261,18 +271,11 @@ def callback_functions():
 
     return cb_list
 
-def neural_network(x_train, y_train, x_test, y_test):
+def neural_network(x_train, y_train, x_test, y_test, opt):
     """
     Train a Multilayer Perceptron (MLP) to solve a regression problem, the positions of the
     sources in the 3D scene.
     """
-
-    # ### Tests ###
-    # # Stops the training when there is not improvement in the validations loss for 10
-    # # consectuve epochs and keeps the best weghts once stopped
-    # early_stop = EarlyStopping(monitor='val_loss', mode='min', patience=10, verbose=1, \
-    #     min_delta=0.5)
-    # ##############
 
     # Parameters to create the model (number of nodes)
     nb_nodes_1 = 1000
@@ -299,29 +302,33 @@ def neural_network(x_train, y_train, x_test, y_test):
     logger.debug('- Batch size: ' + str(nb_batchs))
 
      # Create the callbacks functions
-    cb_list = callback_functions()
+    cb_list = callback_functions(opt)
 
     # 3. Train the model
     history = model.fit(x_train, y_train, validation_data=(x_test, y_test), epochs=nb_epochs, \
         batch_size=nb_batchs, callbacks=cb_list, verbose=1)
 
     # Display the results
-    show_training_results(model, x_train, y_train, x_test, y_test, history)
+    show_training_results(model, x_train, y_train, x_test, y_test, history, opt)
 
     # Save the model
-    save_model(model)
+    save_model(model, opt)
     logger.debug('\nModel structure and weights saved!')
 
     # Display predictions results
     predict(model, x_train, y_train, x_test, y_test)
 
-def load_model():
+def load_model(opt):
     """
     Load the keras model
     """
 
-    file_model = 'regression_problem/model.json'
-    file_weights = 'regression_problem/model.h5'
+    if opt == 1: # Hologram dataset
+        file_model = 'regression_problem/hologram/model.json'
+        file_weights = 'regression_problem/hologram/model.h5'
+    elif opt == 2: # Wigner distribution datset
+        file_model = 'regression_problem/wigner_distribution/model.json'
+        file_weights = 'regression_problem/wigner_distribution/model.h5'
 
     # Load json file
     json_file = open(file_model, 'r')
@@ -336,13 +343,13 @@ def load_model():
 
     return loaded_model
 
-def load_trained_neural_network(x_train, y_train, x_test, y_test):
+def load_trained_neural_network(x_train, y_train, x_test, y_test, opt):
     """
     Load and re-compile the trained neural network
     """
 
     # Load the trained model
-    loaded_model = load_model()
+    loaded_model = load_model(opt)
 
     # Re-compile model
     loaded_model.compile(loss='mse', optimizer='adam', metrics=['mse'])
@@ -386,20 +393,20 @@ def main():
     logger.debug('X_test: ' + str(x_test.shape) + ', Y_test: ' + str(y_test.shape))
 
     # Choose an option
-    option2 = int(input('Do you want to train the neural network (MLP) [1] or load the ' \
+    option2 = int(input('\nDo you want to train the neural network (MLP) [1] or load the ' \
         'last trained model [2]?\n'))
 
     if option2 == 1:
 
         # Train the neural network (MLP)
         logger.debug('\n----- Neural network -----')
-        neural_network(x_train, y_train, x_test, y_test)
+        neural_network(x_train, y_train, x_test, y_test, option1)
 
     elif option2 == 2:
 
         # Load and complile trained neural network (MLP)
         logger.debug('\n----- Neural network -----')
-        load_trained_neural_network(x_train, y_train, x_test, y_test)
+        load_trained_neural_network(x_train, y_train, x_test, y_test, option1)
 
     else:
 

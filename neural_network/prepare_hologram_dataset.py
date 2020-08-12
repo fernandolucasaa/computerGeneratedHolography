@@ -27,11 +27,11 @@ stream_handler.setFormatter(stream_formatter)
 logger.addHandler(stream_handler)
 
 # Output to a file
-# formatter = logging.Formatter('%(message)s')
-# file_name = 'output_' + str(script_name[0:len(script_name)-3]) + '.log'
-# file_handler = logging.FileHandler(file_name)
-# file_handler.setFormatter(formatter)
-# logger.addHandler(file_handler)
+formatter = logging.Formatter('%(message)s')
+file_name = 'output_' + str(script_name[0:len(script_name)-3]) + '.log'
+file_handler = logging.FileHandler(file_name)
+file_handler.setFormatter(formatter)
+logger.addHandler(file_handler)
 
 def load_matlab_dictionary(file_path, file_name, key):
     """
@@ -294,13 +294,13 @@ def pre_processing_regression(hol_dataset, pts_dataset):
     # Compute array of targets
     logger.debug('\nComputing array of targets...')
     # y_array = compute_targets_array_regression(pts_dataset)
-    # y_array = pts_dataset
-    y_array = pts_dataset[:, 2]
+    y_array = pts_dataset
+    # y_array = pts_dataset[:, 2]
 
     logger.debug('Y_array shape: ' + str(y_array.shape))
 
     # Save matrix
-    np.save('regression_problem/Y_array.npy', y_array)
+    # np.save('regression_problem/hologram/Y_array.npy', y_array)
 
     return data_norm, y_array
 
@@ -379,25 +379,25 @@ def split_dataset_regression(perc, x_array, y_array):
 
     # Training dataset
     x_train = np.zeros([m_train, x_array.shape[1]], dtype=complex)
-    # y_train = np.zeros((m_train, 3))
+    y_train = np.zeros((m_train, 3))
     # y_train = np.zeros((m_train, 2))
-    y_train = np.zeros((m_train, ))
+    # y_train = np.zeros((m_train, ))
 
-    # x_train[:, :] = x_array[0:m_train, :]
-    # y_train[:, :] = y_array[0:m_train, :]
-    x_train[:] = x_array[0:m_train]
-    y_train[:] = y_array[0:m_train]
+    x_train[:, :] = x_array[0:m_train, :]
+    y_train[:, :] = y_array[0:m_train, :]
+    # x_train[:] = x_array[0:m_train]
+    # y_train[:] = y_array[0:m_train]
 
     # Testing set
     x_test = np.zeros([m_test, x_array.shape[1]], dtype=complex)
-    # y_test = np.zeros((m_test, 3))
+    y_test = np.zeros((m_test, 3))
     # y_test = np.zeros((m_test, 2))
-    y_test = np.zeros((m_test, ))
+    # y_test = np.zeros((m_test, ))
 
-    # x_test[:, :] = x_array[m_train:len(x_array), :]
-    # y_test[:, :] = y_array[m_train:len(x_array), :]
-    x_test[:] = x_array[m_train:len(x_array)]
-    y_test[:] = y_array[m_train:len(x_array)]
+    x_test[:, :] = x_array[m_train:len(x_array), :]
+    y_test[:, :] = y_array[m_train:len(x_array), :]
+    # x_test[:] = x_array[m_train:len(x_array)]
+    # y_test[:] = y_array[m_train:len(x_array)]
 
     # Display results
     logger.debug('Data : ' + str(x_array.shape) + ', ' + str(y_array.shape))
@@ -405,10 +405,10 @@ def split_dataset_regression(perc, x_array, y_array):
     logger.debug('Test : ' + str(x_test.shape) + ', ' + str(y_test.shape))
 
     # Save files
-    np.save('regression_problem/X_train.npy', x_train)
-    np.save('regression_problem/Y_train.npy', y_train)
-    np.save('regression_problem/X_test.npy', x_test)
-    np.save('regression_problem/Y_test.npy', y_test)
+    np.save('regression_problem/hologram/X_train.npy', x_train)
+    np.save('regression_problem/hologram/Y_train.npy', y_train)
+    np.save('regression_problem/hologram/X_test.npy', x_test)
+    np.save('regression_problem/hologram/Y_test.npy', y_test)
 
     logger.debug('X_train, Y_train, X_test, Y_test saved in .npy files!\n')
 

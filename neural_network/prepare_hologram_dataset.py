@@ -293,9 +293,9 @@ def pre_processing_regression(hol_dataset, pts_dataset):
 
     # Compute array of targets
     logger.debug('\nComputing array of targets...')
-    # y_array = compute_targets_array_regression(pts_dataset)
-    y_array = pts_dataset
-    # y_array = pts_dataset[:, 2]
+    # y_array = pts_dataset # x, y, z
+    # y_array = compute_targets_array_regression(pts_dataset) # x, y
+    y_array = pts_dataset[:, 2] # z
 
     logger.debug('Y_array shape: ' + str(y_array.shape))
 
@@ -379,25 +379,25 @@ def split_dataset_regression(perc, x_array, y_array):
 
     # Training dataset
     x_train = np.zeros([m_train, x_array.shape[1]], dtype=complex)
-    y_train = np.zeros((m_train, 3))
-    # y_train = np.zeros((m_train, 2))
-    # y_train = np.zeros((m_train, ))
+    # y_train = np.zeros((m_train, 3)) # x, y, z
+    # y_train = np.zeros((m_train, 2)) # x, y
+    y_train = np.zeros((m_train, )) # z
 
-    x_train[:, :] = x_array[0:m_train, :]
-    y_train[:, :] = y_array[0:m_train, :]
-    # x_train[:] = x_array[0:m_train]
-    # y_train[:] = y_array[0:m_train]
+    # x_train[:, :] = x_array[0:m_train, :] # x, y, z or x, y
+    # y_train[:, :] = y_array[0:m_train, :] # x, y, z or x, y
+    x_train[:] = x_array[0:m_train] # z
+    y_train[:] = y_array[0:m_train] # z
 
     # Testing set
     x_test = np.zeros([m_test, x_array.shape[1]], dtype=complex)
-    y_test = np.zeros((m_test, 3))
-    # y_test = np.zeros((m_test, 2))
-    # y_test = np.zeros((m_test, ))
+    # y_test = np.zeros((m_test, 3)) # x, y, z
+    # y_test = np.zeros((m_test, 2)) # x, y
+    y_test = np.zeros((m_test, )) # z
 
-    x_test[:, :] = x_array[m_train:len(x_array), :]
-    y_test[:, :] = y_array[m_train:len(x_array), :]
-    # x_test[:] = x_array[m_train:len(x_array)]
-    # y_test[:] = y_array[m_train:len(x_array)]
+    # x_test[:, :] = x_array[m_train:len(x_array), :] # x, y, z or x, y
+    # y_test[:, :] = y_array[m_train:len(x_array), :] # x, y, z or x, y
+    x_test[:] = x_array[m_train:len(x_array)] # z
+    y_test[:] = y_array[m_train:len(x_array)] # z
 
     # Display results
     logger.debug('Data : ' + str(x_array.shape) + ', ' + str(y_array.shape))

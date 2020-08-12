@@ -1,0 +1,3889 @@
+---------- [Regression problem] ----------
+
+----- [Using hologram dataset] -----
+
+----- Loading datasets... -----
+Datasets loaded
+X_train: (1600, 40000), Y_train: (1600, 3)
+X_test: (400, 40000), Y_test: (400, 3)
+
+----- Neural network -----
+
+Parameters to create the model:
+- Dimension of the imput: 40000
+- Number of nodes in the first layer (hidden layer): 1000
+- Number of nodes in the second layer (hidden layer): 400
+
+Parameters to train the model:
+- Number of epochs: 50
+- Batch size: 1000
+
+----- Performance-----
+- Root Mean Squared Error:
+Train: 0.625, test: 0.700
+- Mean Squared Error:
+Train: 0.391, test: 0.490
+- Mean Absolute Error:
+Train: 0.391, test: 0.490
+
+----- Model summary -----
+
+Model structure and weights saved!
+
+----- Predictions -----
+
+Train predictions:
+Prediction shape: (1600, 3)
+Example [0]
+Real position:     (x, y, z) = (0.00060, -0.00009, -0.21620)
+Predicted position (x, y, z) = (-0.78096, 0.25274, -0.33062)
+Example [1]
+Real position:     (x, y, z) = (0.00065, -0.00083, -0.06659)
+Predicted position (x, y, z) = (1.17108, -0.99485, -0.21899)
+Example [2]
+Real position:     (x, y, z) = (-0.00065, -0.00022, -0.41569)
+Predicted position (x, y, z) = (0.19388, 0.01740, -0.34525)
+Example [3]
+Real position:     (x, y, z) = (0.00061, -0.00088, -0.19963)
+Predicted position (x, y, z) = (-0.13211, 0.61823, -0.71051)
+Example [4]
+Real position:     (x, y, z) = (0.00005, -0.00017, -0.32843)
+Predicted position (x, y, z) = (0.34355, -0.44572, 1.16067)
+Example [5]
+Real position:     (x, y, z) = (0.00026, -0.00042, -0.21583)
+Predicted position (x, y, z) = (0.51430, 0.33243, 0.70894)
+Example [6]
+Real position:     (x, y, z) = (-0.00097, 0.00097, -0.08358)
+Predicted position (x, y, z) = (0.03629, -0.20901, 0.20962)
+Example [7]
+Real position:     (x, y, z) = (-0.00079, -0.00026, -0.09906)
+Predicted position (x, y, z) = (0.42478, 0.23759, 0.87254)
+Example [8]
+Real position:     (x, y, z) = (-0.00002, -0.00032, -0.47582)
+Predicted position (x, y, z) = (0.28563, -0.28423, -0.65874)
+Example [9]
+Real position:     (x, y, z) = (0.00084, -0.00089, -0.36893)
+Predicted position (x, y, z) = (0.73869, -0.26017, 0.04375)
+
+Test predictions:
+Prediction shape: (400, 3)
+Example [0]
+Real position:     (x, y, z) = (0.00043, 0.00011, -0.07114)
+Predicted position (x, y, z) = (-1.70687, 0.43841, -0.15560)
+Example [1]
+Real position:     (x, y, z) = (-0.00024, -0.00021, -0.28837)
+Predicted position (x, y, z) = (0.52291, 0.55216, -0.64386)
+Example [2]
+Real position:     (x, y, z) = (-0.00096, 0.00016, -0.46610)
+Predicted position (x, y, z) = (0.69568, -0.38271, -0.61516)
+Example [3]
+Real position:     (x, y, z) = (-0.00079, 0.00046, -0.48526)
+Predicted position (x, y, z) = (0.25065, 0.49603, 0.26750)
+Example [4]
+Real position:     (x, y, z) = (0.00022, 0.00044, -0.15138)
+Predicted position (x, y, z) = (1.10024, 0.47616, -0.55696)
+Example [5]
+Real position:     (x, y, z) = (-0.00008, -0.00090, -0.19268)
+Predicted position (x, y, z) = (-1.11780, 0.46471, -2.04754)
+Example [6]
+Real position:     (x, y, z) = (-0.00028, -0.00042, -0.40836)
+Predicted position (x, y, z) = (0.65879, -0.14592, 0.46736)
+Example [7]
+Real position:     (x, y, z) = (-0.00010, 0.00061, -0.39509)
+Predicted position (x, y, z) = (0.69070, 0.28233, -1.37480)
+Example [8]
+Real position:     (x, y, z) = (-0.00043, -0.00086, -0.31876)
+Predicted position (x, y, z) = (0.63018, -0.63826, 0.72196)
+Example [9]
+Real position:     (x, y, z) = (-0.00015, 0.00081, -0.20866)
+Predicted position (x, y, z) = (0.30958, -0.14870, 0.30901)
+
+Done!
+Execution time: 147.7791 seconds
+Execution date: 2020-08-12 14:38:42.740523
+-----------------------------------------
+---------- [Regression problem] ----------
+
+----- [Using hologram dataset] -----
+
+----- Loading datasets... -----
+Datasets loaded
+X_train: (1600, 40000), Y_train: (1600, 3)
+X_test: (400, 40000), Y_test: (400, 3)
+
+----- Neural network -----
+
+Parameters to create the model:
+- Dimension of the imput: 40000
+- Number of nodes in the first layer (hidden layer): 1000
+- Number of nodes in the second layer (hidden layer): 400
+
+Parameters to train the model:
+- Number of epochs: 50
+- Batch size: 1000
+
+----- Performance-----
+- Root Mean Squared Error:
+Train: 0.648, test: 0.738
+- Mean Squared Error:
+Train: 0.420, test: 0.544
+- Mean Absolute Error:
+Train: 0.420, test: 0.544
+
+----- Model summary -----
+
+Model structure and weights saved!
+
+----- Predictions -----
+
+Train predictions:
+Prediction shape: (1600, 3)
+Example [0]
+Real position:     (x, y, z) = (0.00060, -0.00009, -0.21620)
+Predicted position (x, y, z) = (0.55953, -0.84323, 0.71744)
+Example [1]
+Real position:     (x, y, z) = (0.00065, -0.00083, -0.06659)
+Predicted position (x, y, z) = (0.05571, 0.22207, -1.41708)
+Example [2]
+Real position:     (x, y, z) = (-0.00065, -0.00022, -0.41569)
+Predicted position (x, y, z) = (-0.68370, 0.81552, -0.54940)
+Example [3]
+Real position:     (x, y, z) = (0.00061, -0.00088, -0.19963)
+Predicted position (x, y, z) = (-0.40251, 0.52528, 0.64152)
+Example [4]
+Real position:     (x, y, z) = (0.00005, -0.00017, -0.32843)
+Predicted position (x, y, z) = (-1.05531, 0.16702, -0.24633)
+Example [5]
+Real position:     (x, y, z) = (0.00026, -0.00042, -0.21583)
+Predicted position (x, y, z) = (-0.57531, 0.66805, -0.73955)
+Example [6]
+Real position:     (x, y, z) = (-0.00097, 0.00097, -0.08358)
+Predicted position (x, y, z) = (-0.46247, -1.01369, -0.54355)
+Example [7]
+Real position:     (x, y, z) = (-0.00079, -0.00026, -0.09906)
+Predicted position (x, y, z) = (-0.08272, 0.21098, -0.77968)
+Example [8]
+Real position:     (x, y, z) = (-0.00002, -0.00032, -0.47582)
+Predicted position (x, y, z) = (0.36032, -0.32780, -0.56857)
+Example [9]
+Real position:     (x, y, z) = (0.00084, -0.00089, -0.36893)
+Predicted position (x, y, z) = (0.75854, -0.33017, 0.22906)
+
+Test predictions:
+Prediction shape: (400, 3)
+Example [0]
+Real position:     (x, y, z) = (0.00043, 0.00011, -0.07114)
+Predicted position (x, y, z) = (-0.00486, -0.23383, -1.45594)
+Example [1]
+Real position:     (x, y, z) = (-0.00024, -0.00021, -0.28837)
+Predicted position (x, y, z) = (0.38109, -0.80751, 1.35072)
+Example [2]
+Real position:     (x, y, z) = (-0.00096, 0.00016, -0.46610)
+Predicted position (x, y, z) = (-0.38906, -0.44974, -0.06941)
+Example [3]
+Real position:     (x, y, z) = (-0.00079, 0.00046, -0.48526)
+Predicted position (x, y, z) = (-1.35650, 0.80933, -0.49646)
+Example [4]
+Real position:     (x, y, z) = (0.00022, 0.00044, -0.15138)
+Predicted position (x, y, z) = (0.48137, 1.11277, -1.04276)
+Example [5]
+Real position:     (x, y, z) = (-0.00008, -0.00090, -0.19268)
+Predicted position (x, y, z) = (-0.56081, -0.55578, -0.89849)
+Example [6]
+Real position:     (x, y, z) = (-0.00028, -0.00042, -0.40836)
+Predicted position (x, y, z) = (0.08705, 0.67139, -0.00771)
+Example [7]
+Real position:     (x, y, z) = (-0.00010, 0.00061, -0.39509)
+Predicted position (x, y, z) = (-0.52805, 0.28518, -0.20500)
+Example [8]
+Real position:     (x, y, z) = (-0.00043, -0.00086, -0.31876)
+Predicted position (x, y, z) = (1.44672, 0.68007, 0.16866)
+Example [9]
+Real position:     (x, y, z) = (-0.00015, 0.00081, -0.20866)
+Predicted position (x, y, z) = (-0.34695, -1.01833, 0.14201)
+
+Done!
+Execution time: 143.7507 seconds
+Execution date: 2020-08-12 14:43:54.132696
+-----------------------------------------
+---------- [Regression problem] ----------
+
+----- [Using hologram dataset] -----
+
+----- Loading datasets... -----
+Datasets loaded
+X_train: (1600, 40000), Y_train: (1600, 3)
+X_test: (400, 40000), Y_test: (400, 3)
+
+----- Neural network -----
+
+Parameters to create the model:
+- Dimension of the imput: 40000
+- Number of nodes in the first layer (hidden layer): 1000
+- Number of nodes in the second layer (hidden layer): 400
+
+Parameters to train the model:
+- Number of epochs: 50
+- Batch size: 1000
+
+----- Performance-----
+- Root Mean Squared Error:
+Train: 0.607, test: 0.666
+- Mean Squared Error:
+Train: 0.369, test: 0.444
+- Mean Absolute Error:
+Train: 0.369, test: 0.444
+
+----- Model summary -----
+
+Model structure and weights saved!
+
+----- Predictions -----
+
+Train predictions:
+Prediction shape: (1600, 3)
+Example [0]
+Real position:     (x, y, z) = (0.00060, -0.00009, -0.21620)
+Predicted position (x, y, z) = (-0.67503, 0.61780, -0.66238)
+Example [1]
+Real position:     (x, y, z) = (0.00065, -0.00083, -0.06659)
+Predicted position (x, y, z) = (-0.27280, -1.07624, -0.93018)
+Example [2]
+Real position:     (x, y, z) = (-0.00065, -0.00022, -0.41569)
+Predicted position (x, y, z) = (-0.78529, -0.29923, -1.09693)
+Example [3]
+Real position:     (x, y, z) = (0.00061, -0.00088, -0.19963)
+Predicted position (x, y, z) = (-0.94035, -0.16123, -0.60668)
+Example [4]
+Real position:     (x, y, z) = (0.00005, -0.00017, -0.32843)
+Predicted position (x, y, z) = (-1.03480, 1.12927, -0.64063)
+Example [5]
+Real position:     (x, y, z) = (0.00026, -0.00042, -0.21583)
+Predicted position (x, y, z) = (-0.79545, 0.05400, -0.15557)
+Example [6]
+Real position:     (x, y, z) = (-0.00097, 0.00097, -0.08358)
+Predicted position (x, y, z) = (0.98104, 0.06258, 0.74678)
+Example [7]
+Real position:     (x, y, z) = (-0.00079, -0.00026, -0.09906)
+Predicted position (x, y, z) = (-0.05938, -0.28724, -0.44638)
+Example [8]
+Real position:     (x, y, z) = (-0.00002, -0.00032, -0.47582)
+Predicted position (x, y, z) = (0.47942, -1.15387, 0.23225)
+Example [9]
+Real position:     (x, y, z) = (0.00084, -0.00089, -0.36893)
+Predicted position (x, y, z) = (0.09592, -0.74749, 0.80024)
+
+Test predictions:
+Prediction shape: (400, 3)
+Example [0]
+Real position:     (x, y, z) = (0.00043, 0.00011, -0.07114)
+Predicted position (x, y, z) = (0.18035, -0.24734, 0.04669)
+Example [1]
+Real position:     (x, y, z) = (-0.00024, -0.00021, -0.28837)
+Predicted position (x, y, z) = (0.06213, -0.01978, -0.30231)
+Example [2]
+Real position:     (x, y, z) = (-0.00096, 0.00016, -0.46610)
+Predicted position (x, y, z) = (-1.09213, 1.50807, 0.21395)
+Example [3]
+Real position:     (x, y, z) = (-0.00079, 0.00046, -0.48526)
+Predicted position (x, y, z) = (0.65119, -0.75249, -0.44982)
+Example [4]
+Real position:     (x, y, z) = (0.00022, 0.00044, -0.15138)
+Predicted position (x, y, z) = (-0.24455, -0.05348, -0.74091)
+Example [5]
+Real position:     (x, y, z) = (-0.00008, -0.00090, -0.19268)
+Predicted position (x, y, z) = (-0.23012, 0.14733, 0.52150)
+Example [6]
+Real position:     (x, y, z) = (-0.00028, -0.00042, -0.40836)
+Predicted position (x, y, z) = (-0.22926, 1.52713, 0.08235)
+Example [7]
+Real position:     (x, y, z) = (-0.00010, 0.00061, -0.39509)
+Predicted position (x, y, z) = (0.48265, -1.39437, -0.40775)
+Example [8]
+Real position:     (x, y, z) = (-0.00043, -0.00086, -0.31876)
+Predicted position (x, y, z) = (0.24073, 0.08531, 0.54597)
+Example [9]
+Real position:     (x, y, z) = (-0.00015, 0.00081, -0.20866)
+Predicted position (x, y, z) = (0.46064, 0.35905, -0.32943)
+
+Done!
+Execution time: 143.2025 seconds
+Execution date: 2020-08-12 14:48:23.107505
+-----------------------------------------
+---------- [Regression problem] ----------
+
+----- [Using hologram dataset] -----
+
+----- Loading datasets... -----
+Datasets loaded
+X_train: (1600, 40000), Y_train: (1600, 3)
+X_test: (400, 40000), Y_test: (400, 3)
+
+----- Neural network -----
+
+Parameters to create the model:
+- Dimension of the imput: 40000
+- Number of nodes in the first layer (hidden layer): 1000
+- Number of nodes in the second layer (hidden layer): 400
+
+Parameters to train the model:
+- Number of epochs: 50
+- Batch size: 1000
+
+----- Performance-----
+- Root Mean Squared Error:
+Train: 0.646, test: 0.683
+- Mean Squared Error:
+Train: 0.417, test: 0.467
+- Mean Absolute Error:
+Train: 0.417, test: 0.467
+
+----- Model summary -----
+
+Model structure and weights saved!
+
+----- Predictions -----
+
+Train predictions:
+Prediction shape: (1600, 3)
+Example [0]
+Real position:     (x, y, z) = (0.00060, -0.00009, -0.21620)
+Predicted position (x, y, z) = (-0.43465, -0.69476, -0.20188)
+Example [1]
+Real position:     (x, y, z) = (0.00065, -0.00083, -0.06659)
+Predicted position (x, y, z) = (0.25662, -0.82510, -1.05935)
+Example [2]
+Real position:     (x, y, z) = (-0.00065, -0.00022, -0.41569)
+Predicted position (x, y, z) = (-0.04384, -0.32731, -0.32316)
+Example [3]
+Real position:     (x, y, z) = (0.00061, -0.00088, -0.19963)
+Predicted position (x, y, z) = (0.24611, 0.42410, -1.05192)
+Example [4]
+Real position:     (x, y, z) = (0.00005, -0.00017, -0.32843)
+Predicted position (x, y, z) = (-0.18597, -0.33481, -0.33664)
+Example [5]
+Real position:     (x, y, z) = (0.00026, -0.00042, -0.21583)
+Predicted position (x, y, z) = (-0.22602, -0.09442, -0.32849)
+Example [6]
+Real position:     (x, y, z) = (-0.00097, 0.00097, -0.08358)
+Predicted position (x, y, z) = (0.23338, -0.77022, -0.03648)
+Example [7]
+Real position:     (x, y, z) = (-0.00079, -0.00026, -0.09906)
+Predicted position (x, y, z) = (-0.19138, -0.19143, 0.31871)
+Example [8]
+Real position:     (x, y, z) = (-0.00002, -0.00032, -0.47582)
+Predicted position (x, y, z) = (0.10067, 0.51685, -0.47538)
+Example [9]
+Real position:     (x, y, z) = (0.00084, -0.00089, -0.36893)
+Predicted position (x, y, z) = (0.77382, -0.37032, -0.35370)
+
+Test predictions:
+Prediction shape: (400, 3)
+Example [0]
+Real position:     (x, y, z) = (0.00043, 0.00011, -0.07114)
+Predicted position (x, y, z) = (0.46587, -0.70423, -0.13603)
+Example [1]
+Real position:     (x, y, z) = (-0.00024, -0.00021, -0.28837)
+Predicted position (x, y, z) = (0.03550, 0.00739, 1.95686)
+Example [2]
+Real position:     (x, y, z) = (-0.00096, 0.00016, -0.46610)
+Predicted position (x, y, z) = (0.11814, 0.07999, 0.69677)
+Example [3]
+Real position:     (x, y, z) = (-0.00079, 0.00046, -0.48526)
+Predicted position (x, y, z) = (0.90603, 0.30914, -0.98067)
+Example [4]
+Real position:     (x, y, z) = (0.00022, 0.00044, -0.15138)
+Predicted position (x, y, z) = (-0.20884, -0.49033, -0.78197)
+Example [5]
+Real position:     (x, y, z) = (-0.00008, -0.00090, -0.19268)
+Predicted position (x, y, z) = (0.04891, 0.17409, -0.59763)
+Example [6]
+Real position:     (x, y, z) = (-0.00028, -0.00042, -0.40836)
+Predicted position (x, y, z) = (-0.42259, 0.12905, 0.13869)
+Example [7]
+Real position:     (x, y, z) = (-0.00010, 0.00061, -0.39509)
+Predicted position (x, y, z) = (0.02241, -0.73585, -1.51428)
+Example [8]
+Real position:     (x, y, z) = (-0.00043, -0.00086, -0.31876)
+Predicted position (x, y, z) = (0.01212, 0.36301, -0.20497)
+Example [9]
+Real position:     (x, y, z) = (-0.00015, 0.00081, -0.20866)
+Predicted position (x, y, z) = (1.18718, 0.06491, -1.57578)
+
+Done!
+Execution time: 184.2515 seconds
+Execution date: 2020-08-12 14:54:05.287888
+-----------------------------------------
+---------- [Regression problem] ----------
+
+----- [Using hologram dataset] -----
+
+----- Loading datasets... -----
+Datasets loaded
+X_train: (1600, 40000), Y_train: (1600, 3)
+X_test: (400, 40000), Y_test: (400, 3)
+
+----- Neural network -----
+
+Parameters to create the model:
+- Dimension of the imput: 40000
+- Number of nodes in the first layer (hidden layer): 1000
+- Number of nodes in the second layer (hidden layer): 400
+
+Parameters to train the model:
+- Number of epochs: 50
+- Batch size: 1000
+
+----- Performance-----
+- Root Mean Squared Error:
+Train: 0.623, test: 0.648
+- Mean Squared Error:
+Train: 0.388, test: 0.421
+- Mean Absolute Error:
+Train: 0.388, test: 0.421
+
+----- Model summary -----
+
+Model structure and weights saved!
+
+----- Predictions -----
+
+Train predictions:
+Prediction shape: (1600, 3)
+Example [0]
+Real position:     (x, y, z) = (0.00060, -0.00009, -0.21620)
+Predicted position (x, y, z) = (0.89681, -0.30453, -1.15407)
+Example [1]
+Real position:     (x, y, z) = (0.00065, -0.00083, -0.06659)
+Predicted position (x, y, z) = (0.33800, 0.22863, -0.50840)
+Example [2]
+Real position:     (x, y, z) = (-0.00065, -0.00022, -0.41569)
+Predicted position (x, y, z) = (0.34560, 0.86683, -0.89834)
+Example [3]
+Real position:     (x, y, z) = (0.00061, -0.00088, -0.19963)
+Predicted position (x, y, z) = (0.19761, -0.53931, -0.20349)
+Example [4]
+Real position:     (x, y, z) = (0.00005, -0.00017, -0.32843)
+Predicted position (x, y, z) = (0.84454, -0.17884, -0.19067)
+Example [5]
+Real position:     (x, y, z) = (0.00026, -0.00042, -0.21583)
+Predicted position (x, y, z) = (-0.33374, 0.69549, 1.18053)
+Example [6]
+Real position:     (x, y, z) = (-0.00097, 0.00097, -0.08358)
+Predicted position (x, y, z) = (0.05241, -0.89318, 0.51643)
+Example [7]
+Real position:     (x, y, z) = (-0.00079, -0.00026, -0.09906)
+Predicted position (x, y, z) = (0.68902, -0.08665, 0.07425)
+Example [8]
+Real position:     (x, y, z) = (-0.00002, -0.00032, -0.47582)
+Predicted position (x, y, z) = (-1.29202, -0.37302, -0.04215)
+Example [9]
+Real position:     (x, y, z) = (0.00084, -0.00089, -0.36893)
+Predicted position (x, y, z) = (0.34528, -0.81299, 0.04119)
+
+Test predictions:
+Prediction shape: (400, 3)
+Example [0]
+Real position:     (x, y, z) = (0.00043, 0.00011, -0.07114)
+Predicted position (x, y, z) = (-0.16366, -0.11607, -0.02185)
+Example [1]
+Real position:     (x, y, z) = (-0.00024, -0.00021, -0.28837)
+Predicted position (x, y, z) = (-0.69372, 0.36386, -0.52931)
+Example [2]
+Real position:     (x, y, z) = (-0.00096, 0.00016, -0.46610)
+Predicted position (x, y, z) = (-0.36461, 0.09712, -1.54474)
+Example [3]
+Real position:     (x, y, z) = (-0.00079, 0.00046, -0.48526)
+Predicted position (x, y, z) = (0.40150, 0.33103, -0.87378)
+Example [4]
+Real position:     (x, y, z) = (0.00022, 0.00044, -0.15138)
+Predicted position (x, y, z) = (0.27533, 0.88060, 0.36802)
+Example [5]
+Real position:     (x, y, z) = (-0.00008, -0.00090, -0.19268)
+Predicted position (x, y, z) = (0.39244, -0.11479, -0.77540)
+Example [6]
+Real position:     (x, y, z) = (-0.00028, -0.00042, -0.40836)
+Predicted position (x, y, z) = (-0.14772, -0.37978, 0.24268)
+Example [7]
+Real position:     (x, y, z) = (-0.00010, 0.00061, -0.39509)
+Predicted position (x, y, z) = (-0.48711, -0.51455, 0.54494)
+Example [8]
+Real position:     (x, y, z) = (-0.00043, -0.00086, -0.31876)
+Predicted position (x, y, z) = (-0.21732, 0.16507, 0.46831)
+Example [9]
+Real position:     (x, y, z) = (-0.00015, 0.00081, -0.20866)
+Predicted position (x, y, z) = (-0.05843, 0.48885, 0.92193)
+
+Done!
+Execution time: 216.7975 seconds
+Execution date: 2020-08-12 14:58:20.247273
+-----------------------------------------
+---------- [Regression problem] ----------
+
+----- [Using hologram dataset] -----
+
+----- Loading datasets... -----
+Datasets loaded
+X_train: (1600, 40000), Y_train: (1600, 2)
+X_test: (400, 40000), Y_test: (400, 2)
+
+----- Neural network -----
+
+Parameters to create the model:
+- Dimension of the imput: 40000
+- Number of nodes in the first layer (hidden layer): 1000
+- Number of nodes in the second layer (hidden layer): 400
+
+Parameters to train the model:
+- Number of epochs: 50
+- Batch size: 1000
+---------- [Regression problem] ----------
+
+----- [Using hologram dataset] -----
+
+----- Loading datasets... -----
+Datasets loaded
+X_train: (1600, 40000), Y_train: (1600, 2)
+X_test: (400, 40000), Y_test: (400, 2)
+
+----- Neural network -----
+
+Parameters to create the model:
+- Dimension of the imput: 40000
+- Number of nodes in the first layer (hidden layer): 1000
+- Number of nodes in the second layer (hidden layer): 400
+
+Parameters to train the model:
+- Number of epochs: 50
+- Batch size: 1000
+
+----- Performance-----
+- Root Mean Squared Error:
+Train: 0.829, test: 0.901
+- Mean Squared Error:
+Train: 0.687, test: 0.811
+- Mean Absolute Error:
+Train: 0.687, test: 0.811
+
+----- Model summary -----
+
+Model structure and weights saved!
+
+----- Predictions -----
+
+Train predictions:
+Prediction shape: (1600, 2)
+Example [0]
+Real position:     (x, y) = (0.60, -0.09)
+Predicted position (x, y) = (-1.22, 0.11)
+Example [1]
+Real position:     (x, y) = (0.65, -0.83)
+Predicted position (x, y) = (0.53, 0.99)
+Example [2]
+Real position:     (x, y) = (-0.65, -0.22)
+Predicted position (x, y) = (0.17, -0.36)
+Example [3]
+Real position:     (x, y) = (0.61, -0.88)
+Predicted position (x, y) = (0.41, 1.29)
+Example [4]
+Real position:     (x, y) = (0.05, -0.17)
+Predicted position (x, y) = (0.39, 0.23)
+Example [5]
+Real position:     (x, y) = (0.26, -0.42)
+Predicted position (x, y) = (-0.15, 0.54)
+Example [6]
+Real position:     (x, y) = (-0.97, 0.97)
+Predicted position (x, y) = (-1.00, -1.23)
+Example [7]
+Real position:     (x, y) = (-0.79, -0.26)
+Predicted position (x, y) = (-0.56, -0.95)
+Example [8]
+Real position:     (x, y) = (-0.02, -0.32)
+Predicted position (x, y) = (-0.02, 0.71)
+Example [9]
+Real position:     (x, y) = (0.84, -0.90)
+Predicted position (x, y) = (0.89, 0.20)
+
+Test predictions:
+Prediction shape: (400, 2)
+Example [0]
+Real position:     (x, y) = (0.43, 0.11)
+Predicted position (x, y) = (0.48, 1.01)
+Example [1]
+Real position:     (x, y) = (-0.24, -0.21)
+Predicted position (x, y) = (-0.31, -0.60)
+Example [2]
+Real position:     (x, y) = (-0.96, 0.15)
+Predicted position (x, y) = (0.86, 0.17)
+Example [3]
+Real position:     (x, y) = (-0.79, 0.46)
+Predicted position (x, y) = (-1.03, -0.71)
+Example [4]
+Real position:     (x, y) = (0.22, 0.44)
+Predicted position (x, y) = (1.25, 1.15)
+Example [5]
+Real position:     (x, y) = (-0.08, -0.90)
+Predicted position (x, y) = (-0.18, 0.26)
+Example [6]
+Real position:     (x, y) = (-0.28, -0.42)
+Predicted position (x, y) = (1.11, 0.19)
+Example [7]
+Real position:     (x, y) = (-0.10, 0.61)
+Predicted position (x, y) = (-0.21, 0.44)
+Example [8]
+Real position:     (x, y) = (-0.43, -0.86)
+Predicted position (x, y) = (-0.29, 0.96)
+Example [9]
+Real position:     (x, y) = (-0.15, 0.81)
+Predicted position (x, y) = (0.10, 1.00)
+
+Done!
+Execution time: 140.0377 seconds
+Execution date: 2020-08-12 15:34:23.320312
+-----------------------------------------
+---------- [Regression problem] ----------
+
+----- [Using hologram dataset] -----
+
+----- Loading datasets... -----
+Datasets loaded
+X_train: (1600, 40000), Y_train: (1600, 2)
+X_test: (400, 40000), Y_test: (400, 2)
+
+----- Neural network -----
+
+Parameters to create the model:
+- Dimension of the imput: 40000
+- Number of nodes in the first layer (hidden layer): 1000
+- Number of nodes in the second layer (hidden layer): 400
+
+Parameters to train the model:
+- Number of epochs: 50
+- Batch size: 1000
+
+----- Performance-----
+- Root Mean Squared Error:
+Train: 0.955, test: 0.976
+- Mean Squared Error:
+Train: 0.913, test: 0.952
+- Mean Absolute Error:
+Train: 0.913, test: 0.952
+
+----- Model summary -----
+
+Model structure and weights saved!
+
+----- Predictions -----
+
+Train predictions:
+Prediction shape: (1600, 2)
+Example [0]
+Real position:     (x, y) = (0.60, -0.09)
+Predicted position (x, y) = (1.59, 0.09)
+Example [1]
+Real position:     (x, y) = (0.65, -0.83)
+Predicted position (x, y) = (0.72, -0.03)
+Example [2]
+Real position:     (x, y) = (-0.65, -0.22)
+Predicted position (x, y) = (0.24, -1.71)
+Example [3]
+Real position:     (x, y) = (0.61, -0.88)
+Predicted position (x, y) = (0.47, 0.92)
+Example [4]
+Real position:     (x, y) = (0.05, -0.17)
+Predicted position (x, y) = (-1.84, -0.95)
+Example [5]
+Real position:     (x, y) = (0.26, -0.42)
+Predicted position (x, y) = (1.22, 0.64)
+Example [6]
+Real position:     (x, y) = (-0.97, 0.97)
+Predicted position (x, y) = (1.36, -0.29)
+Example [7]
+Real position:     (x, y) = (-0.79, -0.26)
+Predicted position (x, y) = (0.28, 0.64)
+Example [8]
+Real position:     (x, y) = (-0.02, -0.32)
+Predicted position (x, y) = (0.86, -0.49)
+Example [9]
+Real position:     (x, y) = (0.84, -0.90)
+Predicted position (x, y) = (0.19, -1.34)
+
+Test predictions:
+Prediction shape: (400, 2)
+Example [0]
+Real position:     (x, y) = (0.43, 0.11)
+Predicted position (x, y) = (0.34, 0.04)
+Example [1]
+Real position:     (x, y) = (-0.24, -0.21)
+Predicted position (x, y) = (0.95, -0.27)
+Example [2]
+Real position:     (x, y) = (-0.96, 0.15)
+Predicted position (x, y) = (0.56, -0.82)
+Example [3]
+Real position:     (x, y) = (-0.79, 0.46)
+Predicted position (x, y) = (0.41, -0.19)
+Example [4]
+Real position:     (x, y) = (0.22, 0.44)
+Predicted position (x, y) = (0.23, -0.91)
+Example [5]
+Real position:     (x, y) = (-0.08, -0.90)
+Predicted position (x, y) = (0.44, -0.52)
+Example [6]
+Real position:     (x, y) = (-0.28, -0.42)
+Predicted position (x, y) = (-0.18, -1.30)
+Example [7]
+Real position:     (x, y) = (-0.10, 0.61)
+Predicted position (x, y) = (0.39, -0.51)
+Example [8]
+Real position:     (x, y) = (-0.43, -0.86)
+Predicted position (x, y) = (0.22, -0.63)
+Example [9]
+Real position:     (x, y) = (-0.15, 0.81)
+Predicted position (x, y) = (0.86, 0.51)
+
+Done!
+Execution time: 112.4911 seconds
+Execution date: 2020-08-12 15:38:23.938502
+-----------------------------------------
+---------- [Regression problem] ----------
+
+----- [Using hologram dataset] -----
+
+----- Loading datasets... -----
+Datasets loaded
+X_train: (1600, 40000), Y_train: (1600, 2)
+X_test: (400, 40000), Y_test: (400, 2)
+
+----- Neural network -----
+
+Parameters to create the model:
+- Dimension of the imput: 40000
+- Number of nodes in the first layer (hidden layer): 1000
+- Number of nodes in the second layer (hidden layer): 400
+
+Parameters to train the model:
+- Number of epochs: 50
+- Batch size: 1000
+
+----- Performance-----
+- Root Mean Squared Error:
+Train: 0.862, test: 0.961
+- Mean Squared Error:
+Train: 0.743, test: 0.924
+- Mean Absolute Error:
+Train: 0.743, test: 0.924
+
+----- Model summary -----
+
+Model structure and weights saved!
+
+----- Predictions -----
+
+Train predictions:
+Prediction shape: (1600, 2)
+Example [0]
+Real position:     (x, y) = (0.60, -0.09)
+Predicted position (x, y) = (1.01, -1.05)
+Example [1]
+Real position:     (x, y) = (0.65, -0.83)
+Predicted position (x, y) = (-0.34, -0.15)
+Example [2]
+Real position:     (x, y) = (-0.65, -0.22)
+Predicted position (x, y) = (-0.95, 0.28)
+Example [3]
+Real position:     (x, y) = (0.61, -0.88)
+Predicted position (x, y) = (-0.00, 0.33)
+Example [4]
+Real position:     (x, y) = (0.05, -0.17)
+Predicted position (x, y) = (0.49, 0.03)
+Example [5]
+Real position:     (x, y) = (0.26, -0.42)
+Predicted position (x, y) = (-1.64, 1.44)
+Example [6]
+Real position:     (x, y) = (-0.97, 0.97)
+Predicted position (x, y) = (0.18, 0.53)
+Example [7]
+Real position:     (x, y) = (-0.79, -0.26)
+Predicted position (x, y) = (0.57, -0.27)
+Example [8]
+Real position:     (x, y) = (-0.02, -0.32)
+Predicted position (x, y) = (-0.95, -0.41)
+Example [9]
+Real position:     (x, y) = (0.84, -0.90)
+Predicted position (x, y) = (-0.29, -0.24)
+
+Test predictions:
+Prediction shape: (400, 2)
+Example [0]
+Real position:     (x, y) = (0.43, 0.11)
+Predicted position (x, y) = (-1.00, 0.08)
+Example [1]
+Real position:     (x, y) = (-0.24, -0.21)
+Predicted position (x, y) = (0.27, -0.99)
+Example [2]
+Real position:     (x, y) = (-0.96, 0.15)
+Predicted position (x, y) = (-1.34, -0.29)
+Example [3]
+Real position:     (x, y) = (-0.79, 0.46)
+Predicted position (x, y) = (-1.60, 0.90)
+Example [4]
+Real position:     (x, y) = (0.22, 0.44)
+Predicted position (x, y) = (0.91, -0.48)
+Example [5]
+Real position:     (x, y) = (-0.08, -0.90)
+Predicted position (x, y) = (-0.80, -0.36)
+Example [6]
+Real position:     (x, y) = (-0.28, -0.42)
+Predicted position (x, y) = (-0.15, 0.02)
+Example [7]
+Real position:     (x, y) = (-0.10, 0.61)
+Predicted position (x, y) = (-0.71, -0.63)
+Example [8]
+Real position:     (x, y) = (-0.43, -0.86)
+Predicted position (x, y) = (-0.78, -0.94)
+Example [9]
+Real position:     (x, y) = (-0.15, 0.81)
+Predicted position (x, y) = (1.71, -0.92)
+
+Done!
+Execution time: 138.0938 seconds
+Execution date: 2020-08-12 15:43:29.409189
+-----------------------------------------
+---------- [Regression problem] ----------
+
+----- [Using hologram dataset] -----
+
+----- Loading datasets... -----
+Datasets loaded
+X_train: (1600, 40000), Y_train: (1600, 2)
+X_test: (400, 40000), Y_test: (400, 2)
+
+----- Neural network -----
+
+Parameters to create the model:
+- Dimension of the imput: 40000
+- Number of nodes in the first layer (hidden layer): 1000
+- Number of nodes in the second layer (hidden layer): 400
+
+Parameters to train the model:
+- Number of epochs: 50
+- Batch size: 1000
+
+----- Performance-----
+- Root Mean Squared Error:
+Train: 1.579, test: 1.570
+- Mean Squared Error:
+Train: 2.494, test: 2.465
+- Mean Absolute Error:
+Train: 2.494, test: 2.465
+
+----- Model summary -----
+
+Model structure and weights saved!
+
+----- Predictions -----
+
+Train predictions:
+Prediction shape: (1600, 2)
+Example [0]
+Real position:     (x, y) = (0.60, -0.09)
+Predicted position (x, y) = (-1.52, -1.76)
+Example [1]
+Real position:     (x, y) = (0.65, -0.83)
+Predicted position (x, y) = (-0.80, -1.61)
+Example [2]
+Real position:     (x, y) = (-0.65, -0.22)
+Predicted position (x, y) = (-1.38, -1.20)
+Example [3]
+Real position:     (x, y) = (0.61, -0.88)
+Predicted position (x, y) = (-0.58, -1.39)
+Example [4]
+Real position:     (x, y) = (0.05, -0.17)
+Predicted position (x, y) = (-1.03, -1.50)
+Example [5]
+Real position:     (x, y) = (0.26, -0.42)
+Predicted position (x, y) = (-0.25, -1.53)
+Example [6]
+Real position:     (x, y) = (-0.97, 0.97)
+Predicted position (x, y) = (-1.09, -0.30)
+Example [7]
+Real position:     (x, y) = (-0.79, -0.26)
+Predicted position (x, y) = (-0.94, -1.00)
+Example [8]
+Real position:     (x, y) = (-0.02, -0.32)
+Predicted position (x, y) = (-1.33, -0.80)
+Example [9]
+Real position:     (x, y) = (0.84, -0.90)
+Predicted position (x, y) = (-1.58, -2.97)
+
+Test predictions:
+Prediction shape: (400, 2)
+Example [0]
+Real position:     (x, y) = (0.43, 0.11)
+Predicted position (x, y) = (-1.17, -0.83)
+Example [1]
+Real position:     (x, y) = (-0.24, -0.21)
+Predicted position (x, y) = (-1.54, -1.03)
+Example [2]
+Real position:     (x, y) = (-0.96, 0.15)
+Predicted position (x, y) = (-1.80, -2.11)
+Example [3]
+Real position:     (x, y) = (-0.79, 0.46)
+Predicted position (x, y) = (-1.46, -1.74)
+Example [4]
+Real position:     (x, y) = (0.22, 0.44)
+Predicted position (x, y) = (-0.27, -2.72)
+Example [5]
+Real position:     (x, y) = (-0.08, -0.90)
+Predicted position (x, y) = (-1.00, -2.02)
+Example [6]
+Real position:     (x, y) = (-0.28, -0.42)
+Predicted position (x, y) = (-2.13, -1.74)
+Example [7]
+Real position:     (x, y) = (-0.10, 0.61)
+Predicted position (x, y) = (-1.48, -1.41)
+Example [8]
+Real position:     (x, y) = (-0.43, -0.86)
+Predicted position (x, y) = (-1.33, -1.36)
+Example [9]
+Real position:     (x, y) = (-0.15, 0.81)
+Predicted position (x, y) = (-0.95, -0.21)
+
+Done!
+Execution time: 139.9047 seconds
+Execution date: 2020-08-12 15:46:55.893303
+-----------------------------------------
+---------- [Regression problem] ----------
+
+----- [Using hologram dataset] -----
+
+----- Loading datasets... -----
+Datasets loaded
+X_train: (1600, 40000), Y_train: (1600, 2)
+X_test: (400, 40000), Y_test: (400, 2)
+
+----- Neural network -----
+
+Parameters to create the model:
+- Dimension of the imput: 40000
+- Number of nodes in the first layer (hidden layer): 1000
+- Number of nodes in the second layer (hidden layer): 400
+
+Parameters to train the model:
+- Number of epochs: 50
+- Batch size: 1000
+
+----- Performance-----
+- Root Mean Squared Error:
+Train: 0.812, test: 0.828
+- Mean Squared Error:
+Train: 0.659, test: 0.685
+- Mean Absolute Error:
+Train: 0.659, test: 0.685
+
+----- Model summary -----
+
+Model structure and weights saved!
+
+----- Predictions -----
+
+Train predictions:
+Prediction shape: (1600, 2)
+Example [0]
+Real position:     (x, y) = (0.60, -0.09)
+Predicted position (x, y) = (0.12, 0.63)
+Example [1]
+Real position:     (x, y) = (0.65, -0.83)
+Predicted position (x, y) = (0.29, -0.41)
+Example [2]
+Real position:     (x, y) = (-0.65, -0.22)
+Predicted position (x, y) = (-0.35, 0.53)
+Example [3]
+Real position:     (x, y) = (0.61, -0.88)
+Predicted position (x, y) = (-1.10, -0.29)
+Example [4]
+Real position:     (x, y) = (0.05, -0.17)
+Predicted position (x, y) = (0.58, -0.23)
+Example [5]
+Real position:     (x, y) = (0.26, -0.42)
+Predicted position (x, y) = (0.26, 0.29)
+Example [6]
+Real position:     (x, y) = (-0.97, 0.97)
+Predicted position (x, y) = (-1.27, -0.17)
+Example [7]
+Real position:     (x, y) = (-0.79, -0.26)
+Predicted position (x, y) = (-0.19, -0.10)
+Example [8]
+Real position:     (x, y) = (-0.02, -0.32)
+Predicted position (x, y) = (0.23, -0.92)
+Example [9]
+Real position:     (x, y) = (0.84, -0.90)
+Predicted position (x, y) = (-0.10, 0.61)
+
+Test predictions:
+Prediction shape: (400, 2)
+Example [0]
+Real position:     (x, y) = (0.43, 0.11)
+Predicted position (x, y) = (0.34, -0.37)
+Example [1]
+Real position:     (x, y) = (-0.24, -0.21)
+Predicted position (x, y) = (1.33, 0.09)
+Example [2]
+Real position:     (x, y) = (-0.96, 0.15)
+Predicted position (x, y) = (-0.36, 0.09)
+Example [3]
+Real position:     (x, y) = (-0.79, 0.46)
+Predicted position (x, y) = (0.22, -0.05)
+Example [4]
+Real position:     (x, y) = (0.22, 0.44)
+Predicted position (x, y) = (-0.48, -0.61)
+Example [5]
+Real position:     (x, y) = (-0.08, -0.90)
+Predicted position (x, y) = (0.02, -0.05)
+Example [6]
+Real position:     (x, y) = (-0.28, -0.42)
+Predicted position (x, y) = (-0.59, 0.50)
+Example [7]
+Real position:     (x, y) = (-0.10, 0.61)
+Predicted position (x, y) = (0.58, -0.23)
+Example [8]
+Real position:     (x, y) = (-0.43, -0.86)
+Predicted position (x, y) = (-0.27, -0.00)
+Example [9]
+Real position:     (x, y) = (-0.15, 0.81)
+Predicted position (x, y) = (0.34, 0.03)
+
+Done!
+Execution time: 144.3085 seconds
+Execution date: 2020-08-12 15:49:59.361263
+-----------------------------------------
+---------- [Regression problem] ----------
+
+----- [Using hologram dataset] -----
+
+----- Loading datasets... -----
+Datasets loaded
+X_train: (1600, 40000), Y_train: (1600, 2)
+X_test: (400, 40000), Y_test: (400, 2)
+
+----- Neural network -----
+
+Parameters to create the model:
+- Dimension of the imput: 40000
+- Number of nodes in the first layer (hidden layer): 1000
+- Number of nodes in the second layer (hidden layer): 400
+
+Parameters to train the model:
+- Number of epochs: 50
+- Batch size: 1000
+
+----- Performance-----
+- Root Mean Squared Error:
+Train: 0.922, test: 0.959
+- Mean Squared Error:
+Train: 0.850, test: 0.920
+- Mean Absolute Error:
+Train: 0.850, test: 0.920
+
+----- Model summary -----
+
+Model structure and weights saved!
+
+----- Predictions -----
+
+Train predictions:
+Prediction shape: (1600, 2)
+Example [0]
+Real position:     (x, y) = (0.60, -0.09)
+Predicted position (x, y) = (-0.46, 1.31)
+Example [1]
+Real position:     (x, y) = (0.65, -0.83)
+Predicted position (x, y) = (0.41, 0.45)
+Example [2]
+Real position:     (x, y) = (-0.65, -0.22)
+Predicted position (x, y) = (0.41, -0.73)
+Example [3]
+Real position:     (x, y) = (0.61, -0.88)
+Predicted position (x, y) = (-1.16, 1.16)
+Example [4]
+Real position:     (x, y) = (0.05, -0.17)
+Predicted position (x, y) = (0.00, 0.04)
+Example [5]
+Real position:     (x, y) = (0.26, -0.42)
+Predicted position (x, y) = (-0.26, 0.34)
+Example [6]
+Real position:     (x, y) = (-0.97, 0.97)
+Predicted position (x, y) = (0.46, 0.61)
+Example [7]
+Real position:     (x, y) = (-0.79, -0.26)
+Predicted position (x, y) = (-0.24, 0.97)
+Example [8]
+Real position:     (x, y) = (-0.02, -0.32)
+Predicted position (x, y) = (-0.65, 1.96)
+Example [9]
+Real position:     (x, y) = (0.84, -0.90)
+Predicted position (x, y) = (-0.74, 0.76)
+
+Test predictions:
+Prediction shape: (400, 2)
+Example [0]
+Real position:     (x, y) = (0.43, 0.11)
+Predicted position (x, y) = (-0.28, 0.05)
+Example [1]
+Real position:     (x, y) = (-0.24, -0.21)
+Predicted position (x, y) = (-0.77, 0.90)
+Example [2]
+Real position:     (x, y) = (-0.96, 0.15)
+Predicted position (x, y) = (1.05, -1.37)
+Example [3]
+Real position:     (x, y) = (-0.79, 0.46)
+Predicted position (x, y) = (-0.17, 0.19)
+Example [4]
+Real position:     (x, y) = (0.22, 0.44)
+Predicted position (x, y) = (-0.07, -0.42)
+Example [5]
+Real position:     (x, y) = (-0.08, -0.90)
+Predicted position (x, y) = (-1.65, 0.56)
+Example [6]
+Real position:     (x, y) = (-0.28, -0.42)
+Predicted position (x, y) = (0.12, 0.52)
+Example [7]
+Real position:     (x, y) = (-0.10, 0.61)
+Predicted position (x, y) = (-0.71, 1.71)
+Example [8]
+Real position:     (x, y) = (-0.43, -0.86)
+Predicted position (x, y) = (-0.65, 0.90)
+Example [9]
+Real position:     (x, y) = (-0.15, 0.81)
+Predicted position (x, y) = (-1.43, 0.96)
+
+Done!
+Execution time: 102.0477 seconds
+Execution date: 2020-08-12 15:52:42.870485
+-----------------------------------------
+---------- [Regression problem] ----------
+
+----- [Using hologram dataset] -----
+
+----- Loading datasets... -----
+Datasets loaded
+X_train: (1600, 40000), Y_train: (1600,)
+X_test: (400, 40000), Y_test: (400,)
+
+----- Neural network -----
+
+Parameters to create the model:
+- Dimension of the imput: 40000
+- Number of nodes in the first layer (hidden layer): 1000
+- Number of nodes in the second layer (hidden layer): 400
+
+Parameters to train the model:
+- Number of epochs: 50
+- Batch size: 1000
+
+----- Performance-----
+- Root Mean Squared Error:
+Train: 0.698, test: 0.704
+- Mean Squared Error:
+Train: 0.487, test: 0.496
+- Mean Absolute Error:
+Train: 0.487, test: 0.496
+
+----- Model summary -----
+
+Model structure and weights saved!
+
+----- Predictions -----
+
+Train predictions:
+Prediction shape: (1600, 1)
+Example [0]
+Real position:     (z) = (-0.22)
+Predicted position (z) = (-0.71)
+Example [1]
+Real position:     (z) = (-0.07)
+Predicted position (z) = (-0.27)
+Example [2]
+Real position:     (z) = (-0.42)
+Predicted position (z) = (-0.80)
+Example [3]
+Real position:     (z) = (-0.20)
+Predicted position (z) = (-0.92)
+Example [4]
+Real position:     (z) = (-0.33)
+Predicted position (z) = (-0.15)
+Example [5]
+Real position:     (z) = (-0.22)
+Predicted position (z) = (-1.44)
+Example [6]
+Real position:     (z) = (-0.08)
+Predicted position (z) = (-0.68)
+Example [7]
+Real position:     (z) = (-0.10)
+Predicted position (z) = (-2.13)
+Example [8]
+Real position:     (z) = (-0.48)
+Predicted position (z) = (-0.24)
+Example [9]
+Real position:     (z) = (-0.37)
+Predicted position (z) = (-0.27)
+
+Test predictions:
+Prediction shape: (400, 1)
+Example [0]
+Real position:     (z) = (-0.07)
+Predicted position (z) = (-1.78)
+Example [1]
+Real position:     (z) = (-0.29)
+Predicted position (z) = (0.05)
+Example [2]
+Real position:     (z) = (-0.47)
+Predicted position (z) = (-0.78)
+Example [3]
+Real position:     (z) = (-0.49)
+Predicted position (z) = (-0.44)
+Example [4]
+Real position:     (z) = (-0.15)
+Predicted position (z) = (-1.64)
+Example [5]
+Real position:     (z) = (-0.19)
+Predicted position (z) = (-0.19)
+Example [6]
+Real position:     (z) = (-0.41)
+Predicted position (z) = (-1.34)
+Example [7]
+Real position:     (z) = (-0.40)
+Predicted position (z) = (-1.39)
+Example [8]
+Real position:     (z) = (-0.32)
+Predicted position (z) = (-0.90)
+Example [9]
+Real position:     (z) = (-0.21)
+Predicted position (z) = (-0.45)
+
+Done!
+Execution time: 68.9113 seconds
+Execution date: 2020-08-12 16:09:54.091027
+-----------------------------------------
+---------- [Regression problem] ----------
+
+----- [Using hologram dataset] -----
+
+----- Loading datasets... -----
+Datasets loaded
+X_train: (1600, 40000), Y_train: (1600,)
+X_test: (400, 40000), Y_test: (400,)
+
+----- Neural network -----
+
+Parameters to create the model:
+- Dimension of the imput: 40000
+- Number of nodes in the first layer (hidden layer): 1000
+- Number of nodes in the second layer (hidden layer): 400
+
+Parameters to train the model:
+- Number of epochs: 50
+- Batch size: 1000
+
+----- Performance-----
+- Root Mean Squared Error:
+Train: 0.563, test: 0.584
+- Mean Squared Error:
+Train: 0.316, test: 0.341
+- Mean Absolute Error:
+Train: 0.316, test: 0.341
+
+----- Model summary -----
+
+Model structure and weights saved!
+
+----- Predictions -----
+
+Train predictions:
+Prediction shape: (1600, 1)
+Example [0]
+Real position:     (z) = (-0.22)
+Predicted position (z) = (-0.44)
+Example [1]
+Real position:     (z) = (-0.07)
+Predicted position (z) = (-0.31)
+Example [2]
+Real position:     (z) = (-0.42)
+Predicted position (z) = (-0.34)
+Example [3]
+Real position:     (z) = (-0.20)
+Predicted position (z) = (-0.75)
+Example [4]
+Real position:     (z) = (-0.33)
+Predicted position (z) = (0.17)
+Example [5]
+Real position:     (z) = (-0.22)
+Predicted position (z) = (0.50)
+Example [6]
+Real position:     (z) = (-0.08)
+Predicted position (z) = (-0.37)
+Example [7]
+Real position:     (z) = (-0.10)
+Predicted position (z) = (0.42)
+Example [8]
+Real position:     (z) = (-0.48)
+Predicted position (z) = (-0.35)
+Example [9]
+Real position:     (z) = (-0.37)
+Predicted position (z) = (-0.33)
+
+Test predictions:
+Prediction shape: (400, 1)
+Example [0]
+Real position:     (z) = (-0.07)
+Predicted position (z) = (0.61)
+Example [1]
+Real position:     (z) = (-0.29)
+Predicted position (z) = (-0.12)
+Example [2]
+Real position:     (z) = (-0.47)
+Predicted position (z) = (0.54)
+Example [3]
+Real position:     (z) = (-0.49)
+Predicted position (z) = (-0.70)
+Example [4]
+Real position:     (z) = (-0.15)
+Predicted position (z) = (0.26)
+Example [5]
+Real position:     (z) = (-0.19)
+Predicted position (z) = (-0.57)
+Example [6]
+Real position:     (z) = (-0.41)
+Predicted position (z) = (-0.75)
+Example [7]
+Real position:     (z) = (-0.40)
+Predicted position (z) = (0.26)
+Example [8]
+Real position:     (z) = (-0.32)
+Predicted position (z) = (0.71)
+Example [9]
+Real position:     (z) = (-0.21)
+Predicted position (z) = (0.58)
+
+Done!
+Execution time: 135.4309 seconds
+Execution date: 2020-08-12 16:13:18.883673
+-----------------------------------------
+---------- [Regression problem] ----------
+
+----- [Using hologram dataset] -----
+
+----- Loading datasets... -----
+Datasets loaded
+X_train: (1600, 40000), Y_train: (1600,)
+X_test: (400, 40000), Y_test: (400,)
+
+----- Neural network -----
+
+Parameters to create the model:
+- Dimension of the imput: 40000
+- Number of nodes in the first layer (hidden layer): 1000
+- Number of nodes in the second layer (hidden layer): 400
+
+Parameters to train the model:
+- Number of epochs: 50
+- Batch size: 1000
+
+----- Performance-----
+- Root Mean Squared Error:
+Train: 0.464, test: 0.462
+- Mean Squared Error:
+Train: 0.215, test: 0.214
+- Mean Absolute Error:
+Train: 0.215, test: 0.214
+
+----- Model summary -----
+
+Model structure and weights saved!
+
+----- Predictions -----
+
+Train predictions:
+Prediction shape: (1600, 1)
+Example [0]
+Real position:     (z) = (-0.22)
+Predicted position (z) = (-0.32)
+Example [1]
+Real position:     (z) = (-0.07)
+Predicted position (z) = (0.46)
+Example [2]
+Real position:     (z) = (-0.42)
+Predicted position (z) = (0.15)
+Example [3]
+Real position:     (z) = (-0.20)
+Predicted position (z) = (0.02)
+Example [4]
+Real position:     (z) = (-0.33)
+Predicted position (z) = (0.51)
+Example [5]
+Real position:     (z) = (-0.22)
+Predicted position (z) = (-0.19)
+Example [6]
+Real position:     (z) = (-0.08)
+Predicted position (z) = (-0.29)
+Example [7]
+Real position:     (z) = (-0.10)
+Predicted position (z) = (0.38)
+Example [8]
+Real position:     (z) = (-0.48)
+Predicted position (z) = (0.17)
+Example [9]
+Real position:     (z) = (-0.37)
+Predicted position (z) = (0.51)
+
+Test predictions:
+Prediction shape: (400, 1)
+Example [0]
+Real position:     (z) = (-0.07)
+Predicted position (z) = (0.46)
+Example [1]
+Real position:     (z) = (-0.29)
+Predicted position (z) = (0.10)
+Example [2]
+Real position:     (z) = (-0.47)
+Predicted position (z) = (-0.01)
+Example [3]
+Real position:     (z) = (-0.49)
+Predicted position (z) = (-0.50)
+Example [4]
+Real position:     (z) = (-0.15)
+Predicted position (z) = (0.10)
+Example [5]
+Real position:     (z) = (-0.19)
+Predicted position (z) = (-0.12)
+Example [6]
+Real position:     (z) = (-0.41)
+Predicted position (z) = (0.51)
+Example [7]
+Real position:     (z) = (-0.40)
+Predicted position (z) = (0.09)
+Example [8]
+Real position:     (z) = (-0.32)
+Predicted position (z) = (-0.00)
+Example [9]
+Real position:     (z) = (-0.21)
+Predicted position (z) = (-0.31)
+
+Done!
+Execution time: 147.3520 seconds
+Execution date: 2020-08-12 16:16:38.892927
+-----------------------------------------
+---------- [Regression problem] ----------
+
+----- [Using hologram dataset] -----
+
+----- Loading datasets... -----
+Datasets loaded
+X_train: (1600, 40000), Y_train: (1600,)
+X_test: (400, 40000), Y_test: (400,)
+
+----- Neural network -----
+
+Parameters to create the model:
+- Dimension of the imput: 40000
+- Number of nodes in the first layer (hidden layer): 1000
+- Number of nodes in the second layer (hidden layer): 400
+
+Parameters to train the model:
+- Number of epochs: 50
+- Batch size: 1000
+
+----- Performance-----
+- Root Mean Squared Error:
+Train: 0.612, test: 0.621
+- Mean Squared Error:
+Train: 0.374, test: 0.386
+- Mean Absolute Error:
+Train: 0.374, test: 0.386
+
+----- Model summary -----
+
+Model structure and weights saved!
+
+----- Predictions -----
+
+Train predictions:
+Prediction shape: (1600, 1)
+Example [0]
+Real position:     (z) = (-0.22)
+Predicted position (z) = (-0.41)
+Example [1]
+Real position:     (z) = (-0.07)
+Predicted position (z) = (-0.23)
+Example [2]
+Real position:     (z) = (-0.42)
+Predicted position (z) = (0.36)
+Example [3]
+Real position:     (z) = (-0.20)
+Predicted position (z) = (0.30)
+Example [4]
+Real position:     (z) = (-0.33)
+Predicted position (z) = (0.15)
+Example [5]
+Real position:     (z) = (-0.22)
+Predicted position (z) = (0.43)
+Example [6]
+Real position:     (z) = (-0.08)
+Predicted position (z) = (0.49)
+Example [7]
+Real position:     (z) = (-0.10)
+Predicted position (z) = (0.40)
+Example [8]
+Real position:     (z) = (-0.48)
+Predicted position (z) = (-0.19)
+Example [9]
+Real position:     (z) = (-0.37)
+Predicted position (z) = (-0.45)
+
+Test predictions:
+Prediction shape: (400, 1)
+Example [0]
+Real position:     (z) = (-0.07)
+Predicted position (z) = (-0.90)
+Example [1]
+Real position:     (z) = (-0.29)
+Predicted position (z) = (0.06)
+Example [2]
+Real position:     (z) = (-0.47)
+Predicted position (z) = (0.15)
+Example [3]
+Real position:     (z) = (-0.49)
+Predicted position (z) = (-0.03)
+Example [4]
+Real position:     (z) = (-0.15)
+Predicted position (z) = (0.14)
+Example [5]
+Real position:     (z) = (-0.19)
+Predicted position (z) = (0.00)
+Example [6]
+Real position:     (z) = (-0.41)
+Predicted position (z) = (0.29)
+Example [7]
+Real position:     (z) = (-0.40)
+Predicted position (z) = (-0.76)
+Example [8]
+Real position:     (z) = (-0.32)
+Predicted position (z) = (-1.72)
+Example [9]
+Real position:     (z) = (-0.21)
+Predicted position (z) = (-0.50)
+
+Done!
+Execution time: 177.5239 seconds
+Execution date: 2020-08-12 16:21:04.897111
+-----------------------------------------
+---------- [Regression problem] ----------
+
+----- [Using hologram dataset] -----
+
+----- Loading datasets... -----
+Datasets loaded
+X_train: (1600, 40000), Y_train: (1600,)
+X_test: (400, 40000), Y_test: (400,)
+
+----- Neural network -----
+
+Parameters to create the model:
+- Dimension of the imput: 40000
+- Number of nodes in the first layer (hidden layer): 1000
+- Number of nodes in the second layer (hidden layer): 400
+
+Parameters to train the model:
+- Number of epochs: 50
+- Batch size: 1000
+
+----- Performance-----
+- Root Mean Squared Error:
+Train: 0.465, test: 0.482
+- Mean Squared Error:
+Train: 0.216, test: 0.232
+- Mean Absolute Error:
+Train: 0.216, test: 0.232
+
+----- Model summary -----
+
+Model structure and weights saved!
+
+----- Predictions -----
+
+Train predictions:
+Prediction shape: (1600, 1)
+Example [0]
+Real position:     (z) = (-0.22)
+Predicted position (z) = (-0.33)
+Example [1]
+Real position:     (z) = (-0.07)
+Predicted position (z) = (-0.99)
+Example [2]
+Real position:     (z) = (-0.42)
+Predicted position (z) = (-0.24)
+Example [3]
+Real position:     (z) = (-0.20)
+Predicted position (z) = (-0.28)
+Example [4]
+Real position:     (z) = (-0.33)
+Predicted position (z) = (-0.16)
+Example [5]
+Real position:     (z) = (-0.22)
+Predicted position (z) = (-0.15)
+Example [6]
+Real position:     (z) = (-0.08)
+Predicted position (z) = (-0.63)
+Example [7]
+Real position:     (z) = (-0.10)
+Predicted position (z) = (0.57)
+Example [8]
+Real position:     (z) = (-0.48)
+Predicted position (z) = (-0.08)
+Example [9]
+Real position:     (z) = (-0.37)
+Predicted position (z) = (-0.99)
+
+Test predictions:
+Prediction shape: (400, 1)
+Example [0]
+Real position:     (z) = (-0.07)
+Predicted position (z) = (-0.83)
+Example [1]
+Real position:     (z) = (-0.29)
+Predicted position (z) = (-1.01)
+Example [2]
+Real position:     (z) = (-0.47)
+Predicted position (z) = (-0.30)
+Example [3]
+Real position:     (z) = (-0.49)
+Predicted position (z) = (0.37)
+Example [4]
+Real position:     (z) = (-0.15)
+Predicted position (z) = (-0.39)
+Example [5]
+Real position:     (z) = (-0.19)
+Predicted position (z) = (0.76)
+Example [6]
+Real position:     (z) = (-0.41)
+Predicted position (z) = (-0.56)
+Example [7]
+Real position:     (z) = (-0.40)
+Predicted position (z) = (-0.22)
+Example [8]
+Real position:     (z) = (-0.32)
+Predicted position (z) = (0.59)
+Example [9]
+Real position:     (z) = (-0.21)
+Predicted position (z) = (-0.60)
+
+Done!
+Execution time: 135.2352 seconds
+Execution date: 2020-08-12 16:23:48.345821
+-----------------------------------------
+---------- [Regression problem] ----------
+---------- [Regression problem] ----------
+
+----- [Using wigner distribution dataset] -----
+
+----- Loading datasets... -----
+---------- [Regression problem] ----------
+
+----- [Using wigner distribution dataset] -----
+
+----- Loading datasets... -----
+Datasets loaded
+X_train: (400, 40000), Y_train: (400, 3)
+X_test: (100, 40000), Y_test: (100, 3)
+
+----- Neural network -----
+
+Parameters to create the model:
+- Dimension of the imput: 40000
+- Number of nodes in the first layer (hidden layer): 1000
+- Number of nodes in the second layer (hidden layer): 400
+
+Parameters to train the model:
+- Number of epochs: 50
+- Batch size: 1000
+
+----- Performance-----
+- Root Mean Squared Error:
+Train: 0.761, test: 0.766
+- Mean Squared Error:
+Train: 0.579, test: 0.587
+- Mean Absolute Error:
+Train: 0.579, test: 0.587
+
+----- Model summary -----
+
+Model structure and weights saved!
+
+----- Predictions -----
+
+Train predictions:
+Prediction shape: (400, 3)
+Example [0]
+Real position:     (x, y, z) = (-0.00021, -0.00064, -0.31667)
+Predicted position (x, y, z) = (-1.25836, 0.35028, 0.22339)
+Example [1]
+Real position:     (x, y, z) = (-0.00021, -0.00064, -0.31667)
+Predicted position (x, y, z) = (0.04944, 0.75295, -1.21691)
+Example [2]
+Real position:     (x, y, z) = (-0.00021, -0.00064, -0.31667)
+Predicted position (x, y, z) = (-1.59953, -0.47319, 1.35992)
+Example [3]
+Real position:     (x, y, z) = (-0.00021, -0.00064, -0.31667)
+Predicted position (x, y, z) = (-1.23928, 0.36708, 0.04780)
+Example [4]
+Real position:     (x, y, z) = (-0.00021, -0.00064, -0.31667)
+Predicted position (x, y, z) = (-0.70451, 0.31590, -0.03292)
+Example [5]
+Real position:     (x, y, z) = (-0.00021, -0.00064, -0.31667)
+Predicted position (x, y, z) = (-0.69373, 0.23560, -0.07156)
+Example [6]
+Real position:     (x, y, z) = (-0.00021, -0.00064, -0.31667)
+Predicted position (x, y, z) = (-0.47701, 0.02299, -0.58946)
+Example [7]
+Real position:     (x, y, z) = (-0.00021, -0.00064, -0.31667)
+Predicted position (x, y, z) = (-1.09581, 0.18756, -0.08668)
+Example [8]
+Real position:     (x, y, z) = (-0.00021, -0.00064, -0.31667)
+Predicted position (x, y, z) = (-0.63190, 0.34844, 0.03610)
+Example [9]
+Real position:     (x, y, z) = (-0.00021, -0.00064, -0.31667)
+Predicted position (x, y, z) = (-1.34523, 0.43669, 0.49812)
+
+Test predictions:
+Prediction shape: (100, 3)
+Example [0]
+Real position:     (x, y, z) = (-0.00021, -0.00064, -0.31667)
+Predicted position (x, y, z) = (-1.35571, 0.34949, 0.60708)
+Example [1]
+Real position:     (x, y, z) = (-0.00021, -0.00064, -0.31667)
+Predicted position (x, y, z) = (-1.26152, -0.18536, 0.80530)
+Example [2]
+Real position:     (x, y, z) = (-0.00021, -0.00064, -0.31667)
+Predicted position (x, y, z) = (-1.30557, 0.38686, 0.26370)
+Example [3]
+Real position:     (x, y, z) = (-0.00021, -0.00064, -0.31667)
+Predicted position (x, y, z) = (-0.95648, 0.09501, -0.01606)
+Example [4]
+Real position:     (x, y, z) = (-0.00021, -0.00064, -0.31667)
+Predicted position (x, y, z) = (-1.31327, 0.10815, 0.32091)
+Example [5]
+Real position:     (x, y, z) = (-0.00021, -0.00064, -0.31667)
+Predicted position (x, y, z) = (-0.71660, 0.26300, -0.01674)
+Example [6]
+Real position:     (x, y, z) = (-0.00021, -0.00064, -0.31667)
+Predicted position (x, y, z) = (-0.62488, 0.26825, 0.67058)
+Example [7]
+Real position:     (x, y, z) = (-0.00021, -0.00064, -0.31667)
+Predicted position (x, y, z) = (-1.61899, -0.38799, 1.04320)
+Example [8]
+Real position:     (x, y, z) = (-0.00021, -0.00064, -0.31667)
+Predicted position (x, y, z) = (-0.29930, 1.09123, -0.93842)
+Example [9]
+Real position:     (x, y, z) = (-0.00021, -0.00064, -0.31667)
+Predicted position (x, y, z) = (-0.82706, 0.36976, 0.07137)
+
+Done!
+Execution time: 42.5282 seconds
+Execution date: 2020-08-12 18:10:03.278267
+-----------------------------------------
+---------- [Regression problem] ----------
+
+----- [Using wigner distribution dataset] -----
+
+----- Loading datasets... -----
+Datasets loaded
+X_train: (400, 40000), Y_train: (400, 3)
+X_test: (100, 40000), Y_test: (100, 3)
+
+----- Neural network -----
+
+Parameters to create the model:
+- Dimension of the imput: 40000
+- Number of nodes in the first layer (hidden layer): 1000
+- Number of nodes in the second layer (hidden layer): 400
+
+Parameters to train the model:
+- Number of epochs: 50
+- Batch size: 1000
+
+----- Performance-----
+- Root Mean Squared Error:
+Train: 0.630, test: 0.623
+- Mean Squared Error:
+Train: 0.397, test: 0.388
+- Mean Absolute Error:
+Train: 0.397, test: 0.388
+
+----- Model summary -----
+
+Model structure and weights saved!
+
+----- Predictions -----
+
+Train predictions:
+Prediction shape: (400, 3)
+Example [0]
+Real position:     (x, y, z) = (-0.00021, -0.00064, -0.31667)
+Predicted position (x, y, z) = (0.32304, -0.04343, -1.48323)
+Example [1]
+Real position:     (x, y, z) = (-0.00021, -0.00064, -0.31667)
+Predicted position (x, y, z) = (0.45833, 0.72024, -0.84235)
+Example [2]
+Real position:     (x, y, z) = (-0.00021, -0.00064, -0.31667)
+Predicted position (x, y, z) = (0.85416, -0.18496, -1.22337)
+Example [3]
+Real position:     (x, y, z) = (-0.00021, -0.00064, -0.31667)
+Predicted position (x, y, z) = (0.36953, 0.04417, -1.51595)
+Example [4]
+Real position:     (x, y, z) = (-0.00021, -0.00064, -0.31667)
+Predicted position (x, y, z) = (0.49174, 0.16919, -1.42654)
+Example [5]
+Real position:     (x, y, z) = (-0.00021, -0.00064, -0.31667)
+Predicted position (x, y, z) = (0.34318, -0.22270, -1.48258)
+Example [6]
+Real position:     (x, y, z) = (-0.00021, -0.00064, -0.31667)
+Predicted position (x, y, z) = (-0.13497, 0.59976, -0.85427)
+Example [7]
+Real position:     (x, y, z) = (-0.00021, -0.00064, -0.31667)
+Predicted position (x, y, z) = (-0.09013, 0.23231, -0.53232)
+Example [8]
+Real position:     (x, y, z) = (-0.00021, -0.00064, -0.31667)
+Predicted position (x, y, z) = (0.39295, 0.33420, -1.43835)
+Example [9]
+Real position:     (x, y, z) = (-0.00021, -0.00064, -0.31667)
+Predicted position (x, y, z) = (0.30897, -0.03323, -1.35219)
+
+Test predictions:
+Prediction shape: (100, 3)
+Example [0]
+Real position:     (x, y, z) = (-0.00021, -0.00064, -0.31667)
+Predicted position (x, y, z) = (0.19463, -0.18419, -1.27146)
+Example [1]
+Real position:     (x, y, z) = (-0.00021, -0.00064, -0.31667)
+Predicted position (x, y, z) = (0.59878, -0.25662, -1.12364)
+Example [2]
+Real position:     (x, y, z) = (-0.00021, -0.00064, -0.31667)
+Predicted position (x, y, z) = (0.29256, 0.00605, -1.33785)
+Example [3]
+Real position:     (x, y, z) = (-0.00021, -0.00064, -0.31667)
+Predicted position (x, y, z) = (0.37406, -0.13981, -1.53497)
+Example [4]
+Real position:     (x, y, z) = (-0.00021, -0.00064, -0.31667)
+Predicted position (x, y, z) = (0.39332, 0.41677, -1.12835)
+Example [5]
+Real position:     (x, y, z) = (-0.00021, -0.00064, -0.31667)
+Predicted position (x, y, z) = (0.51942, -0.02649, -1.32626)
+Example [6]
+Real position:     (x, y, z) = (-0.00021, -0.00064, -0.31667)
+Predicted position (x, y, z) = (0.69162, 0.40533, -0.86571)
+Example [7]
+Real position:     (x, y, z) = (-0.00021, -0.00064, -0.31667)
+Predicted position (x, y, z) = (0.75162, -0.18772, -1.28879)
+Example [8]
+Real position:     (x, y, z) = (-0.00021, -0.00064, -0.31667)
+Predicted position (x, y, z) = (0.25350, 0.29218, -1.02759)
+Example [9]
+Real position:     (x, y, z) = (-0.00021, -0.00064, -0.31667)
+Predicted position (x, y, z) = (0.44717, 0.13801, -0.96332)
+
+Done!
+Execution time: 48.6106 seconds
+Execution date: 2020-08-12 18:20:46.220693
+-----------------------------------------
+---------- [Regression problem] ----------
+
+----- [Using wigner distribution dataset] -----
+
+----- Loading datasets... -----
+Datasets loaded
+X_train: (400, 40000), Y_train: (400, 3)
+X_test: (100, 40000), Y_test: (100, 3)
+
+----- Neural network -----
+
+Parameters to create the model:
+- Dimension of the imput: 40000
+- Number of nodes in the first layer (hidden layer): 1000
+- Number of nodes in the second layer (hidden layer): 400
+
+Parameters to train the model:
+- Number of epochs: 50
+- Batch size: 1000
+
+----- Performance-----
+- Root Mean Squared Error:
+Train: 1.210, test: 1.207
+- Mean Squared Error:
+Train: 1.464, test: 1.458
+- Mean Absolute Error:
+Train: 1.464, test: 1.458
+
+----- Model summary -----
+
+Model structure and weights saved!
+
+----- Predictions -----
+
+Train predictions:
+Prediction shape: (400, 3)
+Example [0]
+Real position:     (x, y, z) = (-0.00021, -0.00064, -0.31667)
+Predicted position (x, y, z) = (1.88350, -0.69035, -0.67007)
+Example [1]
+Real position:     (x, y, z) = (-0.00021, -0.00064, -0.31667)
+Predicted position (x, y, z) = (0.91787, -0.35258, -0.74696)
+Example [2]
+Real position:     (x, y, z) = (-0.00021, -0.00064, -0.31667)
+Predicted position (x, y, z) = (1.73287, -0.28738, -1.00231)
+Example [3]
+Real position:     (x, y, z) = (-0.00021, -0.00064, -0.31667)
+Predicted position (x, y, z) = (1.78468, -0.67796, -0.92514)
+Example [4]
+Real position:     (x, y, z) = (-0.00021, -0.00064, -0.31667)
+Predicted position (x, y, z) = (2.48947, -0.77662, -1.01431)
+Example [5]
+Real position:     (x, y, z) = (-0.00021, -0.00064, -0.31667)
+Predicted position (x, y, z) = (2.11567, -0.79826, -0.51085)
+Example [6]
+Real position:     (x, y, z) = (-0.00021, -0.00064, -0.31667)
+Predicted position (x, y, z) = (0.31253, 0.24989, -0.72599)
+Example [7]
+Real position:     (x, y, z) = (-0.00021, -0.00064, -0.31667)
+Predicted position (x, y, z) = (1.12723, -0.21241, -0.49298)
+Example [8]
+Real position:     (x, y, z) = (-0.00021, -0.00064, -0.31667)
+Predicted position (x, y, z) = (2.52833, -0.68334, -1.09948)
+Example [9]
+Real position:     (x, y, z) = (-0.00021, -0.00064, -0.31667)
+Predicted position (x, y, z) = (2.16613, -0.38235, -0.53890)
+
+Test predictions:
+Prediction shape: (100, 3)
+Example [0]
+Real position:     (x, y, z) = (-0.00021, -0.00064, -0.31667)
+Predicted position (x, y, z) = (1.94205, -0.43911, -0.41051)
+Example [1]
+Real position:     (x, y, z) = (-0.00021, -0.00064, -0.31667)
+Predicted position (x, y, z) = (1.66837, -0.30784, -1.48857)
+Example [2]
+Real position:     (x, y, z) = (-0.00021, -0.00064, -0.31667)
+Predicted position (x, y, z) = (1.89493, -0.43706, -0.72682)
+Example [3]
+Real position:     (x, y, z) = (-0.00021, -0.00064, -0.31667)
+Predicted position (x, y, z) = (1.70136, -0.78015, -0.94741)
+Example [4]
+Real position:     (x, y, z) = (-0.00021, -0.00064, -0.31667)
+Predicted position (x, y, z) = (1.48801, -0.52667, -1.22052)
+Example [5]
+Real position:     (x, y, z) = (-0.00021, -0.00064, -0.31667)
+Predicted position (x, y, z) = (2.31395, -0.80231, -0.97465)
+Example [6]
+Real position:     (x, y, z) = (-0.00021, -0.00064, -0.31667)
+Predicted position (x, y, z) = (1.33900, -0.56235, -0.83698)
+Example [7]
+Real position:     (x, y, z) = (-0.00021, -0.00064, -0.31667)
+Predicted position (x, y, z) = (1.74214, -0.43001, -1.25834)
+Example [8]
+Real position:     (x, y, z) = (-0.00021, -0.00064, -0.31667)
+Predicted position (x, y, z) = (1.14265, -0.28392, -0.78885)
+Example [9]
+Real position:     (x, y, z) = (-0.00021, -0.00064, -0.31667)
+Predicted position (x, y, z) = (1.64634, -0.38792, -1.35453)
+
+Done!
+Execution time: 48.1609 seconds
+Execution date: 2020-08-12 18:21:39.428303
+-----------------------------------------
+---------- [Regression problem] ----------
+
+----- [Using wigner distribution dataset] -----
+
+----- Loading datasets... -----
+Datasets loaded
+X_train: (400, 40000), Y_train: (400, 3)
+X_test: (100, 40000), Y_test: (100, 3)
+
+----- Neural network -----
+
+Parameters to create the model:
+- Dimension of the imput: 40000
+- Number of nodes in the first layer (hidden layer): 1000
+- Number of nodes in the second layer (hidden layer): 400
+
+Parameters to train the model:
+- Number of epochs: 50
+- Batch size: 1000
+
+----- Performance-----
+- Root Mean Squared Error:
+Train: 1.087, test: 1.070
+- Mean Squared Error:
+Train: 1.181, test: 1.144
+- Mean Absolute Error:
+Train: 1.181, test: 1.144
+
+----- Model summary -----
+
+Model structure and weights saved!
+
+----- Predictions -----
+
+Train predictions:
+Prediction shape: (400, 3)
+Example [0]
+Real position:     (x, y, z) = (-0.00021, -0.00064, -0.31667)
+Predicted position (x, y, z) = (0.90018, 0.99441, 0.71300)
+Example [1]
+Real position:     (x, y, z) = (-0.00021, -0.00064, -0.31667)
+Predicted position (x, y, z) = (1.36610, 1.35655, -0.00400)
+Example [2]
+Real position:     (x, y, z) = (-0.00021, -0.00064, -0.31667)
+Predicted position (x, y, z) = (1.05447, -0.11993, 0.97961)
+Example [3]
+Real position:     (x, y, z) = (-0.00021, -0.00064, -0.31667)
+Predicted position (x, y, z) = (0.99722, 0.90565, 0.58038)
+Example [4]
+Real position:     (x, y, z) = (-0.00021, -0.00064, -0.31667)
+Predicted position (x, y, z) = (2.04849, 0.60511, 0.99378)
+Example [5]
+Real position:     (x, y, z) = (-0.00021, -0.00064, -0.31667)
+Predicted position (x, y, z) = (1.51450, 0.42707, 1.02788)
+Example [6]
+Real position:     (x, y, z) = (-0.00021, -0.00064, -0.31667)
+Predicted position (x, y, z) = (0.65142, 0.39860, -0.49541)
+Example [7]
+Real position:     (x, y, z) = (-0.00021, -0.00064, -0.31667)
+Predicted position (x, y, z) = (0.95804, 0.88218, 0.10102)
+Example [8]
+Real position:     (x, y, z) = (-0.00021, -0.00064, -0.31667)
+Predicted position (x, y, z) = (2.03973, 0.63100, 0.94883)
+Example [9]
+Real position:     (x, y, z) = (-0.00021, -0.00064, -0.31667)
+Predicted position (x, y, z) = (0.48616, 0.93799, 0.90493)
+
+Test predictions:
+Prediction shape: (100, 3)
+Example [0]
+Real position:     (x, y, z) = (-0.00021, -0.00064, -0.31667)
+Predicted position (x, y, z) = (0.48957, 1.04660, 0.77875)
+Example [1]
+Real position:     (x, y, z) = (-0.00021, -0.00064, -0.31667)
+Predicted position (x, y, z) = (1.15086, 0.15959, 1.00782)
+Example [2]
+Real position:     (x, y, z) = (-0.00021, -0.00064, -0.31667)
+Predicted position (x, y, z) = (0.78877, 0.96015, 0.55611)
+Example [3]
+Real position:     (x, y, z) = (-0.00021, -0.00064, -0.31667)
+Predicted position (x, y, z) = (0.90795, 0.49396, 0.74174)
+Example [4]
+Real position:     (x, y, z) = (-0.00021, -0.00064, -0.31667)
+Predicted position (x, y, z) = (1.18251, 0.15762, 0.46797)
+Example [5]
+Real position:     (x, y, z) = (-0.00021, -0.00064, -0.31667)
+Predicted position (x, y, z) = (1.79667, 0.34108, 1.16059)
+Example [6]
+Real position:     (x, y, z) = (-0.00021, -0.00064, -0.31667)
+Predicted position (x, y, z) = (1.24950, -0.06323, 0.98262)
+Example [7]
+Real position:     (x, y, z) = (-0.00021, -0.00064, -0.31667)
+Predicted position (x, y, z) = (1.00964, -0.01117, 1.13074)
+Example [8]
+Real position:     (x, y, z) = (-0.00021, -0.00064, -0.31667)
+Predicted position (x, y, z) = (1.13063, 0.64679, 0.31444)
+Example [9]
+Real position:     (x, y, z) = (-0.00021, -0.00064, -0.31667)
+Predicted position (x, y, z) = (1.28308, 0.04523, 0.77539)
+
+Done!
+Execution time: 48.7349 seconds
+Execution date: 2020-08-12 18:22:34.242323
+-----------------------------------------
+---------- [Regression problem] ----------
+
+----- [Using wigner distribution dataset] -----
+
+----- Loading datasets... -----
+Datasets loaded
+X_train: (400, 40000), Y_train: (400, 3)
+X_test: (100, 40000), Y_test: (100, 3)
+
+----- Neural network -----
+
+Parameters to create the model:
+- Dimension of the imput: 40000
+- Number of nodes in the first layer (hidden layer): 1000
+- Number of nodes in the second layer (hidden layer): 400
+
+Parameters to train the model:
+- Number of epochs: 50
+- Batch size: 1000
+
+----- Performance-----
+- Root Mean Squared Error:
+Train: 0.629, test: 0.605
+- Mean Squared Error:
+Train: 0.395, test: 0.366
+- Mean Absolute Error:
+Train: 0.395, test: 0.366
+
+----- Model summary -----
+
+Model structure and weights saved!
+
+----- Predictions -----
+
+Train predictions:
+Prediction shape: (400, 3)
+Example [0]
+Real position:     (x, y, z) = (-0.00021, -0.00064, -0.31667)
+Predicted position (x, y, z) = (-0.11666, -0.18539, 0.41750)
+Example [1]
+Real position:     (x, y, z) = (-0.00021, -0.00064, -0.31667)
+Predicted position (x, y, z) = (0.21864, -0.19539, 0.44262)
+Example [2]
+Real position:     (x, y, z) = (-0.00021, -0.00064, -0.31667)
+Predicted position (x, y, z) = (-0.65769, 0.12038, -0.24702)
+Example [3]
+Real position:     (x, y, z) = (-0.00021, -0.00064, -0.31667)
+Predicted position (x, y, z) = (0.04389, -0.38678, 0.50138)
+Example [4]
+Real position:     (x, y, z) = (-0.00021, -0.00064, -0.31667)
+Predicted position (x, y, z) = (-0.26636, -0.61529, 0.60402)
+Example [5]
+Real position:     (x, y, z) = (-0.00021, -0.00064, -0.31667)
+Predicted position (x, y, z) = (-0.70786, -0.06944, 0.59875)
+Example [6]
+Real position:     (x, y, z) = (-0.00021, -0.00064, -0.31667)
+Predicted position (x, y, z) = (0.40033, 0.26329, 1.18197)
+Example [7]
+Real position:     (x, y, z) = (-0.00021, -0.00064, -0.31667)
+Predicted position (x, y, z) = (0.00814, -0.07495, 0.76132)
+Example [8]
+Real position:     (x, y, z) = (-0.00021, -0.00064, -0.31667)
+Predicted position (x, y, z) = (-0.02036, -0.76281, 0.56555)
+Example [9]
+Real position:     (x, y, z) = (-0.00021, -0.00064, -0.31667)
+Predicted position (x, y, z) = (-0.44744, 0.68352, 0.15264)
+
+Test predictions:
+Prediction shape: (100, 3)
+Example [0]
+Real position:     (x, y, z) = (-0.00021, -0.00064, -0.31667)
+Predicted position (x, y, z) = (-0.27981, 0.41674, 0.18964)
+Example [1]
+Real position:     (x, y, z) = (-0.00021, -0.00064, -0.31667)
+Predicted position (x, y, z) = (-0.35271, 0.11978, 0.11644)
+Example [2]
+Real position:     (x, y, z) = (-0.00021, -0.00064, -0.31667)
+Predicted position (x, y, z) = (0.15740, -0.17276, 0.27307)
+Example [3]
+Real position:     (x, y, z) = (-0.00021, -0.00064, -0.31667)
+Predicted position (x, y, z) = (-0.40347, -0.42393, 0.57887)
+Example [4]
+Real position:     (x, y, z) = (-0.00021, -0.00064, -0.31667)
+Predicted position (x, y, z) = (0.07680, 0.04973, 0.10939)
+Example [5]
+Real position:     (x, y, z) = (-0.00021, -0.00064, -0.31667)
+Predicted position (x, y, z) = (-0.66579, -0.47327, 0.58863)
+Example [6]
+Real position:     (x, y, z) = (-0.00021, -0.00064, -0.31667)
+Predicted position (x, y, z) = (-0.57627, 0.05431, 0.15840)
+Example [7]
+Real position:     (x, y, z) = (-0.00021, -0.00064, -0.31667)
+Predicted position (x, y, z) = (-0.72577, 0.12948, 0.13201)
+Example [8]
+Real position:     (x, y, z) = (-0.00021, -0.00064, -0.31667)
+Predicted position (x, y, z) = (-0.14593, -0.10094, 0.65374)
+Example [9]
+Real position:     (x, y, z) = (-0.00021, -0.00064, -0.31667)
+Predicted position (x, y, z) = (-0.16014, 0.03380, 0.90239)
+
+Done!
+Execution time: 45.1527 seconds
+Execution date: 2020-08-12 18:25:46.855324
+-----------------------------------------
+---------- [Regression problem] ----------
+
+----- [Using wigner distribution dataset] -----
+
+----- Loading datasets... -----
+Datasets loaded
+X_train: (400, 40000), Y_train: (400, 3)
+X_test: (100, 40000), Y_test: (100, 3)
+
+----- Neural network -----
+
+Parameters to create the model:
+- Dimension of the imput: 40000
+- Number of nodes in the first layer (hidden layer): 1000
+- Number of nodes in the second layer (hidden layer): 400
+
+Parameters to train the model:
+- Number of epochs: 50
+- Batch size: 1000
+
+----- Performance-----
+- Root Mean Squared Error:
+Train: 1.232, test: 1.220
+- Mean Squared Error:
+Train: 1.518, test: 1.489
+- Mean Absolute Error:
+Train: 1.518, test: 1.489
+
+----- Model summary -----
+
+Model structure and weights saved!
+
+----- Predictions -----
+
+Train predictions:
+Prediction shape: (400, 3)
+Example [0]
+Real position:     (x, y, z) = (-0.00021, -0.00064, -0.31667)
+Predicted position (x, y, z) = (-1.34923, 1.21365, 0.52184)
+Example [1]
+Real position:     (x, y, z) = (-0.00021, -0.00064, -0.31667)
+Predicted position (x, y, z) = (-0.97906, 0.51859, 0.02744)
+Example [2]
+Real position:     (x, y, z) = (-0.00021, -0.00064, -0.31667)
+Predicted position (x, y, z) = (-1.47117, 0.52762, 0.67527)
+Example [3]
+Real position:     (x, y, z) = (-0.00021, -0.00064, -0.31667)
+Predicted position (x, y, z) = (-1.33521, 1.21449, 0.41062)
+Example [4]
+Real position:     (x, y, z) = (-0.00021, -0.00064, -0.31667)
+Predicted position (x, y, z) = (-2.41899, 1.34393, 0.75689)
+Example [5]
+Real position:     (x, y, z) = (-0.00021, -0.00064, -0.31667)
+Predicted position (x, y, z) = (-1.78019, 1.02768, 0.65487)
+Example [6]
+Real position:     (x, y, z) = (-0.00021, -0.00064, -0.31667)
+Predicted position (x, y, z) = (-0.58158, 0.28141, -0.16235)
+Example [7]
+Real position:     (x, y, z) = (-0.00021, -0.00064, -0.31667)
+Predicted position (x, y, z) = (-0.89047, 0.48695, 0.81471)
+Example [8]
+Real position:     (x, y, z) = (-0.00021, -0.00064, -0.31667)
+Predicted position (x, y, z) = (-2.28617, 1.39544, 0.74238)
+Example [9]
+Real position:     (x, y, z) = (-0.00021, -0.00064, -0.31667)
+Predicted position (x, y, z) = (-1.00735, 1.50223, 0.80812)
+
+Test predictions:
+Prediction shape: (100, 3)
+Example [0]
+Real position:     (x, y, z) = (-0.00021, -0.00064, -0.31667)
+Predicted position (x, y, z) = (-1.13468, 1.24194, 0.68760)
+Example [1]
+Real position:     (x, y, z) = (-0.00021, -0.00064, -0.31667)
+Predicted position (x, y, z) = (-1.19025, 0.75280, 0.79567)
+Example [2]
+Real position:     (x, y, z) = (-0.00021, -0.00064, -0.31667)
+Predicted position (x, y, z) = (-1.23371, 1.28678, 0.43161)
+Example [3]
+Real position:     (x, y, z) = (-0.00021, -0.00064, -0.31667)
+Predicted position (x, y, z) = (-1.27664, 0.95962, 0.52218)
+Example [4]
+Real position:     (x, y, z) = (-0.00021, -0.00064, -0.31667)
+Predicted position (x, y, z) = (-1.20252, 0.50321, 0.61268)
+Example [5]
+Real position:     (x, y, z) = (-0.00021, -0.00064, -0.31667)
+Predicted position (x, y, z) = (-2.35420, 1.25209, 0.65373)
+Example [6]
+Real position:     (x, y, z) = (-0.00021, -0.00064, -0.31667)
+Predicted position (x, y, z) = (-1.17057, 0.30757, 0.37184)
+Example [7]
+Real position:     (x, y, z) = (-0.00021, -0.00064, -0.31667)
+Predicted position (x, y, z) = (-1.56916, 0.63675, 0.77728)
+Example [8]
+Real position:     (x, y, z) = (-0.00021, -0.00064, -0.31667)
+Predicted position (x, y, z) = (-0.95823, 0.71699, -0.08531)
+Example [9]
+Real position:     (x, y, z) = (-0.00021, -0.00064, -0.31667)
+Predicted position (x, y, z) = (-1.23885, 0.90128, 0.52578)
+
+Done!
+Execution time: 52.7131 seconds
+Execution date: 2020-08-12 18:27:18.336301
+-----------------------------------------
+---------- [Regression problem] ----------
+
+----- [Using wigner distribution dataset] -----
+
+----- Loading datasets... -----
+Datasets loaded
+X_train: (400, 40000), Y_train: (400, 3)
+X_test: (100, 40000), Y_test: (100, 3)
+
+----- Neural network -----
+
+Parameters to create the model:
+- Dimension of the imput: 40000
+- Number of nodes in the first layer (hidden layer): 1000
+- Number of nodes in the second layer (hidden layer): 400
+
+Parameters to train the model:
+- Number of epochs: 50
+- Batch size: 1000
+
+----- Performance-----
+- Root Mean Squared Error:
+Train: 1.412, test: 1.406
+- Mean Squared Error:
+Train: 1.993, test: 1.977
+- Mean Absolute Error:
+Train: 1.993, test: 1.977
+
+----- Model summary -----
+
+Model structure and weights saved!
+
+----- Predictions -----
+
+Train predictions:
+Prediction shape: (400, 3)
+Example [0]
+Real position:     (x, y, z) = (-0.00021, -0.00064, -0.31667)
+Predicted position (x, y, z) = (-0.37979, 1.57229, 0.90521)
+Example [1]
+Real position:     (x, y, z) = (-0.00021, -0.00064, -0.31667)
+Predicted position (x, y, z) = (-0.37061, 0.70952, 0.11981)
+Example [2]
+Real position:     (x, y, z) = (-0.00021, -0.00064, -0.31667)
+Predicted position (x, y, z) = (-0.23385, 1.59676, 1.26459)
+Example [3]
+Real position:     (x, y, z) = (-0.00021, -0.00064, -0.31667)
+Predicted position (x, y, z) = (-0.50723, 1.62509, 0.88292)
+Example [4]
+Real position:     (x, y, z) = (-0.00021, -0.00064, -0.31667)
+Predicted position (x, y, z) = (-0.17559, 2.46302, 1.51090)
+Example [5]
+Real position:     (x, y, z) = (-0.00021, -0.00064, -0.31667)
+Predicted position (x, y, z) = (-0.15677, 1.84050, 1.09943)
+Example [6]
+Real position:     (x, y, z) = (-0.00021, -0.00064, -0.31667)
+Predicted position (x, y, z) = (0.12785, 0.76641, 0.16998)
+Example [7]
+Real position:     (x, y, z) = (-0.00021, -0.00064, -0.31667)
+Predicted position (x, y, z) = (-0.10643, 1.52834, 0.50177)
+Example [8]
+Real position:     (x, y, z) = (-0.00021, -0.00064, -0.31667)
+Predicted position (x, y, z) = (-0.17013, 2.45246, 1.56049)
+Example [9]
+Real position:     (x, y, z) = (-0.00021, -0.00064, -0.31667)
+Predicted position (x, y, z) = (-0.29801, 1.59331, 1.06198)
+
+Test predictions:
+Prediction shape: (100, 3)
+Example [0]
+Real position:     (x, y, z) = (-0.00021, -0.00064, -0.31667)
+Predicted position (x, y, z) = (-0.18208, 1.35339, 1.00851)
+Example [1]
+Real position:     (x, y, z) = (-0.00021, -0.00064, -0.31667)
+Predicted position (x, y, z) = (-0.46851, 1.78350, 1.32617)
+Example [2]
+Real position:     (x, y, z) = (-0.00021, -0.00064, -0.31667)
+Predicted position (x, y, z) = (-0.41526, 1.52074, 0.97984)
+Example [3]
+Real position:     (x, y, z) = (-0.00021, -0.00064, -0.31667)
+Predicted position (x, y, z) = (-0.31848, 1.52898, 0.83145)
+Example [4]
+Real position:     (x, y, z) = (-0.00021, -0.00064, -0.31667)
+Predicted position (x, y, z) = (-0.54470, 1.94511, 1.05364)
+Example [5]
+Real position:     (x, y, z) = (-0.00021, -0.00064, -0.31667)
+Predicted position (x, y, z) = (-0.18720, 2.35808, 1.33668)
+Example [6]
+Real position:     (x, y, z) = (-0.00021, -0.00064, -0.31667)
+Predicted position (x, y, z) = (-0.38910, 1.49564, 0.98324)
+Example [7]
+Real position:     (x, y, z) = (-0.00021, -0.00064, -0.31667)
+Predicted position (x, y, z) = (-0.32682, 1.82548, 1.17098)
+Example [8]
+Real position:     (x, y, z) = (-0.00021, -0.00064, -0.31667)
+Predicted position (x, y, z) = (-0.55402, 1.03432, 0.28849)
+Example [9]
+Real position:     (x, y, z) = (-0.00021, -0.00064, -0.31667)
+Predicted position (x, y, z) = (-0.52024, 2.00213, 1.24725)
+
+Done!
+Execution time: 52.2455 seconds
+Execution date: 2020-08-12 18:28:55.854531
+-----------------------------------------
+---------- [Regression problem] ----------
+
+----- [Using wigner distribution dataset] -----
+
+----- Loading datasets... -----
+Datasets loaded
+X_train: (400, 40000), Y_train: (400, 3)
+X_test: (100, 40000), Y_test: (100, 3)
+
+----- Neural network -----
+
+Parameters to create the model:
+- Dimension of the imput: 40000
+- Number of nodes in the first layer (hidden layer): 1000
+- Number of nodes in the second layer (hidden layer): 400
+
+Parameters to train the model:
+- Number of epochs: 50
+- Batch size: 1000
+
+----- Performance-----
+- Root Mean Squared Error:
+Train: 0.635, test: 0.630
+- Mean Squared Error:
+Train: 0.403, test: 0.396
+- Mean Absolute Error:
+Train: 0.403, test: 0.396
+
+----- Model summary -----
+
+Model structure and weights saved!
+
+----- Predictions -----
+
+Train predictions:
+Prediction shape: (400, 3)
+Example [0]
+Real position:     (x, y, z) = (-0.00021, -0.00064, -0.31667)
+Predicted position (x, y, z) = (-1.18577, 0.60058, -0.23798)
+Example [1]
+Real position:     (x, y, z) = (-0.00021, -0.00064, -0.31667)
+Predicted position (x, y, z) = (-0.63612, -0.21048, 0.04616)
+Example [2]
+Real position:     (x, y, z) = (-0.00021, -0.00064, -0.31667)
+Predicted position (x, y, z) = (-0.75564, -0.06113, 0.15997)
+Example [3]
+Real position:     (x, y, z) = (-0.00021, -0.00064, -0.31667)
+Predicted position (x, y, z) = (-1.04618, 0.58294, -0.24330)
+Example [4]
+Real position:     (x, y, z) = (-0.00021, -0.00064, -0.31667)
+Predicted position (x, y, z) = (-1.09604, -0.98850, -0.13150)
+Example [5]
+Real position:     (x, y, z) = (-0.00021, -0.00064, -0.31667)
+Predicted position (x, y, z) = (-1.50327, -0.34508, -0.21852)
+Example [6]
+Real position:     (x, y, z) = (-0.00021, -0.00064, -0.31667)
+Predicted position (x, y, z) = (-0.32108, 0.03703, 0.14239)
+Example [7]
+Real position:     (x, y, z) = (-0.00021, -0.00064, -0.31667)
+Predicted position (x, y, z) = (-0.16845, 0.21854, 0.08227)
+Example [8]
+Real position:     (x, y, z) = (-0.00021, -0.00064, -0.31667)
+Predicted position (x, y, z) = (-1.36100, -0.90378, -0.09877)
+Example [9]
+Real position:     (x, y, z) = (-0.00021, -0.00064, -0.31667)
+Predicted position (x, y, z) = (-1.17693, 1.17918, -0.37467)
+
+Test predictions:
+Prediction shape: (100, 3)
+Example [0]
+Real position:     (x, y, z) = (-0.00021, -0.00064, -0.31667)
+Predicted position (x, y, z) = (-0.97637, 1.10278, -0.23065)
+Example [1]
+Real position:     (x, y, z) = (-0.00021, -0.00064, -0.31667)
+Predicted position (x, y, z) = (-0.61770, -0.30441, -0.18958)
+Example [2]
+Real position:     (x, y, z) = (-0.00021, -0.00064, -0.31667)
+Predicted position (x, y, z) = (-0.88742, 0.98088, -0.27741)
+Example [3]
+Real position:     (x, y, z) = (-0.00021, -0.00064, -0.31667)
+Predicted position (x, y, z) = (-1.14927, 0.41121, -0.18485)
+Example [4]
+Real position:     (x, y, z) = (-0.00021, -0.00064, -0.31667)
+Predicted position (x, y, z) = (-0.17948, 0.03024, -0.12956)
+Example [5]
+Real position:     (x, y, z) = (-0.00021, -0.00064, -0.31667)
+Predicted position (x, y, z) = (-0.99232, -0.70438, -0.15142)
+Example [6]
+Real position:     (x, y, z) = (-0.00021, -0.00064, -0.31667)
+Predicted position (x, y, z) = (-0.28625, -0.60366, -0.01781)
+Example [7]
+Real position:     (x, y, z) = (-0.00021, -0.00064, -0.31667)
+Predicted position (x, y, z) = (-0.47773, 0.04054, 0.16391)
+Example [8]
+Real position:     (x, y, z) = (-0.00021, -0.00064, -0.31667)
+Predicted position (x, y, z) = (-1.00735, 0.22345, 0.03723)
+Example [9]
+Real position:     (x, y, z) = (-0.00021, -0.00064, -0.31667)
+Predicted position (x, y, z) = (-0.30286, -0.37726, -0.17920)
+
+Done!
+Execution time: 40.8166 seconds
+Execution date: 2020-08-12 18:30:19.733587
+-----------------------------------------
+---------- [Regression problem] ----------
+
+----- [Using wigner distribution dataset] -----
+
+----- Loading datasets... -----
+Datasets loaded
+X_train: (400, 40000), Y_train: (400, 2)
+X_test: (100, 40000), Y_test: (100, 2)
+
+----- Neural network -----
+
+Parameters to create the model:
+- Dimension of the imput: 40000
+- Number of nodes in the first layer (hidden layer): 1000
+- Number of nodes in the second layer (hidden layer): 400
+
+Parameters to train the model:
+- Number of epochs: 50
+- Batch size: 1000
+
+----- Performance-----
+- Root Mean Squared Error:
+Train: 0.759, test: 0.747
+- Mean Squared Error:
+Train: 0.576, test: 0.558
+- Mean Absolute Error:
+Train: 0.576, test: 0.558
+
+----- Model summary -----
+
+Model structure and weights saved!
+
+----- Predictions -----
+
+Train predictions:
+Prediction shape: (400, 2)
+Real position:     (x, y) = (-0.21, -0.64)
+Predicted position (x, y) = (0.23, -1.84)
+Real position:     (x, y) = (-0.21, -0.64)
+Predicted position (x, y) = (-0.48, -0.87)
+Real position:     (x, y) = (-0.21, -0.64)
+Predicted position (x, y) = (0.15, -1.52)
+Real position:     (x, y) = (-0.21, -0.64)
+Predicted position (x, y) = (0.19, -1.81)
+Real position:     (x, y) = (-0.21, -0.64)
+Predicted position (x, y) = (0.54, -1.73)
+Real position:     (x, y) = (-0.21, -0.64)
+Predicted position (x, y) = (0.46, -1.49)
+Real position:     (x, y) = (-0.21, -0.64)
+Predicted position (x, y) = (0.35, -0.18)
+Real position:     (x, y) = (-0.21, -0.64)
+Predicted position (x, y) = (0.48, -1.02)
+Real position:     (x, y) = (-0.21, -0.64)
+Predicted position (x, y) = (0.47, -1.82)
+Real position:     (x, y) = (-0.21, -0.64)
+Predicted position (x, y) = (0.45, -1.82)
+
+Test predictions:
+Prediction shape: (100, 2)
+Real position:     (x, y) = (-0.21, -0.64)
+Predicted position (x, y) = (0.36, -1.77)
+Real position:     (x, y) = (-0.21, -0.64)
+Predicted position (x, y) = (0.40, -1.32)
+Real position:     (x, y) = (-0.21, -0.64)
+Predicted position (x, y) = (0.33, -1.80)
+Real position:     (x, y) = (-0.21, -0.64)
+Predicted position (x, y) = (0.20, -1.46)
+Real position:     (x, y) = (-0.21, -0.64)
+Predicted position (x, y) = (0.37, -0.93)
+Real position:     (x, y) = (-0.21, -0.64)
+Predicted position (x, y) = (0.58, -1.45)
+Real position:     (x, y) = (-0.21, -0.64)
+Predicted position (x, y) = (-0.15, -1.14)
+Real position:     (x, y) = (-0.21, -0.64)
+Predicted position (x, y) = (0.29, -1.38)
+Real position:     (x, y) = (-0.21, -0.64)
+Predicted position (x, y) = (-0.35, -1.23)
+Real position:     (x, y) = (-0.21, -0.64)
+Predicted position (x, y) = (0.48, -1.06)
+
+Done!
+Execution time: 49.1845 seconds
+Execution date: 2020-08-12 18:40:55.490951
+-----------------------------------------
+---------- [Regression problem] ----------
+
+----- [Using wigner distribution dataset] -----
+
+----- Loading datasets... -----
+Datasets loaded
+X_train: (400, 40000), Y_train: (400, 2)
+X_test: (100, 40000), Y_test: (100, 2)
+
+----- Neural network -----
+
+Parameters to create the model:
+- Dimension of the imput: 40000
+- Number of nodes in the first layer (hidden layer): 1000
+- Number of nodes in the second layer (hidden layer): 400
+
+Parameters to train the model:
+- Number of epochs: 50
+- Batch size: 1000
+
+----- Performance-----
+- Root Mean Squared Error:
+Train: 0.923, test: 0.898
+- Mean Squared Error:
+Train: 0.852, test: 0.807
+- Mean Absolute Error:
+Train: 0.852, test: 0.807
+
+----- Model summary -----
+
+Model structure and weights saved!
+
+----- Predictions -----
+
+Train predictions:
+Prediction shape: (400, 2)
+Example [0]
+Real position:     (x, y) = (-0.21, -0.64)
+Predicted position (x, y) = (-0.64, -2.11)
+Example [1]
+Real position:     (x, y) = (-0.21, -0.64)
+Predicted position (x, y) = (-0.50, -1.26)
+Example [2]
+Real position:     (x, y) = (-0.21, -0.64)
+Predicted position (x, y) = (-1.13, -2.24)
+Example [3]
+Real position:     (x, y) = (-0.21, -0.64)
+Predicted position (x, y) = (-0.39, -1.89)
+Example [4]
+Real position:     (x, y) = (-0.21, -0.64)
+Predicted position (x, y) = (-0.65, -1.54)
+Example [5]
+Real position:     (x, y) = (-0.21, -0.64)
+Predicted position (x, y) = (-0.85, -1.81)
+Example [6]
+Real position:     (x, y) = (-0.21, -0.64)
+Predicted position (x, y) = (-0.08, -1.18)
+Example [7]
+Real position:     (x, y) = (-0.21, -0.64)
+Predicted position (x, y) = (0.35, -1.24)
+Example [8]
+Real position:     (x, y) = (-0.21, -0.64)
+Predicted position (x, y) = (-0.53, -1.48)
+Example [9]
+Real position:     (x, y) = (-0.21, -0.64)
+Predicted position (x, y) = (-1.32, -2.27)
+
+Test predictions:
+Prediction shape: (100, 2)
+Example [0]
+Real position:     (x, y) = (-0.21, -0.64)
+Predicted position (x, y) = (-1.14, -2.19)
+Example [1]
+Real position:     (x, y) = (-0.21, -0.64)
+Predicted position (x, y) = (-0.69, -1.76)
+Example [2]
+Real position:     (x, y) = (-0.21, -0.64)
+Predicted position (x, y) = (-0.66, -2.04)
+Example [3]
+Real position:     (x, y) = (-0.21, -0.64)
+Predicted position (x, y) = (-0.32, -1.59)
+Example [4]
+Real position:     (x, y) = (-0.21, -0.64)
+Predicted position (x, y) = (-0.41, -1.80)
+Example [5]
+Real position:     (x, y) = (-0.21, -0.64)
+Predicted position (x, y) = (-0.77, -1.42)
+Example [6]
+Real position:     (x, y) = (-0.21, -0.64)
+Predicted position (x, y) = (-0.57, -0.86)
+Example [7]
+Real position:     (x, y) = (-0.21, -0.64)
+Predicted position (x, y) = (-1.03, -2.29)
+Example [8]
+Real position:     (x, y) = (-0.21, -0.64)
+Predicted position (x, y) = (-0.30, -1.30)
+Example [9]
+Real position:     (x, y) = (-0.21, -0.64)
+Predicted position (x, y) = (-0.52, -1.20)
+
+Done!
+Execution time: 47.1463 seconds
+Execution date: 2020-08-12 18:44:28.879091
+-----------------------------------------
+---------- [Regression problem] ----------
+
+----- [Using wigner distribution dataset] -----
+
+----- Loading datasets... -----
+Datasets loaded
+X_train: (400, 40000), Y_train: (400, 2)
+X_test: (100, 40000), Y_test: (100, 2)
+
+----- Neural network -----
+
+Parameters to create the model:
+- Dimension of the imput: 40000
+- Number of nodes in the first layer (hidden layer): 1000
+- Number of nodes in the second layer (hidden layer): 400
+
+Parameters to train the model:
+- Number of epochs: 50
+- Batch size: 1000
+
+----- Performance-----
+- Root Mean Squared Error:
+Train: 0.728, test: 0.737
+- Mean Squared Error:
+Train: 0.530, test: 0.543
+- Mean Absolute Error:
+Train: 0.530, test: 0.543
+
+----- Model summary -----
+
+Model structure and weights saved!
+
+----- Predictions -----
+
+Train predictions:
+Prediction shape: (400, 2)
+Example [0]
+Real position:     (x, y) = (-0.21, -0.64)
+Predicted position (x, y) = (0.39, -0.18)
+Example [1]
+Real position:     (x, y) = (-0.21, -0.64)
+Predicted position (x, y) = (0.50, -0.56)
+Example [2]
+Real position:     (x, y) = (-0.21, -0.64)
+Predicted position (x, y) = (0.27, -0.00)
+Example [3]
+Real position:     (x, y) = (-0.21, -0.64)
+Predicted position (x, y) = (0.48, -0.22)
+Example [4]
+Real position:     (x, y) = (-0.21, -0.64)
+Predicted position (x, y) = (0.80, -1.17)
+Example [5]
+Real position:     (x, y) = (-0.21, -0.64)
+Predicted position (x, y) = (0.45, -0.86)
+Example [6]
+Real position:     (x, y) = (-0.21, -0.64)
+Predicted position (x, y) = (-0.00, -0.52)
+Example [7]
+Real position:     (x, y) = (-0.21, -0.64)
+Predicted position (x, y) = (0.55, -0.82)
+Example [8]
+Real position:     (x, y) = (-0.21, -0.64)
+Predicted position (x, y) = (0.84, -1.21)
+Example [9]
+Real position:     (x, y) = (-0.21, -0.64)
+Predicted position (x, y) = (0.18, -0.19)
+
+Test predictions:
+Prediction shape: (100, 2)
+Example [0]
+Real position:     (x, y) = (-0.21, -0.64)
+Predicted position (x, y) = (0.22, 0.02)
+Example [1]
+Real position:     (x, y) = (-0.21, -0.64)
+Predicted position (x, y) = (0.78, -1.01)
+Example [2]
+Real position:     (x, y) = (-0.21, -0.64)
+Predicted position (x, y) = (0.31, -0.27)
+Example [3]
+Real position:     (x, y) = (-0.21, -0.64)
+Predicted position (x, y) = (0.29, -0.26)
+Example [4]
+Real position:     (x, y) = (-0.21, -0.64)
+Predicted position (x, y) = (0.69, -0.27)
+Example [5]
+Real position:     (x, y) = (-0.21, -0.64)
+Predicted position (x, y) = (0.66, -1.11)
+Example [6]
+Real position:     (x, y) = (-0.21, -0.64)
+Predicted position (x, y) = (1.08, 0.03)
+Example [7]
+Real position:     (x, y) = (-0.21, -0.64)
+Predicted position (x, y) = (0.58, -0.38)
+Example [8]
+Real position:     (x, y) = (-0.21, -0.64)
+Predicted position (x, y) = (0.77, -0.41)
+Example [9]
+Real position:     (x, y) = (-0.21, -0.64)
+Predicted position (x, y) = (0.81, -1.24)
+
+Done!
+Execution time: 36.0524 seconds
+Execution date: 2020-08-12 18:45:34.532174
+-----------------------------------------
+---------- [Regression problem] ----------
+
+----- [Using wigner distribution dataset] -----
+
+----- Loading datasets... -----
+Datasets loaded
+X_train: (400, 40000), Y_train: (400, 2)
+X_test: (100, 40000), Y_test: (100, 2)
+
+----- Neural network -----
+
+Parameters to create the model:
+- Dimension of the imput: 40000
+- Number of nodes in the first layer (hidden layer): 1000
+- Number of nodes in the second layer (hidden layer): 400
+
+Parameters to train the model:
+- Number of epochs: 50
+- Batch size: 1000
+
+----- Performance-----
+- Root Mean Squared Error:
+Train: 0.556, test: 0.559
+- Mean Squared Error:
+Train: 0.309, test: 0.312
+- Mean Absolute Error:
+Train: 0.309, test: 0.312
+
+----- Model summary -----
+
+Model structure and weights saved!
+
+----- Predictions -----
+
+Train predictions:
+Prediction shape: (400, 2)
+Example [0]
+Real position:     (x, y) = (-0.21, -0.64)
+Predicted position (x, y) = (0.17, -0.61)
+Example [1]
+Real position:     (x, y) = (-0.21, -0.64)
+Predicted position (x, y) = (-0.18, -0.02)
+Example [2]
+Real position:     (x, y) = (-0.21, -0.64)
+Predicted position (x, y) = (1.55, -0.37)
+Example [3]
+Real position:     (x, y) = (-0.21, -0.64)
+Predicted position (x, y) = (0.07, -0.47)
+Example [4]
+Real position:     (x, y) = (-0.21, -0.64)
+Predicted position (x, y) = (0.01, -0.43)
+Example [5]
+Real position:     (x, y) = (-0.21, -0.64)
+Predicted position (x, y) = (0.28, -0.50)
+Example [6]
+Real position:     (x, y) = (-0.21, -0.64)
+Predicted position (x, y) = (0.33, -0.10)
+Example [7]
+Real position:     (x, y) = (-0.21, -0.64)
+Predicted position (x, y) = (0.22, -0.20)
+Example [8]
+Real position:     (x, y) = (-0.21, -0.64)
+Predicted position (x, y) = (0.13, -0.32)
+Example [9]
+Real position:     (x, y) = (-0.21, -0.64)
+Predicted position (x, y) = (0.10, -0.67)
+
+Test predictions:
+Prediction shape: (100, 2)
+Example [0]
+Real position:     (x, y) = (-0.21, -0.64)
+Predicted position (x, y) = (0.08, -0.77)
+Example [1]
+Real position:     (x, y) = (-0.21, -0.64)
+Predicted position (x, y) = (0.64, -0.18)
+Example [2]
+Real position:     (x, y) = (-0.21, -0.64)
+Predicted position (x, y) = (-0.08, -0.54)
+Example [3]
+Real position:     (x, y) = (-0.21, -0.64)
+Predicted position (x, y) = (0.25, -0.26)
+Example [4]
+Real position:     (x, y) = (-0.21, -0.64)
+Predicted position (x, y) = (0.32, -0.09)
+Example [5]
+Real position:     (x, y) = (-0.21, -0.64)
+Predicted position (x, y) = (0.03, -0.43)
+Example [6]
+Real position:     (x, y) = (-0.21, -0.64)
+Predicted position (x, y) = (0.30, -0.19)
+Example [7]
+Real position:     (x, y) = (-0.21, -0.64)
+Predicted position (x, y) = (1.34, -0.32)
+Example [8]
+Real position:     (x, y) = (-0.21, -0.64)
+Predicted position (x, y) = (-0.12, -0.41)
+Example [9]
+Real position:     (x, y) = (-0.21, -0.64)
+Predicted position (x, y) = (-0.17, -0.05)
+
+Done!
+Execution time: 41.4935 seconds
+Execution date: 2020-08-12 18:46:47.811018
+-----------------------------------------
+---------- [Regression problem] ----------
+
+----- [Using wigner distribution dataset] -----
+
+----- Loading datasets... -----
+Datasets loaded
+X_train: (400, 40000), Y_train: (400, 2)
+X_test: (100, 40000), Y_test: (100, 2)
+
+----- Neural network -----
+
+Parameters to create the model:
+- Dimension of the imput: 40000
+- Number of nodes in the first layer (hidden layer): 1000
+- Number of nodes in the second layer (hidden layer): 400
+
+Parameters to train the model:
+- Number of epochs: 50
+- Batch size: 1000
+
+----- Performance-----
+- Root Mean Squared Error:
+Train: 1.750, test: 1.748
+- Mean Squared Error:
+Train: 3.063, test: 3.055
+- Mean Absolute Error:
+Train: 3.063, test: 3.055
+
+----- Model summary -----
+
+Model structure and weights saved!
+
+----- Predictions -----
+
+Train predictions:
+Prediction shape: (400, 2)
+Example [0]
+Real position:     (x, y) = (-0.21, -0.64)
+Predicted position (x, y) = (-1.97, -1.02)
+Example [1]
+Real position:     (x, y) = (-0.21, -0.64)
+Predicted position (x, y) = (-1.30, -0.92)
+Example [2]
+Real position:     (x, y) = (-0.21, -0.64)
+Predicted position (x, y) = (-2.86, -0.94)
+Example [3]
+Real position:     (x, y) = (-0.21, -0.64)
+Predicted position (x, y) = (-1.95, -1.11)
+Example [4]
+Real position:     (x, y) = (-0.21, -0.64)
+Predicted position (x, y) = (-3.50, -1.18)
+Example [5]
+Real position:     (x, y) = (-0.21, -0.64)
+Predicted position (x, y) = (-2.43, -0.83)
+Example [6]
+Real position:     (x, y) = (-0.21, -0.64)
+Predicted position (x, y) = (-1.12, 0.13)
+Example [7]
+Real position:     (x, y) = (-0.21, -0.64)
+Predicted position (x, y) = (-2.10, -0.42)
+Example [8]
+Real position:     (x, y) = (-0.21, -0.64)
+Predicted position (x, y) = (-3.44, -1.20)
+Example [9]
+Real position:     (x, y) = (-0.21, -0.64)
+Predicted position (x, y) = (-1.72, -0.45)
+
+Test predictions:
+Prediction shape: (100, 2)
+Example [0]
+Real position:     (x, y) = (-0.21, -0.64)
+Predicted position (x, y) = (-1.91, -0.64)
+Example [1]
+Real position:     (x, y) = (-0.21, -0.64)
+Predicted position (x, y) = (-2.65, -0.83)
+Example [2]
+Real position:     (x, y) = (-0.21, -0.64)
+Predicted position (x, y) = (-1.88, -0.91)
+Example [3]
+Real position:     (x, y) = (-0.21, -0.64)
+Predicted position (x, y) = (-1.58, -0.87)
+Example [4]
+Real position:     (x, y) = (-0.21, -0.64)
+Predicted position (x, y) = (-2.71, -1.13)
+Example [5]
+Real position:     (x, y) = (-0.21, -0.64)
+Predicted position (x, y) = (-3.09, -0.93)
+Example [6]
+Real position:     (x, y) = (-0.21, -0.64)
+Predicted position (x, y) = (-2.09, -1.59)
+Example [7]
+Real position:     (x, y) = (-0.21, -0.64)
+Predicted position (x, y) = (-2.93, -0.87)
+Example [8]
+Real position:     (x, y) = (-0.21, -0.64)
+Predicted position (x, y) = (-1.85, -0.75)
+Example [9]
+Real position:     (x, y) = (-0.21, -0.64)
+Predicted position (x, y) = (-2.65, -0.73)
+
+Done!
+Execution time: 47.3246 seconds
+Execution date: 2020-08-12 18:48:07.298473
+-----------------------------------------
+---------- [Regression problem] ----------
+
+----- [Using wigner distribution dataset] -----
+
+----- Loading datasets... -----
+Datasets loaded
+X_train: (400, 40000), Y_train: (400, 2)
+X_test: (100, 40000), Y_test: (100, 2)
+
+----- Neural network -----
+
+Parameters to create the model:
+- Dimension of the imput: 40000
+- Number of nodes in the first layer (hidden layer): 1000
+- Number of nodes in the second layer (hidden layer): 400
+
+Parameters to train the model:
+- Number of epochs: 50
+- Batch size: 1000
+
+----- Performance-----
+- Root Mean Squared Error:
+Train: 0.497, test: 0.495
+- Mean Squared Error:
+Train: 0.247, test: 0.245
+- Mean Absolute Error:
+Train: 0.247, test: 0.245
+
+----- Model summary -----
+
+Model structure and weights saved!
+
+----- Predictions -----
+
+Train predictions:
+Prediction shape: (400, 2)
+Example [0]
+Real position:     (x, y) = (-0.21, -0.64)
+Predicted position (x, y) = (-0.42, 0.11)
+Example [1]
+Real position:     (x, y) = (-0.21, -0.64)
+Predicted position (x, y) = (1.26, 0.91)
+Example [2]
+Real position:     (x, y) = (-0.21, -0.64)
+Predicted position (x, y) = (-0.35, -0.52)
+Example [3]
+Real position:     (x, y) = (-0.21, -0.64)
+Predicted position (x, y) = (-0.30, 0.14)
+Example [4]
+Real position:     (x, y) = (-0.21, -0.64)
+Predicted position (x, y) = (0.25, 0.09)
+Example [5]
+Real position:     (x, y) = (-0.21, -0.64)
+Predicted position (x, y) = (-0.24, -0.14)
+Example [6]
+Real position:     (x, y) = (-0.21, -0.64)
+Predicted position (x, y) = (0.26, 0.03)
+Example [7]
+Real position:     (x, y) = (-0.21, -0.64)
+Predicted position (x, y) = (-0.20, 0.09)
+Example [8]
+Real position:     (x, y) = (-0.21, -0.64)
+Predicted position (x, y) = (0.36, 0.16)
+Example [9]
+Real position:     (x, y) = (-0.21, -0.64)
+Predicted position (x, y) = (-0.33, 0.07)
+
+Test predictions:
+Prediction shape: (100, 2)
+Example [0]
+Real position:     (x, y) = (-0.21, -0.64)
+Predicted position (x, y) = (-0.42, 0.07)
+Example [1]
+Real position:     (x, y) = (-0.21, -0.64)
+Predicted position (x, y) = (-0.23, -0.48)
+Example [2]
+Real position:     (x, y) = (-0.21, -0.64)
+Predicted position (x, y) = (-0.26, 0.15)
+Example [3]
+Real position:     (x, y) = (-0.21, -0.64)
+Predicted position (x, y) = (-0.40, -0.06)
+Example [4]
+Real position:     (x, y) = (-0.21, -0.64)
+Predicted position (x, y) = (-0.47, -0.09)
+Example [5]
+Real position:     (x, y) = (-0.21, -0.64)
+Predicted position (x, y) = (0.16, 0.01)
+Example [6]
+Real position:     (x, y) = (-0.21, -0.64)
+Predicted position (x, y) = (-0.69, 0.20)
+Example [7]
+Real position:     (x, y) = (-0.21, -0.64)
+Predicted position (x, y) = (-0.53, -0.54)
+Example [8]
+Real position:     (x, y) = (-0.21, -0.64)
+Predicted position (x, y) = (0.49, 0.39)
+Example [9]
+Real position:     (x, y) = (-0.21, -0.64)
+Predicted position (x, y) = (-0.08, -0.32)
+
+Done!
+Execution time: 39.8357 seconds
+Execution date: 2020-08-12 18:49:03.950522
+-----------------------------------------
+---------- [Regression problem] ----------
+
+----- [Using wigner distribution dataset] -----
+
+----- Loading datasets... -----
+Datasets loaded
+X_train: (400, 40000), Y_train: (400,)
+X_test: (100, 40000), Y_test: (100,)
+
+----- Neural network -----
+
+Parameters to create the model:
+- Dimension of the imput: 40000
+- Number of nodes in the first layer (hidden layer): 1000
+- Number of nodes in the second layer (hidden layer): 400
+
+Parameters to train the model:
+- Number of epochs: 50
+- Batch size: 1000
+
+----- Performance-----
+- Root Mean Squared Error:
+Train: 0.501, test: 0.497
+- Mean Squared Error:
+Train: 0.251, test: 0.247
+- Mean Absolute Error:
+Train: 0.251, test: 0.247
+
+----- Model summary -----
+
+Model structure and weights saved!
+
+----- Predictions -----
+
+Train predictions:
+Prediction shape: (400, 1)
+---------- [Regression problem] ----------
+
+----- [Using wigner distribution dataset] -----
+
+----- Loading datasets... -----
+Datasets loaded
+X_train: (400, 40000), Y_train: (400,)
+X_test: (100, 40000), Y_test: (100,)
+
+----- Neural network -----
+
+Parameters to create the model:
+- Dimension of the imput: 40000
+- Number of nodes in the first layer (hidden layer): 1000
+- Number of nodes in the second layer (hidden layer): 400
+
+Parameters to train the model:
+- Number of epochs: 50
+- Batch size: 1000
+
+----- Performance-----
+- Root Mean Squared Error:
+Train: 1.458, test: 1.495
+- Mean Squared Error:
+Train: 2.126, test: 2.234
+- Mean Absolute Error:
+Train: 2.126, test: 2.234
+
+----- Model summary -----
+
+Model structure and weights saved!
+
+----- Predictions -----
+
+Train predictions:
+Prediction shape: (400, 1)
+Example [0]
+Real position:     (z) = (-0.32)
+Predicted position (z) = (2.70)
+Example [1]
+Real position:     (z) = (-0.32)
+Predicted position (z) = (1.06)
+Example [2]
+Real position:     (z) = (-0.32)
+Predicted position (z) = (-1.00)
+Example [3]
+Real position:     (z) = (-0.32)
+Predicted position (z) = (2.57)
+Example [4]
+Real position:     (z) = (-0.32)
+Predicted position (z) = (0.82)
+Example [5]
+Real position:     (z) = (-0.32)
+Predicted position (z) = (1.42)
+Example [6]
+Real position:     (z) = (-0.32)
+Predicted position (z) = (0.07)
+Example [7]
+Real position:     (z) = (-0.32)
+Predicted position (z) = (-0.09)
+Example [8]
+Real position:     (z) = (-0.32)
+Predicted position (z) = (0.81)
+Example [9]
+Real position:     (z) = (-0.32)
+Predicted position (z) = (2.57)
+
+Test predictions:
+Prediction shape: (100, 1)
+Example [0]
+Real position:     (z) = (-0.32)
+Predicted position (z) = (2.66)
+Example [1]
+Real position:     (z) = (-0.32)
+Predicted position (z) = (-1.03)
+Example [2]
+Real position:     (z) = (-0.32)
+Predicted position (z) = (2.51)
+Example [3]
+Real position:     (z) = (-0.32)
+Predicted position (z) = (2.08)
+Example [4]
+Real position:     (z) = (-0.32)
+Predicted position (z) = (-0.59)
+Example [5]
+Real position:     (z) = (-0.32)
+Predicted position (z) = (0.66)
+Example [6]
+Real position:     (z) = (-0.32)
+Predicted position (z) = (-0.19)
+Example [7]
+Real position:     (z) = (-0.32)
+Predicted position (z) = (-1.20)
+Example [8]
+Real position:     (z) = (-0.32)
+Predicted position (z) = (1.82)
+Example [9]
+Real position:     (z) = (-0.32)
+Predicted position (z) = (-0.94)
+
+Done!
+Execution time: 33.8250 seconds
+Execution date: 2020-08-12 18:57:22.407137
+-----------------------------------------
+---------- [Regression problem] ----------
+
+----- [Using wigner distribution dataset] -----
+
+----- Loading datasets... -----
+Datasets loaded
+X_train: (400, 40000), Y_train: (400,)
+X_test: (100, 40000), Y_test: (100,)
+
+----- Neural network -----
+
+Parameters to create the model:
+- Dimension of the imput: 40000
+- Number of nodes in the first layer (hidden layer): 1000
+- Number of nodes in the second layer (hidden layer): 400
+
+Parameters to train the model:
+- Number of epochs: 50
+- Batch size: 1000
+
+----- Performance-----
+- Root Mean Squared Error:
+Train: 0.496, test: 0.628
+- Mean Squared Error:
+Train: 0.246, test: 0.395
+- Mean Absolute Error:
+Train: 0.246, test: 0.395
+
+----- Model summary -----
+
+Model structure and weights saved!
+
+----- Predictions -----
+
+Train predictions:
+Prediction shape: (400, 1)
+Example [0]
+Real position:     (z) = (-0.32)
+Predicted position (z) = (0.53)
+Example [1]
+Real position:     (z) = (-0.32)
+Predicted position (z) = (-0.59)
+Example [2]
+Real position:     (z) = (-0.32)
+Predicted position (z) = (-0.24)
+Example [3]
+Real position:     (z) = (-0.32)
+Predicted position (z) = (0.28)
+Example [4]
+Real position:     (z) = (-0.32)
+Predicted position (z) = (-0.70)
+Example [5]
+Real position:     (z) = (-0.32)
+Predicted position (z) = (-0.45)
+Example [6]
+Real position:     (z) = (-0.32)
+Predicted position (z) = (0.05)
+Example [7]
+Real position:     (z) = (-0.32)
+Predicted position (z) = (-0.49)
+Example [8]
+Real position:     (z) = (-0.32)
+Predicted position (z) = (-0.80)
+Example [9]
+Real position:     (z) = (-0.32)
+Predicted position (z) = (0.88)
+
+Test predictions:
+Prediction shape: (100, 1)
+Example [0]
+Real position:     (z) = (-0.32)
+Predicted position (z) = (1.17)
+Example [1]
+Real position:     (z) = (-0.32)
+Predicted position (z) = (-0.38)
+Example [2]
+Real position:     (z) = (-0.32)
+Predicted position (z) = (0.88)
+Example [3]
+Real position:     (z) = (-0.32)
+Predicted position (z) = (-0.58)
+Example [4]
+Real position:     (z) = (-0.32)
+Predicted position (z) = (-0.37)
+Example [5]
+Real position:     (z) = (-0.32)
+Predicted position (z) = (-0.77)
+Example [6]
+Real position:     (z) = (-0.32)
+Predicted position (z) = (-0.31)
+Example [7]
+Real position:     (z) = (-0.32)
+Predicted position (z) = (-0.62)
+Example [8]
+Real position:     (z) = (-0.32)
+Predicted position (z) = (-0.24)
+Example [9]
+Real position:     (z) = (-0.32)
+Predicted position (z) = (-0.35)
+
+Done!
+Execution time: 29.7470 seconds
+Execution date: 2020-08-12 18:58:02.034505
+-----------------------------------------
+---------- [Regression problem] ----------
+
+----- [Using wigner distribution dataset] -----
+
+----- Loading datasets... -----
+Datasets loaded
+X_train: (400, 40000), Y_train: (400,)
+X_test: (100, 40000), Y_test: (100,)
+
+----- Neural network -----
+
+Parameters to create the model:
+- Dimension of the imput: 40000
+- Number of nodes in the first layer (hidden layer): 1000
+- Number of nodes in the second layer (hidden layer): 400
+
+Parameters to train the model:
+- Number of epochs: 50
+- Batch size: 1000
+
+----- Performance-----
+- Root Mean Squared Error:
+Train: 0.791, test: 0.800
+- Mean Squared Error:
+Train: 0.626, test: 0.640
+- Mean Absolute Error:
+Train: 0.626, test: 0.640
+
+----- Model summary -----
+
+Model structure and weights saved!
+
+----- Predictions -----
+
+Train predictions:
+Prediction shape: (400, 1)
+Example [0]
+Real position:     (z) = (-0.32)
+Predicted position (z) = (-0.71)
+Example [1]
+Real position:     (z) = (-0.32)
+Predicted position (z) = (-1.07)
+Example [2]
+Real position:     (z) = (-0.32)
+Predicted position (z) = (-1.53)
+Example [3]
+Real position:     (z) = (-0.32)
+Predicted position (z) = (-0.83)
+Example [4]
+Real position:     (z) = (-0.32)
+Predicted position (z) = (-0.82)
+Example [5]
+Real position:     (z) = (-0.32)
+Predicted position (z) = (-0.64)
+Example [6]
+Real position:     (z) = (-0.32)
+Predicted position (z) = (0.11)
+Example [7]
+Real position:     (z) = (-0.32)
+Predicted position (z) = (-0.24)
+Example [8]
+Real position:     (z) = (-0.32)
+Predicted position (z) = (-0.92)
+Example [9]
+Real position:     (z) = (-0.32)
+Predicted position (z) = (-0.70)
+
+Test predictions:
+Prediction shape: (100, 1)
+Example [0]
+Real position:     (z) = (-0.32)
+Predicted position (z) = (-0.36)
+Example [1]
+Real position:     (z) = (-0.32)
+Predicted position (z) = (-1.60)
+Example [2]
+Real position:     (z) = (-0.32)
+Predicted position (z) = (-0.52)
+Example [3]
+Real position:     (z) = (-0.32)
+Predicted position (z) = (-1.15)
+Example [4]
+Real position:     (z) = (-0.32)
+Predicted position (z) = (-1.47)
+Example [5]
+Real position:     (z) = (-0.32)
+Predicted position (z) = (-0.91)
+Example [6]
+Real position:     (z) = (-0.32)
+Predicted position (z) = (-1.80)
+Example [7]
+Real position:     (z) = (-0.32)
+Predicted position (z) = (-1.65)
+Example [8]
+Real position:     (z) = (-0.32)
+Predicted position (z) = (-0.81)
+Example [9]
+Real position:     (z) = (-0.32)
+Predicted position (z) = (-1.25)
+
+Done!
+Execution time: 41.2794 seconds
+Execution date: 2020-08-12 18:59:16.823937
+-----------------------------------------
+---------- [Regression problem] ----------
+
+----- [Using wigner distribution dataset] -----
+
+----- Loading datasets... -----
+Datasets loaded
+X_train: (400, 40000), Y_train: (400,)
+X_test: (100, 40000), Y_test: (100,)
+
+----- Neural network -----
+
+Parameters to create the model:
+- Dimension of the imput: 40000
+- Number of nodes in the first layer (hidden layer): 1000
+- Number of nodes in the second layer (hidden layer): 400
+
+Parameters to train the model:
+- Number of epochs: 50
+- Batch size: 1000
+
+----- Performance-----
+- Root Mean Squared Error:
+Train: 0.467, test: 0.447
+- Mean Squared Error:
+Train: 0.218, test: 0.200
+- Mean Absolute Error:
+Train: 0.218, test: 0.200
+
+----- Model summary -----
+
+Model structure and weights saved!
+
+----- Predictions -----
+
+Train predictions:
+Prediction shape: (400, 1)
+Example [0]
+Real position:     (z) = (-0.32)
+Predicted position (z) = (-1.05)
+Example [1]
+Real position:     (z) = (-0.32)
+Predicted position (z) = (-0.11)
+Example [2]
+Real position:     (z) = (-0.32)
+Predicted position (z) = (-0.39)
+Example [3]
+Real position:     (z) = (-0.32)
+Predicted position (z) = (-1.03)
+Example [4]
+Real position:     (z) = (-0.32)
+Predicted position (z) = (-0.41)
+Example [5]
+Real position:     (z) = (-0.32)
+Predicted position (z) = (-0.85)
+Example [6]
+Real position:     (z) = (-0.32)
+Predicted position (z) = (-0.13)
+Example [7]
+Real position:     (z) = (-0.32)
+Predicted position (z) = (-0.50)
+Example [8]
+Real position:     (z) = (-0.32)
+Predicted position (z) = (-0.34)
+Example [9]
+Real position:     (z) = (-0.32)
+Predicted position (z) = (-1.15)
+
+Test predictions:
+Prediction shape: (100, 1)
+Example [0]
+Real position:     (z) = (-0.32)
+Predicted position (z) = (-1.08)
+Example [1]
+Real position:     (z) = (-0.32)
+Predicted position (z) = (-0.12)
+Example [2]
+Real position:     (z) = (-0.32)
+Predicted position (z) = (-1.12)
+Example [3]
+Real position:     (z) = (-0.32)
+Predicted position (z) = (-1.16)
+Example [4]
+Real position:     (z) = (-0.32)
+Predicted position (z) = (-0.19)
+Example [5]
+Real position:     (z) = (-0.32)
+Predicted position (z) = (-0.60)
+Example [6]
+Real position:     (z) = (-0.32)
+Predicted position (z) = (0.10)
+Example [7]
+Real position:     (z) = (-0.32)
+Predicted position (z) = (-0.57)
+Example [8]
+Real position:     (z) = (-0.32)
+Predicted position (z) = (-0.08)
+Example [9]
+Real position:     (z) = (-0.32)
+Predicted position (z) = (0.24)
+
+Done!
+Execution time: 49.0450 seconds
+Execution date: 2020-08-12 19:00:36.917840
+-----------------------------------------
+---------- [Regression problem] ----------
+
+----- [Using wigner distribution dataset] -----
+
+----- Loading datasets... -----
+Datasets loaded
+X_train: (400, 40000), Y_train: (400,)
+X_test: (100, 40000), Y_test: (100,)
+
+----- Neural network -----
+
+Parameters to create the model:
+- Dimension of the imput: 40000
+- Number of nodes in the first layer (hidden layer): 1000
+- Number of nodes in the second layer (hidden layer): 400
+
+Parameters to train the model:
+- Number of epochs: 50
+- Batch size: 1000
+
+----- Performance-----
+- Root Mean Squared Error:
+Train: 4.254, test: 4.167
+- Mean Squared Error:
+Train: 18.099, test: 17.365
+- Mean Absolute Error:
+Train: 18.099, test: 17.365
+
+----- Model summary -----
+
+Model structure and weights saved!
+
+----- Predictions -----
+
+Train predictions:
+Prediction shape: (400, 1)
+Example [0]
+Real position:     (z) = (-0.32)
+Predicted position (z) = (-7.08)
+Example [1]
+Real position:     (z) = (-0.32)
+Predicted position (z) = (-3.68)
+Example [2]
+Real position:     (z) = (-0.32)
+Predicted position (z) = (-0.01)
+Example [3]
+Real position:     (z) = (-0.32)
+Predicted position (z) = (-6.69)
+Example [4]
+Real position:     (z) = (-0.32)
+Predicted position (z) = (-5.49)
+Example [5]
+Real position:     (z) = (-0.32)
+Predicted position (z) = (-5.83)
+Example [6]
+Real position:     (z) = (-0.32)
+Predicted position (z) = (-0.54)
+Example [7]
+Real position:     (z) = (-0.32)
+Predicted position (z) = (-0.79)
+Example [8]
+Real position:     (z) = (-0.32)
+Predicted position (z) = (-5.14)
+Example [9]
+Real position:     (z) = (-0.32)
+Predicted position (z) = (-7.70)
+
+Test predictions:
+Prediction shape: (100, 1)
+Example [0]
+Real position:     (z) = (-0.32)
+Predicted position (z) = (-7.43)
+Example [1]
+Real position:     (z) = (-0.32)
+Predicted position (z) = (-0.75)
+Example [2]
+Real position:     (z) = (-0.32)
+Predicted position (z) = (-6.83)
+Example [3]
+Real position:     (z) = (-0.32)
+Predicted position (z) = (-5.77)
+Example [4]
+Real position:     (z) = (-0.32)
+Predicted position (z) = (-0.79)
+Example [5]
+Real position:     (z) = (-0.32)
+Predicted position (z) = (-5.24)
+Example [6]
+Real position:     (z) = (-0.32)
+Predicted position (z) = (-1.27)
+Example [7]
+Real position:     (z) = (-0.32)
+Predicted position (z) = (-0.36)
+Example [8]
+Real position:     (z) = (-0.32)
+Predicted position (z) = (-4.54)
+Example [9]
+Real position:     (z) = (-0.32)
+Predicted position (z) = (-1.71)
+
+Done!
+Execution time: 25.5788 seconds
+Execution date: 2020-08-12 19:01:28.625716
+-----------------------------------------
+---------- [Regression problem] ----------
+
+----- [Using wigner distribution dataset] -----
+
+----- Loading datasets... -----
+Datasets loaded
+X_train: (400, 40000), Y_train: (400,)
+X_test: (100, 40000), Y_test: (100,)
+
+----- Neural network -----
+
+Parameters to create the model:
+- Dimension of the imput: 40000
+- Number of nodes in the first layer (hidden layer): 1000
+- Number of nodes in the second layer (hidden layer): 400
+
+Parameters to train the model:
+- Number of epochs: 50
+- Batch size: 1000
+
+----- Performance-----
+- Root Mean Squared Error:
+Train: 0.816, test: 0.793
+- Mean Squared Error:
+Train: 0.665, test: 0.629
+- Mean Absolute Error:
+Train: 0.665, test: 0.629
+
+----- Model summary -----
+
+Model structure and weights saved!
+
+----- Predictions -----
+
+Train predictions:
+Prediction shape: (400, 1)
+Example [0]
+Real position:     (z) = (-0.32)
+Predicted position (z) = (0.18)
+Example [1]
+Real position:     (z) = (-0.32)
+Predicted position (z) = (-0.15)
+Example [2]
+Real position:     (z) = (-0.32)
+Predicted position (z) = (0.88)
+Example [3]
+Real position:     (z) = (-0.32)
+Predicted position (z) = (0.02)
+Example [4]
+Real position:     (z) = (-0.32)
+Predicted position (z) = (0.35)
+Example [5]
+Real position:     (z) = (-0.32)
+Predicted position (z) = (0.84)
+Example [6]
+Real position:     (z) = (-0.32)
+Predicted position (z) = (0.54)
+Example [7]
+Real position:     (z) = (-0.32)
+Predicted position (z) = (1.14)
+Example [8]
+Real position:     (z) = (-0.32)
+Predicted position (z) = (0.31)
+Example [9]
+Real position:     (z) = (-0.32)
+Predicted position (z) = (0.03)
+
+Test predictions:
+Prediction shape: (100, 1)
+Example [0]
+Real position:     (z) = (-0.32)
+Predicted position (z) = (-0.09)
+Example [1]
+Real position:     (z) = (-0.32)
+Predicted position (z) = (0.10)
+Example [2]
+Real position:     (z) = (-0.32)
+Predicted position (z) = (-0.27)
+Example [3]
+Real position:     (z) = (-0.32)
+Predicted position (z) = (0.78)
+Example [4]
+Real position:     (z) = (-0.32)
+Predicted position (z) = (-0.36)
+Example [5]
+Real position:     (z) = (-0.32)
+Predicted position (z) = (0.49)
+Example [6]
+Real position:     (z) = (-0.32)
+Predicted position (z) = (-1.33)
+Example [7]
+Real position:     (z) = (-0.32)
+Predicted position (z) = (1.00)
+Example [8]
+Real position:     (z) = (-0.32)
+Predicted position (z) = (-0.59)
+Example [9]
+Real position:     (z) = (-0.32)
+Predicted position (z) = (-0.71)
+
+Done!
+Execution time: 45.7568 seconds
+Execution date: 2020-08-12 19:02:19.530331
+-----------------------------------------
+---------- [Regression problem] ----------
+
+----- [Using wigner distribution dataset] -----
+
+----- Loading datasets... -----
+Datasets loaded
+X_train: (400, 40000), Y_train: (400,)
+X_test: (100, 40000), Y_test: (100,)
+
+----- Neural network -----
+
+Parameters to create the model:
+- Dimension of the imput: 40000
+- Number of nodes in the first layer (hidden layer): 1000
+- Number of nodes in the second layer (hidden layer): 400
+
+Parameters to train the model:
+- Number of epochs: 50
+- Batch size: 1000
+
+----- Performance-----
+- Root Mean Squared Error:
+Train: 0.647, test: 0.718
+- Mean Squared Error:
+Train: 0.419, test: 0.515
+- Mean Absolute Error:
+Train: 0.419, test: 0.515
+
+----- Model summary -----
+
+Model structure and weights saved!
+
+----- Predictions -----
+
+Train predictions:
+Prediction shape: (400, 1)
+Example [0]
+Real position:     (z) = (-0.32)
+Predicted position (z) = (0.26)
+Example [1]
+Real position:     (z) = (-0.32)
+Predicted position (z) = (-0.15)
+Example [2]
+Real position:     (z) = (-0.32)
+Predicted position (z) = (-1.44)
+Example [3]
+Real position:     (z) = (-0.32)
+Predicted position (z) = (0.23)
+Example [4]
+Real position:     (z) = (-0.32)
+Predicted position (z) = (-0.61)
+Example [5]
+Real position:     (z) = (-0.32)
+Predicted position (z) = (-0.36)
+Example [6]
+Real position:     (z) = (-0.32)
+Predicted position (z) = (-0.13)
+Example [7]
+Real position:     (z) = (-0.32)
+Predicted position (z) = (-0.81)
+Example [8]
+Real position:     (z) = (-0.32)
+Predicted position (z) = (-0.84)
+Example [9]
+Real position:     (z) = (-0.32)
+Predicted position (z) = (0.57)
+
+Test predictions:
+Prediction shape: (100, 1)
+Example [0]
+Real position:     (z) = (-0.32)
+Predicted position (z) = (0.74)
+Example [1]
+Real position:     (z) = (-0.32)
+Predicted position (z) = (-0.81)
+Example [2]
+Real position:     (z) = (-0.32)
+Predicted position (z) = (0.59)
+Example [3]
+Real position:     (z) = (-0.32)
+Predicted position (z) = (-0.57)
+Example [4]
+Real position:     (z) = (-0.32)
+Predicted position (z) = (-0.58)
+Example [5]
+Real position:     (z) = (-0.32)
+Predicted position (z) = (-0.63)
+Example [6]
+Real position:     (z) = (-0.32)
+Predicted position (z) = (-0.34)
+Example [7]
+Real position:     (z) = (-0.32)
+Predicted position (z) = (-1.40)
+Example [8]
+Real position:     (z) = (-0.32)
+Predicted position (z) = (0.18)
+Example [9]
+Real position:     (z) = (-0.32)
+Predicted position (z) = (-0.39)
+
+Done!
+Execution time: 32.1784 seconds
+Execution date: 2020-08-12 19:03:39.432506
+-----------------------------------------

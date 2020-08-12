@@ -27,11 +27,11 @@ stream_handler.setFormatter(stream_formatter)
 logger.addHandler(stream_handler)
 
 # Output to a file
-# formatter = logging.Formatter('%(message)s')
-# file_name = 'output_' + str(script_name[0:len(script_name)-3]) + '.log'
-# file_handler = logging.FileHandler(file_name)
-# file_handler.setFormatter(formatter)
-# logger.addHandler(file_handler)
+formatter = logging.Formatter('%(message)s')
+file_name = 'output_' + str(script_name[0:len(script_name)-3]) + '.log'
+file_handler = logging.FileHandler(file_name)
+file_handler.setFormatter(formatter)
+logger.addHandler(file_handler)
 
 def load_matlab_dictionary(file_path, file_name, key):
     """
@@ -129,7 +129,11 @@ def load_datasets_regression():
 
     logger.debug('\n----- Loading wigner distribution dataset... -----')
 
-    wigner_dataset = np.load('wigner_distribution/wigner_distribution.npy')
+    # File path
+    file_path = cwd + '\\regression_problem\\wigner_distribution\\'
+    file_name = 'wigner_distribution.npy'
+
+    wigner_dataset = np.load(file_path + file_name)
     
     # Display results
     logger.debug('Wigner distribution loaded (npy file)')
@@ -276,9 +280,12 @@ def pre_processing_regression(wigner_dataset, pts_dataset):
     logger.debug('\n----- Data pre-procesing... -----')
 
     # Reshape the dataset
-    # logger.debug('Reshaping dataset...')
-    # data_r = reshape_dataset(wigner_dataset[:, :, 0], wigner_dataset.shape[0])
-    data_r = wigner_dataset[:, :, 0]
+    logger.debug('Reshaping dataset...')
+    
+    # The wigner distribution matrix is a 3D matrix, where the last dimension
+    # is the frequencies, [-4, -3, -2, -1, 0, 1, 2, 3]. We are going to choose
+    # one of these frequencies
+    data_r = wigner_dataset[:, :, 4]
     logger.debug('Reshaped dataset shape: ' + str(data_r.shape))
 
     # Normalize the dataset
@@ -288,9 +295,9 @@ def pre_processing_regression(wigner_dataset, pts_dataset):
 
     # Compute array of targets
     logger.debug('\nComputing array of targets...')
-    # y_array = compute_targets_array_regression(pts_dataset)
-    y_array = pts_dataset
-    # y_array = pts_dataset[:, 2]
+    # y_array = pts_dataset # x, y, z
+    # y_array = compute_targets_array_regression(pts_dataset) # x, y
+    y_array = pts_dataset[:, 2] # z
 
     logger.debug('Y_array shape: ' + str(y_array.shape))
 
@@ -374,25 +381,25 @@ def split_dataset_regression(perc, x_array, y_array):
 
     # Training dataset
     x_train = np.zeros([m_train, x_array.shape[1]], dtype=complex)
-    y_train = np.zeros((m_train, 3))
-    # y_train = np.zeros((m_train, 2))
-    # y_train = np.zeros((m_train, ))
+    # y_train = np.zeros((m_train, 3)) # x, y, z
+    # y_train = np.zeros((m_train, 2)) # x, y
+    y_train = np.zeros((m_train, )) # z
 
-    x_train[:, :] = x_array[0:m_train, :]
-    y_train[:, :] = y_array[0:m_train, :]
-    # x_train[:] = x_array[0:m_train]
-    # y_train[:] = y_array[0:m_train]
+    # x_train[:, :] = x_array[0:m_train, :] # x, y, z or x, y
+    # y_train[:, :] = y_array[0:m_train, :] # x, y, z or x, y
+    x_train[:] = x_array[0:m_train] # z
+    y_train[:] = y_array[0:m_train] # z
 
     # Testing set
     x_test = np.zeros([m_test, x_array.shape[1]], dtype=complex)
-    y_test = np.zeros((m_test, 3))
-    # y_test = np.zeros((m_test, 2))
-    # y_test = np.zeros((m_test, ))
+    # y_test = np.zeros((m_test, 3)) # x, y, z
+    # y_test = np.zeros((m_test, 2)) # x, y
+    y_test = np.zeros((m_test, )) # z
 
-    x_test[:, :] = x_array[m_train:len(x_array), :]
-    y_test[:, :] = y_array[m_train:len(x_array), :]
-    # x_test[:] = x_array[m_train:len(x_array)]
-    # y_test[:] = y_array[m_train:len(x_array)]
+    # x_test[:, :] = x_array[m_train:len(x_array), :] # x, y, z or x, y
+    # y_test[:, :] = y_array[m_train:len(x_array), :] # x, y, z or x, y
+    x_test[:] = x_array[m_train:len(x_array)] # z
+    y_test[:] = y_array[m_train:len(x_array)] # z
 
     # Display results
     logger.debug('Data : ' + str(x_array.shape) + ', ' + str(y_array.shape))
@@ -400,10 +407,10 @@ def split_dataset_regression(perc, x_array, y_array):
     logger.debug('Test : ' + str(x_test.shape) + ', ' + str(y_test.shape))
 
     # Save files
-    np.save('wigner_distribution/regression_problem/X_train.npy', x_train)
-    np.save('wigner_distribution/regression_problem/Y_train.npy', y_train)
-    np.save('wigner_distribution/regression_problem/X_test.npy', x_test)
-    np.save('wigner_distribution/regression_problem/Y_test.npy', y_test)
+    np.save('regression_problem/wigner_distribution/X_train.npy', x_train)
+    np.save('regression_problem/wigner_distribution/Y_train.npy', y_train)
+    np.save('regression_problem/wigner_distribution/X_test.npy', x_test)
+    np.save('regression_problem/wigner_distribution/Y_test.npy', y_test)
 
     logger.debug('X_train, Y_train, X_test, Y_test saved in .npy files!\n')
 
@@ -450,7 +457,7 @@ def main():
 
         logger.debug('Invalid entry!')
 
-    logger.debug('Done!')
+    logger.debug('\nDone!')
     logger.debug('Execution time: %.4f seconds' % (time.time() - start_time))
     logger.debug('Execution date: ' + str(dt.now()))
 

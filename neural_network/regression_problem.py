@@ -33,7 +33,7 @@ logger.addHandler(stream_handler)
 
 # Output to a file
 formatter = logging.Formatter('%(message)s')
-file_name = 'regression_problem/output_' + str(script_name[0:len(script_name)-3]) + '.log'
+file_name = 'output_' + str(script_name[0:len(script_name)-3]) + '.log'
 file_handler = logging.FileHandler(file_name)
 file_handler.setFormatter(formatter)
 logger.addHandler(file_handler)
@@ -52,10 +52,10 @@ def load_data(opt):
 
     elif opt == 2: # Wigner distribution dataset
 
-        x_train = np.load('wigner_distribution/regression_problem/X_train.npy')
-        y_train = np.load('wigner_distribution/regression_problem/Y_train.npy')
-        x_test = np.load('wigner_distribution/regression_problem/X_test.npy')
-        y_test = np.load('wigner_distribution/regression_problem/Y_test.npy')
+        x_train = np.load('regression_problem/wigner_distribution/X_train.npy')
+        y_train = np.load('regression_problem/wigner_distribution/Y_train.npy')
+        x_test = np.load('regression_problem/wigner_distribution/X_test.npy')
+        y_test = np.load('regression_problem/wigner_distribution/Y_test.npy')
 
     return x_train, y_train, x_test, y_test
 
@@ -76,9 +76,9 @@ def create_model(nodes_1, dim_1, nodes_2):
     model.add(Dense(nodes_2, kernel_initializer='normal', activation='relu'))
 
     # Third layer (output layer)
-    model.add(Dense(3, kernel_initializer='normal', activation='linear'))
-    # model.add(Dense(2, kernel_initializer='normal', activation='linear'))
-    # model.add(Dense(1, kernel_initializer='normal', activation='linear'))
+    # model.add(Dense(3, kernel_initializer='normal', activation='linear')) # x, y, z
+    # model.add(Dense(2, kernel_initializer='normal', activation='linear')) # x, y
+    model.add(Dense(1, kernel_initializer='normal', activation='linear')) # z
 
     return model
 
@@ -214,23 +214,23 @@ def predict_results(model, data, y_array, title):
 
     # Display the prediction for the 10 first examples
     for i in range(10):
-        point = y_array[i, :]
-        point_p = predictions[i, :]
-        # point = y_array[i]
-        # point_p = predictions[i, :]
+        # point = y_array[i, :] # x, y, z or x, y
+        # point_p = predictions[i, :] # x, y, z or x, y
+        point = y_array[i] # z
+        point_p = predictions[i, :] # z
         logger.debug('Example [' + str(i) + ']')
-        logger.debug('Real position:     (x, y, z) = (%.5f, %.5f, %.5f)' \
-            % (point[0], point[1], point[2]))
-        logger.debug('Predicted position (x, y, z) = (%.5f, %.5f, %.5f)' \
-            % (point_p[0], point_p[1], point_p[2]))
+        # logger.debug('Real position:     (x, y, z) = (%.5f, %.5f, %.5f)' \
+        #     % (point[0], point[1], point[2])) # x, y, z
+        # logger.debug('Predicted position (x, y, z) = (%.5f, %.5f, %.5f)' \
+        #     % (point_p[0], point_p[1], point_p[2])) # x, y, z
         # logger.debug('Real position:     (x, y) = (%.2f, %.2f)' \
-        #     % (point[0], point[1]))
+        #     % (point[0], point[1])) # x, y
         # logger.debug('Predicted position (x, y) = (%.2f, %.2f)' \
-        #     % (point_p[0], point_p[1]))
-        # logger.debug('Real position:     (z) = (%.2f)' \
-        #     % (point))
-        # logger.debug('Predicted position (z) = (%.2f)' \
-        #     % (point_p))
+        #     % (point_p[0], point_p[1])) # x, y
+        logger.debug('Real position:     (z) = (%.2f)' \
+            % (point)) # z
+        logger.debug('Predicted position (z) = (%.2f)' \
+            % (point_p)) # z
 
     # plot_predictions(title, y_array, predictions)
 

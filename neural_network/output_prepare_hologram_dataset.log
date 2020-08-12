@@ -96,3 +96,104 @@ X_train, Y_train, X_test, Y_test saved in .npy files!
 Done!
 Execution time: 119.7026 seconds
 Execution date: 2020-08-12 11:13:45.550019
+---------- [Prepare hologram dataset] ----------
+Do you want to prepare the hologram dataset to the classication problem (5 classes) [1] or to the regression problem (1 source) [2] ?
+
+----- Loading hologram dataset... -----
+Hologram dataset loaded (matlab file dictionary)
+Hologram dataset shape: (200, 200, 2000)
+Total number of holograms: 2000
+
+----- Loading points positions dataset... -----
+Points positions dataset loaded (matlab file dictionary)
+Points positions dataset shape: (2000, 3)
+Number of point sources per hologram: 1
+
+----- Data pre-procesing... -----
+Reshaping dataset...
+Reshaped dataset shape: (2000, 40000)
+
+Normalizing dataset...
+Normalized dataset shape: (2000, 40000)
+
+Computing array of targets...
+Y_array shape: (2000, 3)
+
+----- Spliting dataset... -----
+Trainset: 80.0%, testset: 20.0 %
+Data : (2000, 40000), (2000, 3)
+Train: (1600, 40000), (1600, 3)
+Test : (400, 40000), (400, 3)
+X_train, Y_train, X_test, Y_test saved in .npy files!
+
+Done!
+Execution time: 23.2501 seconds
+Execution date: 2020-08-12 14:34:25.551676
+---------- [Prepare hologram dataset] ----------
+Do you want to prepare the hologram dataset to the classication problem (5 classes) [1] or to the regression problem (1 source) [2] ?
+
+----- Loading hologram dataset... -----
+Hologram dataset loaded (matlab file dictionary)
+Hologram dataset shape: (200, 200, 2000)
+Total number of holograms: 2000
+
+----- Loading points positions dataset... -----
+Points positions dataset loaded (matlab file dictionary)
+Points positions dataset shape: (2000, 3)
+Number of point sources per hologram: 1
+
+----- Data pre-procesing... -----
+Reshaping dataset...
+Reshaped dataset shape: (2000, 40000)
+
+Normalizing dataset...
+Normalized dataset shape: (2000, 40000)
+
+Computing array of targets...
+Y_array shape: (2000, 2)
+
+----- Spliting dataset... -----
+Trainset: 80.0%, testset: 20.0 %
+Data : (2000, 40000), (2000, 2)
+Train: (1600, 40000), (1600, 2)
+Test : (400, 40000), (400, 2)
+X_train, Y_train, X_test, Y_test saved in .npy files!
+
+Done!
+Execution time: 21.1625 seconds
+Execution date: 2020-08-12 15:27:25.332679
+---------- [Prepare hologram dataset] ----------
+Do you want to prepare the hologram dataset to the classication problem (5 classes) [1] or to the regression problem (1 source) [2] ?
+
+----- Loading hologram dataset... -----
+Hologram dataset loaded (matlab file dictionary)
+Hologram dataset shape: (200, 200, 2000)
+Total number of holograms: 2000
+
+----- Loading points positions dataset... -----
+Points positions dataset loaded (matlab file dictionary)
+Points positions dataset shape: (2000, 3)
+Number of point sources per hologram: 1
+
+----- Data pre-procesing... -----
+Reshaping dataset...
+Reshaped dataset shape: (2000, 40000)
+
+Normalizing dataset...
+Normalized dataset shape: (2000, 40000)
+
+Computing array of targets...
+Y_array shape: (2000,)
+
+----- Spliting dataset... -----
+Trainset: 80.0%, testset: 20.0 %
+Data : (2000, 40000), (2000,)
+Train: (1600, 40000), (1600,)
+Test : (400, 40000), (400,)
+X_train, Y_train, X_test, Y_test saved in .npy files!
+
+Done!
+Execution time: 20.2746 seconds
+Execution date: 2020-08-12 16:05:43.057524
+---------- [Prepare hologram dataset] ----------
+Do you want to prepare the hologram dataset to the classication problem (5 classes) [1] or to the regression problem (1 source) [2] ?

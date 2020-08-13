@@ -5,12 +5,34 @@ dataset.
 
 import os
 import time
+import logging
 from datetime import datetime as dt
 from pathlib import Path
 import scipy.io
 import numpy as np
 
 import multiprocessing as mp
+
+# File name
+script_name = os.path.basename(__file__) 
+
+# Using logging to display output in terminal and save the history display in a file
+logger = logging.getLogger(__name__)
+logger.setLevel(logging.DEBUG)
+
+# Output to terminal
+stream_formatter = logging.Formatter(fmt='%(message)s')
+stream_handler = logging.StreamHandler()
+stream_handler.setFormatter(stream_formatter)
+logger.addHandler(stream_handler)
+
+# Output to a file
+formatter = logging.Formatter('%(message)s')
+file_name = 'output_' + str(script_name[0:len(script_name)-3]) + '.log'
+file_handler = logging.FileHandler(file_name)
+file_handler.setFormatter(formatter)
+logger.addHandler(file_handler)
+
 
 def load_matlab_dictionary(file_path, file_name, key):
     """
@@ -51,10 +73,11 @@ def load_dataset():
     # Directory path
     path = str(Path(cwd).parent)
 
-    print('\n----- Loading hologram dataset... -----')
+    logger.debug('\n----- Loading hologram dataset... -----')
 
     # File path
-    file_path = path + '\\output\\dataset\\oneClass\\'
+    # file_path = path + '\\output\\dataset\\oneClass\\'
+    file_path = path + '\\output\\dataset\\'
 
     # Load hologram (matfile dictionary)
     hol_dataset = load_hologram_dataset(file_path)
@@ -72,11 +95,11 @@ def load_dataset():
     # np.save('classification_problem/hologram_dataset.npy', hol_dataset)
 
     # Display results
-    print('Hologram dataset loaded (matlab file dictionary)')
-    print('Hologram dataset shape: ', hol_dataset.shape)
-    print('Total number of holograms: ' + str(nb_holograms))
-    print('Number of holograms per class: ' + str(nb_holograms_class))
-    # print('Hologram dataset saved in .npy file!\n')
+    logger.debug('Hologram dataset loaded (matlab file dictionary)')
+    logger.debug('Hologram dataset shape: ' + str(hol_dataset.shape))
+    logger.debug('Total number of holograms: ' + str(nb_holograms))
+    logger.debug('Number of holograms per class: ' + str(nb_holograms_class))
+    # logger.debug('Hologram dataset saved in .npy file!\n')
 
     return hol_dataset, nb_holograms
 
@@ -107,12 +130,12 @@ def pre_processing(data, nb_holograms):
     Prepare the datasets (X and Y) to the classification problem.
     """
 
-    print('\n----- Data pre-procesing... -----')
+    logger.debug('\n----- Data pre-procesing... -----')
 
     # Reshape the dataset
-    print('Reshaping dataset...')
+    logger.debug('Reshaping dataset...')
     data_r = reshape_dataset(data, nb_holograms)
-    print('Reshaped dataset shape: ', data_r.shape)
+    logger.debug('Reshaped dataset shape: ' + str(data_r.shape))
 
     return data_r
 
@@ -217,32 +240,32 @@ def compute_wigner_distribution(data):
     """
     Compute the wigner distribution of the dataset.
     """
-    print('\n----- Computing 1D wigner distribution... -----')
+    logger.debug('\n----- Computing 1D wigner distribution... -----')
 
     # Window length
     window_len = 9
-    print('Window length: ' + str(window_len))
+    logger.debug('Window length: ' + str(window_len))
 
     # Spatial frequencies
     k_list = np.arange(-4, 4, 1) # I DID NOT UNDERSTAND ???
 
-    print('Spatial frequency array: ' + str(k_list))
-    print('Spatial frequency array shape: ' + str(k_list.shape))
+    logger.debug('Spatial frequency array: ' + str(k_list))
+    logger.debug('Spatial frequency array shape: ' + str(k_list.shape))
 
     lim = 500
 
     # 1D wigner distribution
     wigner_distribution = np.zeros([lim, data.shape[1], len(k_list)], dtype=complex)
     # wigner_distribution = np.zeros([data.shape[0], data.shape[1], len(k_list)], dtype=complex)
-    print('Wigner distribution shape: ' + str(wigner_distribution.shape))
+    logger.debug('Wigner distribution shape: ' + str(wigner_distribution.shape))
 
-    print('\nComputing...')
+    logger.debug('\nComputing...')
     # for i in range(data.shape[0]):
     
     for i in range(lim):
-        print(i)
+        logger.debug(i)
         if np.mod(i, 5) == 0:
-            print('example ' + str(i))
+            logger.debug('example ' + str(i))
         hol_1d = data[i, :]
         # wigner_distribution[i, :, :] = wigner_distribution_1d_opt(hol_1d, window_len, k_list)
         wigner_distribution[i, :, :] = wigner_distribution_1d(hol_1d, window_len, k_list)
@@ -250,7 +273,7 @@ def compute_wigner_distribution(data):
     # Save .npy file
     np.save('wigner_distribution/wigner_distribution.npy', wigner_distribution)
 
-    print('Wigner distribution saved in .npy file!')
+    logger.debug('Wigner distribution saved in .npy file!')
 
 def main():
     """
@@ -261,7 +284,7 @@ def main():
     start_time = time.time()
 
     # Initial
-    print('---------- [Compute wigner distribution dataset] ----------')
+    logger.debug('---------- [Compute wigner distribution dataset] ----------')
 
     # Load hologram dataset
     hologram_dataset, nb_holograms = load_dataset()
@@ -272,9 +295,9 @@ def main():
     # Compute the wigner distribution
     compute_wigner_distribution(x_array)
 
-    print('\nDone!')
-    print('Execution time: %.4f seconds' % (time.time() - start_time))
-    print('Execution date: ' + str(dt.now()))
+    logger.debug('\nDone!')
+    logger.debug('Execution time: %.4f seconds' % (time.time() - start_time))
+    logger.debug('Execution date: ' + str(dt.now()))
 
 if __name__ == '__main__':
     main()

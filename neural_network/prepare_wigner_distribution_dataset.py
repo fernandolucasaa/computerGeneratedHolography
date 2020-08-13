@@ -72,16 +72,20 @@ def load_dataset():
     # Directory path
     path = str(Path(cwd).parent)
 
-    logger.debug('\n----- Loading hologram dataset... -----')
+    logger.debug('\n----- Loading wigner distribution dataset... -----')
 
     # File path
-    file_path = path + '\\output\\dataset\\'
+    file_path = path + '\\neural_network\\classification_problem\\wigner_distribution\\'
+    file_name = 'wigner_distribution.npy'
 
-    # Load hologram (matfile dictionary)
-    hol_dataset = load_hologram_dataset(file_path)
+    wigner_dataset = np.load(file_path + file_name)
+
+    # Display results
+    logger.debug('Wigner distribution loaded (npy file)')
+    logger.debug('Wigner distribution shape: ' + str(wigner_dataset.shape))
 
     # Number of holograms
-    nb_holograms = hol_dataset.shape[2]
+    nb_holograms = wigner_dataset.shape[0]
 
     # Number of classes
     nb_class = 5
@@ -89,17 +93,11 @@ def load_dataset():
     # Number of holograms per class
     nb_holograms_class = int(nb_holograms/nb_class)
 
-    # Save npy file
-    np.save('classification_problem/hologram_dataset.npy', hol_dataset)
-
     # Display results
-    logger.debug('Hologram dataset loaded (matlab file dictionary)')
-    logger.debug('Hologram dataset shape: ' + str(hol_dataset.shape))
     logger.debug('Total number of holograms: ' + str(nb_holograms))
     logger.debug('Number of holograms per class: ' + str(nb_holograms_class))
-    logger.debug('Hologram dataset saved in .npy file!\n')
 
-    return hol_dataset, nb_holograms, nb_class, nb_holograms_class
+    return wigner_dataset, nb_holograms, nb_class, nb_holograms_class
 
 def load_points_dataset(file_path):
     """
@@ -233,7 +231,11 @@ def pre_processing(data, nb_holograms, nb_class, nb_holograms_class):
 
     # Reshape the dataset
     logger.debug('Reshaping dataset...')
-    data_r = reshape_dataset(data, nb_holograms)
+
+    # The wigner distribution matrix is a 3D matrix, where the last dimension
+    # is the frequencies, [-4, -3, -2, -1, 0, 1, 2, 3]. We are going to choose
+    # one of these frequencies
+    data_r = data[:, :, 4]
     logger.debug('Reshaped dataset shape: ' + str(data_r.shape))
 
     # Normalize the dataset
@@ -246,7 +248,7 @@ def pre_processing(data, nb_holograms, nb_class, nb_holograms_class):
     y_array = compute_targets_array(nb_holograms, nb_class, nb_holograms_class)
 
     # Save matrix
-    np.save('classification_problem/Y_array.npy', y_array)
+    # np.save('classification_problem/Y_array.npy', y_array)
 
     # Verify
     logger.debug('Y_array shape: ' + str(y_array.shape))
@@ -356,10 +358,10 @@ def split_dataset(perc, x_array, y_array, nb_holograms, nb_holograms_class):
     logger.debug('Test : ' + str(x_test.shape) + ', ' + str(y_test.shape))
 
     # Save files
-    np.save('classification_problem/X_train.npy', x_train)
-    np.save('classification_problem/Y_test.npy', y_test)
-    np.save('classification_problem/X_test.npy', x_test)
-    np.save('classification_problem/Y_train.npy', y_train)
+    np.save('classification_problem/wigner_distribution/X_train.npy', x_train)
+    np.save('classification_problem/wigner_distribution/Y_test.npy', y_test)
+    np.save('classification_problem/wigner_distribution/X_test.npy', x_test)
+    np.save('classification_problem/wigner_distribution/Y_train.npy', y_train)
 
     logger.debug('X_train, Y_train, X_test, Y_test saved in .npy files!\n')
 
@@ -430,10 +432,10 @@ def main():
     if option == 1:
 
         # Load hologram dataset
-        hologram_dataset, nb_holograms, nb_class, nb_holograms_class = load_dataset()
+        wigner_dataset, nb_holograms, nb_class, nb_holograms_class = load_dataset()
 
         # Prepare dataset (reshape, normalize, compute target's array)
-        x_array, y_array = pre_processing(hologram_dataset, nb_holograms, nb_class, \
+        x_array, y_array = pre_processing(wigner_dataset, nb_holograms, nb_class, \
             nb_holograms_class)
 
         # Split the dataset and save in .npy files

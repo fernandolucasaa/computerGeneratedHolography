@@ -4,98 +4,8 @@ Do you want to prepare the wigner distribution dataset to the classication probl
 ----- Loading wigner distribution dataset... -----
 Wigner distribution loaded (npy file)
 Wigner distribution shape: (500, 40000, 8)
-
------ Loading points positions dataset... -----
-Points positions dataset loaded (matlab file dictionary)
-Points positions dataset shape: (500, 3)
-
------ Data pre-procesing... -----
-Reshaping dataset...
-Reshaped dataset shape: (500, 40000)
-
-Normalizing dataset...
-Normalized dataset shape: (500, 40000)
-
-Computing array of targets...
-Y_array shape: (500, 3)
-
------ Spliting dataset... -----
-Trainset: 80.0%, testset: 20.0 %
-Data : (500, 40000), (500, 3)
-Train: (400, 40000), (400, 3)
-Test : (100, 40000), (100, 3)
-X_train, Y_train, X_test, Y_test saved in .npy files!
-
-
-Done!
-Execution time: 9.6639 seconds
-Execution date: 2020-08-12 18:01:00.457776
----------- [Prepare wigner distribution dataset] ----------
-Do you want to prepare the wigner distribution dataset to the classication problem (5 classes) [1] or to the regression problem (1 source) [2] ?
-
------ Loading wigner distribution dataset... -----
-Wigner distribution loaded (npy file)
-Wigner distribution shape: (500, 40000, 8)
-
------ Loading points positions dataset... -----
-Points positions dataset loaded (matlab file dictionary)
-Points positions dataset shape: (500, 3)
-
------ Data pre-procesing... -----
-Reshaping dataset...
-Reshaped dataset shape: (500, 40000)
-
-Normalizing dataset...
-Normalized dataset shape: (500, 40000)
-
-Computing array of targets...
-Y_array shape: (500, 2)
-
------ Spliting dataset... -----
-Trainset: 80.0%, testset: 20.0 %
-Data : (500, 40000), (500, 2)
-Train: (400, 40000), (400, 2)
-Test : (100, 40000), (100, 2)
-X_train, Y_train, X_test, Y_test saved in .npy files!
-
-
-Done!
-Execution time: 6.6380 seconds
-Execution date: 2020-08-12 18:39:20.284949
----------- [Prepare wigner distribution dataset] ----------
-Do you want to prepare the wigner distribution dataset to the classication problem (5 classes) [1] or to the regression problem (1 source) [2] ?
-
------ Loading wigner distribution dataset... -----
-Wigner distribution loaded (npy file)
-Wigner distribution shape: (500, 40000, 8)
-
------ Loading points positions dataset... -----
-Points positions dataset loaded (matlab file dictionary)
-Points positions dataset shape: (500, 3)
-
------ Data pre-procesing... -----
-Reshaping dataset...
-Reshaped dataset shape: (500, 40000)
-
-Normalizing dataset...
-Normalized dataset shape: (500, 40000)
-
-Computing array of targets...
-Y_array shape: (500, 2)
-
------ Spliting dataset... -----
-Trainset: 80.0%, testset: 20.0 %
----------- [Prepare wigner distribution dataset] ----------
-Do you want to prepare the wigner distribution dataset to the classication problem (5 classes) [1] or to the regression problem (1 source) [2] ?
-
------ Loading wigner distribution dataset... -----
-Wigner distribution loaded (npy file)
-Wigner distribution shape: (500, 40000, 8)
-
------ Loading points positions dataset... -----
-Points positions dataset loaded (matlab file dictionary)
-Points positions dataset shape: (500, 3)
-
+Total number of holograms: 500
+Number of holograms per class: 100
 ----- Data pre-procesing... -----
 Reshaping dataset...
 Reshaped dataset shape: (500, 40000)
@@ -105,6 +15,8 @@ Normalized dataset shape: (500, 40000)
 
 Computing array of targets...
 Y_array shape: (500,)
+Counter({0.0: 100, 1.0: 100, 2.0: 100, 3.0: 100, 4.0: 100})
+Y_array saved in a .npy file!
 
 ----- Spliting dataset... -----
 Trainset: 80.0%, testset: 20.0 %
@@ -115,5 +27,7 @@ X_train, Y_train, X_test, Y_test saved in .npy files!
 
 
 Done!
-Execution time: 7.4084 seconds
-Execution date: 2020-08-12 18:55:08.280730
+Execution time: 4.5802 seconds
+Execution date: 2020-08-13 16:44:10.267364
+---------- [Prepare wigner distribution dataset] ----------
+Do you want to prepare the wigner distribution dataset to the classication problem (5 classes) [1] or to the regression problem (1 source) [2] ?

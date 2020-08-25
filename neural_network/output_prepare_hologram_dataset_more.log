@@ -1,0 +1,96 @@
+---------- [Prepare hologram dataset] ----------
+Preparing a incresed dataset to the classication problem...
+
+----- Loading hologram dataset... -----
+Hologram dataset loaded (matlab file dictionary)
+Hologram dataset shape: (200, 200, 2500)
+Total number of holograms: 2500
+Number of holograms per class: 500
+Hologram dataset saved in .npy file!
+
+----- Data pre-procesing... -----
+Reshaping dataset...
+Reshaped dataset shape: (2500, 40000)
+
+Normalizing dataset...
+Normalized dataset shape: (2500, 40000)
+
+Computing array of targets...
+Y_array shape: (2500,)
+Counter({0.0: 500, 1.0: 500, 2.0: 500, 3.0: 500, 4.0: 500})
+Y_array saved in a .npy file!
+
+----- Spliting dataset... -----
+Trainset: 80.0%, testset: 20.0 %
+Data : (2500, 40000), (2500,)
+Train: (2000, 40000), (2000,)
+Test : (500, 40000), (500,)
+X_train, Y_train, X_test, Y_test saved in .npy files!
+
+Done!
+Execution time: 22.0390 seconds
+Execution date: 2020-08-13 15:21:54.639215
+---------- [Prepare hologram dataset] ----------
+Preparing a incresed dataset to the classication problem...
+
+----- Loading hologram dataset... -----
+Hologram dataset loaded (matlab file dictionary)
+Hologram dataset shape: (200, 200, 10000)
+Total number of holograms: 10000
+Number of holograms per class: 2000
+Hologram dataset saved in .npy file!
+
+----- Data pre-procesing... -----
+Reshaping dataset...
+Reshaped dataset shape: (10000, 40000)
+
+Normalizing dataset...
+Normalized dataset shape: (10000, 40000)
+
+Computing array of targets...
+Y_array shape: (10000,)
+Counter({0.0: 8000, 1.0: 500, 2.0: 500, 3.0: 500, 4.0: 500})
+Y_array saved in a .npy file!
+
+----- Spliting dataset... -----
+Trainset: 80.0%, testset: 20.0 %
+Data : (10000, 40000), (10000,)
+Train: (8000, 40000), (8000,)
+Test : (2000, 40000), (2000,)
+X_train, Y_train, X_test, Y_test saved in .npy files!
+
+Done!
+Execution time: 198.8313 seconds
+Execution date: 2020-08-13 15:28:10.811389
+---------- [Prepare hologram dataset] ----------
+Preparing a incresed dataset to the classication problem...
+
+----- Loading hologram dataset... -----
+Hologram dataset loaded (matlab file dictionary)
+Hologram dataset shape: (200, 200, 10000)
+Total number of holograms: 10000
+Number of holograms per class: 2000
+Hologram dataset saved in .npy file!
+
+----- Data pre-procesing... -----
+Reshaping dataset...
+Reshaped dataset shape: (10000, 40000)
+
+Normalizing dataset...
+Normalized dataset shape: (10000, 40000)
+
+Computing array of targets...
+Y_array shape: (10000,)
+Counter({0.0: 8000, 1.0: 500, 2.0: 500, 3.0: 500, 4.0: 500})
+Y_array saved in a .npy file!
+
+----- Spliting dataset... -----
+Trainset: 80.0%, testset: 20.0 %
+Data : (10000, 40000), (10000,)
+Train: (8000, 40000), (8000,)
+Test : (2000, 40000), (2000,)
+X_train, Y_train, X_test, Y_test saved in .npy files!
+
+Done!
+Execution time: 303.8065 seconds
+Execution date: 2020-08-13 17:08:07.751086

@@ -1,4 +1,0 @@
-error: called from
-    scriptParticleLocalization at line 45 column 19
-error: load: unable to find file output/referenceWave_out.mat
->> 

@@ -11,13 +11,7 @@ Sections headers that will be used to reference location of destination.
 - [Author Info](#author-info)
 
 ## Description
-bla bla bla
-What, PFE, ...
-
-#### Technologies
-- Python 3.7.6
-- MATLAB R2016a
-
+This Github project was developped during the 6-month internship (*Projet de Fin d'Etudes* in french) to complete the Electronics and Computer Engineering (*Electronique et Informatique Industrielle (EII)* in french) course at INSA Rennes. The internship subject was "Study, adaptation and implementation of source separation methods for the coding of holographic videos".
 
 #### Directory tree
 
@@ -76,6 +70,10 @@ What, PFE, ...
         └───.ipynb_checkpoints
 ```
 
+#### Technologies
+- Python 3.7.6
+- MATLAB R2016a
+
 ---
 
 ## How to use
@@ -84,11 +82,15 @@ What, PFE, ...
 
 #### 1. Installing Python (https://www.python.org/)
 
-To check if python is installed on your computer, you must open the command prompt and write "python". If you see the python environment, then it is installed, otherwise, to install you can download on the folling link (https://www.python.org/downloads/), This project was developed using Python 3.7.6.
+To check if python is installed on your computer, you must open the command prompt and write "python". If you see the python environment, then it is installed, otherwise, to install you can download on the folling link (https://www.python.org/downloads/) the desired version.
 
 #### 2. Installing Jupyter (https://jupyter.org/)
 
-The process to install jupyter lab is shown in the jupyter website (https://jupyter.org/install). I have used "pip" to install with the commmand "pip install notebook", but there are others options.
+The process to install jupyter lab is shown in the jupyter website (https://jupyter.org/install). I have used "pip" to install with the follow commmand, but there are others options.
+
+```bash
+$ pip install notebook
+```
 
 #### 3. Installing python libraries
 

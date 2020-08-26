@@ -58,28 +58,28 @@ This Github project was developped during the 6-month internship (*Projet de Fin
 ```
 
 #### Folders
-- root (computerGeneratedHolography)
+- root (computerGeneratedHolography): 
 Contains the .m files to create holograms and restore them to images. It also contains .m scripts to create the datasets used by the neural networks and a .m script to locate the particules positions from the hologram.
 
-- data
+- data: 
 Contains some images and holograms used for testing (not relevant).
 
-- implementations_codes
+- implementations_codes: 
 Contains some tests and analysis made in the time-frequency (MATLAB, python) and space-frequency domains (jupyter notebook). It also contains the tests and implementations made for the source separation in the holograms (python, jupyter notebook).
 
-- machine_learning
+- machine_learning: 
 Contains implementations of some machine learning algorithms (python, jupyter notebook). In the case, an object (class) was created with certain features of a hologram.
 
-- neural_networks
+- neural_networks: 
 Contains the implementation of a neural networks (python) to solve a classification and a regression problem. The objective is to train the neural network with holograms and also their neural networks.
 
-- output
+- output: 
 Contains the outputs and the results of the algorithms and scripts of this Github project.
 
-- rapports
+- rapports: 
 Contains some reports made, the final report of the internship and the defense presentation.
 
-- test_wigner_distribution
+- test_wigner_distribution: 
 Contains scripts recovered for the calculation of the Wigner distribution (MATLAB, jupyter notebook) and the reference used (zip folder) for this calculation.
 
 #### Technologies

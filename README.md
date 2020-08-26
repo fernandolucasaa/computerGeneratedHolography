@@ -22,42 +22,29 @@ This Github project was developped during the 6-month internship (*Projet de Fin
     │   └───dices1080p-AP
     ├───implementations_codes
     │   ├───SF-analysis
-    │   │   └───.ipynb_checkpoints
     │   ├───source-separation
-    │   │   ├───.ipynb_checkpoints
     │   │   ├───mixture_dataset(0147)
     │   │   ├───mixture_dataset(2points)
-    │   │   ├───output
-    │   │   └───__pycache__
+    │   │   └───output
     │   └───TF-analysis
+    ├───machine_learning
     ├───neural_network
-    │   ├───.ipynb_checkpoints
     │   ├───classification_problem
     │   │   ├───backup
     │   │   ├───hologram
     │   │   │   └───logs
     │   │   │       └───old
-    │   │   ├───logs
-    │   │   │   └───old
     │   │   └───wigner_distribution
     │   │       └───logs
     │   │           └───old
-    │   ├───excluir
+    │   ├───old_jupyter_notebooks
     │   ├───regression_problem
-    │   │   ├───.ipynb_checkpoints
+    │   │   ├───example
     │   │   ├───hologram
     │   │   │   └───logs
-    │   │   ├───logs
-    │   │   │   └───old
     │   │   └───wigner_distribution
     │   │       └───logs
     │   └───wigner_distribution
-    │       ├───.ipynb_checkpoints
-    │       └───regression_problem
-    │           └───logs
-    ├───neural_networkwigner_distribution
-    │   └───regression_problem
-    │       └───logs
     ├───output
     │   ├───dataset
     │   │   └───oneClass
@@ -67,8 +54,33 @@ This Github project was developped during the 6-month internship (*Projet de Fin
     │   └───wigner_distribution
     ├───rapports
     └───tests_wigner_distribution
-        └───.ipynb_checkpoints
+        └───tests
 ```
+
+#### Folders
+- root (computerGeneratedHolography)
+Contains the .m files to create holograms and restore them to images. It also contains .m scripts to create the datasets used by the neural networks and a .m script to locate the particules positions from the hologram.
+
+- data
+Contains some images and holograms used for testing (not relevant).
+
+- implementations_codes
+Contains some tests and analysis made in the time-frequency (MATLAB, python) and space-frequency domains (jupyter notebook). It also contains the tests and implementations made for the source separation in the holograms (python, jupyter notebook).
+
+- machine_learning
+Contains implementations of some machine learning algorithms (python, jupyter notebook). In the case, an object (class) was created with certain features of a hologram.
+
+- neural_networks
+Contains the implementation of a neural networks (python) to solve a classification and a regression problem. The objective is to train the neural network with holograms and also their neural networks.
+
+- output
+Contains the outputs and the results of the algorithms and scripts of this Github project.
+
+- rapports
+Contains some reports made, the final report of the internship and the defense presentation.
+
+- test_wigner_distribution
+Contains scripts recovered for the calculation of the Wigner distribution (MATLAB, jupyter notebook) and the reference used (zip folder) for this calculation.
 
 #### Technologies
 - Python 3.7.6
@@ -94,17 +106,15 @@ $ pip install notebook
 
 #### 3. Installing python libraries
 
-To install the python libraries that will be used in this project just install it from the "requirements.txt" file.
-Execute in the terminal the command (if you are in the main foder of the project, otherwise find the path where the requirements file is located): 
+To install the python libraries that will be used in this project just install it from the "requirements.txt" file. Execute in the terminal the command (if you are in the main folder of the project, otherwise find the path where the requirements file is located): 
 
 ```bash
 $ pip install -r ./requirements.txt
 ```
 
-### 4. Installing Octave (https://www.gnu.org/software/octave/)
+#### 4. Installing Octave (https://www.gnu.org/software/octave/)
 
-Click on the folling link and download the file according to your operating system https://www.gnu.org/software/octave/download.html.
-I highlight that the .m scripts were written in MATLAB, so I recommend use it. Octave is capable to execute theses codes, but some simple changes must be made.
+Click on the folling link and download the file according to your operating system (https://www.gnu.org/software/octave/download.html). I highlight that the .m scripts were written in MATLAB, so I recommend use it. Octave is capable to execute theses codes, but some simple changes must be made.
 
 ---
 
